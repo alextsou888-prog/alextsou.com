@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from 'next';
-import { cookies } from 'next/headers';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 
@@ -90,18 +89,15 @@ const themeBootstrap = `
   })();
 `;
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const cookieStore = await cookies();
-  const savedLanguage = cookieStore.get('alextsou-language')?.value;
-  const initialLanguage = savedLanguage === 'en' || savedLanguage === 'zh' ? savedLanguage : 'zh';
-  const initialLangAttr = initialLanguage === 'zh' ? 'zh-Hant-TW' : 'en';
-
+  // Language is intentionally not persisted: every full page load starts in
+  // Traditional Chinese (see app/page.tsx and PortfolioClient's initial state).
   return (
-    <html lang={initialLangAttr} data-theme="light" suppressHydrationWarning>
+    <html lang="zh-Hant-TW" data-theme="light" suppressHydrationWarning>
       <head><script dangerouslySetInnerHTML={{ __html: themeBootstrap }} /></head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>{children}</body>
     </html>

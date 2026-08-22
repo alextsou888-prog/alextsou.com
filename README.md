@@ -57,6 +57,113 @@ npm run verify
 Remove-Item Env:SITE_URL
 ```
 
+## 訪客統計（Visitor Statistics）
+
+隱私優先的訪問次數統計，使用 Cloudflare D1，不使用任何第三方分析服務。
+
+**不會儲存**：IP 位址、完整 User-Agent、裝置指紋、精確位置、Cookie 識別碼、Email、姓名，或任何個人資料。
+資料庫每一列只有 server 產生的 UTC 時間戳記與一個經過清理的 pathname。
+
+因此這個數字是「訪問次數 / Visits」，不是「獨立訪客 / Unique Visitors」。
+
+### 一次訪問的定義
+
+- 第一次造訪：計 1 次
+- 30 分鐘內重新整理：不計
+- 站內 `#about`、`#contact` 等錨點導覽：不計
+- 超過 30 分鐘無活動後回訪：計 1 次
+
+判斷完全在瀏覽器端，只使用 localStorage key `alextsou-visit-last-seen`（一個毫秒時間戳記，不產生任何識別碼，也不會送到 server）。實際寫入的時間一律由 server clock 決定。
+
+### 元件
+
+| 檔案 | 用途 |
+| --- | --- |
+| `migrations/0001_create_visit_events.sql` | D1 schema：`visit_events(id, visited_at_utc, path)` |
+| `app/lib/visitor-stats.ts` | D1 存取、admin token 驗證、輸入驗證、burst 上限 |
+| `app/lib/visit-session.ts` | 30 分鐘 session 去重規則（純函式，可測試） |
+| `app/lib/taipei-time.ts` | UTC → Asia/Taipei 顯示轉換 |
+| `app/api/visit/route.ts` | `POST /api/visit`：寫入一筆訪問，回傳 `{ ok, total }` |
+| `app/api/visit/count/route.ts` | `GET /api/visit/count`：只回傳 `{ total }` |
+| `app/api/admin/visits/route.ts` | `GET /api/admin/visits`：需要 Bearer token |
+| `app/visitor-counter.tsx` | 頁尾的低調計數器 |
+| `app/admin/visits/` | 私人統計頁面（不在公開導覽中，`noindex`，robots.txt 已 Disallow） |
+
+`GET /api/visit` 會回 405；公開端點不會輸出任何紀錄明細。未授權存取 `/api/admin/visits` 一律回 401，且回應中沒有任何訪問資料。
+
+Admin token 只透過 `Authorization: Bearer` header 傳送，不接受 query string，也不會被編譯進任何 client bundle。
+
+### 本機開發
+
+```bash
+# 1. 套用 local migration（Miniflare D1，位於 .wrangler/state）
+npx wrangler d1 migrations apply alextsou-visitor-stats --local
+
+# 2. 建立本機 secret（.dev.vars 已被 .gitignore 忽略，切勿 commit）
+cp .dev.vars.example .dev.vars
+node -e "console.log(require('crypto').randomBytes(24).toString('hex'))"
+#    把輸出貼到 .dev.vars 的 VISITOR_STATS_TOKEN=
+
+# 3. 啟動 dev server
+npm run dev
+
+# 4. 驗證（需保持 dev server 運作）
+npm run test:visitors
+SITE_URL=http://localhost:8788/ npm run test:visitors   # 針對 production build
+```
+
+以 production build 在本機預覽（含 D1）：
+
+```bash
+npm run build
+npx wrangler dev --config dist/server/wrangler.json --port 8788 --persist-to .wrangler/state
+```
+
+`--persist-to .wrangler/state` 會讓 production build 使用與 `npm run dev` 相同的本機 D1 資料。
+
+清空本機統計資料：
+
+```bash
+npx wrangler d1 execute alextsou-visitor-stats --local --command "DELETE FROM visit_events;"
+```
+
+### 部署前必要的 Cloudflare 設定
+
+以下指令會變更 Cloudflare production 狀態，尚未執行。
+
+```bash
+# 1. 建立 remote D1 database
+npx wrangler d1 create alextsou-visitor-stats
+
+# 2. 把上一步輸出的 database_id 填回 wrangler.jsonc，
+#    取代 "REPLACE_WITH_ALEXTSOU_VISITOR_STATS_DATABASE_ID"
+
+# 3. 套用 remote migration
+npx wrangler d1 migrations apply alextsou-visitor-stats --remote
+
+# 4. 設定 Worker secret（互動式輸入，不要寫進任何檔案或 shell history）
+npx wrangler secret put VISITOR_STATS_TOKEN --name alextsou-com
+
+# 5. 重新 build 並部署
+npm run build
+npm run deploy
+```
+
+Worker 名稱維持 `alextsou-com`；本功能只新增一個 D1 binding（`VISITOR_DB`），不變更 Custom Domain、DNS 或部署架構。
+
+若 `VISITOR_STATS_TOKEN` 未設定，`/api/admin/visits` 會回 503 `not_configured`；若 D1 binding 不存在，統計 API 回 503，公開頁面的計數器會自動隱藏，網站其餘功能不受影響。
+
+### 私人統計頁面
+
+`https://alextsou.com/admin/visits`
+
+輸入 `VISITOR_STATS_TOKEN` 後可看到：
+
+- 總訪問次數 / 今日 / 近 7 天 / 近 30 天（以 Asia/Taipei 日界計算）
+- 最近訪問紀錄：`#`、日期、時間、路徑，每頁 25 / 50 / 100，新的在前
+
+資料庫一律儲存 UTC；只有顯示層轉換為 Asia/Taipei。
+
 ## Cloudflare Workers Builds（建議部署方式）
 
 本專案已包含 `wrangler.jsonc`，並使用 Cloudflare Vite Plugin 產生可部署的 `dist/server/wrangler.json`。該輸出設定會把 Worker entry 與 `dist/client` static assets 一起部署。
@@ -142,6 +249,7 @@ git push -u origin main
 - SEO metadata：`app/layout.tsx`
 - Responsive styles：`app/globals.css`
 - Cloudflare input config：`wrangler.jsonc`
+- 訪客統計：`app/lib/visitor-stats.ts`、`app/api/visit/`、`app/api/admin/visits/`、`app/admin/visits/`、`migrations/`
 - 部署與驗證 scripts：`package.json`
 
 公開前可使用全文搜尋確認不應公開的名稱或資料未出現在網站來源與輸出中。

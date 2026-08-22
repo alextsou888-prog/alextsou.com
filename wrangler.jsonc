@@ -6,5 +6,17 @@
   "compatibility_flags": ["nodejs_compat"],
   "observability": {
     "enabled": true
-  }
+  },
+  // Privacy-safe visitor statistics. Stores only a UTC timestamp and a pathname
+  // per visit: no IP, no User-Agent, no fingerprint, no personal data.
+  // Local development uses the Miniflare D1 database in .wrangler/state; the id below
+  // points at the remote database created with: wrangler d1 create alextsou-visitor-stats
+  "d1_databases": [
+    {
+      "binding": "VISITOR_DB",
+      "database_name": "alextsou-visitor-stats",
+      "database_id": "5a49ba68-9128-402e-96a7-d6d30fa6105b",
+      "migrations_dir": "migrations"
+    }
+  ]
 }

@@ -1932,3 +1932,190 @@ html[data-theme='dark'] .modal-visual img { border-color: var(--border); backgro
   .card-title { margin-top: 30px; }
   .modal-footer .button { width: 100%; }
 }
+
+/* Visitor statistics — subtle public counter */
+.footer-meta {
+  display: flex;
+  justify-content: center;
+  min-height: 20px;
+  margin-top: 18px;
+}
+
+.visitor-counter {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 0;
+  color: #6a7e95;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.visitor-counter-value {
+  color: #9fb0c2;
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+}
+
+/* Visitor statistics — private admin dashboard (/admin/visits) */
+.admin-shell {
+  width: min(100% - 32px, 1080px);
+  margin: 0 auto;
+  padding: 48px 0 72px;
+  color: var(--text-primary);
+}
+
+.admin-shell h1 { margin: 0; font-size: clamp(24px, 4vw, 32px); letter-spacing: -0.01em; }
+.admin-shell h2 { margin: 0; font-size: 16px; letter-spacing: 0.01em; }
+
+.admin-note {
+  margin: 8px 0 0;
+  color: var(--text-muted);
+  font-family: var(--mono);
+  font-size: 11px;
+}
+
+.admin-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.admin-header-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+
+.admin-shell button,
+.admin-shell select {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--text-primary);
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  padding: 8px 14px;
+}
+
+.admin-shell button:hover:not(:disabled) { border-color: var(--accent-gold); }
+.admin-shell button:disabled { cursor: not-allowed; opacity: 0.5; }
+
+.admin-card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--card);
+  box-shadow: var(--premium-shadow);
+  padding: 20px 22px;
+}
+
+.admin-signin { max-width: 520px; }
+.admin-signin form { display: grid; gap: 10px; margin-top: 20px; }
+
+.admin-signin label {
+  color: var(--text-secondary);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.admin-signin input {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text-primary);
+  font: inherit;
+  padding: 10px 12px;
+  width: 100%;
+}
+
+.admin-signin button { justify-self: start; }
+
+.admin-error {
+  margin: 16px 0 0;
+  border: 1px solid var(--accent-rose);
+  border-radius: 8px;
+  background: var(--card-secondary);
+  color: var(--text-primary);
+  font-size: 13px;
+  padding: 10px 14px;
+}
+
+.admin-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.admin-summary .admin-card { display: grid; gap: 8px; }
+
+.admin-summary span {
+  color: var(--text-muted);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.admin-summary strong { font-size: clamp(22px, 3.4vw, 30px); font-variant-numeric: tabular-nums; }
+
+.admin-log-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.admin-log-toolbar label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-family: var(--mono);
+  font-size: 11px;
+}
+
+.admin-table-scroll { overflow-x: auto; }
+
+.admin-log table { border-collapse: collapse; min-width: 460px; width: 100%; }
+
+.admin-log th,
+.admin-log td {
+  border-bottom: 1px solid var(--border);
+  padding: 9px 12px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.admin-log th {
+  color: var(--text-muted);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.admin-log td { font-family: var(--mono); font-size: 12px; font-variant-numeric: tabular-nums; }
+
+.admin-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.admin-pagination span { color: var(--text-muted); font-family: var(--mono); font-size: 11px; }
+
+@media (max-width: 760px) {
+  .admin-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .admin-pagination { flex-wrap: wrap; }
+}

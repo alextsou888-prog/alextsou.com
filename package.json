@@ -11,6 +11,7 @@
     "start": "vinext start",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
     "verify": "node scripts/verify-site.mjs",
+    "test:visitors": "node scripts/test-visitor-stats.mjs",
     "deploy": "wrangler deploy --config dist/server/wrangler.json",
     "preview:cloudflare": "npm run build && wrangler dev --config dist/server/wrangler.json"
   },

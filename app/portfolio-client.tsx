@@ -4,6 +4,7 @@
 
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type FormEvent } from 'react';
 import { DetailModal } from './detail-modal';
+import { VisitorCounter } from './visitor-counter';
 import {
   careerSnapshot,
   engineeringDebugMethodology,
@@ -26,7 +27,6 @@ import {
 const allItems = [...focusItems, ...experienceItems, ...flagshipCaseStudies, ...visualItems, ...projectItems];
 const contactEmail = 'alextsou888@gmail.com';
 const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${contactEmail}&su=Portfolio%20Inquiry%20-%20Alex%20Tsou`;
-const languageStorageKey = 'alextsou-language';
 type Theme = 'light' | 'dark';
 const initialContactForm = {
   name: '',
@@ -105,14 +105,9 @@ export function PortfolioClient({ initialLanguage = 'zh' }: { initialLanguage?: 
 
   useEffect(() => { document.documentElement.lang = language === 'zh' ? 'zh-Hant-TW' : 'en'; }, [language]);
 
-  useEffect(() => {
-    try {
-      window.localStorage.setItem(languageStorageKey, language);
-    } catch {
-      // The UI still updates even if storage is unavailable.
-    }
-    document.cookie = `alextsou-language=${language}; path=/; max-age=31536000; samesite=lax`;
-  }, [language]);
+  // Language is intentionally not persisted: switching EN/ZH only affects the
+  // current page session. A full reload (or a new tab) always starts in
+  // Traditional Chinese, so no cookie or localStorage write happens here.
 
   useEffect(() => {
     const initialTheme = document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
@@ -576,7 +571,7 @@ export function PortfolioClient({ initialLanguage = 'zh' }: { initialLanguage?: 
         </section>
       </main>
 
-      <footer className="site-footer"><div className="container footer-grid"><a className="brand footer-brand" href="#home" aria-label={t.backTop}><span className="brand-mark" aria-hidden="true">AT</span><span className="brand-copy"><strong>{t.name}</strong><small>{t.eyebrow}</small></span></a><p>{t.footer}</p><a className="back-to-top" href="#home">{t.backTop} <span aria-hidden="true">↑</span></a></div></footer>
+      <footer className="site-footer"><div className="container footer-grid"><a className="brand footer-brand" href="#home" aria-label={t.backTop}><span className="brand-mark" aria-hidden="true">AT</span><span className="brand-copy"><strong>{t.name}</strong><small>{t.eyebrow}</small></span></a><p>{t.footer}</p><a className="back-to-top" href="#home">{t.backTop} <span aria-hidden="true">↑</span></a></div><div className="container footer-meta"><VisitorCounter label={t.visitCounterLabel} /></div></footer>
 
       {activeItem && <DetailModal item={activeItem} language={language} onLanguageChange={switchLanguage} closeLabel={t.close} contactLabel={t.contact} dialogLabel={t.dialogLabel} onClose={closeModal} />}
     </>

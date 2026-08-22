@@ -1,0 +1,5 @@
+# Copy to `.dev.vars` (git-ignored) for local development.
+# Generate a value with:  node -e "console.log(crypto.randomUUID().replace(/-/g,''))"
+# Never commit the real token. In production it is a Cloudflare Worker secret:
+#   wrangler secret put VISITOR_STATS_TOKEN
+VISITOR_STATS_TOKEN=replace-with-a-long-random-token

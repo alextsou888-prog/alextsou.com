@@ -36,3 +36,8 @@ next-env.d.ts
 /.wrangler/
 /outputs/
 /work/
+
+# local Cloudflare Worker secrets (VISITOR_STATS_TOKEN, etc.)
+.dev.vars
+.dev.vars.*
+!.dev.vars.example
