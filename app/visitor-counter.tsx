@@ -9,22 +9,30 @@
  */
 
 import { useEffect, useState } from 'react';
+import { formatTaipeiMinute } from './lib/taipei-time';
 import { readVisitLastSeen, shouldCountVisit, writeVisitLastSeen } from './lib/visit-session';
 
-// Shared across mounts so React's development double-invoke cannot double-count.
-let pendingTotal: Promise<number | null> | null = null;
+type CounterState = { total: number; lastVisitUtc: string | null };
 
-function readTotal(payload: unknown): number | null {
-  const value = (payload as { total?: unknown } | null)?.total;
-  return typeof value === 'number' && Number.isFinite(value) ? value : null;
+// Shared across mounts so React's development double-invoke cannot double-count.
+let pendingState: Promise<CounterState | null> | null = null;
+
+function readCounterState(payload: unknown): CounterState | null {
+  const total = (payload as { total?: unknown } | null)?.total;
+  if (typeof total !== 'number' || !Number.isFinite(total)) return null;
+
+  const lastVisitUtc = (payload as { lastVisitUtc?: unknown }).lastVisitUtc;
+  return { total, lastVisitUtc: typeof lastVisitUtc === 'string' ? lastVisitUtc : null };
 }
 
-async function loadVisitTotal(): Promise<number | null> {
+async function loadCounterState(): Promise<CounterState | null> {
   const now = Date.now();
   const countsAsNewVisit = shouldCountVisit(readVisitLastSeen(), now);
   writeVisitLastSeen(now);
 
   try {
+    // A due visit returns the same privacy-safe counter state as the read-only
+    // endpoint, so every page load needs exactly one public statistics request.
     const response = countsAsNewVisit
       ? await fetch('/api/visit', {
           method: 'POST',
@@ -34,33 +42,46 @@ async function loadVisitTotal(): Promise<number | null> {
       : await fetch('/api/visit/count', { method: 'GET' });
 
     if (!response.ok) return null;
-    return readTotal(await response.json());
+    return readCounterState(await response.json());
   } catch {
     // Analytics is non-critical: no error UI, no retry, no console noise.
     return null;
   }
 }
 
-export function VisitorCounter({ label }: { label: string }) {
-  const [total, setTotal] = useState<number | null>(null);
+export function VisitorCounter({ totalLabel, lastVisitLabel }: { totalLabel: string; lastVisitLabel: string }) {
+  const [state, setState] = useState<CounterState | null>(null);
 
   useEffect(() => {
     let active = true;
-    pendingTotal ??= loadVisitTotal();
-    pendingTotal.then((value) => {
-      if (active && value !== null) setTotal(value);
+    pendingState ??= loadCounterState();
+    pendingState.then((value) => {
+      if (active && value !== null) setState(value);
     });
     return () => {
       active = false;
     };
   }, []);
 
-  if (total === null) return null;
+  if (state === null) return null;
+
+  const lastVisit = state.lastVisitUtc ? formatTaipeiMinute(state.lastVisitUtc) : null;
 
   return (
     <p className="visitor-counter">
-      <span className="visitor-counter-label">{label}</span>
-      <span className="visitor-counter-value">{total.toLocaleString('en-US')}</span>
+      <span className="visitor-counter-item">
+        <span className="visitor-counter-label">{totalLabel}</span>
+        <span className="visitor-counter-value">{state.total.toLocaleString('en-US')}</span>
+      </span>
+      {lastVisit && (
+        <>
+          <span className="visitor-counter-sep" aria-hidden="true">|</span>
+          <span className="visitor-counter-item">
+            <span className="visitor-counter-label">{lastVisitLabel}</span>
+            <span className="visitor-counter-value">{lastVisit}</span>
+          </span>
+        </>
+      )}
     </p>
   );
 }

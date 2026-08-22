@@ -10,7 +10,7 @@
  */
 
 import {
-  getTotalVisits,
+  getPublicVisitStats,
   getVisitorDb,
   insertRateLimited,
   normalizeVisitPath,
@@ -48,7 +48,7 @@ export async function POST(request: Request) {
 
   try {
     await recordVisit(db, path);
-    return json({ ok: true, total: await getTotalVisits(db) }, 200);
+    return json({ ok: true, ...(await getPublicVisitStats(db)) }, 200);
   } catch (error) {
     console.error('visitor-stats: recordVisit failed', error);
     return json({ ok: false, error: 'unavailable' }, 503);

@@ -571,7 +571,7 @@ export function PortfolioClient({ initialLanguage = 'zh' }: { initialLanguage?: 
         </section>
       </main>
 
-      <footer className="site-footer"><div className="container footer-grid"><a className="brand footer-brand" href="#home" aria-label={t.backTop}><span className="brand-mark" aria-hidden="true">AT</span><span className="brand-copy"><strong>{t.name}</strong><small>{t.eyebrow}</small></span></a><p>{t.footer}</p><a className="back-to-top" href="#home">{t.backTop} <span aria-hidden="true">↑</span></a></div><div className="container footer-meta"><VisitorCounter label={t.visitCounterLabel} /></div></footer>
+      <footer className="site-footer"><div className="container footer-grid"><a className="brand footer-brand" href="#home" aria-label={t.backTop}><span className="brand-mark" aria-hidden="true">AT</span><span className="brand-copy"><strong>{t.name}</strong><small>{t.eyebrow}</small></span></a><p>{t.footer}</p><a className="back-to-top" href="#home">{t.backTop} <span aria-hidden="true">↑</span></a></div><div className="container footer-meta"><VisitorCounter totalLabel={t.visitCounterLabel} lastVisitLabel={t.visitLastVisitLabel} /></div></footer>
 
       {activeItem && <DetailModal item={activeItem} language={language} onLanguageChange={switchLanguage} closeLabel={t.close} contactLabel={t.contact} dialogLabel={t.dialogLabel} onClose={closeModal} />}
     </>

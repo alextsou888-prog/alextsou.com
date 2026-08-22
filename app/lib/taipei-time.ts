@@ -40,3 +40,12 @@ export function formatTaipeiParts(utcIso: string): { date: string; time: string 
     time: `${pad(local.getUTCHours())}:${pad(local.getUTCMinutes())}:${pad(local.getUTCSeconds())}`,
   };
 }
+
+/** "YYYY/MM/DD HH:mm" in Taipei local time, minute precision (no seconds) for public display. */
+export function formatTaipeiMinute(utcIso: string): string | null {
+  const parsed = Date.parse(utcIso);
+  if (Number.isNaN(parsed)) return null;
+
+  const { date, time } = formatTaipeiParts(utcIso);
+  return `${date} ${time.slice(0, 5)}`;
+}

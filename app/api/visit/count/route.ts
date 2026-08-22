@@ -1,10 +1,9 @@
 /**
- * GET /api/visit/count -- public cumulative total only.
- *
- * Returns a single number. No log rows, no timestamps, no database metadata.
+ * GET /api/visit/count -- public cumulative total, plus the single latest
+ * visit timestamp. No visit ids, no path history, no other rows, no admin data.
  */
 
-import { getTotalVisits, getVisitorDb } from '@/app/lib/visitor-stats';
+import { getPublicVisitStats, getVisitorDb } from '@/app/lib/visitor-stats';
 
 export const dynamic = 'force-dynamic';
 
@@ -20,9 +19,9 @@ export async function GET() {
   if (!db) return json({ error: 'unavailable' }, 503);
 
   try {
-    return json({ total: await getTotalVisits(db) }, 200);
+    return json(await getPublicVisitStats(db), 200);
   } catch (error) {
-    console.error('visitor-stats: getTotalVisits failed', error);
+    console.error('visitor-stats: getPublicVisitStats failed', error);
     return json({ error: 'unavailable' }, 503);
   }
 }

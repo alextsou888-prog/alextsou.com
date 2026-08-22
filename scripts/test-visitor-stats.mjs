@@ -11,7 +11,7 @@
 
 import { readFileSync } from 'node:fs';
 
-import { formatTaipeiParts, taipeiDayStartUtcIso } from '../app/lib/taipei-time.ts';
+import { formatTaipeiMinute, formatTaipeiParts, taipeiDayStartUtcIso } from '../app/lib/taipei-time.ts';
 import { shouldCountVisit, visitSessionWindowMs } from '../app/lib/visit-session.ts';
 
 const siteUrl = new URL(process.env.SITE_URL ?? 'http://localhost:3000/');
@@ -67,6 +67,12 @@ check(
   `${taipei.date} ${taipei.time}`,
 );
 check('TAIPEI DISPLAY: invalid timestamp degrades safely', formatTaipeiParts('nope').date === '—');
+check(
+  'TAIPEI DISPLAY: minute-precision formatter drops seconds',
+  formatTaipeiMinute('2026-08-22T19:18:42.123Z') === '2026/08/23 03:18',
+  formatTaipeiMinute('2026-08-22T19:18:42.123Z') ?? 'null',
+);
+check('TAIPEI DISPLAY: minute-precision formatter degrades safely', formatTaipeiMinute('nope') === null);
 
 const dayStart = taipeiDayStartUtcIso(0, Date.UTC(2026, 7, 23, 3, 0, 0));
 check(
@@ -86,9 +92,14 @@ check('SITE: admin page is not linked from the public site', !homepageHtml.inclu
 const before = await jsonOf(await api('/api/visit/count'));
 check('PUBLIC COUNT API: returns a numeric total', typeof before?.total === 'number', JSON.stringify(before));
 check(
-  'PUBLIC LOG EXPOSURE: count response carries only a total',
-  before !== null && Object.keys(before).join(',') === 'total',
+  'PUBLIC LOG EXPOSURE: count response carries only total and lastVisitUtc',
+  before !== null && [...Object.keys(before)].sort().join(',') === 'lastVisitUtc,total',
   JSON.stringify(before),
+);
+check(
+  'PUBLIC API LAST VISIT: lastVisitUtc is null or a UTC ISO-8601 string',
+  before?.lastVisitUtc === null || /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/.test(before?.lastVisitUtc ?? ''),
+  JSON.stringify(before?.lastVisitUtc),
 );
 
 const insert = await api('/api/visit', {
@@ -104,9 +115,24 @@ check(
   typeof inserted?.total === 'number' && inserted.total === (before?.total ?? 0) + 1,
   `${before?.total} → ${inserted?.total}`,
 );
+check(
+  'VISITOR INSERT: response includes the new latest UTC timestamp',
+  typeof inserted?.lastVisitUtc === 'string' && Math.abs(Date.parse(inserted.lastVisitUtc) - Date.now()) < 120_000,
+  inserted?.lastVisitUtc,
+);
+check(
+  'PUBLIC LOG EXPOSURE: insert response carries only ok, total, and lastVisitUtc',
+  inserted !== null && [...Object.keys(inserted)].sort().join(',') === 'lastVisitUtc,ok,total',
+  JSON.stringify(inserted),
+);
 
 const after = await jsonOf(await api('/api/visit/count'));
 check('PUBLIC COUNT API: reflects the new visit', after?.total === inserted?.total, JSON.stringify(after));
+check(
+  'PUBLIC API LAST VISIT: advances to (approximately) now after an insert',
+  typeof after?.lastVisitUtc === 'string' && Math.abs(Date.parse(after.lastVisitUtc) - Date.now()) < 120_000,
+  after?.lastVisitUtc,
+);
 
 const getVisit = await api('/api/visit');
 check(

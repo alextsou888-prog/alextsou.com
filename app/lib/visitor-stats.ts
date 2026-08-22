@@ -27,6 +27,11 @@ export type VisitSummary = {
   last30Days: number;
 };
 
+export type PublicVisitStats = {
+  total: number;
+  lastVisitUtc: string | null;
+};
+
 export const adminPageSizes = [25, 50, 100] as const;
 export const defaultAdminPageSize = 100;
 
@@ -137,9 +142,24 @@ export async function recordVisit(db: D1Database, path: string): Promise<void> {
     .run();
 }
 
-export async function getTotalVisits(db: D1Database): Promise<number> {
-  const row = await db.prepare('SELECT COUNT(*) AS total FROM visit_events').first<{ total: number }>();
-  return row?.total ?? 0;
+/** Public aggregate and the single latest timestamp, read from one D1 snapshot. */
+export async function getPublicVisitStats(db: D1Database): Promise<PublicVisitStats> {
+  const row = await db
+    .prepare(
+      `SELECT
+         COUNT(*) AS total,
+         (SELECT visited_at_utc
+            FROM visit_events
+           ORDER BY visited_at_utc DESC, id DESC
+           LIMIT 1) AS last_visit_utc
+       FROM visit_events`,
+    )
+    .first<{ total: number; last_visit_utc: string | null }>();
+
+  return {
+    total: row?.total ?? 0,
+    lastVisitUtc: row?.last_visit_utc ?? null,
+  };
 }
 
 /**
