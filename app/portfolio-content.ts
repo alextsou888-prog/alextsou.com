@@ -458,7 +458,7 @@ const experienceCatalog: PortfolioItem[] = [
   {
     id: 'career-tpv-fae', index: '03', title: c('TPV Experience', '冠捷科技經歷'),
     summary: c('FAE debugging, Android TV automation testing, certification support, cross-team coordination, and field engineering.', 'FAE 除錯、Android TV 自動化測試、認證支援、跨團隊協作與現場工程支援。'),
-    tags: ['FAE', 'Android TV', 'CTS/GTVS', 'Appium'],
+    tags: ['Customer Support', 'Android TV', 'Automation', 'System Debug', 'Certification'],
     career: {
       company: c('TPV / 冠捷科技', '冠捷科技 / TPV'),
       cardCompany: c('TPV Technology', '冠捷科技（TPV）'),
@@ -467,9 +467,63 @@ const experienceCatalog: PortfolioItem[] = [
       tenure: c('5 years 2 months', '5年2個月'),
     },
     sections: [
-      { label: c('FAE Support & Debugging', 'FAE 支援與除錯'), bullets: { en: ['Customer issue analysis and reproduction', 'Debug logs', 'Python ADB, UIAutomator, Appium', 'Android / Linux application support', 'Firmware/version flashing and system initialization'], zh: ['客戶問題分析與重現', 'Debug logs', 'Python ADB、UIAutomator、Appium', 'Android / Linux 應用支援', '韌體 / 版本燒錄與系統初始化'] } },
-      { label: c('Automation Testing & Certification', '自動化測試與認證'), bullets: { en: ['Android TV functional testing', 'App compatibility, OTA, streaming', 'Stress testing', 'JMeter, Monkey / MonkeyRunner', 'Google CTS / GTVS', 'Automated remote-control actions, screenshot / recording, GUI recognition'], zh: ['Android TV 功能測試', 'App compatibility、OTA、Streaming', '壓力測試', 'JMeter、Monkey / MonkeyRunner', 'Google CTS / GTVS', '遙控器動作自動化、截圖 / 錄影、GUI 辨識'] } },
-      { label: c('Collaboration and Field Engineering', '協作與現場工程'), bullets: { en: ['Customer, RD, QA, chipset vendor collaboration', 'SDK integration', 'Jira, Jenkins, test plans, issue tracking', 'Onsite / remote support, environment setup, troubleshooting documentation, training, technical communication, product improvement feedback'], zh: ['客戶、RD、QA、晶片供應商協作', 'SDK integration', 'Jira、Jenkins、Test plans、Issue tracking', '現場 / 遠端支援、環境架設、Troubleshooting 文件、教育訓練、技術溝通、產品改善回饋'] } },
+      section('FAE Role Overview', 'FAE 職務概述', 'Customer-facing engineering support for TV / Android TV products across product introduction, system integration, issue reproduction, debugging, validation, and technical closure.', '面向客戶的 TV / Android TV 產品工程支援，涵蓋產品導入、系統整合、問題重現、除錯、驗證與技術結案。'),
+      {
+        label: c('Customer Technical Support', '客戶技術支援'),
+        bullets: {
+          en: ['Product introduction', 'Technical specification explanation', 'System integration support', 'Customer issue analysis', 'Remote / on-site debugging', 'Technical feedback to RD'],
+          zh: ['產品導入', '技術規格說明', '系統整合支援', '客戶問題分析', '遠端 / 現場除錯', '技術回饋給 RD'],
+        },
+      },
+      {
+        label: c('Issue Reproduction & RCA', '問題重現與根因分析'),
+        body: c('Turn customer reports into controlled evidence and verified closure without overstating ownership before the failure boundary is proven.', '將客戶回報轉換為受控證據與已驗證結案；在失敗邊界確認前不誇大責任歸屬。'),
+        flow: [c('Customer Report', '客戶回報'), c('Clarify Environment', '釐清環境'), c('Reproduce', '重現'), c('Capture Log / Evidence', '擷取 Log / 證據'), c('Compare Good vs Bad', 'Good vs Bad 比對'), c('Isolate Layer', '隔離 Layer'), c('RD / Vendor Analysis', 'RD / Vendor 分析'), c('Fix Verification', '修正驗證'), c('Regression', '回歸'), c('Customer Closure', '客戶結案')],
+      },
+      {
+        label: c('Automation Development', '自動化工具開發'),
+        body: c('Automation supported repeatable issue reproduction, UI/action automation, validation reruns, log collection, and regression support.', '自動化用於可重複的問題重現、UI / 動作自動化、驗證重跑、Log 收集與回歸支援。'),
+        bullets: {
+          en: ['Python', 'ADB', 'UIAutomator', 'Appium', 'Android / Linux'],
+          zh: ['Python', 'ADB', 'UIAutomator', 'Appium', 'Android / Linux'],
+        },
+      },
+      {
+        label: c('Validation & Certification', '驗證與認證'),
+        bullets: {
+          en: ['Functional Test', 'Compatibility Test', 'OTA', 'Streaming', 'Stress Test', 'Google CTS / GTVS support', 'Regression validation'],
+          zh: ['功能測試', '相容性測試', 'OTA', '串流測試', '壓力測試', 'Google CTS / GTVS 支援', '回歸驗證'],
+        },
+      },
+      {
+        label: c('Cross-Team Collaboration', '跨部門合作'),
+        body: c('Coordinate Customer, RD, QA, and Chip Vendor communication around SDK integration, bug tracking, validation issues, fix verification, and closure.', '協調 Customer、RD、QA 與 Chip Vendor，聚焦 SDK 整合、Bug 追蹤、驗證問題、修正驗證與結案。'),
+        bullets: {
+          en: ['Customer', 'RD', 'QA', 'Chip Vendor'],
+          zh: ['Customer', 'RD', 'QA', 'Chip Vendor'],
+        },
+      },
+      {
+        label: c('Documentation & Training', '文件與教育訓練'),
+        bullets: {
+          en: ['Test Plan', 'Debug Guide', 'SOP', 'Training Material', 'Troubleshooting documentation'],
+          zh: ['測試計畫', 'Debug Guide', 'SOP', '教育訓練教材', 'Troubleshooting 文件'],
+        },
+      },
+      {
+        label: c('Field Engineering', '現場工程支援'),
+        bullets: {
+          en: ['Remote technical support', 'On-site technical support', 'Test environment setup', 'System initialization', 'Issue reproduction', 'Customer communication'],
+          zh: ['遠端技術支援', '現場技術支援', '測試環境架設', '系統初始化', '問題重現', '客戶溝通'],
+        },
+      },
+      {
+        label: c('Engineering Value', '工程價值'),
+        bullets: {
+          en: ['Improves reproducibility', 'Provides clearer debug evidence', 'Shortens communication loops between Customer / FAE / RD / QA', 'Supports repeatable fix verification', 'Improves technical issue closure'],
+          zh: ['提升問題可重現性', '提供更清楚的除錯證據', '縮短 Customer / FAE / RD / QA 之間的溝通迴路', '支援可重複的修正驗證', '改善技術問題結案品質'],
+        },
+      },
     ],
   },
   {
