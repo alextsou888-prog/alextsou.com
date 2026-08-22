@@ -25,6 +25,8 @@ import {
 
 const allItems = [...focusItems, ...experienceItems, ...flagshipCaseStudies, ...visualItems, ...projectItems];
 const contactEmail = 'alextsou888@gmail.com';
+const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${contactEmail}&su=Portfolio%20Inquiry%20-%20Alex%20Tsou`;
+const languageStorageKey = 'alextsou-language';
 type Theme = 'light' | 'dark';
 const initialContactForm = {
   name: '',
@@ -88,8 +90,8 @@ function VisualCard({ item, language, openLabel, onOpen }: {
   );
 }
 
-export function PortfolioClient() {
-  const [language, setLanguage] = useState<Language>('en');
+export function PortfolioClient({ initialLanguage = 'zh' }: { initialLanguage?: Language }) {
+  const [language, setLanguage] = useState<Language>(initialLanguage);
   const [theme, setTheme] = useState<Theme>('light');
   const [activeId, setActiveId] = useState<string | null>(null);
   const [contactForm, setContactForm] = useState(initialContactForm);
@@ -102,6 +104,15 @@ export function PortfolioClient() {
   const closeModal = useCallback(() => setActiveId(null), []);
 
   useEffect(() => { document.documentElement.lang = language === 'zh' ? 'zh-Hant-TW' : 'en'; }, [language]);
+
+  useEffect(() => {
+    try {
+      window.localStorage.setItem(languageStorageKey, language);
+    } catch {
+      // The UI still updates even if storage is unavailable.
+    }
+    document.cookie = `alextsou-language=${language}; path=/; max-age=31536000; samesite=lax`;
+  }, [language]);
 
   useEffect(() => {
     const initialTheme = document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
@@ -511,7 +522,7 @@ export function PortfolioClient() {
                 <span className="contact-card-label">A</span>
                 <h3>{t.sendEmailTitle}</h3>
                 <p>{t.sendEmailBody}</p>
-                <a className="button button-primary" href={`mailto:${contactEmail}?subject=Portfolio%20Contact%20%E2%80%94%20alextsou.com`}>{t.sendEmailButton}</a>
+                <a className="button button-primary" href={gmailComposeUrl} target="_blank" rel="noopener noreferrer">{t.sendEmailButton}</a>
                 <button className="button button-secondary" type="button" onClick={copyEmail}>{copiedEmail ? t.emailCopied : t.copyEmail}</button>
                 <p className="contact-email">{contactEmail}</p>
               </article>

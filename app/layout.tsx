@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next';
+import { cookies } from 'next/headers';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 
@@ -89,13 +90,18 @@ const themeBootstrap = `
   })();
 `;
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieStore = await cookies();
+  const savedLanguage = cookieStore.get('alextsou-language')?.value;
+  const initialLanguage = savedLanguage === 'en' || savedLanguage === 'zh' ? savedLanguage : 'zh';
+  const initialLangAttr = initialLanguage === 'zh' ? 'zh-Hant-TW' : 'en';
+
   return (
-    <html lang="en" data-theme="light" suppressHydrationWarning>
+    <html lang={initialLangAttr} data-theme="light" suppressHydrationWarning>
       <head><script dangerouslySetInnerHTML={{ __html: themeBootstrap }} /></head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>{children}</body>
     </html>
