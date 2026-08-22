@@ -67,8 +67,27 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#0b1628',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#fbf8f5' },
+    { media: '(prefers-color-scheme: dark)', color: '#0f1724' },
+  ],
 };
+
+const themeBootstrap = `
+  (() => {
+    try {
+      const saved = localStorage.getItem('alextsou-theme');
+      const theme = saved === 'light' || saved === 'dark'
+        ? saved
+        : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.dataset.theme = theme;
+      document.documentElement.style.colorScheme = theme;
+    } catch {
+      document.documentElement.dataset.theme = 'light';
+      document.documentElement.style.colorScheme = 'light';
+    }
+  })();
+`;
 
 export default function RootLayout({
   children,
@@ -76,7 +95,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="light" suppressHydrationWarning>
+      <head><script dangerouslySetInnerHTML={{ __html: themeBootstrap }} /></head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>{children}</body>
     </html>
   );

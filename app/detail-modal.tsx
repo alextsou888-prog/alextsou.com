@@ -1,18 +1,21 @@
 'use client';
 
+/* eslint-disable @next/next/no-img-element */
+
 import { useEffect, useRef } from 'react';
 import type { Language, PortfolioItem } from './portfolio-content';
 
 type Props = {
   item: PortfolioItem;
   language: Language;
+  onLanguageChange: (language: Language) => void;
   closeLabel: string;
+  contactLabel: string;
   dialogLabel: string;
-  verificationLabel: string;
   onClose: () => void;
 };
 
-export function DetailModal({ item, language, closeLabel, dialogLabel, verificationLabel, onClose }: Props) {
+export function DetailModal({ item, language, onLanguageChange, closeLabel, contactLabel, dialogLabel, onClose }: Props) {
   const panelRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
 
@@ -66,19 +69,55 @@ export function DetailModal({ item, language, closeLabel, dialogLabel, verificat
             <p className="modal-kicker">{dialogLabel} / {item.index}</p>
             <h2 id="detail-title">{item.title[language]}</h2>
           </div>
-          <button ref={closeRef} className="modal-close" type="button" onClick={onClose} aria-label={closeLabel}>
-            <span aria-hidden="true">×</span>
-          </button>
+          <div className="modal-actions">
+            <div className="modal-language-switch" role="group" aria-label={language === 'en' ? 'Case study language' : '案例語言'}>
+              <button
+                type="button"
+                aria-pressed={language === 'en'}
+                aria-label="Switch case study and portfolio language to English"
+                onClick={() => onLanguageChange('en')}
+              >
+                EN
+              </button>
+              <button
+                type="button"
+                aria-pressed={language === 'zh'}
+                aria-label="切換案例與作品集語言為中文"
+                onClick={() => onLanguageChange('zh')}
+              >
+                中文
+              </button>
+            </div>
+            <button ref={closeRef} className="modal-close" type="button" onClick={onClose} aria-label={closeLabel}>
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
         </div>
 
         <p className="modal-summary" id="detail-summary">{item.summary[language]}</p>
+        {item.career && (
+          <div className="modal-career-meta">
+            <strong>{item.career.company[language]}</strong>
+            <span>{item.career.jobTitle[language]}</span>
+            <span>{item.career.period}</span>
+            <span>{language === 'en' ? 'Tenure: ' : '年資：'}{item.career.tenure[language]}</span>
+            {item.career.management && <span>{item.career.management[language]}</span>}
+          </div>
+        )}
         <div className="modal-tags" aria-label={item.title[language]}>
           {item.tags.map((tag) => <span key={tag}>{tag}</span>)}
         </div>
 
+        {item.image && (
+          <figure className="modal-visual">
+            <img src={item.image.src} alt={item.image.alt[language]} />
+            <figcaption>{item.image.alt[language]}</figcaption>
+          </figure>
+        )}
+
         <div className="detail-sections">
           {item.sections.map((entry, index) => (
-            <section className="detail-section" key={`${entry.label.en}-${index}`}>
+            <section className={`detail-section${entry.label.en === 'Ownership Boundary' ? ' detail-section-boundary' : ''}`} key={`${entry.label.en}-${index}`}>
               <h3>{entry.label[language]}</h3>
               {entry.body && <p>{entry.body[language]}</p>}
               {entry.bullets && (
@@ -98,13 +137,8 @@ export function DetailModal({ item, language, closeLabel, dialogLabel, verificat
           ))}
         </div>
 
-        {item.verification && (
-          <div className="verification-boundary">
-            <strong>{verificationLabel}</strong>
-            <p>{item.verification[language]}</p>
-          </div>
-        )}
         <div className="modal-footer">
+          <a className="button button-secondary" href="#contact" onClick={onClose}>{contactLabel}</a>
           <button className="button button-primary" type="button" onClick={onClose}>{closeLabel}</button>
         </div>
       </div>

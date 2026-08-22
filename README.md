@@ -1,6 +1,6 @@
 # alextsou.com
 
-`alextsou.com` 是一個 GitHub-ready 的個人工程作品集，聚焦 Software Quality、Test Automation、Network Validation、Automotive Testing 與 Computer Vision。網站對沒有來源資料的經歷、日期、公司、客戶、成果與聯絡方式一律使用明確的 `TODO`，不會以推測內容代替事實。
+`alextsou.com` 是一個 GitHub-ready 的個人工程作品集，聚焦 Software Quality、Test Automation、Network Validation、Automotive Testing 與 Computer Vision。公開內容只呈現已確認的工程經歷與技術資料。
 
 ## 技術架構
 
@@ -22,7 +22,7 @@
 - Projects
 - Contact
 
-Experience、Projects 與 Contact 中尚未提供的資料都有可搜尋的 `TODO:` 標記。正式公開個人資料前，請只填入已驗證內容。
+Experience、Projects 與 Contact 只呈現適合公開的工程內容與聯絡方式。
 
 ## 本機開發
 
@@ -144,8 +144,4 @@ git push -u origin main
 - Cloudflare input config：`wrangler.jsonc`
 - 部署與驗證 scripts：`package.json`
 
-發布前可搜尋所有待補資料：
-
-```bash
-rg -n "TODO:" app README.md
-```
+公開前可使用全文搜尋確認不應公開的名稱或資料未出現在網站來源與輸出中。
