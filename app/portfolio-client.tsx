@@ -471,6 +471,14 @@ export function PortfolioClient() {
                   </span>
                 ))}
               </div>
+              <div className="methodology-step-grid">
+                {engineeringDebugMethodology.steps.map((step) => (
+                  <article className="methodology-step" key={step.label.en}>
+                    <h4>{step.label[language]}</h4>
+                    <p>{step.body?.[language]}</p>
+                  </article>
+                ))}
+              </div>
             </section>
           </div>
         </section>

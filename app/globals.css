@@ -893,6 +893,31 @@ button, a { -webkit-tap-highlight-color: transparent; }
   line-height: 1.6;
 }
 .debug-methodology .detail-flow { margin-top: 18px; }
+.methodology-step-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 10px;
+  margin-top: 18px;
+}
+.methodology-step {
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid rgba(169, 139, 99, 0.22);
+  background: rgba(251, 248, 245, 0.64);
+}
+.methodology-step h4 {
+  margin: 0;
+  color: #765f41;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.45;
+}
+.methodology-step p {
+  margin: 8px 0 0;
+  color: #34465b;
+  font-size: 14px;
+  line-height: 1.58;
+}
 .flagship-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1636,6 +1661,12 @@ html[data-theme='dark'] .skills-proof-heading h3 { color: var(--text-primary); }
 html[data-theme='dark'] .skills-proof-heading p,
 html[data-theme='dark'] .evidence-skill-list p { color: var(--text-secondary); }
 html[data-theme='dark'] .evidence-skill-list strong { color: var(--accent-gold); }
+html[data-theme='dark'] .methodology-step {
+  border-color: var(--border);
+  background: var(--card-secondary);
+}
+html[data-theme='dark'] .methodology-step h4 { color: var(--accent-gold); }
+html[data-theme='dark'] .methodology-step p { color: var(--text-secondary); }
 html[data-theme='dark'] .card-topline,
 html[data-theme='dark'] .career-period,
 html[data-theme='dark'] .career-tenure,

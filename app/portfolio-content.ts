@@ -467,22 +467,23 @@ const experienceCatalog: PortfolioItem[] = [
       tenure: c('5 years 2 months', '5年2個月'),
     },
     sections: [
-      section('FAE Role Overview', 'FAE 職務概述', 'Customer-facing engineering support for TV / Android TV products across product introduction, system integration, issue reproduction, debugging, validation, and technical closure.', '面向客戶的 TV / Android TV 產品工程支援，涵蓋產品導入、系統整合、問題重現、除錯、驗證與技術結案。'),
+      section('FAE Role Overview', 'FAE 職務概述', 'Customer-facing engineering support for TV / Android TV products: clarify customer symptoms, reproduce issues in controlled environments, collect evidence, coordinate RD / QA / vendor analysis, verify fixes, and close issues with traceable validation results.', '面向客戶的 TV / Android TV 產品工程支援：釐清客戶現象、在受控環境重現問題、收集證據、協調 RD / QA / Vendor 分析、驗證修正，並以可追溯驗證結果完成結案。'),
       {
         label: c('Customer Technical Support', '客戶技術支援'),
+        body: c('Support product introduction and system integration by translating customer questions into technical checks, environment assumptions, reproducible steps, and RD-ready feedback.', '支援產品導入與系統整合，將客戶問題轉換為技術檢查、環境假設、可重現步驟與可交付 RD 分析的回饋。'),
         bullets: {
-          en: ['Product introduction', 'Technical specification explanation', 'System integration support', 'Customer issue analysis', 'Remote / on-site debugging', 'Technical feedback to RD'],
-          zh: ['產品導入', '技術規格說明', '系統整合支援', '客戶問題分析', '遠端 / 現場除錯', '技術回饋給 RD'],
+          en: ['Explain product behavior and technical specifications in customer context', 'Support system integration by confirming configuration, version, and expected behavior', 'Analyze customer reports and identify what evidence is still missing', 'Use remote or on-site debugging to reproduce symptoms and collect logs', 'Convert findings into technical feedback that RD / QA can act on'],
+          zh: ['依客戶情境說明產品行為與技術規格', '透過確認設定、版本與預期行為支援系統整合', '分析客戶回報並判斷仍缺少哪些工程證據', '以遠端或現場 Debug 重現現象並收集 Log', '將發現整理為 RD / QA 可採取行動的技術回饋'],
         },
       },
       {
         label: c('Issue Reproduction & RCA', '問題重現與根因分析'),
-        body: c('Turn customer reports into controlled evidence and verified closure without overstating ownership before the failure boundary is proven.', '將客戶回報轉換為受控證據與已驗證結案；在失敗邊界確認前不誇大責任歸屬。'),
+        body: c('Turn incomplete customer reports into controlled evidence by reproducing the issue, comparing good and bad baselines, isolating the failing layer, and validating the fix before closure.', '將不完整的客戶回報轉換為受控證據：重現問題、比對 Good / Bad 基準、隔離失敗 Layer，並在結案前完成修正驗證。'),
         flow: [c('Customer Report', '客戶回報'), c('Clarify Environment', '釐清環境'), c('Reproduce', '重現'), c('Capture Log / Evidence', '擷取 Log / 證據'), c('Compare Good vs Bad', 'Good vs Bad 比對'), c('Isolate Layer', '隔離 Layer'), c('RD / Vendor Analysis', 'RD / Vendor 分析'), c('Fix Verification', '修正驗證'), c('Regression', '回歸'), c('Customer Closure', '客戶結案')],
       },
       {
         label: c('Automation Development', '自動化工具開發'),
-        body: c('Automation supported repeatable issue reproduction, UI/action automation, validation reruns, log collection, and regression support.', '自動化用於可重複的問題重現、UI / 動作自動化、驗證重跑、Log 收集與回歸支援。'),
+        body: c('I used automation to make customer scenarios repeatable: execute UI/action sequences, collect logs and screenshots where appropriate, rerun validation, and convert reproduced issues into regression support.', '我使用自動化讓客戶情境可重複：執行 UI / 動作序列、依需要收集 Log 與截圖、重跑驗證，並將已重現問題轉為回歸支援。'),
         bullets: {
           en: ['Python', 'ADB', 'UIAutomator', 'Appium', 'Android / Linux'],
           zh: ['Python', 'ADB', 'UIAutomator', 'Appium', 'Android / Linux'],
@@ -490,6 +491,7 @@ const experienceCatalog: PortfolioItem[] = [
       },
       {
         label: c('Validation & Certification', '驗證與認證'),
+        body: c('Use validation and certification support to confirm whether a fix works in the original scenario and whether adjacent functions remain stable.', '透過驗證與認證支援確認修正是否能解決原始情境，並確認相鄰功能維持穩定。'),
         bullets: {
           en: ['Functional Test', 'Compatibility Test', 'OTA', 'Streaming', 'Stress Test', 'Google CTS / GTVS support', 'Regression validation'],
           zh: ['功能測試', '相容性測試', 'OTA', '串流測試', '壓力測試', 'Google CTS / GTVS 支援', '回歸驗證'],
@@ -497,7 +499,7 @@ const experienceCatalog: PortfolioItem[] = [
       },
       {
         label: c('Cross-Team Collaboration', '跨部門合作'),
-        body: c('Coordinate Customer, RD, QA, and Chip Vendor communication around SDK integration, bug tracking, validation issues, fix verification, and closure.', '協調 Customer、RD、QA 與 Chip Vendor，聚焦 SDK 整合、Bug 追蹤、驗證問題、修正驗證與結案。'),
+        body: c('Coordinate Customer, RD, QA, and Chip Vendor communication with evidence packages, version notes, bug-tracking records, fix-verification results, and closure summaries.', '以證據 Package、版本資訊、Bug 追蹤紀錄、修正驗證結果與結案摘要協調 Customer、RD、QA 與 Chip Vendor。'),
         bullets: {
           en: ['Customer', 'RD', 'QA', 'Chip Vendor'],
           zh: ['Customer', 'RD', 'QA', 'Chip Vendor'],
@@ -505,6 +507,7 @@ const experienceCatalog: PortfolioItem[] = [
       },
       {
         label: c('Documentation & Training', '文件與教育訓練'),
+        body: c('Document the reproduction path, debug evidence, validation scope, and customer-facing explanation so similar issues can be handled consistently.', '記錄問題重現路徑、Debug 證據、驗證範圍與面向客戶的說明，使相似問題能被一致處理。'),
         bullets: {
           en: ['Test Plan', 'Debug Guide', 'SOP', 'Training Material', 'Troubleshooting documentation'],
           zh: ['測試計畫', 'Debug Guide', 'SOP', '教育訓練教材', 'Troubleshooting 文件'],
@@ -512,9 +515,30 @@ const experienceCatalog: PortfolioItem[] = [
       },
       {
         label: c('Field Engineering', '現場工程支援'),
+        body: c('Support remote or on-site investigation by setting up the test environment, initializing the system, reproducing the issue, and keeping customer communication tied to evidence.', '透過測試環境架設、系統初始化、問題重現與以證據為基礎的客戶溝通，支援遠端或現場調查。'),
         bullets: {
           en: ['Remote technical support', 'On-site technical support', 'Test environment setup', 'System initialization', 'Issue reproduction', 'Customer communication'],
           zh: ['遠端技術支援', '現場技術支援', '測試環境架設', '系統初始化', '問題重現', '客戶溝通'],
+        },
+      },
+      {
+        label: c('Typical FAE Debug Scenarios', '典型 FAE 除錯情境'),
+        body: c('Recruiter-safe examples of the engineering flow used for customer issue reproduction and closure. These are scenario patterns, not confidential customer incidents.', '以下為客戶問題重現與結案常用的工程流程範例；這些是情境類型，不是機密客戶事件。'),
+        bullets: {
+          en: [
+            'Customer environment differs from internal lab: reproduce environment → collect logs → compare baseline → isolate application / framework / driver / SDK / system layer → fix verification → regression',
+            'Issue appears only on a specific software / SDK version: version comparison → good-vs-bad build → reproduce → logs / trace → isolate change → fix verification',
+            'Intermittent UI / application failure: repeatable action sequence → ADB / application logs → screenshot / trace where appropriate → frequency / condition isolation → fix verify → regression',
+            'OTA / streaming / connectivity regression: baseline version → upgrade / scenario execution → failure evidence → connectivity / application / system isolation → fix verification',
+            'Compatibility issue after system integration: customer configuration → compare supported baseline → reproduce → isolate app / framework / driver / SDK → RD / vendor coordination → closure',
+          ],
+          zh: [
+            '客戶環境與內部 Lab 不同：重建環境 → 收集 Log → 比對基準 → 隔離 Application / Framework / Driver / SDK / System Layer → 修正驗證 → 回歸',
+            '問題只出現在特定軟體 / SDK 版本：版本比對 → Good-vs-Bad Build → 重現 → Log / Trace → 隔離變更 → 修正驗證',
+            '間歇性 UI / App 失效：可重複操作序列 → ADB / App Log → 依需要擷取截圖 / Trace → 發生頻率與條件隔離 → 修正驗證 → 回歸',
+            'OTA / Streaming / 連線回歸：Baseline 版本 → 升級 / 情境執行 → 失敗證據 → 連線 / App / System 隔離 → 修正驗證',
+            '系統整合後相容性問題：客戶設定 → 比對支援基準 → 重現 → 隔離 App / Framework / Driver / SDK → RD / Vendor 協調 → 結案',
+          ],
         },
       },
       {
@@ -617,10 +641,10 @@ export const skillCategories = [
 ];
 
 export const evidenceSkills = [
-  { name: 'Python', description: c('Test Automation / Instrument Control / Log Parser / AI-NPU Validation', '測試自動化 / 儀器控制 / Log Parser / AI-NPU 驗證') },
-  { name: 'C#', description: c('ATE / Production Test / Equipment Integration', 'ATE / 產測 / 設備整合') },
-  { name: 'Jenkins', description: c('Regression / Automated Validation / Report Integration', '回歸測試 / 自動驗證 / 報告整合') },
-  { name: 'SCPI', description: c('Power Supply / Oscilloscope / VeriWave / Instrument Automation', 'Power Supply / Oscilloscope / VeriWave / 儀器自動化') },
+  { name: 'Python', description: c('Test Automation / Instrument Control / Log Parsing / AI/NPU Validation', '測試自動化 / 儀器控制 / Log 解析 / AI/NPU 驗證') },
+  { name: 'C#', description: c('ATE / Production Test / Equipment Integration / State-machine handling', 'ATE / 產測 / 設備整合 / 狀態機處理') },
+  { name: 'Jenkins', description: c('Regression / Automated Validation / Test Execution / Reporting', '回歸測試 / 自動驗證 / 測試執行 / 報告') },
+  { name: 'SCPI', description: c('Instrument Automation / PSU / Oscilloscope / Network Test Equipment', '儀器自動化 / PSU / Oscilloscope / Network Test Equipment') },
   { name: 'ADB / Appium', description: c('Android Issue Reproduction / UI Automation / Customer Debug', 'Android 問題重現 / UI 自動化 / 客戶 Debug') },
 ];
 
@@ -645,6 +669,16 @@ export const engineeringDebugMethodology = {
     c('Regression', '回歸測試'),
     c('Closure', '結案'),
   ],
+  steps: [
+    section('Requirement', '需求', 'Understand expected behavior, acceptance criteria, and failure definition.', '釐清預期行為、驗收條件與失敗定義。'),
+    section('Reproduce', '問題重現', 'Create a repeatable condition that demonstrates the issue.', '建立可重複觸發問題的條件與步驟。'),
+    section('Evidence', '證據蒐集', 'Collect logs, measurements, traces, screenshots, outputs, and environment data.', '收集 Log、量測值、Trace、畫面、輸出結果與環境資訊。'),
+    section('Isolation', '問題隔離', 'Separate HW / FW / Driver / SDK / Application / Automation layers.', '區分 HW / FW / Driver / SDK / Application / Automation 各層。'),
+    section('RCA', '根因分析', 'Identify the most defensible technical failure mechanism.', '找出最能由工程證據支持的失敗機制。'),
+    section('Fix Verification', '修正驗證', 'Retest the original failing scenario with the proposed fix.', '使用原本的失敗情境驗證修正是否有效。'),
+    section('Regression', '回歸測試', 'Verify related functions and previously passing scenarios remain stable.', '確認相關功能與原本正常案例沒有被修正影響。'),
+    section('Closure', '結案', 'Record the evidence, result, remaining risk, and final disposition.', '記錄證據、驗證結果、剩餘風險與最終處理狀態。'),
+  ],
 };
 
 export const flagshipCaseStudies: PortfolioItem[] = [
@@ -658,6 +692,7 @@ export const flagshipCaseStudies: PortfolioItem[] = [
       section('My Role', '我的角色', 'Develop Python pattern-generation and validation automation, prepare binary inputs, orchestrate execution, parse outputs, compare golden results, automate verdicts, and integrate repeatable regression flows.', '開發 Python Pattern Generator 與驗證自動化、準備 Binary 輸入、協調執行、解析輸出、比對 Golden 結果、自動化判定並整合可重複回歸流程。'),
       { label: c('What I Implemented', '我實作的內容'), bullets: { en: ['Python Pattern Generator and binary test-pattern preparation', 'Simulator / FPGA / NPU-target execution orchestration', 'Output.bin parsing and Golden Output comparison', 'Bit-accurate or numerical verdict logic', 'Failure-artifact preservation and regression reporting'], zh: ['Python Pattern Generator 與 Binary 測試 Pattern 準備', 'Simulator / FPGA / NPU Target 執行協調', 'Output.bin 解析與 Golden Output 比對', 'Bit-accurate 或數值判定邏輯', '保留失敗產出物與回歸報告'] } },
       { label: c('Technical Architecture', '技術架構'), flow: [c('Model / Test Data', '模型 / 測試資料'), c('Python Pattern Generator', 'Python Pattern Generator'), c('Pattern.bin', 'Pattern.bin'), c('Simulator / FPGA / NPU Target', 'Simulator / FPGA / NPU Target'), c('Output.bin', 'Output.bin'), c('Golden Output', 'Golden Output'), c('Automated Comparison', '自動比對'), c('Bit-accurate Validation', 'Bit-accurate 驗證'), c('PASS / FAIL', 'PASS / FAIL'), c('Regression Report', '回歸報告')] },
+      { label: c('Engineering Evidence', '工程證據'), body: c('Evidence is described by type only; proprietary binary files are not published.', '僅描述證據類型，不公開專有 Binary 檔案。'), bullets: { en: ['Pattern.bin input artifact', 'Output.bin execution result', 'Golden output reference', 'Comparison result', 'Mismatch log', 'Regression result', 'PASS / FAIL record'], zh: ['Pattern.bin 輸入產物', 'Output.bin 執行結果', 'Golden output 參考結果', '比對結果', 'Mismatch Log', '回歸結果', 'PASS / FAIL 紀錄'] } },
       section('Validation Strategy', '驗證策略', 'Use deterministic inputs, controlled execution modes, expected-versus-actual comparison, bit-accurate or numerical checks, layer/output inspection where applicable, repeatable regression, and preserved failure evidence. Validated model examples include MobileNetV2, ResNet-18, ResNet-50, VGG16, and VGG19.', '使用確定性輸入、受控執行模式、預期與實際比對、Bit-accurate 或數值檢查、適用時進行 Layer / Output 檢視、可重複回歸並保留失敗證據。已驗證範例包含 MobileNetV2、ResNet-18、ResNet-50、VGG16 與 VGG19。'),
       { label: c('Debug / RCA Method', '除錯與根因分析'), body: c('Preserve the exact input, output, execution mode, and version before isolating the failing boundary.', '先保留完整輸入、輸出、執行模式與版本，再隔離失敗邊界。'), flow: [c('Mismatch Detected', '發現不一致'), c('Preserve Input / Output', '保留輸入 / 輸出'), c('Identify Failing Stage', '識別失敗階段'), c('Compare Simulator / FPGA / Target', '比對 Simulator / FPGA / Target'), c('Format / Numerical Check', '格式 / 數值檢查'), c('Isolate Validation / SDK / HW', '隔離驗證 / SDK / HW'), c('Fix Verification', '修正驗證'), c('Regression', '回歸')] },
       { label: c('Tools & Technologies', '工具與技術'), bullets: { en: ['Python', 'FPGA / NPU Target', 'Simulator', 'Linux / SDK', 'Binary Pattern / Golden Output', 'Jenkins / CI where applicable'], zh: ['Python', 'FPGA / NPU Target', 'Simulator', 'Linux / SDK', 'Binary Pattern / Golden Output', '適用情境下的 Jenkins / CI'] } },
@@ -676,6 +711,7 @@ export const flagshipCaseStudies: PortfolioItem[] = [
       section('My Role', '我的角色', 'Develop C# / Python engineering tools and integrate the ATE-side flow, equipment communication, state-machine control, instruments, result processing, logging, timeout and exception handling, and production-debug support.', '開發 C# / Python 工程工具，並整合 ATE 端流程、設備通訊、狀態機控制、儀器、結果處理、Log、Timeout / Exception 處理與產線 Debug 支援。'),
       { label: c('What I Implemented', '我實作的內容'), bullets: { en: ['ATE flow and fixture / instrument orchestration', 'Robot communication and guarded state transitions', '1027 = Robot → ATE feedback; read-only from the ATE side', '1028 = ATE → Robot parameter / motion pulse', '1029 = ATE → Robot discharge-complete pulse', 'Timeouts, abnormal handling, structured logs, and PASS / FAIL result correlation'], zh: ['ATE 流程與治具 / 儀器協調', 'Robot 通訊與受保護的狀態轉換', '1027 = Robot → ATE 回饋；ATE 端唯讀', '1028 = ATE → Robot 參數 / 移動 Pulse', '1029 = ATE → Robot 放電完成 Pulse', 'Timeout、異常處理、結構化 Log 與 PASS / FAIL 結果關聯'] } },
       { label: c('Technical Architecture', '技術架構'), flow: [c('Test Recipe', '測試 Recipe'), c('ATE', 'ATE'), c('Fixture / Instrument Control', '治具 / 儀器控制'), c('Robot Handshake', 'Robot 握手'), c('Position Ready', '位置就緒'), c('ESD Trigger / Completion', 'ESD Trigger / 完成'), c('Result Validation', '結果驗證'), c('Log / Report', 'Log / 報告'), c('PASS / FAIL', 'PASS / FAIL')] },
+      { label: c('Engineering Evidence', '工程證據'), body: c('Employer-neutral evidence types used to separate command acceptance, equipment response, timeout behavior, and final result correlation.', '不綁定雇主的證據類型，用於區分命令接受、設備回應、Timeout 行為與最終結果關聯。'), bullets: { en: ['State / status log', 'Command / acknowledgement sequence', 'Equipment response', 'Instrument measurement', 'Timeout / exception record', 'Result correlation', 'PASS / FAIL report'], zh: ['State / Status Log', 'Command / Acknowledgement 序列', '設備回應', '儀器量測值', 'Timeout / Exception 紀錄', '結果關聯', 'PASS / FAIL 報告'] } },
       section('Validation Strategy', '驗證策略', 'Validate every state transition, acknowledgement, interlock, pulse edge, equipment status, timeout, reconnect or recovery path, stop-on-critical-failure behavior, result correlation, and report field.', '驗證每個狀態轉換、Acknowledgement、Interlock、Pulse 邊緣、設備狀態、Timeout、重連 / 復原路徑、重大失敗停止行為、結果關聯與報告欄位。'),
       { label: c('Debug / RCA Method', '除錯與根因分析'), body: c('Correlate commands, state transitions, equipment responses, timestamps, and result evidence before assigning a failure boundary.', '先關聯命令、狀態轉換、設備回應、時間戳與結果證據，再判定失敗邊界。'), flow: [c('Reproduce Sequence', '重現流程'), c('Collect ATE / Equipment Logs', '收集 ATE / 設備 Log'), c('Check State / Interlock', '檢查狀態 / Interlock'), c('Correlate Handshake', '關聯握手'), c('Isolate Communication / Equipment', '隔離通訊 / 設備'), c('Recovery Check', '復原檢查'), c('Fix Verification', '修正驗證'), c('Regression', '回歸')] },
       { label: c('Tools & Technologies', '工具與技術'), bullets: { en: ['C# / Python', 'ATE / State Machine', 'TCP/IP / Serial', 'Robot / ESD', 'DMM / Power Supply', 'Fixture / Test Point'], zh: ['C# / Python', 'ATE / State Machine', 'TCP/IP / Serial', 'Robot / ESD', 'DMM / Power Supply', 'Fixture / Test Point'] } },
@@ -694,6 +730,7 @@ export const flagshipCaseStudies: PortfolioItem[] = [
       section('My Role', '我的角色', 'Provide customer technical support, reproduce issues, develop reproduction tools and automated scripts, prepare environments, collect evidence, coordinate RD / QA / vendors, verify fixes, run regression, document results, and support remote or onsite closure.', '提供客戶技術支援、問題重現、重現工具與自動腳本開發、環境準備、證據收集、協調 RD / QA / Vendor、修正驗證、回歸、文件與遠端 / 現場結案支援。'),
       { label: c('What I Implemented', '我實作的內容'), bullets: { en: ['Repeatable reproduction procedures and environment records', 'Python / ADB automation and Android UI reproduction scripts', 'Version, configuration, Good-vs-Bad, log, screenshot, and recording evidence', 'Issue-tracking and RD-ready technical summaries', 'Regression-ready cases and customer-closure documentation'], zh: ['可重複重現步驟與環境紀錄', 'Python / ADB 自動化與 Android UI 重現腳本', '版本、設定、Good-vs-Bad、Log、截圖與錄影證據', 'Issue 追蹤與供 RD 使用的技術摘要', '可回歸案例與客戶結案文件'] } },
       { label: c('Technical Architecture', '技術架構'), flow: [c('Customer Report', '客戶回報'), c('Clarify Environment', '釐清環境'), c('Reproduce', '問題重現'), c('Capture Log / Evidence', '擷取 Log / 證據'), c('Compare Good vs Bad', 'Good vs Bad 比對'), c('Isolate Layer', '隔離 Layer'), c('RD / Vendor Analysis', 'RD / Vendor 分析'), c('Fix', '修正'), c('Fix Verification', '修正驗證'), c('Regression', '回歸'), c('Customer Closure', '客戶結案')] },
+      { label: c('Engineering Evidence', '工程證據'), body: c('Evidence is summarized by category only; customer-confidential artifacts are not published.', '僅以類型摘要呈現證據，不公開客戶機密產物。'), bullets: { en: ['Reproduction steps', 'Environment / version information', 'ADB / system log', 'Screenshot / trace where applicable', 'Good-vs-Bad comparison', 'Fix verification result', 'Regression result', 'Issue closure record'], zh: ['問題重現步驟', '環境 / 版本資訊', 'ADB / System Log', '適用情境下的截圖 / Trace', 'Good-vs-Bad 比對', '修正驗證結果', '回歸結果', '問題結案紀錄'] } },
       section('Validation Strategy', '驗證策略', 'Validate in the original or customer-equivalent environment through functional, compatibility, OTA, streaming, stress, CTS / GTVS-support, and regression checks where applicable; document residual uncertainty instead of overstating closure.', '在原始或客戶等效環境中，依情境執行 Functional、Compatibility、OTA、Streaming、Stress、CTS / GTVS 支援與回歸檢查；記錄剩餘不確定性，不誇大結案。'),
       { label: c('Debug / RCA Method', '除錯與根因分析'), body: c('Change one controlled factor at a time, preserve raw evidence, and compare expected behavior with a known-good baseline before assigning ownership.', '一次只改變一個受控因素，保留原始證據，並先與已知正常基準比對，再判定責任邊界。'), flow: [c('Symptom / Version Check', '現象 / 版本確認'), c('Reproduce', '重現'), c('Evidence Capture', '證據擷取'), c('Good vs Bad', 'Good vs Bad'), c('Layer Isolation', 'Layer 隔離'), c('RCA Tracking', 'RCA 追蹤'), c('Fix Verification', '修正驗證'), c('Regression / Closure', '回歸 / 結案')] },
       { label: c('Tools & Technologies', '工具與技術'), bullets: { en: ['Python / ADB', 'UIAutomator / Appium', 'Android / Linux', 'JMeter / Monkey / MonkeyRunner', 'Jenkins / Jira', 'CTS / GTVS support'], zh: ['Python / ADB', 'UIAutomator / Appium', 'Android / Linux', 'JMeter / Monkey / MonkeyRunner', 'Jenkins / Jira', 'CTS / GTVS 支援'] } },
