@@ -123,41 +123,43 @@ button, a { -webkit-tap-highlight-color: transparent; }
 }
 
 .nav-shell {
-  min-height: 80px;
+  min-height: 100px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 32px;
+  gap: 40px;
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  min-width: 248px;
+  gap: 16px;
   flex: 0 0 auto;
 }
 
 .brand-mark {
   display: inline-grid;
-  width: 38px;
-  height: 38px;
+  width: 60px;
+  height: 60px;
   place-items: center;
   border: 1px solid var(--ink);
   background: var(--ink);
   color: var(--accent);
   font-family: var(--mono);
-  font-size: 13px;
+  font-size: 17px;
   font-weight: 800;
   letter-spacing: 0;
 }
 
-.brand-copy { display: grid; gap: 1px; }
-.brand-copy strong { font-size: 14px; letter-spacing: 0; }
+.brand-copy { display: grid; gap: 4px; }
+.brand-copy strong { font-size: 22px; font-weight: 700; line-height: 1.1; letter-spacing: 0; }
 .brand-copy small {
   color: #607086;
   font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.07em;
+  font-size: 15px;
+  line-height: 1.2;
+  letter-spacing: 0.035em;
   text-transform: uppercase;
 }
 
@@ -170,7 +172,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   font-weight: 650;
 }
 
-.primary-nav a:not(.nav-cta) { padding-block: 12px; }
+.primary-nav a:not(.nav-cta) { padding-block: 15px; }
 .primary-nav a:not(.nav-cta):hover,
 .primary-nav a:not(.nav-cta):focus-visible { color: var(--ink); }
 
@@ -178,7 +180,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   display: inline-flex;
   align-items: center;
   gap: 16px;
-  min-height: 42px;
+  min-height: 50px;
   padding: 0 16px;
   background: var(--ink);
   color: var(--white);
@@ -773,7 +775,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 }
 
 @media (max-width: 480px) {
-  .brand-copy small { display: none; }
+  .brand-copy small { display: block; font-size: 11px; }
   .hero-actions { display: grid; }
   .button { width: 100%; }
   .system-panel { box-shadow: 10px 10px 0 rgba(11, 22, 40, 0.08); }
@@ -793,7 +795,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .theme-toggle {
   display: inline-flex;
   min-width: 76px;
-  min-height: 42px;
+  min-height: 50px;
   align-items: center;
   justify-content: center;
   gap: 7px;
@@ -817,7 +819,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 }
 .language-switch button {
   min-width: 43px;
-  min-height: 42px;
+  min-height: 50px;
   border: 0;
   background: transparent;
   color: #596b80;
@@ -828,6 +830,42 @@ button, a { -webkit-tap-highlight-color: transparent; }
 }
 .language-switch button[aria-pressed='true'] { background: var(--ink); color: var(--accent); }
 .language-switch button:hover:not([aria-pressed='true']) { background: #e5ecef; color: var(--ink); }
+
+/* Header sizing intentionally steps down before the full mobile navigation breakpoint. */
+@media (min-width: 761px) and (max-width: 960px) {
+  .nav-shell { min-height: 86px; gap: 22px; }
+  .brand { min-width: 0; gap: 14px; }
+  .brand-mark { width: 50px; height: 50px; font-size: 15px; }
+  .brand-copy strong { font-size: 20px; }
+  .brand-copy small { font-size: 13px; }
+  .primary-nav { display: none; }
+  .mobile-nav {
+    display: flex;
+    gap: 22px;
+    overflow-x: auto;
+    padding-block: 12px;
+    color: #53647a;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 650;
+    scrollbar-width: none;
+  }
+  .mobile-nav::-webkit-scrollbar { display: none; }
+  .mobile-nav a { flex: 0 0 auto; padding-block: 4px; }
+  .nav-actions { margin-left: auto; gap: 12px; }
+  .theme-toggle { min-width: 72px; min-height: 48px; }
+  .language-switch button { min-height: 48px; }
+}
+
+@media (max-width: 760px) {
+  .nav-shell { min-height: 80px; gap: 16px; }
+  .brand { min-width: 0; gap: 12px; }
+  .brand-mark { width: 46px; height: 46px; font-size: 14px; }
+  .brand-copy { gap: 3px; }
+  .brand-copy strong { font-size: 18px; }
+  .brand-copy small { font-size: 12px; }
+  .theme-toggle, .language-switch button { min-height: 46px; }
+}
 
 .capability-grid, .experience-grid {
   display: grid;
@@ -1887,7 +1925,7 @@ html[data-theme='dark'] .modal-visual img { border-color: var(--border); backgro
   .language-switch button { min-width: 39px; }
   .theme-toggle { min-width: 66px; padding-inline: 8px; }
   .nav-actions { gap: 8px; }
-  .brand-mark { width: 36px; height: 36px; }
+  .brand-mark { width: 42px; height: 42px; font-size: 13px; }
   .interactive-card { padding: 21px; }
   .interactive-card-experience { padding: 22px; }
   .contact-card { padding: 20px; }
