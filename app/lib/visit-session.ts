@@ -9,6 +9,7 @@
  */
 
 export const visitLastSeenStorageKey = 'alextsou-visit-last-seen';
+export const ownerBrowserStorageKey = 'alextsou-owner';
 export const visitSessionWindowMs = 30 * 60 * 1000;
 
 /**
@@ -23,6 +24,44 @@ export function shouldCountVisit(raw: string | null, now: number): boolean {
   if (!Number.isFinite(lastSeen) || lastSeen <= 0 || lastSeen > now) return true;
 
   return now - lastSeen >= visitSessionWindowMs;
+}
+
+/**
+ * Select the public statistics request without exposing an owner assertion to
+ * the server. The owner marker is a browser-local convenience preference only:
+ * an owner browser reads the aggregate but never posts a new visit event.
+ */
+export function publicVisitRequestMethod(
+  ownerBrowser: boolean,
+  rawLastSeen: string | null,
+  now: number,
+): 'get' | 'post' {
+  if (ownerBrowser) return 'get';
+  return shouldCountVisit(rawLastSeen, now) ? 'post' : 'get';
+}
+
+export function isOwnerBrowser(): boolean {
+  try {
+    return window.localStorage.getItem(ownerBrowserStorageKey) === 'true';
+  } catch {
+    return false;
+  }
+}
+
+export function markOwnerBrowser(): void {
+  try {
+    window.localStorage.setItem(ownerBrowserStorageKey, 'true');
+  } catch {
+    // The preference is optional; private/blocked storage must not break admin UI.
+  }
+}
+
+export function removeOwnerBrowser(): void {
+  try {
+    window.localStorage.removeItem(ownerBrowserStorageKey);
+  } catch {
+    // The preference is optional; there is nothing else to clean up.
+  }
 }
 
 export function readVisitLastSeen(): string | null {

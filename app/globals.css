@@ -2222,49 +2222,69 @@ html[data-theme='dark'] .modal-visual img { border-color: var(--border); backgro
   .modal-footer .button { width: 100%; }
 }
 
-/* Visitor statistics — subtle public counter */
+/* Visitor statistics — compact public badge */
 .footer-meta {
   display: flex;
   justify-content: center;
-  min-height: 20px;
+  min-height: 56px;
   margin-top: 18px;
 }
 
 .visitor-counter {
   display: inline-flex;
   flex-wrap: wrap;
-  align-items: baseline;
+  align-items: center;
   justify-content: center;
-  column-gap: 10px;
-  row-gap: 2px;
+  column-gap: 16px;
+  row-gap: 7px;
   margin: 0;
-  color: #6a7e95;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 12px;
+  background: #2C3A48;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.24);
+  color: #E1E8EF;
   font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  padding: 11px 16px;
 }
 
 .visitor-counter-item {
   display: inline-flex;
   align-items: baseline;
-  gap: 6px;
+  gap: 9px;
   white-space: nowrap;
 }
 
 .visitor-counter-sep {
-  color: #48586c;
+  display: none;
 }
+
+.visitor-counter-label { color: #E1E8EF; }
 
 .visitor-counter-value {
-  color: #9fb0c2;
+  color: #BCC9D6;
   font-size: 12px;
-  font-weight: 650;
-  letter-spacing: 0.04em;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
 }
 
+.visitor-counter-item:first-child .visitor-counter-value {
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 750;
+  letter-spacing: 0;
+}
+
+[data-theme='dark'] .visitor-counter { background: #314354; }
+
 @media (max-width: 480px) {
-  .visitor-counter-sep { display: none; }
+  .visitor-counter {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 11px 14px;
+  }
 }
 
 /* Visitor statistics — private admin dashboard (/admin/visits) */
@@ -2370,6 +2390,25 @@ html[data-theme='dark'] .modal-visual img { border-color: var(--border); backgro
 }
 
 .admin-summary strong { font-size: clamp(22px, 3.4vw, 30px); font-variant-numeric: tabular-nums; }
+
+.admin-owner-control {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.admin-owner-control > div { min-width: min(100%, 420px); }
+.admin-owner-status { margin: 8px 0 0; color: var(--text-primary); font-weight: 700; }
+.admin-owner-control .admin-note { max-width: 760px; }
+.admin-shell button:focus-visible,
+.admin-shell select:focus-visible,
+.admin-signin input:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent-gold) 65%, transparent);
+  outline-offset: 3px;
+}
 
 .admin-log-toolbar {
   display: flex;

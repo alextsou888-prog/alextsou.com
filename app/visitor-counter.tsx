@@ -10,7 +10,12 @@
 
 import { useEffect, useState } from 'react';
 import { formatTaipeiMinute } from './lib/taipei-time';
-import { readVisitLastSeen, shouldCountVisit, writeVisitLastSeen } from './lib/visit-session';
+import {
+  isOwnerBrowser,
+  publicVisitRequestMethod,
+  readVisitLastSeen,
+  writeVisitLastSeen,
+} from './lib/visit-session';
 
 type CounterState = { total: number; lastVisitUtc: string | null };
 
@@ -27,13 +32,18 @@ function readCounterState(payload: unknown): CounterState | null {
 
 async function loadCounterState(): Promise<CounterState | null> {
   const now = Date.now();
-  const countsAsNewVisit = shouldCountVisit(readVisitLastSeen(), now);
-  writeVisitLastSeen(now);
+  const ownerBrowser = isOwnerBrowser();
+  const requestMethod = publicVisitRequestMethod(ownerBrowser, readVisitLastSeen(), now);
+
+  // An owner browser is excluded locally before any event request is made.
+  // Its normal session timestamp is left untouched, so removing the flag
+  // resumes the established 30-minute flow without changing its semantics.
+  if (!ownerBrowser) writeVisitLastSeen(now);
 
   try {
     // A due visit returns the same privacy-safe counter state as the read-only
     // endpoint, so every page load needs exactly one public statistics request.
-    const response = countsAsNewVisit
+    const response = requestMethod === 'post'
       ? await fetch('/api/visit', {
           method: 'POST',
           headers: { 'content-type': 'application/json' },

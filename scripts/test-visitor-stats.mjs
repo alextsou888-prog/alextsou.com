@@ -12,7 +12,15 @@
 import { readFileSync } from 'node:fs';
 
 import { formatTaipeiMinute, formatTaipeiParts, taipeiDayStartUtcIso } from '../app/lib/taipei-time.ts';
-import { shouldCountVisit, visitSessionWindowMs } from '../app/lib/visit-session.ts';
+import {
+  isOwnerBrowser,
+  markOwnerBrowser,
+  ownerBrowserStorageKey,
+  publicVisitRequestMethod,
+  removeOwnerBrowser,
+  shouldCountVisit,
+  visitSessionWindowMs,
+} from '../app/lib/visit-session.ts';
 
 const siteUrl = new URL(process.env.SITE_URL ?? 'http://localhost:3000/');
 const results = [];
@@ -60,6 +68,32 @@ check('30-MINUTE DEDUP: 31 minutes counts', shouldCountVisit(String(now - 31 * 6
 check('30-MINUTE DEDUP: corrupted value counts once', shouldCountVisit('not-a-number', now) === true);
 check('30-MINUTE DEDUP: future timestamp counts once', shouldCountVisit(String(now + 60_000), now) === true);
 
+check('OWNER EXCLUSION: storage key is local-only alextsou-owner', ownerBrowserStorageKey === 'alextsou-owner');
+const ownerStorage = new Map();
+globalThis.window = {
+  localStorage: {
+    getItem: (key) => ownerStorage.get(key) ?? null,
+    setItem: (key, value) => ownerStorage.set(key, value),
+    removeItem: (key) => ownerStorage.delete(key),
+  },
+};
+markOwnerBrowser();
+check('OWNER EXCLUSION: admin mark persists local true flag', isOwnerBrowser() && ownerStorage.get(ownerBrowserStorageKey) === 'true');
+removeOwnerBrowser();
+check('OWNER EXCLUSION: admin removal clears local flag', !isOwnerBrowser() && !ownerStorage.has(ownerBrowserStorageKey));
+check('OWNER EXCLUSION: absent flag follows normal due-visit POST behavior', publicVisitRequestMethod(false, null, now) === 'post');
+check('OWNER EXCLUSION: true flag sends no visitor POST', publicVisitRequestMethod(true, null, now) === 'get');
+check('OWNER EXCLUSION: removing flag resumes normal POST behavior', publicVisitRequestMethod(false, null, now) === 'post');
+for (const hash of ['#about', '#skills', '#contact']) {
+  check(`OWNER EXCLUSION: ${hash} uses count-only GET`, publicVisitRequestMethod(true, null, now) === 'get');
+}
+check('OWNER EXCLUSION: refresh uses count-only GET', publicVisitRequestMethod(true, null, now) === 'get');
+check(
+  'OWNER EXCLUSION: normal visitor 30-minute dedup is unchanged',
+  publicVisitRequestMethod(false, String(now - 1_000), now) === 'get'
+    && publicVisitRequestMethod(false, String(now - visitSessionWindowMs), now) === 'post',
+);
+
 const taipei = formatTaipeiParts('2026-08-22T19:18:42.123Z');
 check(
   'TAIPEI DISPLAY: UTC 2026-08-22T19:18:42Z renders as 2026/08/23 03:18:42',
@@ -88,6 +122,10 @@ check('SITE: homepage loads', homepage.ok, `status ${homepage.status}`);
 
 const homepageHtml = homepage.ok ? await homepage.text() : '';
 check('SITE: admin page is not linked from the public site', !homepageHtml.includes('/admin/visits'));
+check(
+  'SITE: public portfolio exposes no owner-management controls',
+  !homepageHtml.includes('Mark this browser as owner') && !homepageHtml.includes('將此瀏覽器設為站長瀏覽器'),
+);
 
 const before = await jsonOf(await api('/api/visit/count'));
 check('PUBLIC COUNT API: returns a numeric total', typeof before?.total === 'number', JSON.stringify(before));

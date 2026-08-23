@@ -11,6 +11,11 @@
 
 import { useCallback, useEffect, useState, type FormEvent } from 'react';
 import { formatTaipeiParts } from '@/app/lib/taipei-time';
+import {
+  isOwnerBrowser,
+  markOwnerBrowser,
+  removeOwnerBrowser,
+} from '@/app/lib/visit-session';
 
 type VisitEvent = { id: number; visitedAtUtc: string; path: string };
 type VisitSummary = { total: number; today: number; last7Days: number; last30Days: number };
@@ -39,6 +44,7 @@ export function AdminVisitsClient() {
   const [data, setData] = useState<AdminPayload | null>(null);
   const [status, setStatus] = useState<'idle' | 'loading' | 'ready' | 'error'>('idle');
   const [errorKey, setErrorKey] = useState<string | null>(null);
+  const [ownerBrowser, setOwnerBrowser] = useState(false);
 
   // Restoring the token after paint keeps the server-rendered sign-in form and the
   // first client render identical, the same approach the portfolio uses for the theme.
@@ -51,6 +57,11 @@ export function AdminVisitsClient() {
         // Sign-in simply has to be repeated when session storage is unavailable.
       }
     });
+    return () => window.cancelAnimationFrame(frame);
+  }, []);
+
+  useEffect(() => {
+    const frame = window.requestAnimationFrame(() => setOwnerBrowser(isOwnerBrowser()));
     return () => window.cancelAnimationFrame(frame);
   }, []);
 
@@ -123,6 +134,16 @@ export function AdminVisitsClient() {
     setOffset(0);
   };
 
+  const enableOwnerExclusion = () => {
+    markOwnerBrowser();
+    setOwnerBrowser(isOwnerBrowser());
+  };
+
+  const disableOwnerExclusion = () => {
+    removeOwnerBrowser();
+    setOwnerBrowser(isOwnerBrowser());
+  };
+
   if (!token) {
     return (
       <main className="admin-shell">
@@ -170,6 +191,27 @@ export function AdminVisitsClient() {
 
       {errorKey && (
         <p className="admin-error" role="alert">{errorMessages[errorKey] ?? errorMessages.unavailable}</p>
+      )}
+
+      {data && (
+        <section className="admin-card admin-owner-control" aria-labelledby="owner-browser-title">
+          <div>
+            <h2 id="owner-browser-title">站長瀏覽器排除 / Owner-browser exclusion</h2>
+            <p className="admin-owner-status">
+              {ownerBrowser
+                ? '本站瀏覽器：不計入訪問統計 / Owner browser: excluded from visit tracking'
+                : '本站瀏覽器：正常計入訪問統計 / Owner browser: counted normally'}
+            </p>
+            <p className="admin-note">
+              啟用後，此瀏覽器的新訪問不再計入；既有歷史資料無法區分站長與外部訪客。此設定僅限此瀏覽器／設定檔；無痕、手機或其他瀏覽器需另行設定。 / After enabling, new visits from this browser are not counted. Historical records cannot distinguish owner visits from external visits. This setting applies only to this browser/profile; incognito, phones, and other browsers must be set separately.
+            </p>
+          </div>
+          <button type="button" onClick={ownerBrowser ? disableOwnerExclusion : enableOwnerExclusion}>
+            {ownerBrowser
+              ? '取消站長瀏覽器排除 / Remove owner-browser exclusion'
+              : '將此瀏覽器設為站長瀏覽器 / Mark this browser as owner'}
+          </button>
+        </section>
       )}
 
       <section className="admin-summary" aria-label="Summary">
