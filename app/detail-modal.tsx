@@ -117,7 +117,7 @@ export function DetailModal({ item, language, onLanguageChange, closeLabel, cont
 
         <div className="detail-sections">
           {item.sections.map((entry, index) => (
-            <section className={`detail-section${entry.label.en === 'Ownership Boundary' ? ' detail-section-boundary' : ''}`} key={`${entry.label.en}-${index}`}>
+            <section className={`detail-section${entry.label.en === 'Technical Scope' ? ' detail-section-boundary' : ''}`} key={`${entry.label.en}-${index}`}>
               <h3>{entry.label[language]}</h3>
               {entry.body && <p>{entry.body[language]}</p>}
               {entry.bullets && (
