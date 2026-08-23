@@ -25,6 +25,8 @@ import {
 } from './portfolio-content';
 
 const allItems = [...focusItems, ...experienceItems, ...flagshipCaseStudies, ...visualItems, ...projectItems];
+const snapshotMethodIds = ['capability-automation', 'capability-validation', 'capability-debug-rca', 'capability-system-integration'];
+const snapshotMethods = focusItems.filter((item) => snapshotMethodIds.includes(item.id));
 const contactEmail = 'alextsou888@gmail.com';
 const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${contactEmail}&su=Portfolio%20Inquiry%20-%20Alex%20Tsou`;
 type Theme = 'light' | 'dark';
@@ -45,6 +47,7 @@ function PortfolioCard({ item, language, openLabel, tone = 'light', onOpen }: {
 }) {
   return (
     <button
+      id={item.id}
       className={`interactive-card interactive-card-${tone} interactive-card-${item.id}`}
       type="button"
       onClick={() => onOpen(item.id)}
@@ -256,8 +259,8 @@ export function PortfolioClient({ initialLanguage = 'zh' }: { initialLanguage?: 
   };
 
   const panelLines = language === 'en'
-    ? ['automation', 'validation', 'fae', 'camera_ai', 'ate']
-    : ['自動化', '驗證', 'FAE', 'Camera_AI', 'ATE_產測'];
+    ? ['ai_npu', 'camera_imaging', 'connectivity', 'customer_engineering', 'ate_robot_esd']
+    : ['AI_NPU', 'Camera_影像', '連線驗證', '客戶工程', 'ATE_Robot_ESD'];
 
   return (
     <>
@@ -270,7 +273,7 @@ export function PortfolioClient({ initialLanguage = 'zh' }: { initialLanguage?: 
           </a>
           <div className="nav-actions">
             <nav className="primary-nav" aria-label={t.navLabel}>
-              <a href="#about">{t.about}</a><a href="#skills">{t.skills}</a><a href="#experience">{t.experience}</a><a href="#resume">{t.resume}</a><a href="#visual-portfolio">{t.visualPortfolio}</a><a href="#projects">{t.projects}</a>
+              <a href="#about">{t.about}</a><a href="#case-studies">{t.cases}</a><a href="#domains">{t.domains}</a><a href="#skills">{t.skills}</a><a href="#experience">{t.experience}</a><a href="#resume">{t.resume}</a>
               <a className="nav-cta" href="#contact">{t.contact} <span aria-hidden="true">↗</span></a>
             </nav>
             <button
@@ -300,7 +303,7 @@ export function PortfolioClient({ initialLanguage = 'zh' }: { initialLanguage?: 
           </div>
         </div>
         <nav className="mobile-nav container" aria-label={t.navLabel}>
-          <a href="#about">{t.about}</a><a href="#skills">{t.skills}</a><a href="#experience">{t.experience}</a><a href="#resume">{t.resume}</a><a href="#visual-portfolio">{t.visualPortfolio}</a><a href="#projects">{t.projects}</a><a href="#contact">{t.contact}</a>
+          <a href="#case-studies">{t.cases}</a><a href="#domains">{t.domains}</a><a href="#skills">{t.skills}</a><a href="#experience">{t.experience}</a><a href="#resume">{t.resume}</a><a href="#about">{t.about}</a><a href="#contact">{t.contact}</a>
         </nav>
       </header>
 
@@ -309,13 +312,12 @@ export function PortfolioClient({ initialLanguage = 'zh' }: { initialLanguage?: 
           <div className="hero-grid container">
             <div className="hero-copy">
               <p className="eyebrow"><span className="status-dot" aria-hidden="true" />{t.eyebrow}</p>
-              <h1 id="hero-title">{t.heroA} <span>{t.heroB}</span></h1>
+              <h1 id="hero-title">{t.heroA}</h1>
               <p className="hero-lede">{t.heroLead}</p>
+              <p className="hero-context">{t.heroContext}</p>
               <div className="hero-actions">
-                <a className="button button-primary" href="#resume">{t.viewResume} <span aria-hidden="true">↓</span></a>
-                <a className="button button-secondary" href="#visual-portfolio">{t.viewTechnicalPortfolio} <span aria-hidden="true">↓</span></a>
-                <a className="button button-secondary" href="#contact">{language === 'en' ? 'Contact Me' : '與我聯絡'}</a>
-                <a className="button button-ghost" href="#skills">{t.explore}</a>
+                <a className="button button-primary" href="#case-studies">{t.viewEngineeringCases} <span aria-hidden="true">↓</span></a>
+                <a className="button button-secondary" href="#domains">{t.exploreTechnicalDomains} <span aria-hidden="true">↓</span></a>
               </div>
             </div>
             <div className="system-panel" aria-label={t.panelLabel}>
@@ -326,8 +328,72 @@ export function PortfolioClient({ initialLanguage = 'zh' }: { initialLanguage?: 
           </div>
         </section>
 
-        <section className="section section-line" id="about" aria-labelledby="about-title">
-          <div className="container split-layout"><div><p className="section-kicker">{t.aboutKicker}</p><h2 id="about-title">{t.aboutTitle}</h2></div><div className="about-body"><p>{t.aboutP1}</p><p>{t.aboutP2}</p><div className="principles-grid">{t.principles.map((principle, index) => <article className="principle" key={principle[0]}><span>{String(index + 1).padStart(2, '0')}</span><h3>{principle[0]}</h3><p>{principle[1]}</p></article>)}</div></div></div>
+        <section className="engineering-snapshot" aria-labelledby="snapshot-title">
+          <div className="container snapshot-shell">
+            <div className="snapshot-heading">
+              <p className="section-kicker">{t.engineeringSnapshotKicker}</p>
+              <h2 id="snapshot-title">{t.engineeringSnapshotTitle}</h2>
+            </div>
+            <div className="snapshot-index">
+              <section aria-labelledby="snapshot-methods-title">
+                <h3 id="snapshot-methods-title">{t.engineeringSnapshotMethods}</h3>
+                <ul className="method-chip-list">
+                  {snapshotMethods.map((item) => <li key={item.id}><a href="#skills">{item.title[language]}</a></li>)}
+                </ul>
+              </section>
+              <section aria-labelledby="snapshot-cases-title">
+                <h3 id="snapshot-cases-title">{t.engineeringSnapshotCases}</h3>
+                <div className="case-shortcut-list">
+                  {flagshipCaseStudies.map((item) => <a key={item.id} href={`#${item.id}`}><span>{item.index}</span><strong>{item.title[language]}</strong><b aria-hidden="true">↓</b></a>)}
+                </div>
+              </section>
+            </div>
+          </div>
+        </section>
+
+        <section className="section section-line flagship-section" id="case-studies" aria-labelledby="flagship-title">
+          <div className="container">
+            <div className="section-heading">
+              <div><p className="section-kicker">{t.flagshipKicker}</p><h2 id="flagship-title">{t.flagshipTitle}</h2></div>
+              <p>{t.flagshipLead}</p>
+            </div>
+            <div className="flagship-grid">
+              {flagshipCaseStudies.map((item) => (
+                <PortfolioCard key={item.id} item={item} language={language} openLabel={t.viewCaseStudy} tone="case-study" onOpen={setActiveId} />
+              ))}
+            </div>
+            <section className="debug-methodology debug-methodology-standalone" aria-labelledby="debug-methodology-title">
+              <div className="skills-proof-heading">
+                <h3 id="debug-methodology-title">{engineeringDebugMethodology.title[language]}</h3>
+                <p>{engineeringDebugMethodology.lead[language]}</p>
+              </div>
+              <div className="detail-flow" aria-label={engineeringDebugMethodology.title[language]}>
+                {engineeringDebugMethodology.flow.map((step, index) => (
+                  <span className="flow-step" key={step.en}>
+                    <span>{step[language]}</span>
+                    {index < engineeringDebugMethodology.flow.length - 1 && <b aria-hidden="true">→</b>}
+                  </span>
+                ))}
+              </div>
+              <div className="methodology-step-grid">
+                {engineeringDebugMethodology.steps.map((step) => (
+                  <article className="methodology-step" key={step.label.en}>
+                    <h4>{step.label[language]}</h4>
+                    <p>{step.body?.[language]}</p>
+                  </article>
+                ))}
+              </div>
+            </section>
+          </div>
+        </section>
+
+        <section className="section section-muted technical-domains-section" id="domains" aria-labelledby="domains-title">
+          <div className="container">
+            <div className="section-heading"><div><p className="section-kicker">{t.domainsKicker}</p><h2 id="domains-title">{t.domainsTitle}</h2></div><p>{t.domainsLead}</p></div>
+            <div className="domain-grid">
+              {domainExperiences.map((domain) => <DomainCard key={domain.id} domain={domain} language={language} onOpen={setActiveId} />)}
+            </div>
+          </div>
         </section>
 
         <section className="section section-muted engineering-capabilities" id="skills" aria-labelledby="skills-title">
@@ -419,21 +485,6 @@ export function PortfolioClient({ initialLanguage = 'zh' }: { initialLanguage?: 
                 </section>
               </section>
 
-              <section className="domain-experience" id="domains" aria-labelledby="domains-title">
-                <div className="domain-heading">
-                  <div>
-                    <p className="resume-block-kicker">{t.domainsKicker}</p>
-                    <h3 id="domains-title">{t.domainsTitle}</h3>
-                  </div>
-                  <p>{t.domainsLead}</p>
-                </div>
-                <div className="domain-grid">
-                  {domainExperiences.map((domain) => (
-                    <DomainCard key={domain.id} domain={domain} language={language} onOpen={setActiveId} />
-                  ))}
-                </div>
-              </section>
-
               <article className="education-card">
                 <div>
                   <p className="resume-block-kicker">02 / {t.educationTitle}</p>
@@ -497,40 +548,8 @@ export function PortfolioClient({ initialLanguage = 'zh' }: { initialLanguage?: 
           </div>
         </section>
 
-        <section className="section section-line flagship-section" id="case-studies" aria-labelledby="flagship-title">
-          <div className="container">
-            <div className="section-heading">
-              <div><p className="section-kicker">{t.flagshipKicker}</p><h2 id="flagship-title">{t.flagshipTitle}</h2></div>
-              <p>{t.flagshipLead}</p>
-            </div>
-            <div className="flagship-grid">
-              {flagshipCaseStudies.map((item) => (
-                <PortfolioCard key={item.id} item={item} language={language} openLabel={t.viewCaseStudy} tone="case-study" onOpen={setActiveId} />
-              ))}
-            </div>
-            <section className="debug-methodology debug-methodology-standalone" aria-labelledby="debug-methodology-title">
-              <div className="skills-proof-heading">
-                <h3 id="debug-methodology-title">{engineeringDebugMethodology.title[language]}</h3>
-                <p>{engineeringDebugMethodology.lead[language]}</p>
-              </div>
-              <div className="detail-flow" aria-label={engineeringDebugMethodology.title[language]}>
-                {engineeringDebugMethodology.flow.map((step, index) => (
-                  <span className="flow-step" key={step.en}>
-                    <span>{step[language]}</span>
-                    {index < engineeringDebugMethodology.flow.length - 1 && <b aria-hidden="true">→</b>}
-                  </span>
-                ))}
-              </div>
-              <div className="methodology-step-grid">
-                {engineeringDebugMethodology.steps.map((step) => (
-                  <article className="methodology-step" key={step.label.en}>
-                    <h4>{step.label[language]}</h4>
-                    <p>{step.body?.[language]}</p>
-                  </article>
-                ))}
-              </div>
-            </section>
-          </div>
+        <section className="section section-line" id="about" aria-labelledby="about-title">
+          <div className="container split-layout"><div><p className="section-kicker">{t.aboutKicker}</p><h2 id="about-title">{t.aboutTitle}</h2></div><div className="about-body"><p>{t.aboutP1}</p><p>{t.aboutP2}</p><div className="principles-grid">{t.principles.map((principle, index) => <article className="principle" key={principle[0]}><span>{String(index + 1).padStart(2, '0')}</span><h3>{principle[0]}</h3><p>{principle[1]}</p></article>)}</div></div></div>
         </section>
 
         <section className="section section-line" id="visual-portfolio" aria-labelledby="visual-title">
