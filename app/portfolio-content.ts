@@ -97,7 +97,7 @@ export const ui = {
     projectsKicker: '09 / Projects', projectsTitle: 'Selected project areas',
     projectsLead: 'Expandable technical briefs prepared for verified case studies, artifacts, and results.',
     contactKicker: '10 / Contact',
-    contactSectionTitle: 'Contact Daniel',
+    contactSectionTitle: 'Contact Alex',
     contactSectionLead: 'Send an email directly or leave a private message with enough contact information for a reply.',
     sendEmailTitle: 'Send Email',
     sendEmailBody: 'Open Gmail Web Compose in a new tab with the portfolio contact subject prepared.',

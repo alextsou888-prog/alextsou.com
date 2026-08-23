@@ -1445,21 +1445,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 }
 
 .snapshot-profile {
-  display: grid;
-  grid-template-columns: 140px minmax(0, 1fr);
-  gap: 28px;
-  align-items: center;
-}
-
-.snapshot-photo {
-  display: block;
-  width: 140px;
-  height: 140px;
-  border: 2px solid rgba(169, 139, 99, 0.62);
-  border-radius: 18px;
-  background: var(--champagne);
-  object-fit: cover;
-  object-position: center 32%;
+  min-width: 0;
 }
 
 .resume-block-kicker {
@@ -2133,10 +2119,6 @@ html[data-theme='dark'] .career-snapshot,
 html[data-theme='dark'] .education-card {
   background: linear-gradient(135deg, #182334, #1d293a);
 }
-html[data-theme='dark'] .snapshot-photo {
-  border-color: rgba(145, 169, 189, 0.72);
-  background: var(--card-secondary);
-}
 html[data-theme='dark'] .resume-downloads,
 html[data-theme='dark'] .resume-download-link,
 html[data-theme='dark'] .contact-resume-links a {
@@ -2296,15 +2278,7 @@ html[data-theme='dark'] .modal-visual img { border-color: var(--border); backgro
   .interactive-card-experience .card-summary { font-size: 16px; }
   .career-snapshot, .domain-experience, .education-card, .resume-panel, .resume-technical { padding: 24px; }
   .snapshot-profile {
-    grid-template-columns: 1fr;
-    gap: 18px;
-    justify-items: center;
     text-align: center;
-  }
-  .snapshot-photo {
-    width: 112px;
-    height: 112px;
-    border-radius: 16px;
   }
   .snapshot-profile-meta { justify-content: center; font-size: 12px; }
   .snapshot-summary { font-size: 16px; }

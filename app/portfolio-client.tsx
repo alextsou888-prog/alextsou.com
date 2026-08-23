@@ -420,15 +420,6 @@ export function PortfolioClient({ initialLanguage = 'zh' }: { initialLanguage?: 
             <div className="resume-layout">
               <section className="career-snapshot" aria-labelledby="career-snapshot-title">
                 <div className="snapshot-profile">
-                  <img
-                    className="snapshot-photo"
-                    src="/portfolio/alex-tsou-headshot.jpg"
-                    alt={language === 'en' ? 'Professional portrait of Alex Tsou' : '鄒志清專業形象照'}
-                    width={140}
-                    height={140}
-                    loading="lazy"
-                    decoding="async"
-                  />
                   <div className="snapshot-intro">
                     <p className="resume-block-kicker">01 / {t.snapshotTitle}</p>
                     <h3 id="career-snapshot-title">{careerSnapshot.name[language]}</h3>
