@@ -9,8 +9,6 @@ import {
   careerSnapshot,
   domainExperiences,
   engineeringDebugMethodology,
-  evidenceSkills,
-  evidenceSkillsIntro,
   experienceItems,
   flagshipCaseStudies,
   focusItems,
@@ -52,6 +50,7 @@ function PortfolioCard({ item, language, openLabel, tone = 'light', onOpen }: {
       onClick={() => onOpen(item.id)}
       aria-haspopup="dialog"
       aria-label={`${openLabel}: ${item.title[language]}`}
+      data-capability-card={item.id.startsWith('capability-') ? item.id : undefined}
     >
       <span className="card-topline"><span>{item.index}</span><span className="card-open-icon" aria-hidden="true">↗</span></span>
       {item.career ? (
@@ -62,7 +61,7 @@ function PortfolioCard({ item, language, openLabel, tone = 'light', onOpen }: {
           <span className="career-tenure">{language === 'en' ? 'Tenure: ' : '年資：'}{item.career.tenure[language]}</span>
           {item.career.management && <span className="career-management">{item.career.management[language]}</span>}
         </>
-      ) : <span className="card-title">{item.title[language]}</span>}
+      ) : <span className="card-title" role="heading" aria-level={3}>{item.title[language]}</span>}
       <span className="card-summary">{item.summary[language]}</span>
       <span className="card-tags">{item.tags.map((tag) => <span key={tag}>{tag}</span>)}</span>
       <span className="card-action">{openLabel}<span aria-hidden="true"> →</span></span>
@@ -321,26 +320,10 @@ export function PortfolioClient({ initialLanguage = 'zh' }: { initialLanguage?: 
           <div className="container split-layout"><div><p className="section-kicker">{t.aboutKicker}</p><h2 id="about-title">{t.aboutTitle}</h2></div><div className="about-body"><p>{t.aboutP1}</p><p>{t.aboutP2}</p><div className="principles-grid">{t.principles.map((principle, index) => <article className="principle" key={principle[0]}><span>{String(index + 1).padStart(2, '0')}</span><h3>{principle[0]}</h3><p>{principle[1]}</p></article>)}</div></div></div>
         </section>
 
-        <section className="section section-muted" id="skills" aria-labelledby="skills-title">
+        <section className="section section-muted engineering-capabilities" id="skills" aria-labelledby="skills-title">
           <div className="container">
             <div className="section-heading"><div><p className="section-kicker">{t.skillsKicker}</p><h2 id="skills-title">{t.skillsTitle}</h2></div><p>{t.skillsLead}</p></div>
-            <div className="capability-grid">{focusItems.map((item) => <PortfolioCard key={item.id} item={item} language={language} openLabel={t.open} onOpen={setActiveId} />)}</div>
-            <div className="skills-proof-grid">
-              <section className="evidence-skills" aria-labelledby="evidence-skills-title">
-                <div className="skills-proof-heading">
-                  <h3 id="evidence-skills-title">{evidenceSkillsIntro.title[language]}</h3>
-                  <p>{evidenceSkillsIntro.lead[language]}</p>
-                </div>
-                <div className="evidence-skill-list">
-                  {evidenceSkills.map((skill) => (
-                    <article key={skill.name}>
-                      <strong>{skill.name}</strong>
-                      <p>{skill.description[language]}</p>
-                    </article>
-                  ))}
-                </div>
-              </section>
-            </div>
+            <div className="capability-grid">{focusItems.map((item) => <PortfolioCard key={item.id} item={item} language={language} openLabel={t.capabilityDetails} onOpen={setActiveId} />)}</div>
           </div>
         </section>
 
@@ -561,6 +544,7 @@ export function PortfolioClient({ initialLanguage = 'zh' }: { initialLanguage?: 
                 <p>{t.sendEmailBody}</p>
                 <a className="button button-primary" href={gmailComposeUrl} target="_blank" rel="noopener noreferrer">{t.sendEmailButton}</a>
                 <button className="button button-secondary" type="button" onClick={copyEmail}>{copiedEmail ? t.emailCopied : t.copyEmail}</button>
+                <p className="contact-availability-note">{t.messagingAvailability}</p>
                 <p className="contact-email">{contactEmail}</p>
               </article>
 

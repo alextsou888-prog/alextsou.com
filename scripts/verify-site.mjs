@@ -33,6 +33,25 @@ if (!response || !response.ok) {
     fail(`Expected exactly 6 product / technical domain cards, found ${domainCards.length}`);
   }
 
+  const capabilityCards = [...html.matchAll(/data-capability-card=["']([^"']+)["']/g)].map((match) => match[1]);
+  const expectedCapabilities = [
+    'capability-automation',
+    'capability-validation',
+    'capability-debug-rca',
+    'capability-system-integration',
+    'capability-customer-engineering',
+    'capability-test-architecture',
+  ];
+  if (capabilityCards.length !== 6 || expectedCapabilities.some((id) => !capabilityCards.includes(id))) {
+    fail(`Expected exactly 6 engineering capability cards, found: ${capabilityCards.join(', ') || 'none'}`);
+  }
+  if (!html.includes('核心工程能力')) fail('Missing Engineering Capabilities section title');
+
+  const forbiddenPublicWording = ['職缺快速對照', '職缺對照', '職缺匹配', '求職對照'];
+  for (const phrase of forbiddenPublicWording) {
+    if (html.includes(phrase)) fail(`Forbidden public job-match wording remains: ${phrase}`);
+  }
+
   const requiredSeo = [
     '<title>',
     'name="description"',
