@@ -63,6 +63,26 @@ if (!response || !response.ok) {
     if (!html.includes(marker)) fail(`Missing SEO marker: ${marker}`);
   }
 
+  const expectedMetadata = [
+    'Alex Tsou — Engineering Portfolio',
+    'Automation · Validation · Debug &amp; RCA · System Integration · AI/NPU · Camera · Connectivity · Customer Engineering',
+    'https://alextsou.com/portfolio/alex-tsou-og-preview.png',
+    'content="1200"',
+    'content="630"',
+    'summary_large_image',
+  ];
+  for (const marker of expectedMetadata) {
+    if (!html.includes(marker)) fail(`Missing expected social metadata: ${marker}`);
+  }
+
+  for (const href of [
+    '/resume/alex-tsou-resume-zh.pdf',
+    '/resume/alex-tsou-resume-en.pdf',
+    '/resume/alex-tsou-engineering-portfolio-zh.pdf',
+  ]) {
+    if (!html.includes(href)) fail(`Missing resume download link: ${href}`);
+  }
+
   const attrPattern = /(?:href|src)=["']([^"']+)["']/g;
   const rawTargets = [...html.matchAll(attrPattern)].map((match) => match[1]);
   const targets = [...new Set(rawTargets)].filter(
@@ -84,7 +104,14 @@ if (!response || !response.ok) {
   }
 }
 
-for (const path of ['/robots.txt', '/sitemap.xml', '/icon.png', '/og.png']) {
+for (const path of [
+  '/robots.txt',
+  '/sitemap.xml',
+  '/icon.png',
+  '/portfolio/alex-tsou-og-preview.png',
+  '/resume/alex-tsou-engineering-portfolio-zh.pdf',
+  '/resume/alex-tsou-engineering-portfolio-en.pdf',
+]) {
   const url = new URL(path, siteUrl);
   const assetResponse = await get(url);
   if (assetResponse && !assetResponse.ok) {

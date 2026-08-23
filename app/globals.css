@@ -1449,7 +1449,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 
 .resume-download-actions {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
 }
 
@@ -1472,6 +1472,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 }
 
 .resume-download-link span { color: #765f41; font-size: 18px; }
+.resume-download-link-secondary { background: rgba(239, 247, 248, 0.82); }
 .resume-download-link:hover { border-color: #765f41; background: #fff; color: var(--deep-ink); }
 .resume-download-link:focus-visible {
   outline: 3px solid rgba(91, 140, 255, 0.38);

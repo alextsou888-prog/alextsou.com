@@ -135,8 +135,18 @@ export function PortfolioClient({ initialLanguage = 'zh' }: { initialLanguage?: 
   // current page session. A full reload (or a new tab) always starts in
   // Traditional Chinese, so no cookie or localStorage write happens here.
 
-  useEffect(() => {
-    const initialTheme = document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
+  useLayoutEffect(() => {
+    let initialTheme: Theme;
+    try {
+      const saved = window.localStorage.getItem('alextsou-theme');
+      initialTheme = saved === 'light' || saved === 'dark'
+        ? saved
+        : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    } catch {
+      initialTheme = 'light';
+    }
+    document.documentElement.dataset.theme = initialTheme;
+    document.documentElement.style.colorScheme = initialTheme;
     const frame = window.requestAnimationFrame(() => setTheme(initialTheme));
     return () => window.cancelAnimationFrame(frame);
   }, []);
@@ -395,6 +405,15 @@ export function PortfolioClient({ initialLanguage = 'zh' }: { initialLanguage?: 
                     >
                       <span aria-hidden="true">↓</span>
                       {t.downloadEnglishResume}
+                    </a>
+                    <a
+                      className="resume-download-link resume-download-link-secondary"
+                      href={language === 'zh' ? '/resume/alex-tsou-engineering-portfolio-zh.pdf' : '/resume/alex-tsou-engineering-portfolio-en.pdf'}
+                      download={language === 'zh' ? 'alex-tsou-engineering-portfolio-zh.pdf' : 'alex-tsou-engineering-portfolio-en.pdf'}
+                      aria-label={t.downloadPortfolioLabel}
+                    >
+                      <span aria-hidden="true">↓</span>
+                      {t.downloadPortfolio}
                     </a>
                   </div>
                 </section>

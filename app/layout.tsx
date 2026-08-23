@@ -15,11 +15,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://alextsou.com'),
   title: {
-    default: 'Alex Tsou | Software Quality & Test Automation Portfolio',
+    default: 'Alex Tsou — Engineering Portfolio',
     template: '%s | Alex Tsou',
   },
   description:
-    'Engineering portfolio covering test automation, API testing, network validation, automotive systems, CI/CD, and computer vision.',
+    'Automation · Validation · Debug & RCA · System Integration · AI/NPU · Camera · Connectivity · Customer Engineering',
   alternates: { canonical: '/' },
   keywords: [
     'test automation',
@@ -41,25 +41,25 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: '/',
-    siteName: 'Alex Tsou Engineering Portfolio',
-    title: 'Alex Tsou | Software Quality & Test Automation Portfolio',
+    siteName: 'Alex Tsou — Engineering Portfolio',
+    title: 'Alex Tsou — Engineering Portfolio',
     description:
-      'Building reliable systems through rigorous automation, validation, and evidence-driven engineering.',
+      'Automation · Validation · Debug & RCA · System Integration · AI/NPU · Camera · Connectivity · Customer Engineering',
     images: [
       {
-        url: '/og.png',
-        width: 1730,
-        height: 909,
-        alt: 'Alex Tsou — Software Quality, Automation, and Systems',
+        url: '/portfolio/alex-tsou-og-preview.png',
+        width: 1200,
+        height: 630,
+        alt: 'Alex Tsou — Engineering Portfolio',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Alex Tsou | Software Quality & Test Automation Portfolio',
+    title: 'Alex Tsou — Engineering Portfolio',
     description:
-      'Building reliable systems through rigorous automation, validation, and evidence-driven engineering.',
-    images: ['/og.png'],
+      'Automation · Validation · Debug & RCA · System Integration · AI/NPU · Camera · Connectivity · Customer Engineering',
+    images: ['/portfolio/alex-tsou-og-preview.png'],
   },
   robots: { index: true, follow: true },
 };
