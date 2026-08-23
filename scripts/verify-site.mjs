@@ -21,11 +21,16 @@ if (!response || !response.ok) {
 } else {
   const html = await response.text();
 
-  const requiredSections = ['home', 'about', 'skills', 'experience', 'projects', 'contact'];
+  const requiredSections = ['home', 'about', 'skills', 'experience', 'domains', 'projects', 'contact'];
   for (const id of requiredSections) {
     if (!new RegExp(`id=["']${id}["']`).test(html)) {
       fail(`Missing section target #${id}`);
     }
+  }
+
+  const domainCards = html.match(/data-domain-card=/g) ?? [];
+  if (domainCards.length !== 6) {
+    fail(`Expected exactly 6 product / technical domain cards, found ${domainCards.length}`);
   }
 
   const requiredSeo = [

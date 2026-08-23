@@ -30,6 +30,19 @@ export type PortfolioItem = {
   };
 };
 
+export type DomainExperience = {
+  id: 'ai-npu' | 'wifi-connectivity' | 'android-tv-fae' | 'ate-robot-esd' | 'industrial-vision-aoi' | 'camera-imaging';
+  index: string;
+  title: Copy;
+  summary: Copy;
+  tags: string[];
+  positioning?: Copy;
+  related?: {
+    itemId: string;
+    label: Copy;
+  };
+};
+
 const c = (en: string, zh: string): Copy => ({ en, zh });
 const section = (labelEn: string, labelZh: string, bodyEn: string, bodyZh: string): DetailSection => ({
   label: c(labelEn, labelZh),
@@ -59,6 +72,9 @@ export const ui = {
     resumeKicker: '04 / Resume', resumeTitle: 'Resume / career portfolio',
     resumeLead: 'A public, privacy-conscious resume structure: concise on page, detailed on demand.',
     snapshotTitle: 'Career Snapshot',
+    domainsKicker: 'Recruiter View',
+    domainsTitle: 'Product & Technical Domains',
+    domainsLead: 'Engineering experience and technical domains across validation, automation, customer support, imaging, connectivity, and industrial systems.',
     resumeDownloadsTitle: 'Resume Downloads',
     downloadChineseResume: 'Download Chinese Resume',
     downloadEnglishResume: 'Download English Resume',
@@ -136,6 +152,9 @@ export const ui = {
     resumeKicker: '04 / 履歷', resumeTitle: '履歷 / 職涯作品集',
     resumeLead: '以適合公開網站的方式呈現履歷：首頁精簡、細節可點開查看。',
     snapshotTitle: '職涯摘要',
+    domainsKicker: '職缺快速對照',
+    domainsTitle: '產品與技術領域',
+    domainsLead: '橫跨驗證、自動化、客戶技術支援、影像、連線與工業系統的工程經驗與技術領域。',
     resumeDownloadsTitle: '下載履歷',
     downloadChineseResume: '下載中文履歷 PDF',
     downloadEnglishResume: '下載英文履歷 PDF',
@@ -616,6 +635,75 @@ export const careerSnapshot = {
     },
   ],
 };
+
+export const domainExperiences: DomainExperience[] = [
+  {
+    id: 'ai-npu',
+    index: '01',
+    title: c('AI / NPU', 'AI / NPU'),
+    summary: c(
+      'Automated AI/NPU validation using deterministic test patterns, target execution, golden-output comparison, mismatch analysis, and regression evidence.',
+      '透過 Python 建立測試 Pattern、執行 FPGA / NPU 驗證、Golden Output 比對、Mismatch 分析與 Regression，自動化產生可追蹤的 PASS / FAIL 證據。',
+    ),
+    tags: ['Python', 'Pattern Generation', 'FPGA / NPU', 'Golden Comparison', 'Bit-accurate', 'Regression'],
+    related: { itemId: 'case-ai-npu', label: c('Related Case Study', '相關工程案例') },
+  },
+  {
+    id: 'wifi-connectivity',
+    index: '02',
+    title: c('Wi-Fi / Connectivity', 'Wi-Fi / 連線驗證'),
+    summary: c(
+      'Wi-Fi and connectivity validation covering FPGA/chip verification, MAC-level software testing, regression, and certification pre-validation.',
+      'Wi-Fi FPGA / Chip 驗證、MAC 層軟體測試、Connectivity Regression 與認證前測相關驗證經驗。',
+    ),
+    tags: ['Wi-Fi', 'FPGA Validation', 'MAC Validation', 'Connectivity', 'Regression', 'Certification Pre-test', 'Automation'],
+    related: { itemId: 'visual-novatek-wifi', label: c('Related Technical Brief', '相關技術圖解') },
+  },
+  {
+    id: 'android-tv-fae',
+    index: '03',
+    title: c('Android TV / FAE', 'Android TV / FAE 客戶技術支援'),
+    summary: c(
+      'Customer-facing engineering support covering issue reproduction, log/evidence collection, layer isolation, fix verification, regression, certification support, and technical closure.',
+      '面向客戶的技術支援，涵蓋問題重現、Log / Evidence 蒐集、問題隔離、修正驗證、Regression、認證支援與技術結案。',
+    ),
+    tags: ['Customer Support', 'Android / Linux', 'ADB', 'UIAutomator / Appium', 'RCA', 'CTS / GTVS', 'Jira / Jenkins'],
+    related: { itemId: 'case-fae-rca', label: c('Related Case Study', '相關工程案例') },
+  },
+  {
+    id: 'ate-robot-esd',
+    index: '04',
+    title: c('ATE / Robot / ESD', 'ATE / Robot / ESD 系統整合'),
+    summary: c(
+      'ATE-side automation and equipment integration using state-machine control, Robot handshake, ESD sequencing, measurement validation, and traceable PASS / FAIL evidence.',
+      '以 ATE 端自動化進行設備整合，涵蓋 State Machine、Robot Handshake、ESD 流程、量測驗證與可追蹤 PASS / FAIL 證據。',
+    ),
+    tags: ['C#', 'Python', 'ATE', 'Robot', 'ESD', 'State Machine', 'Traceability'],
+    related: { itemId: 'case-ate-robot-esd', label: c('Related Case Study', '相關工程案例') },
+  },
+  {
+    id: 'industrial-vision-aoi',
+    index: '05',
+    title: c('Industrial Vision / AOI', '工業視覺 / AOI'),
+    positioning: c('Engineering Practice / Technical Domain', '工程實作 / 技術領域'),
+    summary: c(
+      'Industrial-vision engineering practice covering ROI, thresholding, morphology, blob/shape analysis, dimensional measurement, and false-NG / false-OK debugging.',
+      '工業視覺工程實作，涵蓋 ROI、Threshold、Morphology、Blob / Shape Analysis、尺寸量測，以及 False NG / False OK 除錯。',
+    ),
+    tags: ['OpenCV', 'ROI / Threshold', 'Blob / Morphology', 'Shape / Measurement', 'False NG / False OK', 'Vision Debug'],
+  },
+  {
+    id: 'camera-imaging',
+    index: '06',
+    title: c('Camera / Imaging', 'Camera / 影像驗證'),
+    summary: c(
+      'Camera SoC and SDK validation using Python automation for ISP/codec settings, snapshot/video capture, image/video criteria, FPS/bitrate checks, and regression debugging.',
+      'Camera SoC / SDK 驗證，使用 Python 自動化控制 ISP / Codec、Snapshot / Video Capture、影像與影音規格判定、FPS / Bitrate 檢查與 Regression Debug。',
+    ),
+    tags: ['Camera SoC', 'Python Automation', 'ISP / Codec', 'RAW / YUV', 'FPS / Bitrate', 'SSIM', 'Regression'],
+    related: { itemId: 'camera', label: c('Related Technical Brief', '相關技術說明') },
+  },
+];
 
 export const resumeEducation = {
   university: c('National Cheng Kung University', '國立成功大學'),

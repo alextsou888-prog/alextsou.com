@@ -7,6 +7,7 @@ import { DetailModal } from './detail-modal';
 import { VisitorCounter } from './visitor-counter';
 import {
   careerSnapshot,
+  domainExperiences,
   engineeringDebugMethodology,
   evidenceSkills,
   evidenceSkillsIntro,
@@ -20,6 +21,7 @@ import {
   skillCategories,
   ui,
   visualItems,
+  type DomainExperience,
   type Language,
   type PortfolioItem,
 } from './portfolio-content';
@@ -87,6 +89,31 @@ function VisualCard({ item, language, openLabel, onOpen }: {
         <span className="card-tags">{item.tags.map((tag) => <span key={tag}>{tag}</span>)}</span>
       </span>
     </button>
+  );
+}
+
+function DomainCard({ domain, language, onOpen }: {
+  domain: DomainExperience;
+  language: Language;
+  onOpen: (id: string) => void;
+}) {
+  return (
+    <article className={`domain-card domain-card-${domain.id}`} data-domain-card={domain.id}>
+      <div className="domain-card-topline">
+        <span aria-hidden="true">{domain.index}</span>
+        <h4>{domain.title[language]}</h4>
+      </div>
+      {domain.positioning && <p className="domain-positioning">{domain.positioning[language]}</p>}
+      <p className="domain-summary">{domain.summary[language]}</p>
+      <div className="domain-tags" aria-label={`${domain.title[language]} ${language === 'en' ? 'technologies' : '技術標籤'}`}>
+        {domain.tags.map((tag) => <span key={tag}>{tag}</span>)}
+      </div>
+      {domain.related && (
+        <button className="domain-related" type="button" onClick={() => onOpen(domain.related!.itemId)} aria-haspopup="dialog">
+          {domain.related.label[language]} <span aria-hidden="true">↗</span>
+        </button>
+      )}
+    </article>
   );
 }
 
@@ -388,6 +415,21 @@ export function PortfolioClient({ initialLanguage = 'zh' }: { initialLanguage?: 
                     </a>
                   </div>
                 </section>
+              </section>
+
+              <section className="domain-experience" id="domains" aria-labelledby="domains-title">
+                <div className="domain-heading">
+                  <div>
+                    <p className="resume-block-kicker">{t.domainsKicker}</p>
+                    <h3 id="domains-title">{t.domainsTitle}</h3>
+                  </div>
+                  <p>{t.domainsLead}</p>
+                </div>
+                <div className="domain-grid">
+                  {domainExperiences.map((domain) => (
+                    <DomainCard key={domain.id} domain={domain} language={language} onOpen={setActiveId} />
+                  ))}
+                </div>
               </section>
 
               <article className="education-card">
