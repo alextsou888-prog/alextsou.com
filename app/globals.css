@@ -1046,7 +1046,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 }
 
 @media (max-width: 480px) {
-  .brand-copy small { display: block; font-size: 11px; }
+  .brand-copy small { display: none; }
   .hero-actions { display: grid; }
   .button { width: 100%; }
   .system-panel { box-shadow: 10px 10px 0 rgba(11, 22, 40, 0.08); }
@@ -2460,7 +2460,8 @@ html[data-theme='dark'] .modal-visual img { border-color: var(--border); backgro
 
 @media (max-width: 480px) {
   .language-switch button { min-width: 39px; }
-  .theme-toggle { min-width: 66px; padding-inline: 8px; }
+  .theme-toggle { min-width: 46px; padding-inline: 8px; }
+  .theme-toggle span:last-child { display: none; }
   .nav-actions { gap: 8px; }
   .brand-mark { width: 42px; height: 42px; font-size: 13px; }
   .interactive-card { padding: 21px; }
