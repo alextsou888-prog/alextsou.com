@@ -73,10 +73,11 @@ export const ui = {
   en: {
     skip: 'Skip to main content', name: 'Alex Tsou', portfolio: 'Engineering Portfolio', homeLabel: 'Alex Tsou portfolio home', navLabel: 'Primary navigation',
     about: 'About', skills: 'Capabilities', experience: 'Experience', projects: 'Projects', resume: 'Resume', visualPortfolio: 'Technical Portfolio', cases: 'Cases', domains: 'Domains', contact: 'Contact',
-    eyebrow: 'Automation · Validation · FAE · Camera-AI · ATE',
+    eyebrow: 'Engineering Portfolio',
     heroA: 'Alex Tsou', heroB: '',
+    heroRole: 'Senior Test Automation / System Validation Engineer',
     heroLead: 'Test Automation · Validation · Debug & RCA · System Integration',
-    heroContext: 'Python / C# Automation across AI / NPU · Camera / Imaging · Wi-Fi / 5G · ATE · Customer Engineering',
+    heroContext: 'Python / C# automation across connectivity, imaging / AI, ATE, and customer engineering',
     explore: 'Explore engineering areas', viewResume: 'View Resume', viewTechnicalPortfolio: 'View Technical Portfolio', viewEngineeringCases: 'View Engineering Cases', exploreTechnicalDomains: 'Explore Technical Domains', ready: 'READY', panelLabel: 'Engineering focus areas',
     aboutKicker: '07 / About', aboutTitle: 'Quality engineering with a systems mindset.',
     aboutP1: 'This portfolio is structured around reliable validation: clear test intent, automation that can be diagnosed, and evidence that supports engineering decisions.',
@@ -157,10 +158,11 @@ export const ui = {
   zh: {
     skip: '跳至主要內容', name: '鄒志清', portfolio: '工程作品集', homeLabel: '鄒志清工程作品集首頁', navLabel: '主要導覽',
     about: '關於我', skills: '工程能力', experience: '經歷', projects: '專案', resume: '履歷', visualPortfolio: '技術作品', cases: '工程案例', domains: '技術領域', contact: '聯絡方式',
-    eyebrow: '自動化 · 驗證 · FAE · Camera-AI · ATE',
+    eyebrow: '工程作品集',
     heroA: 'Alex Tsou', heroB: '',
+    heroRole: '資深測試自動化 / 系統驗證工程師',
     heroLead: '測試自動化 · 系統驗證 · Debug & RCA · 系統整合',
-    heroContext: 'Python / C# 自動化，涵蓋 AI / NPU · Camera / Imaging · Wi-Fi / 5G · ATE · 客戶工程',
+    heroContext: 'Python / C# 自動化，涵蓋連線、影像 / AI、ATE 與客戶工程',
     explore: '瀏覽工程領域', viewResume: '查看完整履歷', viewTechnicalPortfolio: '查看技術作品', viewEngineeringCases: '查看工程案例', exploreTechnicalDomains: '探索技術領域', ready: '就緒', panelLabel: '工程專長領域',
     aboutKicker: '07 / 關於我', aboutTitle: '以系統思維實踐品質工程。',
     aboutP1: '本作品集以可靠驗證為核心：明確定義測試目的、建立可診斷的自動化流程，並以可追溯證據支援工程決策。',
@@ -244,8 +246,8 @@ export const capabilityOverview = {
   kicker: c('01 / Professional Snapshot', '01 / 專業摘要'),
   title: c('Engineering Capability Overview', '工程能力總覽'),
   subtitle: c(
-    'Automation, validation, system integration, connectivity, imaging, and customer engineering — from test design to evidence, RCA, regression, and closure.',
-    '橫跨自動化、系統驗證、設備整合、連線、影像與客戶工程，從測試設計、證據蒐集、RCA 到 Regression 與結案。',
+    'Build reproducible, traceable automation and system-validation workflows with Python / C# across connectivity, imaging / AI, ATE, and customer engineering.',
+    '以 Python / C# 建立可重現、可追溯的自動化與系統驗證流程，涵蓋連線、影像 / AI、ATE 與客戶工程。',
   ),
   snapshot: [
     c('21+ Years Engineering Experience', '21+ 年工程經驗'),
@@ -259,13 +261,13 @@ export const capabilityOverview = {
       index: '01',
       title: c('Test Automation', '測試自動化'),
       positioning: c(
-        'Build maintainable Python / C# automation that connects configuration, DUT or instrument control, execution, evidence collection, PASS / FAIL criteria, and regression reporting.',
-        '建立可維護的 Python / C# 自動化流程，串接 Configuration、DUT / Instrument Control、執行、證據收集、PASS / FAIL Criteria 與 Regression Report。',
+        'Build maintainable Python / C# automation frameworks that connect execution, DUT or instrument control, evidence, verdicts, and regression reports.',
+        '以 Python / C# 建立可維護的自動化框架，串接執行、DUT / 儀器控制、工程證據、自動判定與回歸報告。',
       ),
-      tags: ['Python', 'C#', 'pytest', 'REST API', 'Selenium / Appium', 'Jenkins / CI/CD'],
+      tags: ['Python', 'C#', 'Test Framework', 'CI/CD'],
       points: {
-        en: ['Automation Framework', 'Instrument / DUT Control', 'Exception / Timeout Handling', 'Result Parsing', 'PASS / FAIL Automation', 'Regression Reporting'],
-        zh: ['自動化框架', '儀器 / DUT 控制', 'Exception / Timeout 處理', '結果解析', 'PASS / FAIL 自動判定', 'Regression 報告'],
+        en: ['Framework / Orchestration', 'DUT / Instrument Control', 'Automated Verdict / Regression Report'],
+        zh: ['框架 / 流程協調', 'DUT / 儀器控制', '自動判定 / 回歸報告'],
       },
     },
     {
@@ -276,25 +278,24 @@ export const capabilityOverview = {
         'Translate requirements into measurable validation criteria and use reproducible evidence to isolate failures, verify fixes, and close regressions.',
         '將需求轉換為可量測的 Validation Criteria，透過可重現證據進行問題隔離、RCA、Fix Verification 與 Regression。',
       ),
-      tags: ['Validation Plan', 'Criteria', 'Evidence', 'Good / Bad', 'Layer Isolation', 'RCA', 'Regression'],
+      tags: ['Validation', 'Evidence', 'RCA', 'Regression'],
       points: {
-        en: ['Measurable Validation Criteria', 'Good / Bad Comparison', 'Layer Isolation', 'Fix Verification / Regression'],
-        zh: ['可量測 Validation Criteria', 'Good / Bad 比對', 'Layer Isolation', 'Fix Verification / Regression'],
+        en: ['Requirement → Measurable Criteria', 'Reproducible Evidence → Isolation', 'Fix Verification → Regression'],
+        zh: ['需求 → 可量測判定條件', '可重現證據 → 問題隔離', '修正驗證 → 回歸'],
       },
-      flow: [c('Requirement', '需求'), c('Test', '測試'), c('Evidence', '證據'), c('Isolation', '隔離'), c('RCA', 'RCA'), c('Fix Verification', '修正驗證'), c('Regression', '回歸')],
     },
     {
       id: 'overview-wifi-5g',
       index: '03',
       title: c('Wi-Fi / 5G Connectivity', 'Wi-Fi / 5G 連線驗證'),
       positioning: c(
-        'Automated connectivity and performance validation across Wi-Fi, 5G router, DUT, traffic endpoints, and RF / cellular test equipment.',
-        '跨 Wi-Fi、5G Router、DUT、Traffic Endpoint 與 RF / Cellular 測試設備進行自動化連線與效能驗證。',
+        'Use Python to validate 5G router and Wi-Fi client connectivity, performance, stability, and failure evidence.',
+        '以 Python 驗證 5G Router 與 Wi-Fi Client 的連線、效能、穩定度與失敗證據。',
       ),
-      tags: ['Python', 'Keysight UXM', 'SCPI / VISA', 'Wi-Fi / 5G', 'iPerf', 'Wireshark', 'Regression'],
+      tags: ['Python', 'Wi-Fi / 5G', 'Keysight UXM', 'Wireshark'],
       points: {
-        en: ['Wi-Fi FPGA / MAC Validation', '5G Router Validation', 'DL / UL Throughput', 'Latency / Packet Loss', 'Reconnect / Stability', 'Connectivity RCA'],
-        zh: ['Wi-Fi FPGA / MAC 驗證', '5G Router 驗證', 'DL / UL Throughput', 'Latency / Packet Loss', 'Reconnect / Stability', 'Connectivity RCA'],
+        en: ['5G Router / Wi-Fi Validation', 'Throughput / Latency / Packet-loss Evidence', 'Reconnect / Stability / RCA'],
+        zh: ['5G Router / Wi-Fi 驗證', 'Throughput / Latency / Packet-loss 證據', 'Reconnect / 穩定度 / RCA'],
       },
       related: { itemId: 'case-wifi-uxm', label: c('View Wi-Fi / 5G + UXM Case', '查看 Wi-Fi / 5G + UXM 案例') },
     },
@@ -303,13 +304,13 @@ export const capabilityOverview = {
       index: '04',
       title: c('Camera / AI / NPU', 'Camera / AI / NPU 驗證'),
       positioning: c(
-        'Python-based validation across Camera SoC / SDK, image and video criteria, AI/NPU test-pattern execution, golden-output comparison, and regression.',
-        '使用 Python 進行 Camera SoC / SDK、影像影音規格、AI/NPU Test Pattern、Golden Output Comparison 與 Regression 驗證。',
+        'Use Python to automate Camera / SDK validation, image and video checks, and AI/NPU execution against golden outputs.',
+        '以 Python 自動化 Camera / SDK、影像與影音驗證，以及 AI/NPU 執行與 Golden Output 比對。',
       ),
-      tags: ['Camera SoC', 'Python', 'ISP / Codec', 'H.264 / H.265', 'AI / NPU', 'Golden Comparison', 'SSIM'],
+      tags: ['Python', 'Camera SDK', 'OpenCV', 'Golden Output'],
       points: {
-        en: ['Camera SDK Automation', 'Image / Video Validation', 'FPS / Bitrate / Codec', 'AI/NPU Pattern Execution', 'Golden Comparison', 'Regression Debug'],
-        zh: ['Camera SDK 自動化', '影像 / 影音驗證', 'FPS / Bitrate / Codec', 'AI/NPU Pattern 執行', 'Golden Comparison', 'Regression Debug'],
+        en: ['Camera / SDK Automation', 'Image / Video Validation', 'AI/NPU Execution + Golden Comparison'],
+        zh: ['Camera / SDK 自動化', '影像 / 影音驗證', 'AI/NPU 執行 + Golden 比對'],
       },
       related: { itemId: 'case-ai-npu', label: c('View AI / NPU Case', '查看 AI / NPU 案例') },
     },
@@ -318,13 +319,13 @@ export const capabilityOverview = {
       index: '05',
       title: c('ATE / System Integration', 'ATE / 系統整合'),
       positioning: c(
-        'Integrate software, fixtures, instruments, Robot, and ESD equipment through explicit interfaces, state control, handshakes, safety boundaries, and traceable results.',
-        '透過明確 Interface、State Control、Handshake、安全邊界與 Traceability，整合軟體、治具、儀器、Robot 與 ESD 設備。',
+        'Orchestrate ATE, fixtures, instruments, Robot, and ESD equipment through explicit states, handshakes, interlocks, and traceable verdicts.',
+        '透過明確狀態、握手、Interlock 與可追溯判定，協調 ATE、治具、儀器、Robot 與 ESD 設備。',
       ),
-      tags: ['C# / Python', 'ATE', 'Robot', 'ESD', 'State Machine', 'TCP / Serial', 'Fixture'],
+      tags: ['C# / Python', 'ATE', 'State Machine', 'Robot / ESD'],
       points: {
-        en: ['Equipment Orchestration', 'State Machine', 'Handshake', 'Interlock / Safety', 'Timeout / Recovery', 'Traceable PASS / FAIL'],
-        zh: ['設備流程協調', 'State Machine', 'Handshake', 'Interlock / Safety', 'Timeout / Recovery', '可追溯 PASS / FAIL'],
+        en: ['Equipment Orchestration', 'Handshake / Interlock / State Control', 'Timeout / Recovery / Traceable Verdict'],
+        zh: ['設備流程協調', '握手 / Interlock / 狀態控制', 'Timeout / 復原 / 可追溯判定'],
       },
       related: { itemId: 'case-ate-robot-esd', label: c('View ATE / Robot / ESD Case', '查看 ATE / Robot / ESD 案例') },
     },
@@ -333,13 +334,13 @@ export const capabilityOverview = {
       index: '06',
       title: c('FAE / Customer Engineering', 'FAE / 客戶工程'),
       positioning: c(
-        'Convert customer-reported symptoms into controlled reproduction cases, engineering evidence, RD-ready analysis, fix verification, regression, and technical closure.',
-        '將客戶回報轉換成受控的問題重現案例、工程證據、RD 可分析資料、Fix Verification、Regression 與技術結案。',
+        'Turn customer-reported symptoms into reproducible cases and evidence that supports cross-team analysis, fix verification, and closure.',
+        '將客戶回報轉成可重現案例與工程證據，支援跨團隊分析、修正驗證與結案。',
       ),
-      tags: ['Customer Support', 'Issue Reproduction', 'ADB / Android', 'Log Analysis', 'Layer Isolation', 'RD / Vendor', 'Jira'],
+      tags: ['Customer Support', 'Issue Reproduction', 'RCA', 'Cross-team'],
       points: {
-        en: ['Customer Issue Reproduction', 'Evidence Collection', 'Good / Bad Comparison', 'Layer Isolation', 'RD / Vendor Coordination', 'Fix Verification / Closure'],
-        zh: ['客戶問題重現', '工程證據收集', 'Good / Bad 比對', 'Layer Isolation', 'RD / Vendor 協作', 'Fix Verification / Closure'],
+        en: ['Customer Issue → Reproducible Case', 'Evidence / Layer Isolation', 'RD / Vendor Coordination → Verified Closure'],
+        zh: ['客戶問題 → 可重現案例', '工程證據 / Layer 隔離', 'RD / Vendor 協作 → 驗證結案'],
       },
       related: { itemId: 'case-fae-rca', label: c('View FAE / RCA Case', '查看 FAE / RCA 案例') },
     },
@@ -850,35 +851,20 @@ export const skillCategories = [
 
 export const engineeringDebugMethodology = {
   title: c('Engineering Debug Methodology', '工程除錯方法論'),
-  lead: c(
-    'I focus on reproducible evidence, measurable criteria, and traceable engineering decisions rather than trial-and-error debugging.',
-    '我重視可重現的問題、可量測的判定條件，以及可追蹤的工程證據，而不是只靠反覆嘗試進行 Debug。',
-  ),
   flow: [
     c('Requirement', '需求'),
-    c('Reproduce', '問題重現'),
-    c('Evidence', '證據蒐集'),
-    c('Isolation', '問題隔離'),
-    c('RCA', '根因分析'),
+    c('Criteria', '判定條件'),
+    c('Execution', '執行'),
+    c('Evidence', '證據'),
+    c('Isolation / RCA', '問題隔離 / RCA'),
     c('Fix Verification', '修正驗證'),
-    c('Regression', '回歸測試'),
-    c('Closure', '結案'),
-  ],
-  steps: [
-    section('Requirement', '需求', 'Understand expected behavior, acceptance criteria, and failure definition.', '釐清預期行為、驗收條件與失敗定義。'),
-    section('Reproduce', '問題重現', 'Create a repeatable condition that demonstrates the issue.', '建立可重複觸發問題的條件與步驟。'),
-    section('Evidence', '證據蒐集', 'Collect logs, measurements, traces, screenshots, outputs, and environment data.', '收集 Log、量測值、Trace、畫面、輸出結果與環境資訊。'),
-    section('Isolation', '問題隔離', 'Separate HW / FW / Driver / SDK / Application / Automation layers.', '區分 HW / FW / Driver / SDK / Application / Automation 各層。'),
-    section('RCA', '根因分析', 'Identify the most defensible technical failure mechanism.', '找出最能由工程證據支持的失敗機制。'),
-    section('Fix Verification', '修正驗證', 'Retest the original failing scenario with the proposed fix.', '使用原本的失敗情境驗證修正是否有效。'),
-    section('Regression', '回歸測試', 'Verify related functions and previously passing scenarios remain stable.', '確認相關功能與原本正常案例沒有被修正影響。'),
-    section('Closure', '結案', 'Record the evidence, result, remaining risk, and final disposition.', '記錄證據、驗證結果、剩餘風險與最終處理狀態。'),
+    c('Regression', '回歸'),
   ],
 };
 
 export const flagshipCaseStudies: PortfolioItem[] = [
   {
-    id: 'case-ai-npu', index: '01', title: c('AI / NPU Validation Pipeline', 'AI / NPU 自動化驗證流程'),
+    id: 'case-ai-npu', index: '03', title: c('AI / NPU Validation Pipeline', 'AI / NPU 自動化驗證流程'),
     summary: c('Hands-on pattern generation, controlled target execution, golden comparison, automated verdicts, and regression evidence.', '實作 Pattern 產生、受控目標執行、Golden 比對、自動判定與回歸證據。'),
     tags: ['Python', 'Pattern.bin', 'FPGA / NPU', 'Golden Output', 'Bit-accurate', 'Regression'],
     sections: [
@@ -897,7 +883,7 @@ export const flagshipCaseStudies: PortfolioItem[] = [
     ],
   },
   {
-    id: 'case-ate-robot-esd', index: '02', title: c('ATE / Robot / ESD System Integration', 'ATE / Robot / ESD 系統整合'),
+    id: 'case-ate-robot-esd', index: '01', title: c('ATE / Robot / ESD System Integration', 'ATE / Robot / ESD 系統整合'),
     summary: c('Multi-equipment orchestration with explicit state, handshake, safety, timeout, evidence, and result boundaries.', '多設備流程整合，具備明確狀態、握手、安全、Timeout、證據與結果邊界。'),
     tags: ['C# / Python', 'ATE', 'Robot', 'ESD', 'State Machine', 'Traceability'],
     sections: [
@@ -916,7 +902,7 @@ export const flagshipCaseStudies: PortfolioItem[] = [
     ],
   },
   {
-    id: 'case-fae-rca', index: '03', title: c('FAE / Customer Issue Reproduction & RCA', 'FAE / 客戶問題重現與根因分析'),
+    id: 'case-fae-rca', index: '04', title: c('FAE / Customer Issue Reproduction & RCA', 'FAE / 客戶問題重現與根因分析'),
     summary: c('Customer-facing reproduction, evidence collection, layer isolation, RD coordination, fix verification, regression, and closure.', '客戶面問題重現、證據收集、Layer 隔離、RD 協作、修正驗證、回歸與結案。'),
     tags: ['TPV FAE', 'Android / Linux', 'ADB / Appium', 'Jira', 'Jenkins', 'RCA'],
     sections: [
@@ -935,7 +921,7 @@ export const flagshipCaseStudies: PortfolioItem[] = [
     ],
   },
   {
-    id: 'case-wifi-uxm', index: '04', title: c('Wi-Fi / 5G Router + Keysight UXM Python Automation', 'Wi-Fi / 5G Router + Keysight UXM Python 自動化'),
+    id: 'case-wifi-uxm', index: '02', title: c('Wi-Fi / 5G Router + Keysight UXM Python Automation', 'Wi-Fi / 5G Router + Keysight UXM Python 自動化'),
     summary: c(
       'End-to-end Python automation across the cellular-side test platform, 5G router, Wi-Fi client, traffic tools, packet evidence, automated verdicts, and regression reporting.',
       '以 Python 串接 Cellular-side 測試平台、5G Router、Wi-Fi Client、流量工具、封包證據、自動判定與 Regression Report。',
@@ -1010,7 +996,7 @@ export const flagshipCaseStudies: PortfolioItem[] = [
       ),
     ],
   },
-];
+].sort((first, second) => first.index.localeCompare(second.index));
 
 export const visualItems: PortfolioItem[] = [
   {

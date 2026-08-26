@@ -1,3 +1,5 @@
+import { readFile } from 'node:fs/promises';
+
 const siteUrl = new URL(process.env.SITE_URL ?? 'http://localhost:3000/');
 const failures = [];
 
@@ -66,22 +68,34 @@ if (!response || !response.ok) {
     fail(`Expected exactly 6 Engineering Capability Overview cards, found: ${overviewCards.join(', ') || 'none'}`);
   }
 
+  const overviewTagCounts = [...html.matchAll(/data-overview-tag-count=["'](\d+)["']/g)].map((match) => Number(match[1]));
+  const overviewPointCounts = [...html.matchAll(/data-overview-point-count=["'](\d+)["']/g)].map((match) => Number(match[1]));
+  if (overviewTagCounts.length !== 6 || overviewTagCounts.some((count) => count > 4)) {
+    fail(`Overview cards must expose at most 4 tags each, found: ${overviewTagCounts.join(', ') || 'none'}`);
+  }
+  if (overviewPointCounts.length !== 6 || overviewPointCounts.some((count) => count > 3)) {
+    fail(`Overview cards must expose at most 3 evidence points each, found: ${overviewPointCounts.join(', ') || 'none'}`);
+  }
+
   const flagshipCards = [...html.matchAll(/data-case-study-card=["']([^"']+)["']/g)].map((match) => match[1]);
-  const expectedFlagshipCards = ['case-ai-npu', 'case-ate-robot-esd', 'case-fae-rca', 'case-wifi-uxm'];
-  if (flagshipCards.length !== 4 || expectedFlagshipCards.some((id) => !flagshipCards.includes(id))) {
-    fail(`Expected exactly 4 flagship case-study cards, found: ${flagshipCards.join(', ') || 'none'}`);
+  const expectedFlagshipCards = ['case-ate-robot-esd', 'case-wifi-uxm', 'case-ai-npu', 'case-fae-rca'];
+  if (flagshipCards.length !== 4 || expectedFlagshipCards.some((id, index) => flagshipCards[index] !== id)) {
+    fail(`Expected flagship case order ${expectedFlagshipCards.join(' → ')}, found: ${flagshipCards.join(' → ') || 'none'}`);
   }
 
   for (const marker of [
     '工程能力總覽',
     '21+ 年工程經驗',
-    'Python / C# 自動化，涵蓋 AI / NPU · Camera / Imaging · Wi-Fi / 5G · ATE · 客戶工程',
+    '資深測試自動化 / 系統驗證工程師',
+    'Python / C# 自動化，涵蓋連線、影像 / AI、ATE 與客戶工程',
     'Wi-Fi / 5G Router + Keysight UXM Python 自動化',
     '四個精簡工程摘要',
   ]) {
     if (!html.includes(marker)) fail(`Missing recruiter-overview marker: ${marker}`);
   }
   if (html.includes('三個精簡工程摘要')) fail('Stale three-case wording remains');
+  if (!html.includes('data-engineering-method="compact"')) fail('Missing compact engineering-method flow');
+  if (html.includes('class="methodology-step"')) fail('Expanded homepage methodology cards remain');
 
   const ids = [...html.matchAll(/\sid=["']([^"']+)["']/g)].map((match) => match[1]);
   const duplicateIds = [...new Set(ids.filter((id, index) => ids.indexOf(id) !== index))];
@@ -155,6 +169,16 @@ if (!response || !response.ok) {
       fail(`${url.pathname} returned ${assetResponse.status}`);
     }
   }
+}
+
+const portfolioSource = await readFile(new URL('../app/portfolio-content.ts', import.meta.url), 'utf8');
+for (const marker of [
+  'Senior Test Automation / System Validation Engineer',
+  '資深測試自動化 / 系統驗證工程師',
+  'Python / C# automation across connectivity, imaging / AI, ATE, and customer engineering',
+  'Python / C# 自動化，涵蓋連線、影像 / AI、ATE 與客戶工程',
+]) {
+  if (!portfolioSource.includes(marker)) fail(`Missing bilingual recruiter-positioning source marker: ${marker}`);
 }
 
 for (const path of [

@@ -126,7 +126,13 @@ function CapabilityOverviewCardView({ card, language, onOpen }: {
   onOpen: (id: string) => void;
 }) {
   return (
-    <article className={`overview-card overview-card-${card.id}`} id={card.id} data-overview-card={card.id}>
+    <article
+      className={`overview-card overview-card-${card.id}`}
+      id={card.id}
+      data-overview-card={card.id}
+      data-overview-tag-count={card.tags.length}
+      data-overview-point-count={card.points[language].length}
+    >
       <div className="overview-card-topline">
         <span>{card.index}</span>
         <h3>{card.title[language]}</h3>
@@ -357,6 +363,7 @@ export function PortfolioClient({ initialLanguage = 'zh' }: { initialLanguage?: 
             <div className="hero-copy">
               <p className="eyebrow"><span className="status-dot" aria-hidden="true" />{t.eyebrow}</p>
               <h1 id="hero-title">{t.heroA}</h1>
+              <p className="hero-role">{t.heroRole}</p>
               <p className="hero-lede">{t.heroLead}</p>
               <p className="hero-context">{t.heroContext}</p>
               <div className="hero-actions">
@@ -403,25 +410,14 @@ export function PortfolioClient({ initialLanguage = 'zh' }: { initialLanguage?: 
                 <PortfolioCard key={item.id} item={item} language={language} openLabel={t.viewCaseStudy} tone="case-study" onOpen={setActiveId} />
               ))}
             </div>
-            <section className="debug-methodology debug-methodology-standalone" aria-labelledby="debug-methodology-title">
-              <div className="skills-proof-heading">
-                <h3 id="debug-methodology-title">{engineeringDebugMethodology.title[language]}</h3>
-                <p>{engineeringDebugMethodology.lead[language]}</p>
-              </div>
+            <section className="debug-methodology debug-methodology-standalone" aria-labelledby="debug-methodology-title" data-engineering-method="compact">
+              <h3 id="debug-methodology-title">{engineeringDebugMethodology.title[language]}</h3>
               <div className="detail-flow" aria-label={engineeringDebugMethodology.title[language]}>
                 {engineeringDebugMethodology.flow.map((step, index) => (
                   <span className="flow-step" key={step.en}>
                     <span>{step[language]}</span>
                     {index < engineeringDebugMethodology.flow.length - 1 && <b aria-hidden="true">→</b>}
                   </span>
-                ))}
-              </div>
-              <div className="methodology-step-grid">
-                {engineeringDebugMethodology.steps.map((step) => (
-                  <article className="methodology-step" key={step.label.en}>
-                    <h4>{step.label[language]}</h4>
-                    <p>{step.body?.[language]}</p>
-                  </article>
                 ))}
               </div>
             </section>

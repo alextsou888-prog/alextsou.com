@@ -255,9 +255,18 @@ button, a { -webkit-tap-highlight-color: transparent; }
 
 .hero h1 span { color: #445c78; }
 
+.hero-role {
+  max-width: 670px;
+  margin: 20px 0 0;
+  color: var(--deep-ink);
+  font-size: clamp(22px, 2.7vw, 32px);
+  font-weight: 800;
+  line-height: 1.28;
+}
+
 .hero-lede {
   max-width: 670px;
-  margin: 26px 0 0;
+  margin: 18px 0 0;
   color: #344c68;
   font-size: clamp(18px, 2vw, 23px);
   font-weight: 760;
@@ -415,7 +424,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   --overview-dark-accent: #9db8cc;
   display: flex;
   min-width: 0;
-  min-height: 520px;
+  min-height: 440px;
   flex-direction: column;
   padding: 24px;
   border: 1px solid var(--overview-accent);
@@ -507,10 +516,10 @@ button, a { -webkit-tap-highlight-color: transparent; }
 
 .overview-points {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: 8px 14px;
-  margin: 20px 0 0;
-  padding: 18px 0 0;
+  margin: 16px 0 0;
+  padding: 14px 0 0;
   border-top: 1px solid color-mix(in srgb, var(--overview-accent) 42%, transparent);
   list-style: none;
 }
@@ -983,7 +992,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 
 @media (max-width: 980px) {
   .hero-grid { grid-template-columns: 1fr; }
-  .system-panel { width: min(100%, 620px); }
+  .hero .system-panel { display: none; }
   .overview-heading { grid-template-columns: 1fr; gap: 18px; }
   .overview-heading h2 { max-width: none; }
   .professional-snapshot { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -1034,10 +1043,6 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .project-card { min-height: 330px; }
   .experience-placeholder { grid-template-columns: 1fr; gap: 24px; padding: 28px; }
   .placeholder-status { justify-self: start; }
-}
-
-@media (max-width: 600px) {
-  .hero .system-panel { display: none; }
 }
 
 @media (max-width: 480px) {
@@ -1203,30 +1208,11 @@ button, a { -webkit-tap-highlight-color: transparent; }
   line-height: 1.6;
 }
 .debug-methodology .detail-flow { margin-top: 18px; }
-.methodology-step-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-  gap: 10px;
-  margin-top: 18px;
-}
-.methodology-step {
-  min-width: 0;
-  padding: 14px;
-  border: 1px solid rgba(169, 139, 99, 0.22);
-  background: rgba(251, 248, 245, 0.64);
-}
-.methodology-step h4 {
+.debug-methodology-standalone > h3 {
   margin: 0;
-  color: #765f41;
-  font-family: var(--mono);
-  font-size: 13px;
-  line-height: 1.45;
-}
-.methodology-step p {
-  margin: 8px 0 0;
-  color: #34465b;
-  font-size: 14px;
-  line-height: 1.58;
+  color: var(--deep-ink);
+  font-size: 20px;
+  line-height: 1.35;
 }
 .flagship-grid {
   display: grid;
@@ -2121,6 +2107,7 @@ html[data-theme='dark'] .section-dark {
 html[data-theme='dark'] .hero h1 span,
 html[data-theme='dark'] .eyebrow,
 html[data-theme='dark'] .section-kicker,
+html[data-theme='dark'] .hero-role,
 html[data-theme='dark'] .hero-lede,
 html[data-theme='dark'] .hero-context,
 html[data-theme='dark'] .about-body > p,
@@ -2236,12 +2223,7 @@ html[data-theme='dark'] .skills-proof-heading h3 { color: var(--text-primary); }
 html[data-theme='dark'] .skills-proof-heading p,
 html[data-theme='dark'] .evidence-skill-list p { color: var(--text-secondary); }
 html[data-theme='dark'] .evidence-skill-list strong { color: var(--accent-gold); }
-html[data-theme='dark'] .methodology-step {
-  border-color: var(--border);
-  background: var(--card-secondary);
-}
-html[data-theme='dark'] .methodology-step h4 { color: var(--accent-gold); }
-html[data-theme='dark'] .methodology-step p { color: var(--text-secondary); }
+html[data-theme='dark'] .debug-methodology-standalone > h3 { color: var(--text-primary); }
 html[data-theme='dark'] .card-topline,
 html[data-theme='dark'] .career-period,
 html[data-theme='dark'] .career-tenure,
