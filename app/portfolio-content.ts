@@ -43,6 +43,26 @@ export type DomainExperience = {
   };
 };
 
+export type CapabilityOverviewCard = {
+  id:
+    | 'overview-test-automation'
+    | 'overview-system-validation'
+    | 'overview-wifi-5g'
+    | 'overview-camera-ai-npu'
+    | 'overview-ate-integration'
+    | 'overview-fae-customer';
+  index: string;
+  title: Copy;
+  positioning: Copy;
+  tags: string[];
+  points: Record<Language, string[]>;
+  flow?: Copy[];
+  related?: {
+    itemId: string;
+    label: Copy;
+  };
+};
+
 const c = (en: string, zh: string): Copy => ({ en, zh });
 const section = (labelEn: string, labelZh: string, bodyEn: string, bodyZh: string): DetailSection => ({
   label: c(labelEn, labelZh),
@@ -56,8 +76,8 @@ export const ui = {
     eyebrow: 'Automation · Validation · FAE · Camera-AI · ATE',
     heroA: 'Alex Tsou', heroB: '',
     heroLead: 'Test Automation · Validation · Debug & RCA · System Integration',
-    heroContext: 'AI / NPU · Camera / Imaging · Connectivity · Customer Engineering · ATE / Robot / ESD',
-    explore: 'Explore engineering areas', viewResume: 'View Resume', viewTechnicalPortfolio: 'View Technical Portfolio', viewEngineeringCases: 'View Engineering Cases', exploreTechnicalDomains: 'Explore Technical Domains', engineeringSnapshotKicker: '01 / Engineering Snapshot', engineeringSnapshotTitle: 'Methods and flagship evidence', engineeringSnapshotMethods: 'Core Methods', engineeringSnapshotCases: 'Flagship Evidence', ready: 'READY', panelLabel: 'Engineering focus areas',
+    heroContext: 'Python / C# Automation across AI / NPU · Camera / Imaging · Wi-Fi / 5G · ATE · Customer Engineering',
+    explore: 'Explore engineering areas', viewResume: 'View Resume', viewTechnicalPortfolio: 'View Technical Portfolio', viewEngineeringCases: 'View Engineering Cases', exploreTechnicalDomains: 'Explore Technical Domains', ready: 'READY', panelLabel: 'Engineering focus areas',
     aboutKicker: '07 / About', aboutTitle: 'Quality engineering with a systems mindset.',
     aboutP1: 'This portfolio is structured around reliable validation: clear test intent, automation that can be diagnosed, and evidence that supports engineering decisions.',
     aboutP2: 'The work spans software, firmware, devices, instruments, networks, camera systems, production test, and customer issue closure as connected engineering workflows.',
@@ -90,7 +110,7 @@ export const ui = {
     timelineLead: 'Select a career card to review responsibilities, technical scope, and engineering workflows.',
     technicalSkillsTitle: 'Technical Skills',
     flagshipKicker: '02 / Case Studies', flagshipTitle: 'Flagship Engineering Case Studies',
-    flagshipLead: 'Three concise engineering briefs with detailed architecture, validation, RCA, outputs, and ownership boundaries available on demand.',
+    flagshipLead: 'Four concise engineering briefs with detailed architecture, validation, RCA, outputs, and ownership boundaries available on demand.',
     viewCaseStudy: 'View Case Study',
     visualKicker: '08 / Visual Technical Portfolio', visualTitle: 'Visual technical portfolio',
     visualLead: 'Five supplied technical visuals are presented as clickable briefs with clear ownership boundaries.',
@@ -140,8 +160,8 @@ export const ui = {
     eyebrow: '自動化 · 驗證 · FAE · Camera-AI · ATE',
     heroA: 'Alex Tsou', heroB: '',
     heroLead: '測試自動化 · 系統驗證 · Debug & RCA · 系統整合',
-    heroContext: 'AI / NPU · Camera / Imaging · Connectivity · Customer Engineering · ATE / Robot / ESD',
-    explore: '瀏覽工程領域', viewResume: '查看完整履歷', viewTechnicalPortfolio: '查看技術作品', viewEngineeringCases: '查看工程案例', exploreTechnicalDomains: '探索技術領域', engineeringSnapshotKicker: '01 / 工程快速導覽', engineeringSnapshotTitle: '核心方法與代表證據', engineeringSnapshotMethods: '核心方法', engineeringSnapshotCases: '代表案例', ready: '就緒', panelLabel: '工程專長領域',
+    heroContext: 'Python / C# 自動化，涵蓋 AI / NPU · Camera / Imaging · Wi-Fi / 5G · ATE · 客戶工程',
+    explore: '瀏覽工程領域', viewResume: '查看完整履歷', viewTechnicalPortfolio: '查看技術作品', viewEngineeringCases: '查看工程案例', exploreTechnicalDomains: '探索技術領域', ready: '就緒', panelLabel: '工程專長領域',
     aboutKicker: '07 / 關於我', aboutTitle: '以系統思維實踐品質工程。',
     aboutP1: '本作品集以可靠驗證為核心：明確定義測試目的、建立可診斷的自動化流程，並以可追溯證據支援工程決策。',
     aboutP2: '技術範圍涵蓋軟體、韌體、裝置、儀器、網路、Camera 系統、產測與客戶問題結案，並將各項工作串接為完整工程流程。',
@@ -174,7 +194,7 @@ export const ui = {
     timelineLead: '點選職涯卡片查看職責、技術範圍與工程流程。',
     technicalSkillsTitle: '技術技能',
     flagshipKicker: '02 / 工程案例', flagshipTitle: '代表性工程案例',
-    flagshipLead: '三個精簡工程摘要；點選後查看技術架構、驗證、RCA、工程輸出與技術範圍。',
+    flagshipLead: '四個精簡工程摘要；點選後查看技術架構、驗證、RCA、工程輸出與技術範圍。',
     viewCaseStudy: '查看案例',
     visualKicker: '08 / 技術圖解作品', visualTitle: '技術圖解作品',
     visualLead: '使用 5 張提供的技術圖解素材，整理為可點擊的作品說明與技術範圍。',
@@ -219,6 +239,112 @@ export const ui = {
     language: '語言', selected: '已選取',
   },
 } as const;
+
+export const capabilityOverview = {
+  kicker: c('01 / Professional Snapshot', '01 / 專業摘要'),
+  title: c('Engineering Capability Overview', '工程能力總覽'),
+  subtitle: c(
+    'Automation, validation, system integration, connectivity, imaging, and customer engineering — from test design to evidence, RCA, regression, and closure.',
+    '橫跨自動化、系統驗證、設備整合、連線、影像與客戶工程，從測試設計、證據蒐集、RCA 到 Regression 與結案。',
+  ),
+  snapshot: [
+    c('21+ Years Engineering Experience', '21+ 年工程經驗'),
+    c('National Cheng Kung University · Electrical Engineering', '國立成功大學 · 電機工程'),
+    c('Python / C#', 'Python / C#'),
+    c('Test Automation · System Validation · Debug / RCA · System Integration', '測試自動化 · 系統驗證 · Debug / RCA · 系統整合'),
+  ],
+  cards: [
+    {
+      id: 'overview-test-automation',
+      index: '01',
+      title: c('Test Automation', '測試自動化'),
+      positioning: c(
+        'Build maintainable Python / C# automation that connects configuration, DUT or instrument control, execution, evidence collection, PASS / FAIL criteria, and regression reporting.',
+        '建立可維護的 Python / C# 自動化流程，串接 Configuration、DUT / Instrument Control、執行、證據收集、PASS / FAIL Criteria 與 Regression Report。',
+      ),
+      tags: ['Python', 'C#', 'pytest', 'REST API', 'Selenium / Appium', 'Jenkins / CI/CD'],
+      points: {
+        en: ['Automation Framework', 'Instrument / DUT Control', 'Exception / Timeout Handling', 'Result Parsing', 'PASS / FAIL Automation', 'Regression Reporting'],
+        zh: ['自動化框架', '儀器 / DUT 控制', 'Exception / Timeout 處理', '結果解析', 'PASS / FAIL 自動判定', 'Regression 報告'],
+      },
+    },
+    {
+      id: 'overview-system-validation',
+      index: '02',
+      title: c('System Validation & Debug / RCA', '系統驗證與 Debug / RCA'),
+      positioning: c(
+        'Translate requirements into measurable validation criteria and use reproducible evidence to isolate failures, verify fixes, and close regressions.',
+        '將需求轉換為可量測的 Validation Criteria，透過可重現證據進行問題隔離、RCA、Fix Verification 與 Regression。',
+      ),
+      tags: ['Validation Plan', 'Criteria', 'Evidence', 'Good / Bad', 'Layer Isolation', 'RCA', 'Regression'],
+      points: {
+        en: ['Measurable Validation Criteria', 'Good / Bad Comparison', 'Layer Isolation', 'Fix Verification / Regression'],
+        zh: ['可量測 Validation Criteria', 'Good / Bad 比對', 'Layer Isolation', 'Fix Verification / Regression'],
+      },
+      flow: [c('Requirement', '需求'), c('Test', '測試'), c('Evidence', '證據'), c('Isolation', '隔離'), c('RCA', 'RCA'), c('Fix Verification', '修正驗證'), c('Regression', '回歸')],
+    },
+    {
+      id: 'overview-wifi-5g',
+      index: '03',
+      title: c('Wi-Fi / 5G Connectivity', 'Wi-Fi / 5G 連線驗證'),
+      positioning: c(
+        'Automated connectivity and performance validation across Wi-Fi, 5G router, DUT, traffic endpoints, and RF / cellular test equipment.',
+        '跨 Wi-Fi、5G Router、DUT、Traffic Endpoint 與 RF / Cellular 測試設備進行自動化連線與效能驗證。',
+      ),
+      tags: ['Python', 'Keysight UXM', 'SCPI / VISA', 'Wi-Fi / 5G', 'iPerf', 'Wireshark', 'Regression'],
+      points: {
+        en: ['Wi-Fi FPGA / MAC Validation', '5G Router Validation', 'DL / UL Throughput', 'Latency / Packet Loss', 'Reconnect / Stability', 'Connectivity RCA'],
+        zh: ['Wi-Fi FPGA / MAC 驗證', '5G Router 驗證', 'DL / UL Throughput', 'Latency / Packet Loss', 'Reconnect / Stability', 'Connectivity RCA'],
+      },
+      related: { itemId: 'case-wifi-uxm', label: c('View Wi-Fi / 5G + UXM Case', '查看 Wi-Fi / 5G + UXM 案例') },
+    },
+    {
+      id: 'overview-camera-ai-npu',
+      index: '04',
+      title: c('Camera / AI / NPU', 'Camera / AI / NPU 驗證'),
+      positioning: c(
+        'Python-based validation across Camera SoC / SDK, image and video criteria, AI/NPU test-pattern execution, golden-output comparison, and regression.',
+        '使用 Python 進行 Camera SoC / SDK、影像影音規格、AI/NPU Test Pattern、Golden Output Comparison 與 Regression 驗證。',
+      ),
+      tags: ['Camera SoC', 'Python', 'ISP / Codec', 'H.264 / H.265', 'AI / NPU', 'Golden Comparison', 'SSIM'],
+      points: {
+        en: ['Camera SDK Automation', 'Image / Video Validation', 'FPS / Bitrate / Codec', 'AI/NPU Pattern Execution', 'Golden Comparison', 'Regression Debug'],
+        zh: ['Camera SDK 自動化', '影像 / 影音驗證', 'FPS / Bitrate / Codec', 'AI/NPU Pattern 執行', 'Golden Comparison', 'Regression Debug'],
+      },
+      related: { itemId: 'case-ai-npu', label: c('View AI / NPU Case', '查看 AI / NPU 案例') },
+    },
+    {
+      id: 'overview-ate-integration',
+      index: '05',
+      title: c('ATE / System Integration', 'ATE / 系統整合'),
+      positioning: c(
+        'Integrate software, fixtures, instruments, Robot, and ESD equipment through explicit interfaces, state control, handshakes, safety boundaries, and traceable results.',
+        '透過明確 Interface、State Control、Handshake、安全邊界與 Traceability，整合軟體、治具、儀器、Robot 與 ESD 設備。',
+      ),
+      tags: ['C# / Python', 'ATE', 'Robot', 'ESD', 'State Machine', 'TCP / Serial', 'Fixture'],
+      points: {
+        en: ['Equipment Orchestration', 'State Machine', 'Handshake', 'Interlock / Safety', 'Timeout / Recovery', 'Traceable PASS / FAIL'],
+        zh: ['設備流程協調', 'State Machine', 'Handshake', 'Interlock / Safety', 'Timeout / Recovery', '可追溯 PASS / FAIL'],
+      },
+      related: { itemId: 'case-ate-robot-esd', label: c('View ATE / Robot / ESD Case', '查看 ATE / Robot / ESD 案例') },
+    },
+    {
+      id: 'overview-fae-customer',
+      index: '06',
+      title: c('FAE / Customer Engineering', 'FAE / 客戶工程'),
+      positioning: c(
+        'Convert customer-reported symptoms into controlled reproduction cases, engineering evidence, RD-ready analysis, fix verification, regression, and technical closure.',
+        '將客戶回報轉換成受控的問題重現案例、工程證據、RD 可分析資料、Fix Verification、Regression 與技術結案。',
+      ),
+      tags: ['Customer Support', 'Issue Reproduction', 'ADB / Android', 'Log Analysis', 'Layer Isolation', 'RD / Vendor', 'Jira'],
+      points: {
+        en: ['Customer Issue Reproduction', 'Evidence Collection', 'Good / Bad Comparison', 'Layer Isolation', 'RD / Vendor Coordination', 'Fix Verification / Closure'],
+        zh: ['客戶問題重現', '工程證據收集', 'Good / Bad 比對', 'Layer Isolation', 'RD / Vendor 協作', 'Fix Verification / Closure'],
+      },
+      related: { itemId: 'case-fae-rca', label: c('View FAE / RCA Case', '查看 FAE / RCA 案例') },
+    },
+  ] satisfies CapabilityOverviewCard[],
+};
 
 export const focusItems: PortfolioItem[] = [
   {
@@ -643,13 +769,13 @@ export const domainExperiences: DomainExperience[] = [
   {
     id: 'wifi-connectivity',
     index: '02',
-    title: c('Wi-Fi / Connectivity', 'Wi-Fi / 連線驗證'),
+    title: c('Wi-Fi / 5G Connectivity', 'Wi-Fi / 5G 連線驗證'),
     summary: c(
-      'Wi-Fi and connectivity validation covering FPGA/chip verification, MAC-level software testing, regression, and certification pre-validation.',
-      'Wi-Fi FPGA / Chip 驗證、MAC 層軟體測試、Connectivity Regression 與認證前測相關驗證經驗。',
+      'End-to-end Wi-Fi / 5G router validation covering the cellular-side test platform, DUT, Wi-Fi client, traffic endpoints, packet evidence, and regression.',
+      '端到端 Wi-Fi / 5G Router 驗證，涵蓋 Cellular-side 測試平台、DUT、Wi-Fi Client、Traffic Endpoint、封包證據與 Regression。',
     ),
-    tags: ['Wi-Fi', 'FPGA Validation', 'MAC Validation', 'Connectivity', 'Regression', 'Certification Pre-test', 'Automation'],
-    related: { itemId: 'visual-novatek-wifi', label: c('Related Technical Brief', '相關技術圖解') },
+    tags: ['Wi-Fi / 5G', 'Keysight UXM', 'iPerf', 'Wireshark', 'FPGA / MAC Validation', 'Regression', 'Automation'],
+    related: { itemId: 'case-wifi-uxm', label: c('Related Case Study', '相關工程案例') },
   },
   {
     id: 'android-tv-fae',
@@ -806,6 +932,82 @@ export const flagshipCaseStudies: PortfolioItem[] = [
       { label: c('Engineering Outputs', '工程輸出'), bullets: { en: ['Reproduction package', 'Version and environment matrix', 'Logs, screenshots, and recordings', 'Issue-analysis record', 'Fix-verification and regression evidence', 'Customer-ready closure summary'], zh: ['重現 Package', '版本與環境矩陣', 'Log、截圖與錄影', '問題分析紀錄', '修正驗證與回歸證據', '客戶可理解的結案摘要'] } },
       section('Engineering Value', '工程價值', 'Improve reproducibility, evidence quality, engineering-layer isolation, and RD/customer communication while making fix verification repeatable and issue closure less ambiguous.', '提升可重現性、證據品質、工程層級隔離與 RD / 客戶溝通，並讓修正驗證可重複、問題結案更少歧義。'),
       section('Technical Scope', '技術範圍', 'The work covered TPV customer-facing FAE reproduction, automation, coordination, and validation—not customer product architecture, upstream firmware implementation, vendor decisions, or unsupported root-cause claims.', '工作範圍為冠捷客戶面 FAE 的重現、自動化、協作與驗證，不包含客戶產品架構、上游韌體實作、Vendor 決策或缺乏證據的根因宣稱。'),
+    ],
+  },
+  {
+    id: 'case-wifi-uxm', index: '04', title: c('Wi-Fi / 5G Router + Keysight UXM Python Automation', 'Wi-Fi / 5G Router + Keysight UXM Python 自動化'),
+    summary: c(
+      'End-to-end Python automation across the cellular-side test platform, 5G router, Wi-Fi client, traffic tools, packet evidence, automated verdicts, and regression reporting.',
+      '以 Python 串接 Cellular-side 測試平台、5G Router、Wi-Fi Client、流量工具、封包證據、自動判定與 Regression Report。',
+    ),
+    tags: ['Python', 'Keysight UXM', 'SCPI / VISA', '5G Router', 'Wi-Fi', 'iPerf', 'Wireshark'],
+    sections: [
+      section(
+        'Overview',
+        '案例概述',
+        'End-to-end connectivity and performance validation in which Keysight UXM represents the cellular / 5G-side test platform—not a Wi-Fi tester—while the DUT / 5G router bridges traffic to a Wi-Fi client and controlled endpoints.',
+        '此案例為端到端連線與效能驗證：Keysight UXM 代表 Cellular / 5G-side 測試平台，而非 Wi-Fi Tester；DUT / 5G Router 再將流量橋接至 Wi-Fi Client 與受控 Traffic Endpoint。',
+      ),
+      section(
+        'Engineering Challenge',
+        '工程挑戰',
+        'A throughput or stability failure can originate from cellular setup, router state, Wi-Fi association, traffic generation, packet behavior, automation timing, or environmental conditions. The workflow must preserve enough synchronized evidence to isolate the failing boundary.',
+        'Throughput 或穩定度失敗可能來自 Cellular Setup、Router 狀態、Wi-Fi Association、Traffic Generation、封包行為、自動化時序或環境條件；流程必須保留足夠的同步證據以隔離失敗邊界。',
+      ),
+      section(
+        'My Role',
+        '我的角色',
+        'Build Python automation for scenario configuration, supported instrument and DUT interfaces, execution control, measurement capture, result parsing, PASS / FAIL criteria, failure evidence, and repeatable regression reporting.',
+        '建立 Python 自動化流程，涵蓋情境設定、支援的儀器與 DUT 介面、執行控制、量測擷取、結果解析、PASS / FAIL Criteria、失敗證據與可重複的 Regression Report。',
+      ),
+      {
+        label: c('What I Implemented', '我實作的內容'),
+        bullets: {
+          en: ['Configuration-driven 5G router and Wi-Fi scenarios', 'Python orchestration across supported UXM, DUT, client, and traffic interfaces', 'iPerf result parsing and Wireshark evidence capture', 'DL / UL throughput, latency, and packet-loss criteria', 'Reconnect, stability, interference, distance, angle, GNSS, USB, and coexistence scenarios', 'Structured failure artifacts and regression reports'],
+          zh: ['設定驅動的 5G Router 與 Wi-Fi 測試情境', '以 Python 協調受支援的 UXM、DUT、Client 與 Traffic 介面', 'iPerf 結果解析與 Wireshark 證據擷取', 'DL / UL Throughput、Latency 與 Packet Loss Criteria', 'Reconnect、穩定度、干擾、距離、角度、GNSS、USB 與共存情境', '結構化失敗產物與 Regression Report'],
+        },
+      },
+      {
+        label: c('Technical Architecture', '技術架構'),
+        flow: [c('Python Controller', 'Python Controller'), c('Keysight UXM / Cellular Side', 'Keysight UXM / Cellular Side'), c('DUT / 5G Router', 'DUT / 5G Router'), c('Wi-Fi Client', 'Wi-Fi Client'), c('iPerf / Wireshark', 'iPerf / Wireshark'), c('Metrics / Evidence', 'Metrics / Evidence'), c('PASS / FAIL', 'PASS / FAIL'), c('Regression Report', 'Regression Report')],
+      },
+      {
+        label: c('Engineering Evidence', '工程證據'),
+        body: c('Evidence is described by category only; proprietary configurations, traces, and customer data are not published.', '僅以類型描述工程證據；不公開專有設定、Trace 或客戶資料。'),
+        bullets: {
+          en: ['Scenario and topology record', 'UXM / DUT / client state', 'iPerf DL / UL measurements', 'Wireshark packet evidence', 'Latency and packet-loss results', 'Timeout / reconnect record', 'PASS / FAIL and regression report'],
+          zh: ['情境與拓撲紀錄', 'UXM / DUT / Client 狀態', 'iPerf DL / UL 量測', 'Wireshark 封包證據', 'Latency 與 Packet Loss 結果', 'Timeout / Reconnect 紀錄', 'PASS / FAIL 與 Regression Report'],
+        },
+      },
+      section(
+        'Validation Strategy',
+        '驗證策略',
+        'Freeze topology, build, configuration, cellular and Wi-Fi state, traffic direction, duration, and acceptance criteria; correlate instrument, DUT, client, traffic, and packet evidence before assigning a failure boundary; then verify the fix and rerun related regressions.',
+        '固定拓撲、Build、設定、Cellular / Wi-Fi 狀態、流量方向、測試時間與驗收條件；先關聯儀器、DUT、Client、Traffic 與封包證據，再判定失敗邊界，最後執行 Fix Verification 與相關 Regression。',
+      ),
+      {
+        label: c('Debug / RCA Method', '除錯與根因分析'),
+        flow: [c('Reproduce', '重現'), c('Freeze Topology / Version', '固定拓撲 / 版本'), c('Collect UXM / DUT / Client Evidence', '收集 UXM / DUT / Client 證據'), c('Compare Good / Bad', 'Good / Bad 比對'), c('Isolate Cellular / Router / Wi-Fi / Traffic', '隔離 Cellular / Router / Wi-Fi / Traffic'), c('Fix Verification', '修正驗證'), c('Regression', '回歸')],
+      },
+      {
+        label: c('Tools & Technologies', '工具與技術'),
+        bullets: {
+          en: ['Python', 'Keysight UXM as the cellular / 5G-side platform', 'Supported SCPI / VISA interfaces', '5G router and Wi-Fi client', 'iPerf', 'Wireshark', 'Structured logs and regression reporting'],
+          zh: ['Python', '作為 Cellular / 5G-side 平台的 Keysight UXM', '受支援的 SCPI / VISA 介面', '5G Router 與 Wi-Fi Client', 'iPerf', 'Wireshark', '結構化 Log 與 Regression Report'],
+        },
+      },
+      section(
+        'Engineering Value',
+        '工程價值',
+        'Turn a multi-hop connectivity path into a repeatable, measurable, and diagnosable validation workflow with explicit criteria, attributable evidence, and regression-ready results.',
+        '將多段連線路徑轉換成可重複、可量測、可診斷的驗證流程，具備明確 Criteria、可歸因證據與可直接回歸的結果。',
+      ),
+      section(
+        'Technical Scope',
+        '技術範圍',
+        'The work covered validation automation and supported equipment integration. It does not claim ownership of Keysight internal implementation, modem RF design, cellular protocol-stack implementation, proprietary calibration algorithms, or customer-confidential architecture.',
+        '工作範圍為驗證自動化與受支援的設備整合；不宣稱負責 Keysight 內部實作、Modem RF 設計、Cellular Protocol Stack 實作、專有 Calibration Algorithm 或客戶機密架構。',
+      ),
     ],
   },
 ];

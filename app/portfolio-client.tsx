@@ -6,6 +6,7 @@ import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, typ
 import { DetailModal } from './detail-modal';
 import { VisitorCounter } from './visitor-counter';
 import {
+  capabilityOverview,
   careerSnapshot,
   domainExperiences,
   engineeringDebugMethodology,
@@ -19,14 +20,13 @@ import {
   skillCategories,
   ui,
   visualItems,
+  type CapabilityOverviewCard,
   type DomainExperience,
   type Language,
   type PortfolioItem,
 } from './portfolio-content';
 
 const allItems = [...focusItems, ...experienceItems, ...flagshipCaseStudies, ...visualItems, ...projectItems];
-const snapshotMethodIds = ['capability-automation', 'capability-validation', 'capability-debug-rca', 'capability-system-integration'];
-const snapshotMethods = focusItems.filter((item) => snapshotMethodIds.includes(item.id));
 const contactEmail = 'alextsou888@gmail.com';
 const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${contactEmail}&su=Portfolio%20Inquiry%20-%20Alex%20Tsou`;
 type Theme = 'light' | 'dark';
@@ -54,6 +54,7 @@ function PortfolioCard({ item, language, openLabel, tone = 'light', onOpen }: {
       aria-haspopup="dialog"
       aria-label={`${openLabel}: ${item.title[language]}`}
       data-capability-card={item.id.startsWith('capability-') ? item.id : undefined}
+      data-case-study-card={tone === 'case-study' ? item.id : undefined}
     >
       <span className="card-topline"><span>{item.index}</span><span className="card-open-icon" aria-hidden="true">↗</span></span>
       {item.career ? (
@@ -113,6 +114,49 @@ function DomainCard({ domain, language, onOpen }: {
       {domain.related && (
         <button className="domain-related" type="button" onClick={() => onOpen(domain.related!.itemId)} aria-haspopup="dialog">
           {domain.related.label[language]} <span aria-hidden="true">↗</span>
+        </button>
+      )}
+    </article>
+  );
+}
+
+function CapabilityOverviewCardView({ card, language, onOpen }: {
+  card: CapabilityOverviewCard;
+  language: Language;
+  onOpen: (id: string) => void;
+}) {
+  return (
+    <article className={`overview-card overview-card-${card.id}`} id={card.id} data-overview-card={card.id}>
+      <div className="overview-card-topline">
+        <span>{card.index}</span>
+        <h3>{card.title[language]}</h3>
+      </div>
+      <p className="overview-positioning">{card.positioning[language]}</p>
+      {card.flow && (
+        <div className="overview-flow" aria-label={`${card.title[language]} ${language === 'en' ? 'flow' : '流程'}`}>
+          {card.flow.map((step, index) => (
+            <span className="overview-flow-step" key={step.en}>
+              <span>{step[language]}</span>
+              {index < card.flow!.length - 1 && <b aria-hidden="true">→</b>}
+            </span>
+          ))}
+        </div>
+      )}
+      <div className="overview-tags" aria-label={`${card.title[language]} ${language === 'en' ? 'technologies' : '技術標籤'}`}>
+        {card.tags.map((tag) => <span key={tag}>{tag}</span>)}
+      </div>
+      <ul className="overview-points">
+        {card.points[language].map((point) => <li key={point}>{point}</li>)}
+      </ul>
+      {card.related && (
+        <button
+          className="overview-related"
+          type="button"
+          onClick={() => onOpen(card.related!.itemId)}
+          aria-haspopup="dialog"
+          data-related-case={card.related.itemId}
+        >
+          {card.related.label[language]} <span aria-hidden="true">↗</span>
         </button>
       )}
     </article>
@@ -328,25 +372,22 @@ export function PortfolioClient({ initialLanguage = 'zh' }: { initialLanguage?: 
           </div>
         </section>
 
-        <section className="engineering-snapshot" aria-labelledby="snapshot-title">
-          <div className="container snapshot-shell">
-            <div className="snapshot-heading">
-              <p className="section-kicker">{t.engineeringSnapshotKicker}</p>
-              <h2 id="snapshot-title">{t.engineeringSnapshotTitle}</h2>
+        <section className="section capability-overview" id="capability-overview" aria-labelledby="capability-overview-title">
+          <div className="container">
+            <div className="overview-heading">
+              <div>
+                <p className="section-kicker">{capabilityOverview.kicker[language]}</p>
+                <h2 id="capability-overview-title">{capabilityOverview.title[language]}</h2>
+              </div>
+              <p>{capabilityOverview.subtitle[language]}</p>
             </div>
-            <div className="snapshot-index">
-              <section aria-labelledby="snapshot-methods-title">
-                <h3 id="snapshot-methods-title">{t.engineeringSnapshotMethods}</h3>
-                <ul className="method-chip-list">
-                  {snapshotMethods.map((item) => <li key={item.id}><a href="#skills">{item.title[language]}</a></li>)}
-                </ul>
-              </section>
-              <section aria-labelledby="snapshot-cases-title">
-                <h3 id="snapshot-cases-title">{t.engineeringSnapshotCases}</h3>
-                <div className="case-shortcut-list">
-                  {flagshipCaseStudies.map((item) => <a key={item.id} href={`#${item.id}`}><span>{item.index}</span><strong>{item.title[language]}</strong><b aria-hidden="true">↓</b></a>)}
-                </div>
-              </section>
+            <div className="professional-snapshot" aria-label={language === 'en' ? 'Professional snapshot' : '專業摘要'}>
+              {capabilityOverview.snapshot.map((item) => <p key={item.en}>{item[language]}</p>)}
+            </div>
+            <div className="overview-grid">
+              {capabilityOverview.cards.map((card) => (
+                <CapabilityOverviewCardView key={card.id} card={card} language={language} onOpen={setActiveId} />
+              ))}
             </div>
           </div>
         </section>
