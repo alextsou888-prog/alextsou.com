@@ -5,6 +5,9 @@
  *   node scripts/test-visitor-stats.mjs
  *   SITE_URL=http://localhost:8788/ node scripts/test-visitor-stats.mjs
  *
+ * Production hosts are rejected before any request unless the exact explicit
+ * opt-in ALLOW_PRODUCTION_VISITOR_TEST=1 is present.
+ *
  * The admin token is read from `.dev.vars` (git-ignored) or the
  * VISITOR_STATS_TOKEN environment variable. No secret is stored in this file.
  */
@@ -21,8 +24,18 @@ import {
   shouldCountVisit,
   visitSessionWindowMs,
 } from '../app/lib/visit-session.ts';
+import { resolveVisitorTestSiteUrl } from './lib/visitor-test-target.mjs';
 
-const siteUrl = new URL(process.env.SITE_URL ?? 'http://localhost:3000/');
+let siteUrl;
+try {
+  siteUrl = resolveVisitorTestSiteUrl({
+    siteUrl: process.env.SITE_URL,
+    allowProduction: process.env.ALLOW_PRODUCTION_VISITOR_TEST,
+  });
+} catch (error) {
+  console.error(`Visitor test safety check failed:\n${error.message}`);
+  process.exit(2);
+}
 const results = [];
 
 function record(name, passed, detail = '') {

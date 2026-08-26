@@ -112,6 +112,8 @@ npm run test:visitors
 SITE_URL=http://localhost:8788/ npm run test:visitors   # 針對 production build
 ```
 
+`test:visitors` 預設只連到 `http://127.0.0.1:3000/`，並會先執行不發送網路請求的 Target Guard 測試。測試程式會在任何 Request 之前拒絕 `alextsou.com`、`www.alextsou.com`、`alextsou-com.alextsou888.workers.dev` 與其他 `*.alextsou.com` Host，避免 `POST /api/visit` 意外寫入 Production D1。只有明確設定 `ALLOW_PRODUCTION_VISITOR_TEST=1` 才能覆寫此保護；一般開發與驗證不應使用這個覆寫。
+
 以 production build 在本機預覽（含 D1）：
 
 ```bash
