@@ -657,8 +657,8 @@ const experienceCatalog: PortfolioItem[] = [
   },
   {
     id: 'career-management-validation', index: '04', title: c('Compal Experience', '仁寶電腦經歷'),
-    summary: c('Software/system integration, test management, team leadership, field trial, wireless validation, WHQL/GCF, BIOS/driver validation, and vendor coordination.', '軟體 / 系統整合、測試管理、團隊帶領、Field trial、無線驗證、WHQL/GCF、BIOS / Driver 驗證與供應商協調。'),
-    tags: ['Management', 'System Validation', 'Wireless', 'WHQL/GCF'],
+    summary: c('Notebook system validation (BIOS/driver/OS, stability, compatibility, Wi-Fi/Bluetooth), issue isolation with HW/FW/BIOS/RD teams, WHQL/GCF execution, plus test management and team leadership.', 'Notebook 系統驗證（BIOS / Driver / OS、系統穩定性、相容性、Wi-Fi / Bluetooth）、與 HW / FW / BIOS / RD 團隊協同除錯定位問題、執行 WHQL / GCF，並負責測試管理與團隊帶領。'),
+    tags: ['Notebook Validation', 'BIOS/Driver/OS', 'Wi-Fi/Bluetooth', 'WHQL/GCF', 'Management'],
     career: {
       company: c('Compal / 仁寶電腦', '仁寶電腦 / Compal'),
       cardCompany: c('Compal Electronics', '仁寶電腦'),
@@ -668,9 +668,33 @@ const experienceCatalog: PortfolioItem[] = [
       management: c('Managed approximately 13 team members', '管理約13人'),
     },
     sections: [
-      section('Products / Domains', '產品 / 領域', 'Notebook · Mobile broadband · Wireless connectivity · BIOS / Driver qualification', 'Notebook · 行動寬頻 · 無線連線 · BIOS / Driver 驗證'),
-      { label: c('Engineering Scope', '工程範圍'), bullets: { en: ['Software/system integration', 'Project/test management', 'Team leadership and resource allocation', 'Test planning and SOP', 'Field trial and wireless validation', 'WHQL, GCF, BIOS / driver validation', 'Vendor coordination and customer / cross-functional communication'], zh: ['軟體 / 系統整合', '專案 / 測試管理', '團隊帶領與資源分配', '測試規劃與 SOP', 'Field trial 與無線驗證', 'WHQL、GCF、BIOS / Driver 驗證', '供應商協調與客戶 / 跨部門溝通'] } },
-      section('Tech Stack', '技術工具', 'Windows · BIOS / Driver · Wireless · WHQL · GCF · Test Plan · SOP · Vendor Coordination', 'Windows · BIOS / Driver · Wireless · WHQL · GCF · Test Plan · SOP · Vendor Coordination'),
+      section('Products / Domains', '產品 / 領域', 'Notebook · Mobile broadband · Wi-Fi / Bluetooth connectivity · BIOS / Driver / OS qualification', 'Notebook · 行動寬頻 · Wi-Fi / Bluetooth 連線 · BIOS / Driver / OS 驗證'),
+      {
+        label: c('Engineering Scope', '工程範圍'),
+        bullets: {
+          en: [
+            'Notebook system validation: BIOS / driver / OS compatibility and stability testing across platform configurations',
+            'System stability testing: stress/burn-in and long-run stability validation, with hang/crash reproduction and analysis',
+            'Wi-Fi / Bluetooth validation on notebook platforms: connectivity, throughput, and coexistence testing',
+            'Issue isolation and cross-functional debugging with HW, FW, BIOS, and RD teams to root-cause and close out failures',
+            'WHQL and GCF test execution for driver / hardware logo qualification',
+            'Field trial coordination and pre-mass-production validation',
+            'Test planning, SOP development, and project/test management',
+            'Team leadership, resource allocation, and vendor / customer cross-functional communication',
+          ],
+          zh: [
+            'Notebook 系統驗證：跨平台配置的 BIOS / Driver / OS 相容性與穩定性測試',
+            '系統穩定性測試：長時間 Stress / Burn-in 驗證，並重現與分析當機 / 無回應問題',
+            'Notebook 平台 Wi-Fi / Bluetooth 驗證：連線、傳輸效能與共存性測試',
+            '與 HW、FW、BIOS、RD 團隊協同進行問題定位與跨部門除錯，追蹤問題直到結案',
+            '執行 WHQL、GCF 測試，完成 Driver / 硬體 Logo 驗證',
+            'Field trial 協調與量產前驗證',
+            '測試規劃、SOP 建立與專案 / 測試管理',
+            '團隊帶領、資源分配，以及供應商 / 客戶跨部門溝通',
+          ],
+        },
+      },
+      section('Tech Stack', '技術工具', 'Windows · BIOS / Driver / OS · Wi-Fi / Bluetooth · WHQL · GCF · Stability / Stress Test · Test Plan · SOP · Vendor Coordination', 'Windows · BIOS / Driver / OS · Wi-Fi / Bluetooth · WHQL · GCF · 穩定性 / Stress 測試 · Test Plan · SOP · Vendor Coordination'),
     ],
   },
 ];
