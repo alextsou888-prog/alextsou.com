@@ -421,6 +421,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 }
 
 .professional-snapshot p + p { border-left: 1px solid #b4c1cb; }
+.hero-snapshot { margin-top: clamp(24px, 4vw, 44px); }
 
 .overview-grid {
   display: grid;
@@ -1576,6 +1577,12 @@ button, a { -webkit-tap-highlight-color: transparent; }
   line-height: 1.68;
 }
 
+.merged-domains {
+  margin-top: 64px;
+  padding-top: 48px;
+  border-top: 1px solid rgba(169, 139, 99, 0.38);
+}
+
 .domain-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -2025,13 +2032,13 @@ button, a { -webkit-tap-highlight-color: transparent; }
 
 .visual-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
 }
 
 .visual-card {
   display: grid;
-  grid-template-rows: 156px 1fr;
+  grid-template-rows: 190px 1fr;
   width: 100%;
   min-height: 428px;
   padding: 0;
@@ -2045,6 +2052,57 @@ button, a { -webkit-tap-highlight-color: transparent; }
   text-align: left;
   overflow: hidden;
   transition: border-color 180ms ease, background 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.visual-card-diagram {
+  counter-reset: diagram-step;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  min-width: 0;
+  align-content: center;
+  gap: 8px;
+  padding: 18px;
+  border-bottom: 1px solid var(--line);
+  background:
+    linear-gradient(145deg, rgba(220, 229, 236, 0.8), rgba(232, 216, 195, 0.52)),
+    var(--paper);
+}
+
+.visual-card-step {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  place-items: stretch;
+  counter-increment: diagram-step;
+}
+
+.visual-card-step::before {
+  content: counter(diagram-step, decimal-leading-zero);
+  position: absolute;
+  z-index: 1;
+  top: 6px;
+  left: 7px;
+  color: #765f41;
+  font: 800 8px/1 var(--mono);
+}
+
+.visual-card-step > span {
+  display: grid;
+  min-width: 0;
+  min-height: 56px;
+  place-items: center;
+  padding: 18px 8px 8px;
+  border: 1px solid rgba(83, 111, 133, 0.42);
+  background: rgba(255, 255, 255, 0.76);
+  color: #30475b;
+  font: 760 10px/1.35 var(--mono);
+  overflow-wrap: normal;
+  word-break: normal;
+  text-align: center;
+}
+
+.visual-card-step b {
+  display: none;
 }
 
 .modal-career-meta {
@@ -2474,6 +2532,17 @@ html[data-theme='dark'] .visual-card {
   color: var(--text-primary);
 }
 html[data-theme='dark'] .visual-card:hover { background: var(--card-secondary); }
+html[data-theme='dark'] .visual-card-diagram {
+  border-color: var(--border);
+  background: linear-gradient(145deg, #1d2b39, #352c20);
+}
+html[data-theme='dark'] .visual-card-step > span {
+  border-color: var(--border);
+  background: rgba(19, 29, 44, 0.82);
+  color: var(--text-primary);
+}
+html[data-theme='dark'] .visual-card-step::before { color: var(--accent-gold); }
+html[data-theme='dark'] .visual-card-step b { color: var(--accent-gold); }
 html[data-theme='dark'] .contact-section {
   background: linear-gradient(180deg, #172233, #0f1724);
 }
@@ -2595,6 +2664,7 @@ html[data-theme='dark'] .modal-visual img { border-color: var(--border); backgro
   .snapshot-fact { min-height: auto; }
   .timeline-list button { min-height: 220px; padding: 22px; }
   .visual-card { grid-template-rows: 190px 1fr; min-height: 394px; }
+  .visual-card-diagram { padding: 14px; }
   .modal-backdrop { align-items: end; padding: 0; }
   .detail-modal { max-height: 92dvh; border-inline: 0; border-bottom: 0; box-shadow: none; }
   .modal-header { flex-wrap: wrap; padding: 22px 20px 18px; }

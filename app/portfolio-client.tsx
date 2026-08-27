@@ -1,7 +1,5 @@
 'use client';
 
-/* eslint-disable @next/next/no-img-element */
-
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type FormEvent } from 'react';
 import { DetailModal } from './detail-modal';
 import { VisitorCounter } from './visitor-counter';
@@ -13,24 +11,20 @@ import {
   experienceItems,
   flagshipCaseStudies,
   focusItems,
-  problemSolvingHighlights,
-  projectItems,
   resumeCoreGroups,
   resumeEducation,
   resumeProjectGroups,
   skillCategories,
   ui,
   visualItems,
-  type CapabilityOverviewCard,
   type DomainExperience,
   type Language,
   type PortfolioItem,
-  type ProblemSolvingHighlight,
 } from './portfolio-content';
 
-const allItems = [...focusItems, ...experienceItems, ...flagshipCaseStudies, ...visualItems, ...projectItems];
+const allItems = [...focusItems, ...experienceItems, ...flagshipCaseStudies, ...visualItems];
 const contactEmail = 'alextsou888@gmail.com';
-const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${contactEmail}&su=Portfolio%20Inquiry%20-%20Alex%20Tsou`;
+const mailtoUrl = `mailto:${contactEmail}?subject=${encodeURIComponent('Portfolio Inquiry - Alex Tsou')}`;
 type Theme = 'light' | 'dark';
 const initialContactForm = {
   name: '',
@@ -86,7 +80,14 @@ function VisualCard({ item, language, openLabel, onOpen }: {
       aria-haspopup="dialog"
       aria-label={`${openLabel}: ${item.title[language]}`}
     >
-      {item.image && <img src={item.image.src} alt={item.image.alt[language]} loading="lazy" />}
+      <span className="visual-card-diagram" aria-hidden="true">
+        {item.cardFlow?.map((step, index) => (
+          <span className="visual-card-step" key={step.en}>
+            <span>{step[language]}</span>
+            {index < (item.cardFlow?.length ?? 0) - 1 && <b>→</b>}
+          </span>
+        ))}
+      </span>
       <span className="visual-card-copy">
         <span className="card-topline"><span>{item.index}</span><span className="card-open-icon" aria-hidden="true">↗</span></span>
         <span className="card-title">{item.title[language]}</span>
@@ -118,106 +119,6 @@ function DomainCard({ domain, language, onOpen }: {
           {domain.related.label[language]} <span aria-hidden="true">↗</span>
         </button>
       )}
-    </article>
-  );
-}
-
-function CapabilityOverviewCardView({ card, language, onOpen }: {
-  card: CapabilityOverviewCard;
-  language: Language;
-  onOpen: (id: string) => void;
-}) {
-  return (
-    <article
-      className={`overview-card overview-card-${card.id}`}
-      id={card.id}
-      data-overview-card={card.id}
-      data-overview-tag-count={card.tags.length}
-      data-overview-point-count={card.points[language].length}
-    >
-      <div className="overview-card-topline">
-        <span>{card.index}</span>
-        <h3>{card.title[language]}</h3>
-      </div>
-      <p className="overview-positioning">{card.positioning[language]}</p>
-      {card.flow && (
-        <div className="overview-flow" aria-label={`${card.title[language]} ${language === 'en' ? 'flow' : '流程'}`}>
-          {card.flow.map((step, index) => (
-            <span className="overview-flow-step" key={step.en}>
-              <span>{step[language]}</span>
-              {index < card.flow!.length - 1 && <b aria-hidden="true">→</b>}
-            </span>
-          ))}
-        </div>
-      )}
-      <div className="overview-tags" aria-label={`${card.title[language]} ${language === 'en' ? 'technologies' : '技術標籤'}`}>
-        {card.tags.map((tag) => <span key={tag}>{tag}</span>)}
-      </div>
-      <ul className="overview-points">
-        {card.points[language].map((point) => <li key={point}>{point}</li>)}
-      </ul>
-      {card.related && (
-        <button
-          className="overview-related"
-          type="button"
-          onClick={() => onOpen(card.related!.itemId)}
-          aria-haspopup="dialog"
-          data-related-case={card.related.itemId}
-        >
-          {card.related.label[language]} <span aria-hidden="true">↗</span>
-        </button>
-      )}
-    </article>
-  );
-}
-
-function ProblemSolvingCard({ card, language, onOpen }: {
-  card: ProblemSolvingHighlight;
-  language: Language;
-  onOpen: (id: string) => void;
-}) {
-  const labels = problemSolvingHighlights.labels;
-
-  return (
-    <article className={`problem-solving-card problem-solving-card-${card.id}`} data-problem-solving-card={card.id}>
-      <div className="problem-solving-card-topline">
-        <span aria-hidden="true">{card.index}</span>
-        <h4>{card.title[language]}</h4>
-      </div>
-      <dl className="problem-solving-summary">
-        <div>
-          <dt>{labels.problem[language]}</dt>
-          <dd>{card.problem[language]}</dd>
-        </div>
-        <div>
-          <dt>{labels.approach[language]}</dt>
-          <dd>{card.approach[language]}</dd>
-        </div>
-        <div>
-          <dt>{labels.outcome[language]}</dt>
-          <dd>{card.outcome[language]}</dd>
-        </div>
-      </dl>
-      <details className="problem-solving-logic">
-        <summary>{labels.logic[language]}</summary>
-        <div className="detail-flow" aria-label={`${card.title[language]} ${labels.logic[language]}`}>
-          {card.flow.map((step, index) => (
-            <span className="flow-step" key={step.en}>
-              <span>{step[language]}</span>
-              {index < card.flow.length - 1 && <b aria-hidden="true">→</b>}
-            </span>
-          ))}
-        </div>
-      </details>
-      <button
-        className="problem-solving-related"
-        type="button"
-        onClick={() => onOpen(card.related.itemId)}
-        aria-haspopup="dialog"
-        data-highlight-related-case={card.related.itemId}
-      >
-        {card.related.label[language]} <span aria-hidden="true">↗</span>
-      </button>
     </article>
   );
 }
@@ -376,7 +277,7 @@ export function PortfolioClient({ initialLanguage = 'zh' }: { initialLanguage?: 
           </a>
           <div className="nav-actions">
             <nav className="primary-nav" aria-label={t.navLabel}>
-              <a href="#about">{t.about}</a><a href="#case-studies">{t.cases}</a><a href="#domains">{t.domains}</a><a href="#skills">{t.skills}</a><a href="#experience">{t.experience}</a><a href="#resume">{t.resume}</a>
+              <a href="#case-studies">{t.cases}</a><a href="#experience">{t.experience}</a><a href="#skills">{t.skills}</a><a href="#visual-portfolio">{t.visualPortfolio}</a><a href="#resume">{t.resume}</a>
               <a className="nav-cta" href="#contact">{t.contact} <span aria-hidden="true">↗</span></a>
             </nav>
             <button
@@ -406,7 +307,7 @@ export function PortfolioClient({ initialLanguage = 'zh' }: { initialLanguage?: 
           </div>
         </div>
         <nav className="mobile-nav container" aria-label={t.navLabel}>
-          <a href="#case-studies">{t.cases}</a><a href="#domains">{t.domains}</a><a href="#skills">{t.skills}</a><a href="#experience">{t.experience}</a><a href="#resume">{t.resume}</a><a href="#about">{t.about}</a><a href="#contact">{t.contact}</a>
+          <a href="#case-studies">{t.cases}</a><a href="#experience">{t.experience}</a><a href="#skills">{t.skills}</a><a href="#visual-portfolio">{t.visualPortfolio}</a><a href="#resume">{t.resume}</a><a href="#contact">{t.contact}</a>
         </nav>
       </header>
 
@@ -417,12 +318,11 @@ export function PortfolioClient({ initialLanguage = 'zh' }: { initialLanguage?: 
               <p className="eyebrow"><span className="status-dot" aria-hidden="true" />{t.eyebrow}</p>
               <h1 id="hero-title">{t.heroA}</h1>
               <p className="hero-role">{t.heroRole}</p>
-              <p className="hero-semiconductor">{t.heroSemiconductor}</p>
               <p className="hero-lede">{t.heroLead}</p>
               <p className="hero-context">{t.heroContext}</p>
               <div className="hero-actions">
                 <a className="button button-primary" href="#case-studies">{t.viewEngineeringCases} <span aria-hidden="true">↓</span></a>
-                <a className="button button-secondary" href="#domains">{t.exploreTechnicalDomains} <span aria-hidden="true">↓</span></a>
+                <a className="button button-secondary" href="#resume">{t.viewResume} <span aria-hidden="true">↓</span></a>
               </div>
             </div>
             <div className="system-panel" aria-label={t.panelLabel}>
@@ -431,25 +331,8 @@ export function PortfolioClient({ initialLanguage = 'zh' }: { initialLanguage?: 
               <div className="signal-row"><span>{language === 'en' ? 'REPEATABLE' : '可重現'}</span><span>{language === 'en' ? 'TRACEABLE' : '可追溯'}</span><span>{language === 'en' ? 'MAINTAINABLE' : '可維護'}</span></div>
             </div>
           </div>
-        </section>
-
-        <section className="section capability-overview" id="capability-overview" aria-labelledby="capability-overview-title">
-          <div className="container">
-            <div className="overview-heading">
-              <div>
-                <p className="section-kicker">{capabilityOverview.kicker[language]}</p>
-                <h2 id="capability-overview-title">{capabilityOverview.title[language]}</h2>
-              </div>
-              <p>{capabilityOverview.subtitle[language]}</p>
-            </div>
-            <div className="professional-snapshot" aria-label={language === 'en' ? 'Professional snapshot' : '專業摘要'}>
-              {capabilityOverview.snapshot.map((item) => <p key={item.en}>{item[language]}</p>)}
-            </div>
-            <div className="overview-grid">
-              {capabilityOverview.cards.map((card) => (
-                <CapabilityOverviewCardView key={card.id} card={card} language={language} onOpen={setActiveId} />
-              ))}
-            </div>
+          <div className="container professional-snapshot hero-snapshot" aria-label={language === 'en' ? 'Professional snapshot' : '專業摘要'}>
+            {capabilityOverview.snapshot.map((item) => <p key={item.en}>{item[language]}</p>)}
           </div>
         </section>
 
@@ -464,20 +347,6 @@ export function PortfolioClient({ initialLanguage = 'zh' }: { initialLanguage?: 
                 <PortfolioCard key={item.id} item={item} language={language} openLabel={t.viewCaseStudy} tone="case-study" onOpen={setActiveId} />
               ))}
             </div>
-            <section className="problem-solving-highlights" id="problem-solving" aria-labelledby="problem-solving-title">
-              <div className="problem-solving-heading">
-                <div>
-                  <p className="section-kicker">{problemSolvingHighlights.kicker[language]}</p>
-                  <h3 id="problem-solving-title">{problemSolvingHighlights.title[language]}</h3>
-                </div>
-                <p>{problemSolvingHighlights.lead[language]}</p>
-              </div>
-              <div className="problem-solving-grid">
-                {problemSolvingHighlights.cards.map((card) => (
-                  <ProblemSolvingCard key={card.id} card={card} language={language} onOpen={setActiveId} />
-                ))}
-              </div>
-            </section>
             <section className="debug-methodology debug-methodology-standalone" aria-labelledby="debug-methodology-title" data-engineering-method="compact">
               <h3 id="debug-methodology-title">{engineeringDebugMethodology.title[language]}</h3>
               <div className="detail-flow" aria-label={engineeringDebugMethodology.title[language]}>
@@ -492,12 +361,10 @@ export function PortfolioClient({ initialLanguage = 'zh' }: { initialLanguage?: 
           </div>
         </section>
 
-        <section className="section section-muted technical-domains-section" id="domains" aria-labelledby="domains-title">
+        <section className="section section-line" id="experience" aria-labelledby="experience-title">
           <div className="container">
-            <div className="section-heading"><div><p className="section-kicker">{t.domainsKicker}</p><h2 id="domains-title">{t.domainsTitle}</h2></div><p>{t.domainsLead}</p></div>
-            <div className="domain-grid">
-              {domainExperiences.map((domain) => <DomainCard key={domain.id} domain={domain} language={language} onOpen={setActiveId} />)}
-            </div>
+            <div className="section-heading"><div><p className="section-kicker">{t.expKicker}</p><h2 id="experience-title">{t.expTitle}</h2></div><p>{t.expLead}</p></div>
+            <div className="experience-grid">{experienceItems.map((item) => <PortfolioCard key={item.id} item={item} language={language} openLabel={t.open} tone="experience" onOpen={setActiveId} />)}</div>
           </div>
         </section>
 
@@ -505,13 +372,24 @@ export function PortfolioClient({ initialLanguage = 'zh' }: { initialLanguage?: 
           <div className="container">
             <div className="section-heading"><div><p className="section-kicker">{t.skillsKicker}</p><h2 id="skills-title">{t.skillsTitle}</h2></div><p>{t.skillsLead}</p></div>
             <div className="capability-grid">{focusItems.map((item) => <PortfolioCard key={item.id} item={item} language={language} openLabel={t.capabilityDetails} onOpen={setActiveId} />)}</div>
+            <section className="merged-domains" id="domains" aria-labelledby="domains-title">
+              <div className="domain-heading"><h3 id="domains-title">{t.domainsTitle}</h3><p>{t.domainsLead}</p></div>
+              <div className="domain-grid">
+                {domainExperiences.map((domain) => <DomainCard key={domain.id} domain={domain} language={language} onOpen={setActiveId} />)}
+              </div>
+            </section>
           </div>
         </section>
 
-        <section className="section section-line" id="experience" aria-labelledby="experience-title">
+        <section className="section section-line" id="visual-portfolio" aria-labelledby="visual-title">
           <div className="container">
-            <div className="section-heading"><div><p className="section-kicker">{t.expKicker}</p><h2 id="experience-title">{t.expTitle}</h2></div><p>{t.expLead}</p></div>
-            <div className="experience-grid">{experienceItems.map((item) => <PortfolioCard key={item.id} item={item} language={language} openLabel={t.open} tone="experience" onOpen={setActiveId} />)}</div>
+            <div className="section-heading">
+              <div><p className="section-kicker">{t.visualKicker}</p><h2 id="visual-title">{t.visualTitle}</h2></div>
+              <p>{t.visualLead}</p>
+            </div>
+            <div className="visual-grid">
+              {visualItems.map((item) => <VisualCard key={item.id} item={item} language={language} openLabel={t.openImage} onOpen={setActiveId} />)}
+            </div>
           </div>
         </section>
 
@@ -644,26 +522,6 @@ export function PortfolioClient({ initialLanguage = 'zh' }: { initialLanguage?: 
           </div>
         </section>
 
-        <section className="section section-line" id="about" aria-labelledby="about-title">
-          <div className="container split-layout"><div><p className="section-kicker">{t.aboutKicker}</p><h2 id="about-title">{t.aboutTitle}</h2></div><div className="about-body"><p>{t.aboutP1}</p><p>{t.aboutP2}</p><div className="principles-grid">{t.principles.map((principle, index) => <article className="principle" key={principle[0]}><span>{String(index + 1).padStart(2, '0')}</span><h3>{principle[0]}</h3><p>{principle[1]}</p></article>)}</div></div></div>
-        </section>
-
-        <section className="section section-line" id="visual-portfolio" aria-labelledby="visual-title">
-          <div className="container">
-            <div className="section-heading">
-              <div><p className="section-kicker">{t.visualKicker}</p><h2 id="visual-title">{t.visualTitle}</h2></div>
-              <p>{t.visualLead}</p>
-            </div>
-            <div className="visual-grid">
-              {visualItems.map((item) => <VisualCard key={item.id} item={item} language={language} openLabel={t.openImage} onOpen={setActiveId} />)}
-            </div>
-          </div>
-        </section>
-
-        <section className="section section-dark" id="projects" aria-labelledby="projects-title">
-          <div className="container"><div className="section-heading section-heading-dark"><div><p className="section-kicker">{t.projectsKicker}</p><h2 id="projects-title">{t.projectsTitle}</h2></div><p>{t.projectsLead}</p></div><div className="projects-grid">{projectItems.map((item) => <PortfolioCard key={item.id} item={item} language={language} openLabel={t.open} tone="dark" onOpen={setActiveId} />)}</div></div>
-        </section>
-
         <section className="section contact-section" id="contact" aria-labelledby="contact-title">
           <div className="container">
             <div className="section-heading contact-heading">
@@ -676,7 +534,7 @@ export function PortfolioClient({ initialLanguage = 'zh' }: { initialLanguage?: 
                 <span className="contact-card-label">A</span>
                 <h3>{t.sendEmailTitle}</h3>
                 <p>{t.sendEmailBody}</p>
-                <a className="button button-primary" href={gmailComposeUrl} target="_blank" rel="noopener noreferrer">{t.sendEmailButton}</a>
+                <a className="button button-primary" href={mailtoUrl}>{t.sendEmailButton}</a>
                 <button className="button button-secondary" type="button" onClick={copyEmail}>{copiedEmail ? t.emailCopied : t.copyEmail}</button>
                 <p className="contact-availability-note">{t.messagingAvailability}</p>
                 <p className="contact-email">{contactEmail}</p>

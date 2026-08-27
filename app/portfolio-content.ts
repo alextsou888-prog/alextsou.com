@@ -15,6 +15,7 @@ export type PortfolioItem = {
   summary: Copy;
   tags: string[];
   sections: DetailSection[];
+  cardFlow?: Copy[];
   career?: {
     company: Copy;
     cardCompany?: Copy;
@@ -89,10 +90,9 @@ export const ui = {
     about: 'About', skills: 'Capabilities', experience: 'Experience', projects: 'Projects', resume: 'Resume', visualPortfolio: 'Technical Portfolio', cases: 'Cases', domains: 'Domains', contact: 'Contact',
     eyebrow: 'Engineering Portfolio',
     heroA: 'Alex Tsou', heroB: '',
-    heroRole: 'Senior Test Automation / System Validation Engineer',
-    heroSemiconductor: 'IC / SoC / FPGA Validation Experience',
-    heroLead: 'Test Automation · Validation · Debug & RCA · System Integration',
-    heroContext: 'Python / C# automation across connectivity, imaging / AI, ATE, and customer engineering',
+    heroRole: 'Senior Test Automation & System Validation Engineer',
+    heroLead: 'Python / C# Automation · IC / SoC / FPGA · Wi-Fi / 5G · Camera / AI · ATE · FAE / Customer Engineering',
+    heroContext: 'Requirements / Test Plan → Automation → Evidence Collection → Debug / RCA → Fix Verification → Regression',
     explore: 'Explore engineering areas', viewResume: 'View Resume', viewTechnicalPortfolio: 'View Technical Portfolio', viewEngineeringCases: 'View Engineering Cases', exploreTechnicalDomains: 'Explore Technical Domains', ready: 'READY', panelLabel: 'Engineering focus areas',
     aboutKicker: '07 / About', aboutTitle: 'Quality engineering with a systems mindset.',
     aboutP1: 'This portfolio is structured around reliable validation: clear test intent, automation that can be diagnosed, and evidence that supports engineering decisions.',
@@ -102,10 +102,10 @@ export const ui = {
       ['Engineer for failure', 'Design automation around diagnostics, boundaries, recovery, and uncertainty.'],
       ['Close the loop', 'Connect reproduction, root-cause analysis, regression, and delivery.'],
     ],
-    skillsKicker: '04 / Cross-product Methods', skillsTitle: 'Engineering Capabilities',
-    skillsLead: 'Reusable capabilities across automation, validation, debugging, system integration, customer engineering, and test architecture.',
-    expKicker: '05 / Experience', expTitle: 'Experience areas',
-    expLead: 'Experience spanning production automation, device validation, customer engineering, and system integration.',
+    skillsKicker: '04 / Core Skills & Domains', skillsTitle: 'Core Skills & Technical Domains',
+    skillsLead: 'Reusable engineering methods paired with hands-on product experience across connectivity, imaging / AI, ATE, automotive, and customer engineering.',
+    expKicker: '03 / Experience', expTitle: 'Professional Experience',
+    expLead: 'Official titles, product domains, strongest contributions, and technology stacks—concise on page and detailed on demand.',
     resumeKicker: '06 / Career Reference', resumeTitle: 'Resume / career portfolio',
     resumeLead: 'A public, privacy-conscious resume structure: concise on page, detailed on demand.',
     snapshotTitle: 'Career Snapshot',
@@ -128,15 +128,15 @@ export const ui = {
     flagshipKicker: '02 / Case Studies', flagshipTitle: 'Flagship Engineering Case Studies',
     flagshipLead: 'Four concise engineering briefs with detailed architecture, validation, RCA, outputs, and ownership boundaries available on demand.',
     viewCaseStudy: 'View Case Study',
-    visualKicker: '08 / Visual Technical Portfolio', visualTitle: 'Visual technical portfolio',
-    visualLead: 'Five supplied technical visuals are presented as clickable briefs with clear ownership boundaries.',
+    visualKicker: '05 / Technical Diagrams', visualTitle: 'Technical Diagrams',
+    visualLead: 'Concise, recruiter-readable flows for the systems, validation methods, and engineering boundaries behind the work.',
     projectsKicker: '09 / Projects', projectsTitle: 'Selected project areas',
     projectsLead: 'Expandable technical briefs prepared for verified case studies, artifacts, and results.',
-    contactKicker: '10 / Contact',
+    contactKicker: '07 / Contact',
     contactSectionTitle: 'Contact Alex',
     contactSectionLead: 'Send an email directly or leave a private message with enough contact information for a reply.',
     sendEmailTitle: 'Send Email',
-    sendEmailBody: 'Open Gmail Web Compose in a new tab with the portfolio contact subject prepared.',
+    sendEmailBody: 'Open your default email app with the portfolio contact subject prepared.',
     sendEmailButton: 'Email Me',
     copyEmail: 'Copy Email',
     emailCopied: 'Email copied',
@@ -167,7 +167,7 @@ export const ui = {
     footer: 'Built for alextsou.com · Engineering through automation, validation, and evidence.', backTop: 'Back to top',
     visitCounterLabel: 'Total Visits:', visitLastVisitLabel: 'Last Visit:',
     open: 'Open details', capabilityDetails: 'View Details', close: 'Close details', dialogLabel: 'Engineering detail',
-    openImage: 'Open visual brief',
+    openImage: 'Open technical diagram',
     language: 'Language', selected: 'Selected',
   },
   zh: {
@@ -175,10 +175,9 @@ export const ui = {
     about: '關於我', skills: '工程能力', experience: '經歷', projects: '專案', resume: '履歷', visualPortfolio: '技術作品', cases: '工程案例', domains: '技術領域', contact: '聯絡方式',
     eyebrow: '工程作品集',
     heroA: 'Alex Tsou', heroB: '',
-    heroRole: '資深測試自動化 / 系統驗證工程師',
-    heroSemiconductor: 'IC / SoC / FPGA 驗證經驗',
-    heroLead: '測試自動化 · 系統驗證 · Debug & RCA · 系統整合',
-    heroContext: 'Python / C# 自動化，涵蓋連線、影像 / AI、ATE 與客戶工程',
+    heroRole: '資深測試自動化與系統驗證工程師',
+    heroLead: 'Python / C# 自動化 · IC / SoC / FPGA · Wi-Fi / 5G · Camera / AI · ATE · FAE / 客戶工程',
+    heroContext: '需求 / 測試計畫 → 自動化 → 證據收集 → Debug / RCA → 修正驗證 → 回歸測試',
     explore: '瀏覽工程領域', viewResume: '查看完整履歷', viewTechnicalPortfolio: '查看技術作品', viewEngineeringCases: '查看工程案例', exploreTechnicalDomains: '探索技術領域', ready: '就緒', panelLabel: '工程專長領域',
     aboutKicker: '07 / 關於我', aboutTitle: '以系統思維實踐品質工程。',
     aboutP1: '本作品集以可靠驗證為核心：明確定義測試目的、建立可診斷的自動化流程，並以可追溯證據支援工程決策。',
@@ -188,10 +187,10 @@ export const ui = {
       ['為失敗而設計', '預先納入診斷邊界、復原機制與不確定性處理。'],
       ['形成閉環', '串接問題重現、根因分析、回歸測試與交付流程。'],
     ],
-    skillsKicker: '04 / 跨產品工程方法', skillsTitle: '核心工程能力',
-    skillsLead: '橫跨自動化、驗證、除錯、系統整合、客戶技術支援與測試架構的核心工程能力。',
-    expKicker: '05 / 經歷', expTitle: '經歷領域',
-    expLead: '經歷涵蓋產測自動化、裝置驗證、客戶工程支援與系統整合。',
+    skillsKicker: '04 / 核心技能與領域', skillsTitle: '核心技能與技術領域',
+    skillsLead: '將可重用的工程方法，應用於連線、影像 / AI、ATE、車載與客戶工程等實務產品領域。',
+    expKicker: '03 / 工作經歷', expTitle: '工作經歷',
+    expLead: '以正式職稱、產品領域、關鍵貢獻與技術工具呈現；首頁精簡，細節可點開查看。',
     resumeKicker: '06 / 職涯參考', resumeTitle: '履歷 / 職涯作品集',
     resumeLead: '以適合公開網站的方式呈現履歷：首頁精簡、細節可點開查看。',
     snapshotTitle: '職涯摘要',
@@ -214,15 +213,15 @@ export const ui = {
     flagshipKicker: '02 / 工程案例', flagshipTitle: '代表性工程案例',
     flagshipLead: '四個精簡工程摘要；點選後查看技術架構、驗證、RCA、工程輸出與技術範圍。',
     viewCaseStudy: '查看案例',
-    visualKicker: '08 / 技術圖解作品', visualTitle: '技術圖解作品',
-    visualLead: '使用 5 張提供的技術圖解素材，整理為可點擊的作品說明與技術範圍。',
+    visualKicker: '05 / 技術圖解', visualTitle: '技術圖解',
+    visualLead: '以精簡流程呈現系統整合、驗證方法與責任邊界，方便招募與技術主管快速閱讀。',
     projectsKicker: '09 / 專案', projectsTitle: '精選專案領域',
-    projectsLead: '可展開的技術摘要，後續可加入已驗證案例、產出物與成果。',
-    contactKicker: '10 / 聯絡方式',
+    projectsLead: '以可展開摘要呈現代表性技術方法、驗證範圍與工程證據。',
+    contactKicker: '07 / 聯絡方式',
     contactSectionTitle: '聯絡我',
     contactSectionLead: '可直接寄 Email，或留下私人訊息與可回覆的聯絡方式。',
     sendEmailTitle: '寄 Email 給我',
-    sendEmailBody: '在新分頁開啟 Gmail 撰寫視窗，並自動帶入作品集聯絡主旨。',
+    sendEmailBody: '使用預設 Email 軟體開啟新郵件，並帶入作品集聯絡主旨。',
     sendEmailButton: '寄 Email 給我',
     copyEmail: '複製 Email',
     emailCopied: '已複製 Email',
@@ -253,7 +252,7 @@ export const ui = {
     footer: '為 alextsou.com 建置 · 以自動化、驗證與證據實踐工程品質。', backTop: '返回頂端',
     visitCounterLabel: '累計訪問次數：', visitLastVisitLabel: '最近訪問：',
     open: '開啟詳細內容', capabilityDetails: '開啟詳細內容', close: '關閉詳細內容', dialogLabel: '工程技術詳情',
-    openImage: '開啟圖解作品',
+    openImage: '開啟技術圖解',
     language: '語言', selected: '已選取',
   },
 } as const;
@@ -266,7 +265,7 @@ export const capabilityOverview = {
     '以 Python / C# 建立可重現、可追溯的自動化與系統驗證流程，涵蓋 IC / SoC / FPGA、連線、影像 / AI、ATE 與客戶工程。',
   ),
   snapshot: [
-    c('21+ Years Engineering Experience', '21+ 年工程經驗'),
+    c('20+ Years Engineering Experience', '20+ 年工程經驗'),
     c('National Cheng Kung University · Electrical Engineering', '國立成功大學 · 電機工程'),
     c('Python / C#', 'Python / C#'),
     c('Test Automation · System Validation · Debug / RCA · System Integration', '測試自動化 · 系統驗證 · Debug / RCA · 系統整合'),
@@ -529,62 +528,38 @@ const experienceCatalog: PortfolioItem[] = [
     tags: ['FIH', 'Automation', 'System Validation', '5G / Wi-Fi / CAN'],
     career: {
       company: c('FIH / 鴻海富智康', '鴻海富智康 / FIH'),
-      jobTitle: c('Technical Manager / Hands-on Test Automation Lead', '技術經理 / Hands-on 測試自動化 Lead'),
+      jobTitle: c('Technical Manager | Hands-on Test Automation & System Validation Lead', '技術經理｜Hands-on 測試自動化與系統驗證 Lead'),
       period: '2022/09 – 2026/04',
       tenure: c('3 years 8 months', '3年8個月'),
       management: c('Managed 4 team members', '管理人數4人'),
     },
     sections: [
-      section('Overview', '概述', 'FIH engineering work spans automation-platform integration, system and firmware validation, hardware/software debugging, communication performance testing, and cross-functional project support.', 'FIH 工程工作涵蓋自動化平台整合、系統與韌體驗證、硬體 / 軟體 Debug、通訊效能測試與跨部門專案支援。'),
+      section('Products / Domains', '產品 / 領域', '5G Router · Automotive · AI Glasses · Stylus · Wireless Charging · ESD Validation', '5G Router · 車載 · AI 眼鏡 · 觸控筆 · 無線充電 · ESD 驗證'),
       {
-        label: c('Automation Platform & CI', '自動化平台與 CI'),
+        label: c('Key Contributions', '關鍵貢獻'),
         bullets: {
-          en: ['Python, Shell, Batch, and PowerShell automation', 'Jenkins, GitLab CI, and Docker workflow integration', 'Automated execution, packaging, test, and report generation', 'Linux and Windows validation environments'],
-          zh: ['Python、Shell、Batch 與 PowerShell 自動化', 'Jenkins、GitLab CI 與 Docker 流程整合', '自動執行、封裝、測試與報告產生', 'Linux 與 Windows 驗證環境'],
+          en: [
+            'Developed Python / C# automation tools and integrated ATE-side system workflows',
+            'Performed EVT / DVT / PVT-stage system and firmware validation',
+            'Used reproducible test flows and logs for debugging, root-cause isolation, fix verification, and regression',
+            'Automated 5G / Wi-Fi throughput, latency, packet-loss, reconnect, and stability validation',
+            'Integrated DMM / PSU control for power-rail and power-consumption validation',
+            'Validated CAN, touch-panel, and eMMC reliability behaviors with traceable evidence',
+            'Integrated Robot / ESD / Camera workflows with explicit states, interlocks, timeout handling, and safety boundaries',
+          ],
+          zh: [
+            '開發 Python / C# 自動化工具，並整合 ATE 端系統流程',
+            '執行 EVT / DVT / PVT 階段的系統與韌體驗證',
+            '以可重現測試流程與 Log 進行除錯、根因隔離、修正驗證與回歸',
+            '自動化 5G / Wi-Fi Throughput、Latency、Packet Loss、Reconnect 與穩定度驗證',
+            '整合 DMM / PSU 控制，進行 Power Rail 與 Power Consumption 驗證',
+            '以可追溯證據驗證 CAN、Touch Panel 與 eMMC 可靠度行為',
+            '以明確狀態、Interlock、Timeout 處理與安全邊界整合 Robot / ESD / Camera 流程',
+          ],
         },
       },
-      {
-        label: c('System & Firmware Validation', '系統與韌體驗證'),
-        bullets: {
-          en: ['EVT / DVT / PVT-stage software and system validation', 'Driver, kernel, and functional stability testing', 'Failure reproduction, log analysis, and root-cause isolation', 'Regression execution and traceable evidence'],
-          zh: ['EVT / DVT / PVT 階段軟體與系統驗證', 'Driver、Kernel 與功能穩定度測試', '失敗重現、Log 分析與根因隔離', '回歸執行與可追溯證據'],
-        },
-      },
-      {
-        label: c('Vehicle, CAN & Touch Panel', '車載、CAN 與 Touch Panel'),
-        bullets: {
-          en: ['C / C++ CAN test-module development', 'ECU simulator, DUT, and CAN Bus validation', 'Touch-panel automation with NXP S32 tooling and Python-CAN', 'Functional, coverage, and randomized testing'],
-          zh: ['C / C++ CAN 測試模組開發', 'ECU Simulator、DUT 與 CAN Bus 驗證', '使用 NXP S32 工具與 Python-CAN 進行 Touch Panel 自動化', '功能、覆蓋與隨機化測試'],
-        },
-      },
-      {
-        label: c('Storage & Reliability', '儲存與可靠度'),
-        bullets: {
-          en: ['eMMC reliability testing with FIO workloads', 'Trim / Discard and lifetime-cycle validation', 'Long-duration stress and high-temperature pressure testing', 'SMART log analysis, ECC error review, and system-stability checks'],
-          zh: ['使用 FIO Workload 進行 eMMC 可靠度測試', 'Trim / Discard 與生命週期驗證', '長時間壓力與高溫測試', 'SMART Log 分析、ECC 錯誤檢視與系統穩定度確認'],
-        },
-      },
-      {
-        label: c('5G / Wi-Fi Performance', '5G / Wi-Fi 效能'),
-        bullets: {
-          en: ['5G router and Wi-Fi validation automation', 'iPerf, Wireshark, and Keysight UXM analysis', 'DL / UL throughput, latency, and packet-loss validation', 'Distance, angle, interference, GNSS, USB, and coexistence scenarios'],
-          zh: ['5G Router 與 Wi-Fi 驗證自動化', '使用 iPerf、Wireshark 與 Keysight UXM 分析', 'DL / UL Throughput、Latency 與 Packet Loss 驗證', '距離、角度、干擾、GNSS、USB 與共存情境'],
-        },
-      },
-      {
-        label: c('Debug & Cross-functional Support', 'Debug 與跨部門支援'),
-        bullets: {
-          en: ['Factory and field issue reproduction', 'HW / SW debugging and root-cause analysis', 'RD, validation, and project-team coordination', 'Onsite technical support and issue tracking'],
-          zh: ['工廠與現場問題重現', 'HW / SW Debug 與根因分析', 'RD、驗證與專案團隊協作', '現場技術支援與 Issue 追蹤'],
-        },
-      },
-      {
-        label: c('Engineering Value', '工程價值'),
-        bullets: {
-          en: ['Connect automation, validation, equipment data, and reports into repeatable engineering workflows', 'Improve diagnosability through logs, traceability, and structured result review', 'Support technical teams from development-stage validation through issue closure'],
-          zh: ['將自動化、驗證、設備資料與報告串接為可重複的工程流程', '透過 Log、追溯性與結構化結果審查提升可診斷性', '從開發階段驗證到問題結案支援技術團隊'],
-        },
-      },
+      section('Process Alignment', '流程對齊', 'Used Siemens Polarion ALM for requirements traceability, test-case management, defect tracking, and verification activities aligned with Automotive SPICE / ISO 26262 development processes.', '使用 Siemens Polarion ALM 進行需求追溯、測試案例管理、缺陷追蹤，以及與 Automotive SPICE / ISO 26262 開發流程對齊的驗證活動。'),
+      section('Tech Stack', '技術工具', 'Python · C# · Jenkins · GitLab CI · Docker · Keysight UXM · Wireshark · CAN · SCPI · DMM / PSU', 'Python · C# · Jenkins · GitLab CI · Docker · Keysight UXM · Wireshark · CAN · SCPI · DMM / PSU'),
     ],
   },
   {
@@ -594,7 +569,7 @@ const experienceCatalog: PortfolioItem[] = [
     career: {
       company: c('Novatek Microelectronics Corp.', '聯詠科技股份有限公司'),
       cardCompany: c('Novatek Microelectronics', '聯詠科技'),
-      jobTitle: c('Principal Software Engineer / Test Automation & SoC Validation', '軟體開發主任工程師 / 測試自動化與 SoC 驗證'),
+      jobTitle: c('Principal Software Engineer | Test Automation & SoC Validation', '軟體開發主任工程師｜測試自動化與 SoC 驗證'),
       period: '2013/10 – 2022/07',
       displayPeriod: c('2013/10 – 2022/07', '2013/10 – 2022/07'),
       tenure: c('8 years 10 months', '8年10個月'),
@@ -602,85 +577,29 @@ const experienceCatalog: PortfolioItem[] = [
     sections: [
       {
         label: c('Overview', '概述'),
-        body: c('The experience progressed through four validation phases: Wi-Fi FPGA / chip and MAC connectivity validation, Camera SoC / SDK automation, AI/NPU validation, and Audio AI validation. Work centered on Python automation, instrument control, measurements, logs/traces, PASS / FAIL criteria, defect reproduction, fix verification, and regression. This work did not include design ownership.', '此經歷依序涵蓋四個驗證階段：Wi-Fi FPGA / 晶片與 MAC 連線驗證、Camera SoC / SDK 自動化、AI/NPU 驗證與 Audio AI 驗證。工作核心為 Python 自動化、儀器控制、量測、Log / Trace、PASS / FAIL Criteria、問題重現、修正驗證與回歸。此經歷不涉及設計主責。'),
-        flow: [c('Wi-Fi FPGA / Chip / MAC', 'Wi-Fi FPGA / 晶片 / MAC'), c('Camera SoC / SDK', 'Camera SoC / SDK'), c('AI / NPU Validation', 'AI / NPU 驗證'), c('Audio AI Validation', 'Audio AI 驗證'), c('Fix Verification / Regression', '修正驗證 / 回歸')],
+        body: c('One continuous Novatek employment period with two technical stages: connectivity validation first, followed by Camera SoC and AI-assisted media validation.', '聯詠為同一段連續任職經歷，分為兩個技術階段：先是連線驗證，之後轉入 Camera SoC 與 AI 輔助媒體驗證。'),
+        flow: [c('2013–2019 · Wi-Fi FPGA / MAC / Certification Automation', '2013–2019 · Wi-Fi FPGA / MAC / 認證自動化'), c('2019–2022 · Camera SoC / AI-NPU / Audio AI Automation', '2019–2022 · Camera SoC / AI-NPU / Audio AI 自動化')],
       },
       {
-        label: c('Wi-Fi FPGA / Chip Validation · 2013/10 – 2019/04', 'Wi-Fi FPGA / 晶片驗證 · 2013/10 – 2019/04'),
+        label: c('Stage 1 · 2013–2019 · Wi-Fi FPGA / MAC / Certification Automation', '階段一 · 2013–2019 · Wi-Fi FPGA / MAC / 認證自動化'),
         bullets: {
-          en: ['Wi-Fi FPGA / Chip and MAC Layer validation', 'Python automation with SCPI / USB / LAN equipment control', 'Power Supply, Oscilloscope, and VeriWave integration', 'Throughput, PER, Latency, Tx Power, Rx Sensitivity, and RvR validation', 'Windows / Linux Driver and Router / API validation', 'Negative, Boundary, and Regression testing', 'Wi-Fi Alliance 11n / 11ac and SGS certification validation', 'Jenkins / GitLab CI integration'],
-          zh: ['Wi-Fi FPGA / 晶片與 MAC Layer 驗證', '使用 Python 自動化整合 SCPI / USB / LAN 設備控制', 'Power Supply、Oscilloscope 與 VeriWave 整合', 'Throughput、PER、Latency、Tx Power、Rx Sensitivity 與 RvR 驗證', 'Windows / Linux Driver 與 Router / API 驗證', 'Negative、Boundary 與 Regression 測試', 'Wi-Fi Alliance 11n / 11ac 與 SGS 認證驗證', 'Jenkins / GitLab CI 整合'],
-        },
-        flow: [c('Test Config', '測試設定'), c('Python Automation', 'Python 自動化'), c('DUT / FPGA', 'DUT / FPGA'), c('VeriWave / Instrument', 'VeriWave / 儀器'), c('Measurement', '量測'), c('Criteria', '判定條件'), c('PASS / FAIL', 'PASS / FAIL'), c('Report', '報告')],
-      },
-      {
-        label: c('Camera SoC / SDK Automation · 2019/04 – 2022/07', 'Camera SoC / SDK 自動化 · 2019/04 – 2022/07'),
-        bullets: {
-          en: ['IP Camera / Video SoC SDK automation with Python test framework and Pytest', 'PySerial, SDK / CGI, UART, and Linux interfaces', 'H.264 / H.265 at 4K / 2K / 1080P', 'FPS, GOP, Bitrate, and CBR / VBR validation', 'Cold Boot, Warm Boot, Stress, Stability, and Memory Leak monitoring', 'Firmware programming and Power-cycle automation', 'Jenkins CI/CD integration'],
-          zh: ['使用 Python test framework 與 Pytest 建立 IP Camera / Video SoC SDK 自動化', '整合 PySerial、SDK / CGI、UART 與 Linux 介面', '驗證 H.264 / H.265 與 4K / 2K / 1080P', '驗證 FPS、GOP、Bitrate 與 CBR / VBR', 'Cold Boot、Warm Boot、Stress、Stability 與 Memory Leak 監控', 'Firmware programming 與 Power-cycle 自動化', 'Jenkins CI/CD 整合'],
+          en: ['Wi-Fi FPGA / chip and MAC-layer validation', 'Python automation with SCPI / USB / LAN equipment control', 'Power supply, oscilloscope, and VeriWave integration', 'Throughput, PER, latency, Tx power, Rx sensitivity, and RvR validation', 'Windows / Linux driver and router / API validation', 'Wi-Fi Alliance 11n / 11ac and SGS certification support', 'Jenkins / GitLab CI regression integration'],
+          zh: ['Wi-Fi FPGA / 晶片與 MAC Layer 驗證', '使用 Python 自動化整合 SCPI / USB / LAN 設備控制', '整合 Power Supply、Oscilloscope 與 VeriWave', '驗證 Throughput、PER、Latency、Tx Power、Rx Sensitivity 與 RvR', 'Windows / Linux Driver 與 Router / API 驗證', 'Wi-Fi Alliance 11n / 11ac 與 SGS 認證支援', '整合 Jenkins / GitLab CI 回歸流程'],
         },
       },
       {
-        label: c('AI / NPU Validation', 'AI / NPU 驗證'),
-        body: c('AI/NPU model testing and validation focused on pattern generation, controlled execution, numerical comparison, and regression—not ownership of AI model architecture, AI compiler architecture, or the full model-training pipeline.', 'AI/NPU 模型測試與驗證聚焦 Pattern 產生、受控執行、數值比對與回歸；不代表負責 AI 模型架構、AI Compiler 架構或完整模型訓練流程。'),
+        label: c('Stage 2 · 2019–2022 · Camera SoC / AI-NPU / Audio AI Automation', '階段二 · 2019–2022 · Camera SoC / AI-NPU / Audio AI 自動化'),
         bullets: {
-          en: ['Python Pattern Generator and Binary Pattern generation', 'Pattern.bin execution through Simulator, FPGA, and Target', 'output.bin and golden.bin automated comparison', 'Bit-accurate validation and layer-by-layer comparison where applicable', 'PASS / FAIL automation and Regression Test', 'Validated examples: MobileNetV2, ResNet-18, ResNet-50, VGG16, and VGG19'],
-          zh: ['Python Pattern Generator 與 Binary Pattern 產生', '使用 Simulator、FPGA 與 Target 執行 Pattern.bin', '自動比對 output.bin 與 golden.bin', 'Bit-accurate 驗證，以及適用情境下的 Layer-by-Layer 比對', 'PASS / FAIL 自動化與 Regression Test', '驗證範例：MobileNetV2、ResNet-18、ResNet-50、VGG16 與 VGG19'],
-        },
-        flow: [c('Model / Test Data', '模型 / 測試資料'), c('Pattern Generator', 'Pattern Generator'), c('Pattern.bin', 'Pattern.bin'), c('Simulator / FPGA / Target', 'Simulator / FPGA / Target'), c('Output.bin', 'Output.bin'), c('Golden Comparison', 'Golden 比對'), c('Bit-accurate Validation', 'Bit-accurate 驗證'), c('PASS / FAIL', 'PASS / FAIL')],
-      },
-      {
-        label: c('Audio AI Validation', 'Audio AI 驗證'),
-        body: c('Smart-speaker and Audio AI model testing / validation using repeatable datasets and scripts, with a clearly defined scope around model training.', '以可重複資料集與腳本進行智慧音箱及 Audio AI 模型測試 / 驗證，並清楚界定模型訓練的技術範圍。'),
-        bullets: {
-          en: ['Alexa / wake-word validation', 'Localization and noise-reduction validation', 'Event recognition and baby-cry recognition', 'Python, Gradio, Docker, datasets, and testing scripts', 'Academic collaboration where applicable'],
-          zh: ['Alexa / Wake-word 驗證', '定位與降噪驗證', '事件辨識與嬰兒哭聲辨識', 'Python、Gradio、Docker、資料集與測試腳本', '適用情境下的學術合作'],
+          en: ['Built Python / pytest automation for IP Camera and Video SoC SDK validation', 'Integrated PySerial, SDK / CGI, UART, Linux, relay, and power-control interfaces', 'Validated H.264 / H.265 modes, resolution, FPS, GOP, bitrate, and CBR / VBR behavior', 'Automated cold boot, warm boot, stress, stability, memory-leak monitoring, and firmware programming', 'Orchestrated Pattern.bin execution across simulator, FPGA, and target modes', 'Compared output.bin with golden.bin and automated numerical PASS / FAIL plus regression evidence', 'Supported repeatable Audio AI validation with Python, Gradio, Docker, datasets, and scripts'],
+          zh: ['以 Python / pytest 建立 IP Camera 與 Video SoC SDK 驗證自動化', '整合 PySerial、SDK / CGI、UART、Linux、Relay 與電源控制介面', '驗證 H.264 / H.265 模式、解析度、FPS、GOP、Bitrate 與 CBR / VBR 行為', '自動化 Cold Boot、Warm Boot、Stress、穩定度、Memory Leak 監控與 Firmware Programming', '協調 Pattern.bin 在 Simulator、FPGA 與 Target 模式執行', '比對 output.bin 與 golden.bin，並自動產生數值 PASS / FAIL 與回歸證據', '以 Python、Gradio、Docker、資料集與腳本支援可重複的 Audio AI 驗證'],
         },
       },
       {
-        label: c('Automation Architecture', '自動化架構'),
-        flow: [c('Requirement', '需求'), c('Python Test Case', 'Python 測試案例'), c('Device / SDK / Instrument Control', '裝置 / SDK / 儀器控制'), c('Data Collection', '資料收集'), c('Automated Analysis', '自動分析'), c('Criteria', '判定條件'), c('PASS / FAIL', 'PASS / FAIL'), c('Regression Report', '回歸報告'), c('Jenkins CI/CD', 'Jenkins CI/CD')],
+        label: c('AI / NPU Validation Pipeline', 'AI / NPU 驗證流程'),
+        body: c('The automation scope covered controlled pattern execution, output comparison, mismatch evidence, PASS / FAIL handling, and regression—not AI model training, model architecture, or NPU compiler ownership.', '自動化範圍涵蓋受控 Pattern 執行、輸出比對、Mismatch 證據、PASS / FAIL 處理與回歸；不包含 AI 模型訓練、模型架構或 NPU Compiler 主責。'),
+        flow: [c('Model', '模型'), c('Pattern.bin', 'Pattern.bin'), c('Simulator', 'Simulator'), c('FPGA / Target', 'FPGA / Target'), c('output.bin', 'output.bin'), c('golden.bin', 'golden.bin'), c('Compare', '比對'), c('PASS / FAIL', 'PASS / FAIL')],
       },
-      {
-        label: c('Debug / Engineering Method', 'Debug / 工程方法'),
-        flow: [c('Reproduce', '重現'), c('Capture Log / Data', '擷取 Log / Data'), c('Expected vs Actual', '預期與實際比對'), c('Isolate HW / FW / SDK / Automation', '隔離 HW / FW / SDK / 自動化層'), c('Root Cause Tracking', '根因追蹤'), c('Fix Verification', '修正驗證'), c('Regression Test', '回歸測試')],
-      },
-    ],
-  },
-  {
-    id: 'career-novatek-wifi', index: 'NTK_A', title: c('Novatek · Wi-Fi / FPGA / MAC Validation', '聯詠 · Wi-Fi / FPGA / MAC 驗證'),
-    summary: c('Wi-Fi FPGA / chip validation with MAC layer coverage, certification-oriented checks, Python automation, SCPI, and RF equipment.', 'Wi-Fi FPGA / 晶片驗證，涵蓋 MAC Layer、認證導向檢查、Python 自動化、SCPI 與 RF 設備。'),
-    tags: ['Wi-Fi', 'FPGA', 'MAC', 'SCPI'],
-    sections: [
-      { label: c('Validation Scope', '驗證範圍'), bullets: { en: ['Wi-Fi FPGA / chip validation', 'MAC Layer', 'Wi-Fi Alliance / certification', 'Wi-Fi 11n / 11ac certification', 'Windows / Linux test environment'], zh: ['Wi-Fi FPGA / 晶片驗證', 'MAC Layer', 'Wi-Fi Alliance / 認證', 'Wi-Fi 11n / 11ac 認證', 'Windows / Linux 測試環境'] } },
-      { label: c('Automation and Instruments', '自動化與儀器'), bullets: { en: ['Python automation', 'VeriWave', 'SCPI', 'PSU / scope / RF equipment', 'Throughput, PER, latency, TX/RX waveform'], zh: ['Python 自動化', 'VeriWave', 'SCPI', 'PSU / 示波器 / RF 設備', 'Throughput、PER、Latency、TX/RX Waveform'] } },
-    ],
-  },
-  {
-    id: 'career-novatek-camera', index: 'NTK_B', title: c('Novatek · Camera / IPCam Validation', '聯詠 · Camera / IPCam 驗證'),
-    summary: c('Camera SoC SDK validation, codec mode checks, pytest cases, boot/stress automation, memory monitoring, and Jenkins integration.', 'Camera SoC SDK 驗證、Codec 模式檢查、pytest 案例、開機 / 壓力測試自動化、記憶體監控與 Jenkins 整合。'),
-    tags: ['Camera SoC', 'pytest', 'H.264/H.265', 'Jenkins'],
-    sections: [
-      { label: c('Coverage', '覆蓋內容'), bullets: { en: ['Camera SoC SDK validation', 'Python test cases and pytest', 'H.264 / H.265, 4K / 2K / 1080P', 'Bitrate, CBR / VBR', 'Cold Boot / Warm Boot, Stress Test'], zh: ['Camera SoC SDK 驗證', 'Python test cases 與 pytest', 'H.264 / H.265、4K / 2K / 1080P', 'Bitrate、CBR / VBR', 'Cold Boot / Warm Boot、Stress Test'] } },
-      { label: c('Debug and Automation', 'Debug 與自動化'), bullets: { en: ['PySerial', 'Relay / Power Supply', 'Memory Leak monitoring', 'adb / telnet', '/proc/meminfo and /proc/slabinfo', 'Jenkins integration'], zh: ['PySerial', 'Relay / Power Supply', 'Memory Leak 監控', 'adb / telnet', '/proc/meminfo 與 /proc/slabinfo', 'Jenkins 整合'] } },
-    ],
-  },
-  {
-    id: 'career-novatek-ai', index: 'NTK_C', title: c('Novatek · AI / NPU Validation', '聯詠 · AI / NPU 驗證'),
-    summary: c('Model/test-pattern execution and result comparison for CNN validation flows such as ResNet, MobileNetV2, and VGG16.', '針對 ResNet、MobileNetV2、VGG16 等 CNN 驗證流程，執行模型 / 測試 Pattern 並比對結果。'),
-    tags: ['AI/NPU', 'Pattern.bin', 'golden.bin', 'PASS/FAIL'],
-    sections: [
-      { label: c('Technical Scope', '技術範圍'), bullets: { en: ['ResNet18, ResNet50, MobileNetV2, VGG16 / CNN models', 'Pattern Generation and Pattern.bin', 'Simulator and FPGA execution modes', 'output.bin and golden.bin numerical comparison', 'Bit-accurate and layer-by-layer comparison', 'Regression testing and PASS / FAIL decision', 'Python automation'], zh: ['ResNet18、ResNet50、MobileNetV2、VGG16 / CNN models', 'Pattern Generation 與 Pattern.bin', 'Simulator 與 FPGA 執行模式', 'output.bin 與 golden.bin 數值比對', 'Bit-accurate 與 layer-by-layer comparison', 'Regression testing 與 PASS / FAIL 判定', 'Python 自動化'] } },
-      section('Responsibility Statement', '責任說明', 'The responsibility centers on model/test-pattern execution, numerical result comparison, regression testing, and validation reporting.', '責任範圍聚焦驗證用模型 / 測試 Pattern 執行、數值結果比對、回歸測試與驗證報告。'),
-    ],
-  },
-  {
-    id: 'career-audio-ai', index: 'NTK_D', title: c('Novatek · Audio AI Validation', '聯詠 · Audio AI 驗證'),
-    summary: c('Cooperation on audio recognition validation for smart speaker / Audio AI chip scenarios with Python, Gradio, Docker, datasets, and scripts.', '協作智慧音箱 / Audio AI 晶片的語音辨識驗證，使用 Python、Gradio、Docker、資料集與測試腳本。'),
-    tags: ['Audio AI', 'Python', 'Gradio', 'Docker'],
-    sections: [
-      { label: c('Validation Topics', '驗證主題'), bullets: { en: ['Smart speaker / Audio AI chip', 'Alexa / wake word', 'Localization', 'Noise reduction', 'Baby-cry / event recognition'], zh: ['智慧音箱 / Audio AI 晶片', 'Alexa / Wake word', '定位', '降噪', '嬰兒哭聲 / 事件辨識'] } },
-      section('Tools and Data', '工具與資料', 'Python, Gradio, Docker, test datasets, and test scripts support repeatable audio-recognition validation.', '以 Python、Gradio、Docker、測試資料集與測試腳本支援可重複的語音辨識驗證。'),
+      section('Tech Stack', '技術工具', 'Python · pytest · PySerial · SCPI · VeriWave · OpenCV · FFmpeg · Gradio · Docker · Jenkins · GitLab CI', 'Python · pytest · PySerial · SCPI · VeriWave · OpenCV · FFmpeg · Gradio · Docker · Jenkins · GitLab CI'),
     ],
   },
   {
@@ -690,7 +609,7 @@ const experienceCatalog: PortfolioItem[] = [
     career: {
       company: c('TPV / 冠捷科技', '冠捷科技 / TPV'),
       cardCompany: c('TPV Technology', '冠捷科技（TPV）'),
-      jobTitle: c('FAE Engineer', 'FAE 工程師'),
+      jobTitle: c('FAE Engineer | Customer Support & Validation', 'FAE 工程師｜客戶支援與驗證'),
       period: '2008/09 – 2013/10',
       tenure: c('5 years 2 months', '5年2個月'),
     },
@@ -733,49 +652,7 @@ const experienceCatalog: PortfolioItem[] = [
           zh: ['Customer', 'RD', 'QA', 'Chip Vendor'],
         },
       },
-      {
-        label: c('Documentation & Training', '文件與教育訓練'),
-        body: c('Document the reproduction path, debug evidence, validation scope, and customer-facing explanation so similar issues can be handled consistently.', '記錄問題重現路徑、Debug 證據、驗證範圍與面向客戶的說明，使相似問題能被一致處理。'),
-        bullets: {
-          en: ['Test Plan', 'Debug Guide', 'SOP', 'Training Material', 'Troubleshooting documentation'],
-          zh: ['測試計畫', 'Debug Guide', 'SOP', '教育訓練教材', 'Troubleshooting 文件'],
-        },
-      },
-      {
-        label: c('Field Engineering', '現場工程支援'),
-        body: c('Support remote or on-site investigation by setting up the test environment, initializing the system, reproducing the issue, and keeping customer communication tied to evidence.', '透過測試環境架設、系統初始化、問題重現與以證據為基礎的客戶溝通，支援遠端或現場調查。'),
-        bullets: {
-          en: ['Remote technical support', 'On-site technical support', 'Test environment setup', 'System initialization', 'Issue reproduction', 'Customer communication'],
-          zh: ['遠端技術支援', '現場技術支援', '測試環境架設', '系統初始化', '問題重現', '客戶溝通'],
-        },
-      },
-      {
-        label: c('Typical FAE Debug Scenarios', '典型 FAE 除錯情境'),
-        body: c('Representative FAE debug examples of the engineering flow used for customer issue reproduction and closure. These are scenario patterns, not confidential customer incidents.', '以下為客戶問題重現與結案常用的工程流程範例；這些是情境類型，不是機密客戶事件。'),
-        bullets: {
-          en: [
-            'Customer environment differs from internal lab: reproduce environment → collect logs → compare baseline → isolate application / framework / driver / SDK / system layer → fix verification → regression',
-            'Issue appears only on a specific software / SDK version: version comparison → good-vs-bad build → reproduce → logs / trace → isolate change → fix verification',
-            'Intermittent UI / application failure: repeatable action sequence → ADB / application logs → screenshot / trace where appropriate → frequency / condition isolation → fix verify → regression',
-            'OTA / streaming / connectivity regression: baseline version → upgrade / scenario execution → failure evidence → connectivity / application / system isolation → fix verification',
-            'Compatibility issue after system integration: customer configuration → compare supported baseline → reproduce → isolate app / framework / driver / SDK → RD / vendor coordination → closure',
-          ],
-          zh: [
-            '客戶環境與內部 Lab 不同：重建環境 → 收集 Log → 比對基準 → 隔離 Application / Framework / Driver / SDK / System Layer → 修正驗證 → 回歸',
-            '問題只出現在特定軟體 / SDK 版本：版本比對 → Good-vs-Bad Build → 重現 → Log / Trace → 隔離變更 → 修正驗證',
-            '間歇性 UI / App 失效：可重複操作序列 → ADB / App Log → 依需要擷取截圖 / Trace → 發生頻率與條件隔離 → 修正驗證 → 回歸',
-            'OTA / Streaming / 連線回歸：Baseline 版本 → 升級 / 情境執行 → 失敗證據 → 連線 / App / System 隔離 → 修正驗證',
-            '系統整合後相容性問題：客戶設定 → 比對支援基準 → 重現 → 隔離 App / Framework / Driver / SDK → RD / Vendor 協調 → 結案',
-          ],
-        },
-      },
-      {
-        label: c('Engineering Value', '工程價值'),
-        bullets: {
-          en: ['Improves reproducibility', 'Provides clearer debug evidence', 'Shortens communication loops between Customer / FAE / RD / QA', 'Supports repeatable fix verification', 'Improves technical issue closure'],
-          zh: ['提升問題可重現性', '提供更清楚的除錯證據', '縮短 Customer / FAE / RD / QA 之間的溝通迴路', '支援可重複的修正驗證', '改善技術問題結案品質'],
-        },
-      },
+      section('Tech Stack', '技術工具', 'Python · ADB · UIAutomator · Appium · Android / Linux · JMeter · Robot Framework · Jira · Jenkins', 'Python · ADB · UIAutomator · Appium · Android / Linux · JMeter · Robot Framework · Jira · Jenkins'),
     ],
   },
   {
@@ -785,13 +662,15 @@ const experienceCatalog: PortfolioItem[] = [
     career: {
       company: c('Compal / 仁寶電腦', '仁寶電腦 / Compal'),
       cardCompany: c('Compal Electronics', '仁寶電腦'),
-      jobTitle: c('Software Design Validation Section Manager', '軟體設計驗證課長'),
+      jobTitle: c('Software Design Validation Section Manager | System Validation & Test Management', '軟體設計驗證課長｜系統驗證與測試管理'),
       period: '2002/07 – 2008/09',
       tenure: c('6 years 3 months', '6年3個月'),
       management: c('Managed approximately 13 team members', '管理約13人'),
     },
     sections: [
+      section('Products / Domains', '產品 / 領域', 'Notebook · Mobile broadband · Wireless connectivity · BIOS / Driver qualification', 'Notebook · 行動寬頻 · 無線連線 · BIOS / Driver 驗證'),
       { label: c('Engineering Scope', '工程範圍'), bullets: { en: ['Software/system integration', 'Project/test management', 'Team leadership and resource allocation', 'Test planning and SOP', 'Field trial and wireless validation', 'WHQL, GCF, BIOS / driver validation', 'Vendor coordination and customer / cross-functional communication'], zh: ['軟體 / 系統整合', '專案 / 測試管理', '團隊帶領與資源分配', '測試規劃與 SOP', 'Field trial 與無線驗證', 'WHQL、GCF、BIOS / Driver 驗證', '供應商協調與客戶 / 跨部門溝通'] } },
+      section('Tech Stack', '技術工具', 'Windows · BIOS / Driver · Wireless · WHQL · GCF · Test Plan · SOP · Vendor Coordination', 'Windows · BIOS / Driver · Wireless · WHQL · GCF · Test Plan · SOP · Vendor Coordination'),
     ],
   },
 ];
@@ -801,17 +680,17 @@ export const experienceItems = experienceCatalog.filter((item) => Boolean(item.c
 export const careerSnapshot = {
   name: c('Alex Tsou', '鄒志清'),
   role: c(
-    'Senior Test Automation / System Validation / ATE / Technical FAE',
-    '資深測試自動化 / 系統驗證 / ATE / Technical FAE',
+    'Senior Test Automation & System Validation Engineer',
+    '資深測試自動化與系統驗證工程師',
   ),
-  experience: c('21+ Years Experience', '21–22 年工作經驗'),
+  experience: c('20+ Years Engineering Experience', '20+ 年工程經驗'),
   education: c(
     'National Cheng Kung University · Electrical Engineering',
     '國立成功大學 · 電機工程學系',
   ),
   summary: c(
-    '21+ years across test automation, system validation, FAE, camera / AI validation, and ATE engineering.',
-    '21+ 年跨越軟體自動化、系統驗證、FAE、Camera / AI 與 ATE 的工程經驗。',
+    'Engineering experience across test automation, system validation, FAE, camera / AI validation, and ATE engineering.',
+    '工程經驗橫跨測試自動化、系統驗證、FAE、Camera / AI 與 ATE。',
   ),
   facts: [
     {
@@ -823,7 +702,7 @@ export const careerSnapshot = {
         c('Technical FAE', 'Technical FAE'),
       ],
     },
-    { label: c('Professional Experience', '工作經驗'), values: [c('21+ years', '21–22 年')] },
+    { label: c('Professional Experience', '工作經驗'), values: [c('20+ Years Engineering Experience', '20+ 年工程經驗')] },
     {
       label: c('Education', '學歷'),
       values: [
@@ -852,7 +731,7 @@ export const domainExperiences: DomainExperience[] = [
       'Automated AI/NPU validation using deterministic test patterns, target execution, golden-output comparison, mismatch analysis, and regression evidence.',
       '透過 Python 建立測試 Pattern、執行 FPGA / NPU 驗證、Golden Output 比對、Mismatch 分析與 Regression，自動化產生可追蹤的 PASS / FAIL 證據。',
     ),
-    tags: ['Python', 'Pattern Generation', 'FPGA / NPU', 'Golden Comparison', 'Bit-accurate', 'Regression'],
+    tags: ['Python', 'Pattern Generation', 'FPGA / NPU', 'Golden Comparison', 'Mismatch Analysis', 'Regression'],
     related: { itemId: 'case-ai-npu', label: c('Related Case Study', '相關工程案例') },
   },
   {
@@ -938,13 +817,12 @@ export const skillCategories = [
 ];
 
 export const engineeringDebugMethodology = {
-  title: c('Engineering Debug Methodology', '工程除錯方法論'),
+  title: c('Reusable Engineering Method', '可重用工程方法'),
   flow: [
-    c('Requirement', '需求'),
-    c('Criteria', '判定條件'),
-    c('Execution', '執行'),
-    c('Evidence', '證據'),
-    c('Isolation / RCA', '問題隔離 / RCA'),
+    c('Requirements / Test Plan', '需求 / 測試計畫'),
+    c('Automation', '自動化'),
+    c('Evidence Collection', '證據收集'),
+    c('Debug / RCA', 'Debug / RCA'),
     c('Fix Verification', '修正驗證'),
     c('Regression', '回歸'),
   ],
@@ -1028,15 +906,15 @@ export const flagshipCaseStudies: PortfolioItem[] = [
   {
     id: 'case-ai-npu', index: '03', title: c('AI / NPU Validation Pipeline', 'AI / NPU 自動化驗證流程'),
     summary: c('Hands-on pattern generation, controlled target execution, golden comparison, automated verdicts, and regression evidence.', '實作 Pattern 產生、受控目標執行、Golden 比對、自動判定與回歸證據。'),
-    tags: ['Python', 'Pattern.bin', 'FPGA / NPU', 'Golden Output', 'Bit-accurate', 'Regression'],
+    tags: ['Python', 'Pattern.bin', 'FPGA / NPU', 'Golden Output', 'Mismatch Analysis', 'Regression'],
     sections: [
       section('Overview', '案例概述', 'Within one continuous Novatek employment period, this work focused on hands-on AI / NPU validation through test-pattern generation, controlled execution, trusted-output comparison, automated PASS / FAIL, and regression.', '此工作位於聯詠同一段連續任職期間內，聚焦 AI / NPU 實作驗證：產生測試 Pattern、受控執行、可信結果比對、自動 PASS / FAIL 與回歸測試。'),
       section('Engineering Challenge', '工程挑戰', 'AI / NPU hardware output must be checked against a trusted expected result while separating numerical mismatches, binary-format errors, layer or output differences, and regressions introduced by SDK or firmware changes.', 'AI / NPU 硬體輸出必須與可信預期結果比對，並區分數值不一致、Binary 格式問題、Layer / Output 差異，以及 SDK 或韌體變更造成的回歸。'),
       section('My Role', '我的角色', 'Develop Python pattern-generation and validation automation, prepare binary inputs, orchestrate execution, parse outputs, compare golden results, automate verdicts, and integrate repeatable regression flows.', '開發 Python Pattern Generator 與驗證自動化、準備 Binary 輸入、協調執行、解析輸出、比對 Golden 結果、自動化判定並整合可重複回歸流程。'),
-      { label: c('What I Implemented', '我實作的內容'), bullets: { en: ['Python Pattern Generator and binary test-pattern preparation', 'Simulator / FPGA / NPU-target execution orchestration', 'Output.bin parsing and Golden Output comparison', 'Bit-accurate or numerical verdict logic', 'Failure-artifact preservation and regression reporting'], zh: ['Python Pattern Generator 與 Binary 測試 Pattern 準備', 'Simulator / FPGA / NPU Target 執行協調', 'Output.bin 解析與 Golden Output 比對', 'Bit-accurate 或數值判定邏輯', '保留失敗產出物與回歸報告'] } },
-      { label: c('Technical Architecture', '技術架構'), flow: [c('Model / Test Data', '模型 / 測試資料'), c('Python Pattern Generator', 'Python Pattern Generator'), c('Pattern.bin', 'Pattern.bin'), c('Simulator / FPGA / NPU Target', 'Simulator / FPGA / NPU Target'), c('Output.bin', 'Output.bin'), c('Golden Output', 'Golden Output'), c('Automated Comparison', '自動比對'), c('Bit-accurate Validation', 'Bit-accurate 驗證'), c('PASS / FAIL', 'PASS / FAIL'), c('Regression Report', '回歸報告')] },
+      { label: c('What I Implemented', '我實作的內容'), bullets: { en: ['Python pattern automation and binary test-pattern preparation', 'Simulator / FPGA / NPU-target execution orchestration', 'output.bin parsing and golden.bin comparison', 'Numerical comparison and explicit PASS / FAIL handling', 'Failure-artifact preservation and regression reporting'], zh: ['Python Pattern 自動化與 Binary 測試 Pattern 準備', 'Simulator / FPGA / NPU Target 執行協調', 'output.bin 解析與 golden.bin 比對', '數值比對與明確 PASS / FAIL 處理', '保留失敗產出物與回歸報告'] } },
+      { label: c('Technical Architecture', '技術架構'), flow: [c('Model', '模型'), c('Pattern.bin', 'Pattern.bin'), c('Simulator', 'Simulator'), c('FPGA / Target', 'FPGA / Target'), c('output.bin', 'output.bin'), c('golden.bin', 'golden.bin'), c('Compare', '比對'), c('PASS / FAIL', 'PASS / FAIL')] },
       { label: c('Engineering Evidence', '工程證據'), body: c('Evidence is described by type only; proprietary binary files are not published.', '僅描述證據類型，不公開專有 Binary 檔案。'), bullets: { en: ['Pattern.bin input artifact', 'Output.bin execution result', 'Golden output reference', 'Comparison result', 'Mismatch log', 'Regression result', 'PASS / FAIL record'], zh: ['Pattern.bin 輸入產物', 'Output.bin 執行結果', 'Golden output 參考結果', '比對結果', 'Mismatch Log', '回歸結果', 'PASS / FAIL 紀錄'] } },
-      section('Validation Strategy', '驗證策略', 'Use deterministic inputs, controlled execution modes, expected-versus-actual comparison, bit-accurate or numerical checks, layer/output inspection where applicable, repeatable regression, and preserved failure evidence. Validated model examples include MobileNetV2, ResNet-18, ResNet-50, VGG16, and VGG19.', '使用確定性輸入、受控執行模式、預期與實際比對、Bit-accurate 或數值檢查、適用時進行 Layer / Output 檢視、可重複回歸並保留失敗證據。已驗證範例包含 MobileNetV2、ResNet-18、ResNet-50、VGG16 與 VGG19。'),
+      section('Validation Strategy', '驗證策略', 'Use deterministic inputs, controlled execution modes, expected-versus-actual numerical comparison, explicit mismatch review, repeatable criteria, and preserved failure evidence.', '使用確定性輸入、受控執行模式、預期與實際數值比對、明確的 Mismatch Review、可重複判定條件與保留的失敗證據。'),
       { label: c('Debug / RCA Method', '除錯與根因分析'), body: c('Preserve the exact input, output, execution mode, and version before isolating the failing boundary.', '先保留完整輸入、輸出、執行模式與版本，再隔離失敗邊界。'), flow: [c('Mismatch Detected', '發現不一致'), c('Preserve Input / Output', '保留輸入 / 輸出'), c('Identify Failing Stage', '識別失敗階段'), c('Compare Simulator / FPGA / Target', '比對 Simulator / FPGA / Target'), c('Format / Numerical Check', '格式 / 數值檢查'), c('Isolate Validation / SDK / HW', '隔離驗證 / SDK / HW'), c('Fix Verification', '修正驗證'), c('Regression', '回歸')] },
       { label: c('Tools & Technologies', '工具與技術'), bullets: { en: ['Python', 'FPGA / NPU Target', 'Simulator', 'Linux / SDK', 'Binary Pattern / Golden Output', 'Jenkins / CI where applicable'], zh: ['Python', 'FPGA / NPU Target', 'Simulator', 'Linux / SDK', 'Binary Pattern / Golden Output', '適用情境下的 Jenkins / CI'] } },
       { label: c('Engineering Outputs', '工程輸出'), bullets: { en: ['Reproducible binary patterns', 'Execution and comparison records', 'Mismatch evidence', 'Automated PASS / FAIL verdicts', 'Regression reports'], zh: ['可重現 Binary Pattern', '執行與比對紀錄', 'Mismatch 證據', '自動 PASS / FAIL 判定', '回歸報告'] } },
@@ -1162,9 +1040,10 @@ export const flagshipCaseStudies: PortfolioItem[] = [
 
 export const visualItems: PortfolioItem[] = [
   {
-    id: 'visual-automation-manager', index: 'VIS_01', title: c('Automation / Technical Manager Overview', '自動化 / 技術管理總覽'),
-    summary: c('Visual summary of automation tool development, system validation, 5G/Wi-Fi testing, ATE flow, and AI-assisted result analysis.', '圖解總覽涵蓋自動化工具開發、系統驗證、5G/Wi-Fi 測試、ATE 流程與 AI 輔助結果分析。'),
-    tags: ['Automation', 'ATE', '5G/Wi-Fi', 'Management'], image: { src: '/portfolio/automation-manager-overview.png', alt: c('Automation and technical manager visual portfolio board', '自動化與技術管理圖解作品') },
+    id: 'visual-automation-manager', index: 'VIS_01', title: c('Cross-product Engineering Method', '跨產品工程方法'),
+    summary: c('A reusable workflow connecting requirements, automation, evidence, debugging, fix verification, and regression.', '以可重用流程串接需求、自動化、工程證據、除錯、修正驗證與回歸。'),
+    tags: ['Automation', 'Validation', 'Evidence', 'RCA'],
+    cardFlow: [c('Requirements', '需求'), c('Automation', '自動化'), c('Evidence', '證據'), c('RCA', '根因分析'), c('Regression', '回歸')],
     sections: [
       section('Overview', '概述', 'This visual organizes automation development, system test framework design, storage/high-speed interface validation, communication performance testing, and technical management topics.', '此圖整理自動化開發、系統測試架構設計、儲存 / 高速介面驗證、通訊效能測試與技術管理主題。'),
       section('My Role', '我的角色', 'Automation and validation engineering across test orchestration, system analysis, technical coordination, and result review.', '負責測試流程控制、系統分析、技術協作與結果審查等自動化與驗證工程工作。'),
@@ -1180,7 +1059,8 @@ export const visualItems: PortfolioItem[] = [
   {
     id: 'visual-novatek-wifi', index: 'VIS_02', title: c('Novatek Software Automation / Wi-Fi Validation', '聯詠軟體自動化 / Wi-Fi 驗證'),
     summary: c('Visual brief for Wi-Fi AC FPGA / chip validation, automation scripts, RF measurement, stress monitoring, and CI/CD reporting.', '圖解說明 Wi-Fi AC FPGA / 晶片驗證、自動化腳本、RF 量測、壓力監控與 CI/CD 報告。'),
-    tags: ['Novatek', 'Wi-Fi', 'FPGA', 'CI/CD'], image: { src: '/portfolio/novatek-wifi-validation.png', alt: c('Novatek Wi-Fi validation visual portfolio board', '聯詠 Wi-Fi 驗證圖解作品') },
+    tags: ['Novatek', 'Wi-Fi', 'FPGA', 'CI/CD'],
+    cardFlow: [c('Test Case', '測試案例'), c('DUT / FPGA', 'DUT / FPGA'), c('Instrument', '儀器'), c('Measure', '量測'), c('Report', '報告')],
     sections: [
       section('Overview', '概述', 'The visual presents Wi-Fi FPGA/chip validation, MAC-layer certification focus, throughput/RF automation, IP camera stream checks, and CI/CD automation.', '圖解呈現 Wi-Fi FPGA / 晶片驗證、MAC Layer 認證重點、Throughput / RF 自動化、影像串流檢查與 CI/CD 自動化。'),
       section('My Role', '我的角色', 'Validation and automation engineering for test cases, equipment control, measurement capture, reporting, and issue evidence.', '負責測試案例、設備控制、量測擷取、報告與問題證據的驗證及自動化工程工作。'),
@@ -1196,15 +1076,16 @@ export const visualItems: PortfolioItem[] = [
   {
     id: 'visual-novatek-ai-npu', index: 'VIS_03', title: c('AI / NPU Validation Pipeline', 'AI / NPU 驗證流程'),
     summary: c('Visual brief for AI/NPU model validation through pattern generation, simulator/FPGA execution, golden comparison, and regression testing.', 'AI/NPU 驗證圖解涵蓋 Pattern 產生、Simulator / FPGA 執行、Golden 比對與回歸測試。'),
-    tags: ['AI/NPU', 'ResNet18', 'golden.bin', 'Regression'], image: { src: '/portfolio/novatek-ai-npu-validation.png', alt: c('Novatek AI NPU validation visual portfolio board', '聯詠 AI NPU 驗證圖解作品') },
+    tags: ['AI/NPU', 'Pattern.bin', 'golden.bin', 'Regression'],
+    cardFlow: [c('Model', '模型'), c('Pattern.bin', 'Pattern.bin'), c('FPGA / Target', 'FPGA / Target'), c('Compare', '比對'), c('PASS / FAIL', 'PASS / FAIL')],
     sections: [
       section('Overview', '概述', 'A repeatable AI/NPU validation pipeline that prepares test patterns, executes controlled modes, compares output against a reference, and produces reviewable PASS / FAIL evidence.', '建立可重複的 AI / NPU 驗證流程：準備測試 Pattern、執行受控模式、將輸出與參考結果比對，並產生可審查的 PASS / FAIL 證據。'),
       section('My Role', '我的角色', 'AI/NPU validation through test-pattern preparation or generation, controlled execution, numerical comparison, regression testing, and validation reporting.', '負責測試 Pattern 準備或產生、受控執行、數值比對、回歸測試與驗證報告等 AI / NPU 驗證工作。'),
       section('Engineering Challenge', '工程挑戰', 'Results from simulator, FPGA, target, or reference modes must be comparable under the same pattern, build, configuration, and criteria while preserving enough evidence to localize mismatches.', 'Simulator、FPGA、Target 或 Reference 模式的結果必須在相同 Pattern、Build、設定與判定條件下可比對，並保留足夠證據以定位 Mismatch。'),
       section('What I Implemented', '我實作的內容', 'Python-based pattern automation, Pattern.bin execution orchestration, output.bin-to-golden.bin comparison, mismatch review support, PASS / FAIL handling, and regression reporting.', '實作 Python Pattern 自動化、Pattern.bin 執行流程、output.bin 與 golden.bin 比對、Mismatch review 支援、PASS / FAIL 處理及回歸報告。'),
-      { label: c('Technical Flow', '技術流程'), flow: [c('Model / Test Data', '模型 / 測試資料'), c('Pattern Generator', 'Pattern Generator'), c('Pattern.bin', 'Pattern.bin'), c('Simulator / FPGA / Target', 'Simulator / FPGA / Target'), c('output.bin', 'output.bin'), c('golden.bin Comparison', 'golden.bin 比對'), c('Bit-accurate / Numerical Validation', 'Bit-accurate / 數值驗證'), c('PASS / FAIL', 'PASS / FAIL'), c('Regression Report', '回歸報告')] },
+      { label: c('Technical Flow', '技術流程'), flow: [c('Model', '模型'), c('Pattern.bin', 'Pattern.bin'), c('Simulator', 'Simulator'), c('FPGA / Target', 'FPGA / Target'), c('output.bin', 'output.bin'), c('golden.bin', 'golden.bin'), c('Compare', '比對'), c('PASS / FAIL', 'PASS / FAIL')] },
       section('Tools / Technologies', '工具 / 技術', 'Python, C++ / Python utilities, internal toolchain, FPGA board, test-pattern database, binary outputs, and regression automation framework.', 'Python、C++ / Python 工具、內部工具鏈、FPGA Board、Test Pattern DB、Binary output 與 Regression 自動化框架。'),
-      section('Validation Strategy', '驗證策略', 'Use deterministic patterns, controlled execution modes, known reference outputs, bit-accurate or layer-level comparison where applicable, explicit mismatch review, and repeatable regression criteria.', '使用確定性 Pattern、受控執行模式、已知參考輸出、適用情境下的 Bit-accurate 或 Layer 比對、明確的 Mismatch review 與可重複回歸條件。'),
+      section('Validation Strategy', '驗證策略', 'Use deterministic patterns, controlled execution modes, known reference outputs, numerical comparison, explicit mismatch review, and repeatable regression criteria.', '使用確定性 Pattern、受控執行模式、已知參考輸出、數值比對、明確的 Mismatch Review 與可重複回歸條件。'),
       section('Debug / RCA Method', 'Debug / RCA 方法', 'Reproduce the mismatch with the same pattern and build, confirm mode and configuration, compare expected and actual outputs, localize the first divergence, and isolate test data, toolchain, runtime, or target behavior.', '以相同 Pattern 與 Build 重現 Mismatch、確認模式與設定、比對預期與實際輸出、定位第一個分歧點，再隔離測試資料、工具鏈、Runtime 或 Target 行為。'),
       section('Engineering Value', '工程價值', 'Turn AI/NPU execution into a traceable validation workflow with controlled inputs, comparable outputs, explicit criteria, and regression-ready evidence.', '將 AI / NPU 執行轉換為具受控輸入、可比輸出、明確條件及可回歸證據的可追溯驗證流程。'),
       section('What I Did Not Own', '非本人負責範圍', 'AI model architecture or training, AI compiler architecture, the complete model-training pipeline, and product decisions outside validation.', '不包含 AI 模型架構或訓練、AI Compiler 架構、完整模型訓練流程，以及驗證範圍以外的產品決策。'),
@@ -1213,7 +1094,8 @@ export const visualItems: PortfolioItem[] = [
   {
     id: 'visual-audio-ai', index: 'VIS_04', title: c('Audio AI Validation', 'Audio AI 驗證'),
     summary: c('Visual brief for smart-speaker/audio AI chip validation with scenarios, datasets, Python/Gradio/Docker test UI, and result analysis.', '智慧音箱 / Audio AI 晶片驗證圖解涵蓋情境、資料集、Python / Gradio / Docker 測試介面與結果分析。'),
-    tags: ['Audio AI', 'Gradio', 'Docker', 'Dataset'], image: { src: '/portfolio/audio-ai-validation.png', alt: c('Audio AI validation visual portfolio board', 'Audio AI 驗證圖解作品') },
+    tags: ['Audio AI', 'Gradio', 'Docker', 'Dataset'],
+    cardFlow: [c('Scenario', '情境'), c('Audio Input', '音訊輸入'), c('Target', '目標平台'), c('Analyze', '分析'), c('Report', '報告')],
     sections: [
       section('Overview', '概述', 'The visual organizes audio wake-word, localization, noise reduction, and event-recognition validation around hardware acceleration and automated analysis.', '此圖以硬體加速與自動化分析整理語音喚醒、定位、降噪與事件辨識驗證。'),
       section('My Role', '我的角色', 'Audio-recognition validation and test-tool engineering for smart-speaker and Audio AI chip scenarios.', '負責智慧音箱與 Audio AI 晶片情境的語音辨識驗證及測試工具工程。'),
@@ -1229,7 +1111,8 @@ export const visualItems: PortfolioItem[] = [
   {
     id: 'visual-tpv-fae', index: 'VIS_05', title: c('TPV FAE / Customer Support', '冠捷 FAE / 客戶支援'),
     summary: c('Visual brief for FAE support, Android TV automation/certification, cross-team collaboration, and field engineering.', 'FAE 支援、Android TV 自動化 / 認證、跨團隊協作與現場工程圖解。'),
-    tags: ['TPV', 'FAE', 'Android TV', 'CTS/GTVS'], image: { src: '/portfolio/tpv-fae-support.png', alt: c('TPV FAE customer support visual portfolio board', '冠捷 FAE 客戶支援圖解作品') },
+    tags: ['TPV', 'FAE', 'Android TV', 'CTS/GTVS'],
+    cardFlow: [c('Customer Issue', '客戶問題'), c('Reproduce', '重現'), c('Evidence', '證據'), c('Fix Verify', '修正驗證'), c('Closure', '結案')],
     sections: [
       section('Overview', '概述', 'This visual shows FAE issue support, Android TV testing, automation/certification work, and cross-functional technical coordination.', '此圖呈現 FAE 問題支援、Android TV 測試、自動化 / 認證工作與跨部門技術協調。'),
       section('My Role', '我的角色', 'FAE/customer support and automation validation for Android/Linux applications and TV products.', '負責 Android / Linux 應用與 TV 產品的 FAE / 客戶支援及自動化驗證。'),

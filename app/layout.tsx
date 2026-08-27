@@ -15,11 +15,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://alextsou.com'),
   title: {
-    default: 'Alex Tsou — Engineering Portfolio',
+    default: 'Alex Tsou — Senior Test Automation & System Validation Engineer',
     template: '%s | Alex Tsou',
   },
   description:
-    'Automation · Validation · Debug & RCA · System Integration · AI/NPU · Camera · Connectivity · Customer Engineering',
+    '20+ years in Python / C# test automation, system validation, IC / SoC / FPGA, Wi-Fi / 5G, Camera / AI, ATE, and customer engineering.',
   alternates: { canonical: '/' },
   keywords: [
     'test automation',
@@ -42,9 +42,9 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: '/',
     siteName: 'Alex Tsou — Engineering Portfolio',
-    title: 'Alex Tsou — Engineering Portfolio',
+    title: 'Alex Tsou — Senior Test Automation & System Validation Engineer',
     description:
-      'Automation · Validation · Debug & RCA · System Integration · AI/NPU · Camera · Connectivity · Customer Engineering',
+      '20+ years in Python / C# test automation, system validation, IC / SoC / FPGA, Wi-Fi / 5G, Camera / AI, ATE, and customer engineering.',
     images: [
       {
         url: '/portfolio/alex-tsou-og-preview.png',
@@ -56,9 +56,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Alex Tsou — Engineering Portfolio',
+    title: 'Alex Tsou — Senior Test Automation & System Validation Engineer',
     description:
-      'Automation · Validation · Debug & RCA · System Integration · AI/NPU · Camera · Connectivity · Customer Engineering',
+      '20+ years in Python / C# test automation, system validation, IC / SoC / FPGA, Wi-Fi / 5G, Camera / AI, ATE, and customer engineering.',
     images: ['/portfolio/alex-tsou-og-preview.png'],
   },
   robots: { index: true, follow: true },
