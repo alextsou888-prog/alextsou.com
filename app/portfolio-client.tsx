@@ -417,6 +417,7 @@ export function PortfolioClient({ initialLanguage = 'zh' }: { initialLanguage?: 
               <p className="eyebrow"><span className="status-dot" aria-hidden="true" />{t.eyebrow}</p>
               <h1 id="hero-title">{t.heroA}</h1>
               <p className="hero-role">{t.heroRole}</p>
+              <p className="hero-semiconductor">{t.heroSemiconductor}</p>
               <p className="hero-lede">{t.heroLead}</p>
               <p className="hero-context">{t.heroContext}</p>
               <div className="hero-actions">

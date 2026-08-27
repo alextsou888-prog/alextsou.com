@@ -264,6 +264,17 @@ button, a { -webkit-tap-highlight-color: transparent; }
   line-height: 1.28;
 }
 
+.hero-semiconductor {
+  max-width: 670px;
+  margin: 10px 0 0;
+  color: #52677d;
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 760;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+}
+
 .hero-lede {
   max-width: 670px;
   margin: 18px 0 0;
@@ -2231,6 +2242,7 @@ html[data-theme='dark'] .hero h1 span,
 html[data-theme='dark'] .eyebrow,
 html[data-theme='dark'] .section-kicker,
 html[data-theme='dark'] .hero-role,
+html[data-theme='dark'] .hero-semiconductor,
 html[data-theme='dark'] .hero-lede,
 html[data-theme='dark'] .hero-context,
 html[data-theme='dark'] .about-body > p,

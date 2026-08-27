@@ -90,6 +90,7 @@ export const ui = {
     eyebrow: 'Engineering Portfolio',
     heroA: 'Alex Tsou', heroB: '',
     heroRole: 'Senior Test Automation / System Validation Engineer',
+    heroSemiconductor: 'IC / SoC / FPGA Validation Experience',
     heroLead: 'Test Automation · Validation · Debug & RCA · System Integration',
     heroContext: 'Python / C# automation across connectivity, imaging / AI, ATE, and customer engineering',
     explore: 'Explore engineering areas', viewResume: 'View Resume', viewTechnicalPortfolio: 'View Technical Portfolio', viewEngineeringCases: 'View Engineering Cases', exploreTechnicalDomains: 'Explore Technical Domains', ready: 'READY', panelLabel: 'Engineering focus areas',
@@ -175,6 +176,7 @@ export const ui = {
     eyebrow: '工程作品集',
     heroA: 'Alex Tsou', heroB: '',
     heroRole: '資深測試自動化 / 系統驗證工程師',
+    heroSemiconductor: 'IC / SoC / FPGA 驗證經驗',
     heroLead: '測試自動化 · 系統驗證 · Debug & RCA · 系統整合',
     heroContext: 'Python / C# 自動化，涵蓋連線、影像 / AI、ATE 與客戶工程',
     explore: '瀏覽工程領域', viewResume: '查看完整履歷', viewTechnicalPortfolio: '查看技術作品', viewEngineeringCases: '查看工程案例', exploreTechnicalDomains: '探索技術領域', ready: '就緒', panelLabel: '工程專長領域',
@@ -260,8 +262,8 @@ export const capabilityOverview = {
   kicker: c('01 / Professional Snapshot', '01 / 專業摘要'),
   title: c('Engineering Capability Overview', '工程能力總覽'),
   subtitle: c(
-    'Build reproducible, traceable automation and system-validation workflows with Python / C# across connectivity, imaging / AI, ATE, and customer engineering.',
-    '以 Python / C# 建立可重現、可追溯的自動化與系統驗證流程，涵蓋連線、影像 / AI、ATE 與客戶工程。',
+    'Build reproducible, traceable automation and system-validation workflows with Python / C# across IC / SoC / FPGA, connectivity, imaging / AI, ATE, and customer engineering.',
+    '以 Python / C# 建立可重現、可追溯的自動化與系統驗證流程，涵蓋 IC / SoC / FPGA、連線、影像 / AI、ATE 與客戶工程。',
   ),
   snapshot: [
     c('21+ Years Engineering Experience', '21+ 年工程經驗'),
@@ -289,13 +291,13 @@ export const capabilityOverview = {
       index: '02',
       title: c('System Validation & Debug / RCA', '系統驗證與 Debug / RCA'),
       positioning: c(
-        'Translate requirements into measurable validation criteria and use reproducible evidence to isolate failures, verify fixes, and close regressions.',
-        '將需求轉換為可量測的 Validation Criteria，透過可重現證據進行問題隔離、RCA、Fix Verification 與 Regression。',
+        'Translate system and IC / SoC / FPGA validation requirements into measurable criteria, reproducible evidence, fix verification, and regression.',
+        '將系統與 IC / SoC / FPGA 驗證需求轉換為可量測 Criteria、可重現證據、修正驗證與 Regression。',
       ),
       tags: ['Validation', 'Evidence', 'RCA', 'Regression'],
       points: {
-        en: ['Requirement → Measurable Criteria', 'Reproducible Evidence → Isolation', 'Fix Verification → Regression'],
-        zh: ['需求 → 可量測判定條件', '可重現證據 → 問題隔離', '修正驗證 → 回歸'],
+        en: ['IC / SoC / FPGA Validation Criteria', 'Reproducible Evidence → Isolation', 'Fix Verification → Regression'],
+        zh: ['IC / SoC / FPGA 驗證判定條件', '可重現證據 → 問題隔離', '修正驗證 → 回歸'],
       },
     },
     {
@@ -447,8 +449,8 @@ export const focusItems: PortfolioItem[] = [
   {
     id: 'capability-validation', index: '02', title: c('Validation', '系統與功能驗證'),
     summary: c(
-      'Translate requirements into validation plans, measurable criteria, repeatable test cases, and traceable verification evidence.',
-      '將需求轉換成 Validation Plan、可量測 Criteria、可重複 Test Case 與可追蹤的驗證證據。',
+      'Translate system, IC / SoC / FPGA, and feature requirements into validation plans, measurable criteria, repeatable cases, and traceable evidence.',
+      '將系統、IC / SoC / FPGA 與 Feature 需求轉換成 Validation Plan、可量測 Criteria、可重複 Test Case 與可追蹤證據。',
     ),
     tags: ['Test Plan', 'Test Case', 'Criteria', 'Functional Test', 'Stress Test', 'Regression', 'Golden Comparison'],
     sections: [
@@ -468,6 +470,10 @@ export const focusItems: PortfolioItem[] = [
     sections: [
       { label: c('Debug Flow', '除錯流程'), flow: [c('Symptom', '現象'), c('Reproduce', '重現'), c('Evidence', '證據'), c('Isolation', '隔離'), c('RCA', '根因分析'), c('Fix Verification', '修正驗證'), c('Regression', '回歸'), c('Closure', '結案')] },
       { label: c('Methods', '方法'), bullets: { en: ['Freeze versions, configuration, topology, and timestamps', 'Compare known-good and failing states while changing one factor at a time', 'Separate confirmed cause, inference, excluded layers, and remaining uncertainty'], zh: ['固定版本、設定、拓撲與時間戳', '比對 Good / Bad 狀態並一次只改變一個因素', '分別標示已確認原因、推論、已排除層級與剩餘不確定性'] } },
+      {
+        label: c('Cross-Layer Isolation', '跨層隔離'),
+        flow: [c('Hardware / FPGA / Chip', 'Hardware / FPGA / Chip'), c('Firmware', 'Firmware'), c('Driver', 'Driver'), c('SDK / Middleware', 'SDK / Middleware'), c('Application / Test Tool', 'Application / Test Tool'), c('Network / RF / Instrument', 'Network / RF / Instrument')],
+      },
       section('Evidence & Outputs', '證據與輸出', 'Preserve logs, traces, measurements, media, raw responses, timelines, reproduction steps, and regression-ready defect records.', '保存 Log、Trace、量測值、媒體、原始回應、Timeline、重現步驟與可回歸的 Defect 紀錄。'),
       section('Design Intent', '設計思維', 'Treat debugging as controlled narrowing aligned with the site’s Engineering Debug Methodology, without duplicating its full presentation.', '將除錯視為受控縮小問題範圍的流程，並與既有工程除錯方法論一致，但不重複整段內容。'),
     ],
@@ -583,8 +589,8 @@ const experienceCatalog: PortfolioItem[] = [
   },
   {
     id: 'career-novatek', index: '02', title: c('Novatek Experience', '聯詠科技經歷'),
-    summary: c('Nearly nine years of progressive test automation and SoC validation across Wi-Fi FPGA/chip, Camera SoC, AI/NPU, and Audio AI engineering.', '近九年的測試自動化與 SoC 驗證經歷，依序涵蓋 Wi-Fi FPGA / 晶片、Camera SoC、AI/NPU 與 Audio AI 工程。'),
-    tags: ['Wi-Fi FPGA', 'Camera SoC', 'AI/NPU', 'Audio AI', 'Python Automation'],
+    summary: c('Nearly nine years of validation and test automation experience spanning IC / SoC / FPGA, Wi-Fi connectivity, Camera SoC / SDK, AI/NPU, Audio AI, measurement, defect reproduction, and regression.', '近九年的驗證與測試自動化經驗，涵蓋 IC / SoC / FPGA、Wi-Fi 連線、Camera SoC / SDK、AI/NPU、Audio AI、量測、問題重現與回歸。'),
+    tags: ['IC / SoC Validation', 'Wi-Fi FPGA', 'Camera SoC', 'AI/NPU', 'Audio AI', 'Python Automation'],
     career: {
       company: c('Novatek Microelectronics Corp.', '聯詠科技股份有限公司'),
       cardCompany: c('Novatek Microelectronics', '聯詠科技'),
@@ -596,8 +602,8 @@ const experienceCatalog: PortfolioItem[] = [
     sections: [
       {
         label: c('Overview', '概述'),
-        body: c('The Novatek experience progressed through four connected technical phases within one continuous employment period: Wi-Fi FPGA / Chip Validation → Camera SoC Automation → AI/NPU Validation → Audio AI Validation.', '聯詠任職經歷在同一段連續聘僱期間內，依序發展為四個相互銜接的技術階段：Wi-Fi FPGA / 晶片驗證 → Camera SoC 自動化 → AI/NPU 驗證 → Audio AI 驗證。'),
-        flow: [c('Wi-Fi FPGA / Chip Validation', 'Wi-Fi FPGA / 晶片驗證'), c('Camera SoC / SDK Automation', 'Camera SoC / SDK 自動化'), c('AI / NPU Validation', 'AI / NPU 驗證'), c('Audio AI Validation', 'Audio AI 驗證')],
+        body: c('The experience progressed through four validation phases: Wi-Fi FPGA / chip and MAC connectivity validation, Camera SoC / SDK automation, AI/NPU validation, and Audio AI validation. Work centered on Python automation, instrument control, measurements, logs/traces, PASS / FAIL criteria, defect reproduction, fix verification, and regression. This work did not include design ownership.', '此經歷依序涵蓋四個驗證階段：Wi-Fi FPGA / 晶片與 MAC 連線驗證、Camera SoC / SDK 自動化、AI/NPU 驗證與 Audio AI 驗證。工作核心為 Python 自動化、儀器控制、量測、Log / Trace、PASS / FAIL Criteria、問題重現、修正驗證與回歸。此經歷不涉及設計主責。'),
+        flow: [c('Wi-Fi FPGA / Chip / MAC', 'Wi-Fi FPGA / 晶片 / MAC'), c('Camera SoC / SDK', 'Camera SoC / SDK'), c('AI / NPU Validation', 'AI / NPU 驗證'), c('Audio AI Validation', 'Audio AI 驗證'), c('Fix Verification / Regression', '修正驗證 / 回歸')],
       },
       {
         label: c('Wi-Fi FPGA / Chip Validation · 2013/10 – 2019/04', 'Wi-Fi FPGA / 晶片驗證 · 2013/10 – 2019/04'),
@@ -925,10 +931,10 @@ export const resumeProjectGroups = [
 
 export const skillCategories = [
   { title: c('Programming', '程式語言'), skills: ['Python', 'C', 'C++', 'C#', 'Shell / Batch'] },
-  { title: c('Automation', '自動化'), skills: ['pytest', 'Selenium', 'Playwright', 'Robot Framework', 'Appium', 'UIAutomator', 'Postman'] },
+  { title: c('Automation', '自動化'), skills: ['Python Automation', 'pytest', 'Test Framework', 'Robot Framework', 'Appium', 'UIAutomator', 'Postman'] },
   { title: c('DevOps', 'DevOps'), skills: ['Jenkins', 'GitLab CI', 'GitHub', 'Docker'] },
-  { title: c('Test / Validation', '測試 / 驗證'), skills: ['ATE', 'Camera', 'AI/NPU', 'Audio AI', 'Wi-Fi', '5G', 'CAN', 'GNSS', 'Android / Linux', 'Hardware/software integration'] },
-  { title: c('Tools / Interfaces', '工具 / 介面'), skills: ['SCPI', 'DMM', 'Power Supply', 'VeriWave', 'Wireshark', 'iPerf', 'CANoe / CAPL', 'Jira', 'Confluence'] },
+  { title: c('Test / Validation', '測試 / 驗證'), skills: ['IC / SoC / FPGA Validation', 'Camera SoC', 'AI/NPU', 'Audio AI', 'Wi-Fi / 5G', 'Stress / Stability', 'Regression', 'PASS / FAIL Criteria', 'HW / FW / Driver / Software Isolation'] },
+  { title: c('Tools / Interfaces', '工具 / 介面'), skills: ['Instrument Control', 'SCPI', 'DMM', 'Power Supply', 'VeriWave', 'Wireshark', 'iPerf', 'Logs / Traces', 'Jira'] },
 ];
 
 export const engineeringDebugMethodology = {
@@ -1243,7 +1249,7 @@ const project = (id:string,index:string,title:Copy,summary:Copy,tags:string[],ap
 export const projectItems: PortfolioItem[] = [
   project('router','01',c('5G / Wi-Fi Router Automation','5G / Wi-Fi Router 自動化'),c('Configurable network and device validation with traffic, packets, stability, and reproducible evidence.','以可設定流程驗證網路與裝置，涵蓋流量、封包、穩定度與可重現證據。'),['5G','Wi-Fi','iPerf'],c('Drive device APIs or UI, generate traffic, capture state and packets, then correlate failures across DUT, client, network, and automation.','控制裝置 API 或 UI、產生流量、擷取狀態與封包，再於 DUT、Client、網路與自動化間關聯失敗。'),c('Use topology and version control, throughput/stability criteria, Wireshark evidence, retries with reason, and regression.','使用拓撲與版本控管、吞吐 / 穩定度條件、Wireshark 證據、具原因的重試與回歸測試。')),
   project('rest','02',c('REST API Automation Testing','REST API 自動化測試'),c('Contract, authorization, data, negative-case, and service-behavior validation.','驗證 Contract、授權、資料、負向案例與服務行為。'),['API','Python','Postman'],c('Separate clients, test data, assertions, reporting, and environment configuration so cases stay readable.','分離 Client、測試資料、Assertion、報告與環境設定，維持案例可讀性。'),c('Verify status, schema, fields, error behavior, idempotency, timing, and correlation with service logs.','驗證狀態碼、Schema、欄位、錯誤行為、冪等性、Timing 與 Service Log 關聯。')),
-  project('selenium','03',c('Selenium WebUI Automation','Selenium WebUI 自動化'),c('Accessible, maintainable browser journeys with explicit waits and failure evidence.','以明確等待與失敗證據建立可存取、可維護的瀏覽器流程。'),['Web UI','Selenium','Regression'],c('Use stable locators, page/component abstractions, explicit state checks, controlled data, and screenshots only as supporting evidence.','使用穩定 Locator、頁面 / 元件抽象、明確狀態檢查、受控資料，並將截圖作為輔助證據。'),c('Cover keyboard paths, responsive layouts, error states, navigation, and deterministic cleanup across supported browsers.','涵蓋鍵盤操作、響應式版面、錯誤狀態、導覽與支援瀏覽器上的確定性 Cleanup。')),
+  project('selenium','03',c('Selenium WebUI Automation','Selenium WebUI 自動化'),c('Web UI Automation with Selenium','Selenium Web UI 自動化驗證'),['Web UI','Selenium','Regression'],c('Automated repeatable Web UI validation scenarios such as login, configuration changes, apply/save behavior, and post-change verification.','將登入、設定變更、套用/儲存與變更後確認等 Web UI 操作轉成可重複執行的自動化驗證情境。'),c('Validated expected UI behavior and configuration results through repeatable automated execution and result checks.','透過可重複的自動化執行與結果確認，驗證 UI 行為與設定結果是否符合預期。')),
   project('can-hil','04',c('Automotive CAN / HIL Automation','車用 CAN / HIL 自動化'),c('Signal, timing, state, diagnostic, and fault-response validation with traceable bus evidence.','以可追溯 Bus 證據驗證 Signal、Timing、狀態、診斷與 Fault Response。'),['CAN','HIL','Diagnostics'],c('Map requirements to messages/signals, stimulate controlled conditions, capture traces, and correlate DUT state with expected transitions.','將需求對應至 Message / Signal，施加受控條件、擷取 Trace，並關聯 DUT 狀態與預期轉換。'),c('Check scaling, timing, timeout, invalid values, recovery, diagnostic behavior, and regression against recorded traces.','檢查 Scaling、Timing、Timeout、Invalid Value、復原、診斷行為與 Trace 回歸。')),
   project('opencv','05',c('OpenCV / Computer Vision Demo','OpenCV / 電腦視覺展示'),c('Reproducible acquisition, preprocessing, inspection criteria, and annotated visual evidence.','建立可重現取像、前處理、檢測條件與標註視覺證據。'),['OpenCV','Vision','AOI'],c('Control image inputs, preserve original pixels, isolate processing stages, and expose thresholds and intermediate outputs.','控制影像輸入、保存原始像素、隔離處理階段，並呈現門檻與中間輸出。'),c('Use labeled positive/negative cases, edge conditions, repeatability, and false-positive/false-negative review.','使用標註正負案例、邊界條件、重複性與誤判 / 漏判審查。')),
   project('cicd','06',c('CI/CD Automation','CI/CD 自動化'),c('Automated quality gates that keep build, test, evidence, and release decisions visible.','以自動化品質關卡清楚呈現 Build、測試、證據與發布決策。'),['CI/CD','Jenkins','GitLab CI'],c('Separate fast checks, integration tests, artifacts, deployment gates, and environment-specific credentials.','分離快速檢查、整合測試、Artifact、部署關卡與環境專用憑證。'),c('Require reproducible jobs, explicit exit codes, retained reports, failure ownership, and controlled rerun policy.','要求可重現 Job、明確 Exit Code、保留報告、失敗責任與受控重跑政策。')),
