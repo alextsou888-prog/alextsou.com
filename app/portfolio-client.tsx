@@ -13,6 +13,7 @@ import {
   experienceItems,
   flagshipCaseStudies,
   focusItems,
+  problemSolvingHighlights,
   projectItems,
   resumeCoreGroups,
   resumeEducation,
@@ -24,6 +25,7 @@ import {
   type DomainExperience,
   type Language,
   type PortfolioItem,
+  type ProblemSolvingHighlight,
 } from './portfolio-content';
 
 const allItems = [...focusItems, ...experienceItems, ...flagshipCaseStudies, ...visualItems, ...projectItems];
@@ -165,6 +167,57 @@ function CapabilityOverviewCardView({ card, language, onOpen }: {
           {card.related.label[language]} <span aria-hidden="true">↗</span>
         </button>
       )}
+    </article>
+  );
+}
+
+function ProblemSolvingCard({ card, language, onOpen }: {
+  card: ProblemSolvingHighlight;
+  language: Language;
+  onOpen: (id: string) => void;
+}) {
+  const labels = problemSolvingHighlights.labels;
+
+  return (
+    <article className={`problem-solving-card problem-solving-card-${card.id}`} data-problem-solving-card={card.id}>
+      <div className="problem-solving-card-topline">
+        <span aria-hidden="true">{card.index}</span>
+        <h4>{card.title[language]}</h4>
+      </div>
+      <dl className="problem-solving-summary">
+        <div>
+          <dt>{labels.problem[language]}</dt>
+          <dd>{card.problem[language]}</dd>
+        </div>
+        <div>
+          <dt>{labels.approach[language]}</dt>
+          <dd>{card.approach[language]}</dd>
+        </div>
+        <div>
+          <dt>{labels.outcome[language]}</dt>
+          <dd>{card.outcome[language]}</dd>
+        </div>
+      </dl>
+      <details className="problem-solving-logic">
+        <summary>{labels.logic[language]}</summary>
+        <div className="detail-flow" aria-label={`${card.title[language]} ${labels.logic[language]}`}>
+          {card.flow.map((step, index) => (
+            <span className="flow-step" key={step.en}>
+              <span>{step[language]}</span>
+              {index < card.flow.length - 1 && <b aria-hidden="true">→</b>}
+            </span>
+          ))}
+        </div>
+      </details>
+      <button
+        className="problem-solving-related"
+        type="button"
+        onClick={() => onOpen(card.related.itemId)}
+        aria-haspopup="dialog"
+        data-highlight-related-case={card.related.itemId}
+      >
+        {card.related.label[language]} <span aria-hidden="true">↗</span>
+      </button>
     </article>
   );
 }
@@ -410,6 +463,20 @@ export function PortfolioClient({ initialLanguage = 'zh' }: { initialLanguage?: 
                 <PortfolioCard key={item.id} item={item} language={language} openLabel={t.viewCaseStudy} tone="case-study" onOpen={setActiveId} />
               ))}
             </div>
+            <section className="problem-solving-highlights" id="problem-solving" aria-labelledby="problem-solving-title">
+              <div className="problem-solving-heading">
+                <div>
+                  <p className="section-kicker">{problemSolvingHighlights.kicker[language]}</p>
+                  <h3 id="problem-solving-title">{problemSolvingHighlights.title[language]}</h3>
+                </div>
+                <p>{problemSolvingHighlights.lead[language]}</p>
+              </div>
+              <div className="problem-solving-grid">
+                {problemSolvingHighlights.cards.map((card) => (
+                  <ProblemSolvingCard key={card.id} card={card} language={language} onOpen={setActiveId} />
+                ))}
+              </div>
+            </section>
             <section className="debug-methodology debug-methodology-standalone" aria-labelledby="debug-methodology-title" data-engineering-method="compact">
               <h3 id="debug-methodology-title">{engineeringDebugMethodology.title[language]}</h3>
               <div className="detail-flow" aria-label={engineeringDebugMethodology.title[language]}>

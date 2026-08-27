@@ -23,7 +23,7 @@ if (!response || !response.ok) {
 } else {
   const html = await response.text();
 
-  const requiredSections = ['home', 'capability-overview', 'case-studies', 'domains', 'skills', 'experience', 'resume', 'about', 'projects', 'contact'];
+  const requiredSections = ['home', 'capability-overview', 'case-studies', 'problem-solving', 'domains', 'skills', 'experience', 'resume', 'about', 'projects', 'contact'];
   for (const id of requiredSections) {
     if (!new RegExp(`id=["']${id}["']`).test(html)) {
       fail(`Missing section target #${id}`);
@@ -83,6 +83,17 @@ if (!response || !response.ok) {
     fail(`Expected flagship case order ${expectedFlagshipCards.join(' → ')}, found: ${flagshipCards.join(' → ') || 'none'}`);
   }
 
+  const problemSolvingCards = [...html.matchAll(/data-problem-solving-card=["']([^"']+)["']/g)].map((match) => match[1]);
+  const expectedProblemSolvingCards = ['highlight-wifi-throughput', 'highlight-ate-handshake', 'highlight-customer-rca'];
+  if (problemSolvingCards.length !== 3 || expectedProblemSolvingCards.some((id, index) => problemSolvingCards[index] !== id)) {
+    fail(`Expected problem-solving highlight order ${expectedProblemSolvingCards.join(' → ')}, found: ${problemSolvingCards.join(' → ') || 'none'}`);
+  }
+  const problemSolvingPosition = html.search(/id=["']problem-solving["']/);
+  const engineeringMethodPosition = html.search(/data-engineering-method=["']compact["']/);
+  if (problemSolvingPosition <= html.search(/id=["']case-studies["']/) || engineeringMethodPosition <= problemSolvingPosition) {
+    fail('Problem-Solving Highlights must appear after flagship cases and before the compact engineering method');
+  }
+
   for (const marker of [
     '工程能力總覽',
     '21+ 年工程經驗',
@@ -113,6 +124,14 @@ if (!response || !response.ok) {
   }
   const brokenRelatedCases = [...new Set(relatedCaseTargets.filter((target) => !idSet.has(target)))];
   if (brokenRelatedCases.length > 0) fail(`Broken overview related-case targets: ${brokenRelatedCases.join(', ')}`);
+
+  const highlightRelatedTargets = [...html.matchAll(/data-highlight-related-case=["']([^"']+)["']/g)].map((match) => match[1]);
+  const expectedHighlightRelatedTargets = ['case-wifi-uxm', 'case-ate-robot-esd', 'case-fae-rca'];
+  if (highlightRelatedTargets.length !== 3 || expectedHighlightRelatedTargets.some((id, index) => highlightRelatedTargets[index] !== id)) {
+    fail(`Unexpected problem-solving related-case targets: ${highlightRelatedTargets.join(', ') || 'none'}`);
+  }
+  const brokenHighlightRelatedCases = [...new Set(highlightRelatedTargets.filter((target) => !idSet.has(target)))];
+  if (brokenHighlightRelatedCases.length > 0) fail(`Broken problem-solving related-case targets: ${brokenHighlightRelatedCases.join(', ')}`);
 
   const forbiddenPublicWording = ['職缺快速對照', '職缺對照', '職缺匹配', '求職對照'];
   for (const phrase of forbiddenPublicWording) {
@@ -177,6 +196,14 @@ for (const marker of [
   '資深測試自動化 / 系統驗證工程師',
   'Python / C# automation across connectivity, imaging / AI, ATE, and customer engineering',
   'Python / C# 自動化，涵蓋連線、影像 / AI、ATE 與客戶工程',
+  'Problem-Solving Highlights',
+  '困難案例與問題解決',
+  'Automation Engineering Approach',
+  '自動化工程思維',
+  'Separate DUT Failure from Automation Failure',
+  '分離 DUT 失敗與自動化失敗',
+  'Example — Wi-Fi / 5G Connectivity Automation',
+  '範例 — Wi-Fi / 5G Connectivity 自動化',
 ]) {
   if (!portfolioSource.includes(marker)) fail(`Missing bilingual recruiter-positioning source marker: ${marker}`);
 }

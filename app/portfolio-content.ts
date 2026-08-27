@@ -63,6 +63,20 @@ export type CapabilityOverviewCard = {
   };
 };
 
+export type ProblemSolvingHighlight = {
+  id: 'highlight-wifi-throughput' | 'highlight-ate-handshake' | 'highlight-customer-rca';
+  index: string;
+  title: Copy;
+  problem: Copy;
+  approach: Copy;
+  outcome: Copy;
+  flow: Copy[];
+  related: {
+    itemId: string;
+    label: Copy;
+  };
+};
+
 const c = (en: string, zh: string): Copy => ({ en, zh });
 const section = (labelEn: string, labelZh: string, bodyEn: string, bodyZh: string): DetailSection => ({
   label: c(labelEn, labelZh),
@@ -356,10 +370,78 @@ export const focusItems: PortfolioItem[] = [
     ),
     tags: ['Python', 'C#', 'pytest', 'REST API', 'Selenium', 'Appium', 'CI/CD'],
     sections: [
-      { label: c('Engineering Workflow', '工程流程'), flow: [c('Configure', '設定'), c('Set Up', '建置環境'), c('Execute', '執行'), c('Collect Evidence', '蒐集證據'), c('Judge', '判定'), c('Report', '報告')] },
-      { label: c('Methods', '方法'), bullets: { en: ['Configuration-driven cases and reusable adapters', 'Explicit timeouts, exception handling, and deterministic cleanup', 'Layered unit, integration, and regression coverage'], zh: ['以設定驅動案例與可重用 Adapter', '明確 Timeout、Exception Handling 與確定性 Cleanup', '分層執行 Unit、Integration 與 Regression Coverage'] } },
-      section('Tools & Outputs', '工具與輸出', 'Use Python, C#, pytest, REST APIs, browser or mobile automation, structured logs, and CI/CD gates to produce reviewable results and regression reports.', '運用 Python、C#、pytest、REST API、Web / Mobile 自動化、結構化 Log 與 CI/CD Gate，產出可審查結果與 Regression 報告。'),
-      section('Design Intent', '設計思維', 'Keep orchestration, interfaces, criteria, evidence, and reporting independently maintainable so failures stay diagnosable.', '讓流程控制、介面、判定、證據與報告可獨立維護，使失敗保持可診斷。'),
+      section(
+        'Automation Engineering Approach',
+        '自動化工程思維',
+        'Automation is not just replacing manual operation. It turns test intent into repeatable, diagnosable, traceable, and regression-ready engineering execution.',
+        '自動化不只是取代人工操作，而是把測試目的轉換成可重複、可診斷、可追溯、可回歸的工程流程。',
+      ),
+      {
+        label: c('1. Test Intent First', '1. 測試目的優先'),
+        body: c(
+          'Automation begins with measurable test intent, preconditions, acceptance criteria, and required evidence—not with immediately writing scripts.',
+          '自動化從可量測的測試目的、前置條件、驗收標準與必要證據開始，而不是直接開始撰寫 Script。',
+        ),
+        flow: [c('Requirement', '需求'), c('Preconditions', '前置條件'), c('Execution', '執行'), c('Criteria', '判定條件'), c('Evidence', '證據')],
+      },
+      {
+        label: c('2. Separation of Concerns', '2. 關注點分離'),
+        body: c(
+          'Keep device- and instrument-specific control behind adapters so test intent, orchestration, criteria, and reporting can evolve independently.',
+          '將裝置與儀器專屬控制封裝在 Adapter 後方，使測試目的、流程控制、判定與報告可獨立演進。',
+        ),
+        flow: [c('Test Case', '測試案例'), c('Orchestration', '流程控制'), c('Device / Instrument Adapter', '裝置 / 儀器 Adapter'), c('Result Parsing', '結果解析'), c('Criteria', '判定條件'), c('Reporting', '報告')],
+      },
+      {
+        label: c('3. Evidence-First Automation', '3. 證據優先的自動化'),
+        body: c(
+          'A verdict must correlate the test context with raw evidence. An automation system that returns only PASS or FAIL is not sufficiently diagnosable.',
+          '判定結果必須關聯測試脈絡與原始證據；只輸出 PASS 或 FAIL 的自動化系統，缺乏足夠的可診斷性。',
+        ),
+        flow: [c('Configuration', '設定'), c('Version', '版本'), c('Timestamp', '時間戳'), c('Raw Measurement', '原始量測'), c('Log', 'Log'), c('Criteria', '判定條件'), c('PASS / FAIL', 'PASS / FAIL')],
+      },
+      {
+        label: c('4. Design for Failure', '4. 為失敗情境而設計'),
+        body: c(
+          'Instrument, DUT, Robot, and external-equipment automation must define bounded failure behavior and leave the system in a known, safe state.',
+          '儀器、DUT、Robot 與外部設備自動化必須定義有界限的失敗行為，並使系統回到已知且安全的狀態。',
+        ),
+        bullets: {
+          en: ['Timeout / Retry / Reconnect', 'Abort / Cleanup / Safe State', 'Exception Handling with traceable reason'],
+          zh: ['Timeout / Retry / Reconnect', 'Abort / Cleanup / Safe State', '具可追溯原因的 Exception Handling'],
+        },
+      },
+      {
+        label: c('5. Separate DUT Failure from Automation Failure', '5. 分離 DUT 失敗與自動化失敗'),
+        body: c(
+          'A failed test result is not automatically a DUT defect. Isolate the failing layer before assigning ownership or reporting a product failure.',
+          '測試失敗不等同於 DUT 缺陷；在判定責任或回報產品失敗前，必須先隔離真正的失敗層級。',
+        ),
+        flow: [c('Test Tool', '測試工具'), c('Transport', '傳輸層'), c('Instrument', '儀器'), c('DUT', 'DUT'), c('Driver / Firmware', 'Driver / Firmware'), c('Network / RF', 'Network / RF'), c('Automation Logic', '自動化邏輯')],
+      },
+      {
+        label: c('6. Regression-Ready Design', '6. 可回歸的設計'),
+        body: c(
+          'When appropriate, a reproduced failure becomes a deterministic regression case with preserved evidence and a reportable result.',
+          '在適用情境下，已重現的失敗應轉換成具保存證據與可報告結果的確定性回歸案例。',
+        ),
+        flow: [c('Bug Reproduction', '問題重現'), c('Evidence', '證據'), c('Fix Verification', '修正驗證'), c('Regression Case', '回歸案例'), c('CI / Report', 'CI / 報告')],
+      },
+      {
+        label: c('Example — Wi-Fi / 5G Connectivity Automation', '範例 — Wi-Fi / 5G Connectivity 自動化'),
+        body: c(
+          'A compact architecture example; implementation details and technical boundaries remain in the existing Wi-Fi / UXM case study.',
+          '此處僅呈現精簡架構；實作細節與技術邊界保留於既有 Wi-Fi / UXM 工程案例。',
+        ),
+        flow: [c('Test Configuration', '測試設定'), c('Python Controller', 'Python Controller'), c('Keysight UXM / DUT / Wi-Fi Client', 'Keysight UXM / DUT / Wi-Fi Client'), c('iPerf / Wireshark', 'iPerf / Wireshark'), c('Measurements / Logs', '量測 / Log'), c('Criteria', '判定條件'), c('PASS / FAIL', 'PASS / FAIL'), c('Failure Isolation', '失敗隔離'), c('Regression Report', '回歸報告')],
+      },
+      {
+        label: c('Example Inputs & Evidence', '範例輸入與證據'),
+        bullets: {
+          en: ['Inputs: firmware version, band / channel, bandwidth, distance / environment, TCP / UDP, DL / UL', 'Evidence: throughput, latency, packet loss, RSSI / MCS, retransmission, DUT / instrument logs'],
+          zh: ['輸入：Firmware Version、Band / Channel、Bandwidth、Distance / Environment、TCP / UDP、DL / UL', '證據：Throughput、Latency、Packet Loss、RSSI / MCS、Retransmission、DUT / Instrument Log'],
+        },
+      },
     ],
   },
   {
@@ -860,6 +942,80 @@ export const engineeringDebugMethodology = {
     c('Fix Verification', '修正驗證'),
     c('Regression', '回歸'),
   ],
+};
+
+export const problemSolvingHighlights = {
+  kicker: c('Problem Solving', '問題解決'),
+  title: c('Problem-Solving Highlights', '困難案例與問題解決'),
+  lead: c(
+    'Selected examples showing how failures are reproduced, isolated with evidence, verified, and converted into regression coverage.',
+    '以代表性案例呈現問題如何被重現、透過證據隔離、完成修正驗證，並轉換為 Regression Coverage。',
+  ),
+  labels: {
+    problem: c('Problem', '問題'),
+    approach: c('Approach', '方法'),
+    outcome: c('Isolation Outcome', '隔離結果'),
+    logic: c('Engineering Logic', '工程邏輯'),
+  },
+  cards: [
+    {
+      id: 'highlight-wifi-throughput',
+      index: '01',
+      title: c('Wi-Fi / 5G Throughput Degradation', 'Wi-Fi / 5G Throughput 下降分析'),
+      problem: c(
+        'Measured throughput falls below a known-good baseline.',
+        '實測 Throughput 低於已知正常基準。',
+      ),
+      approach: c(
+        'Freeze the baseline and configuration, then correlate RF, link, packet, DUT, router, backhaul, and cellular-side evidence.',
+        '固定基準與設定，再關聯 RF、Link、Packet、DUT、Router、Backhaul 與 Cellular-side 證據。',
+      ),
+      outcome: c(
+        'Establish the failure boundary without overstating root-cause ownership; verify the responsible team’s fix and add regression coverage.',
+        '在不誇大 Root Cause 責任的前提下建立 Failure Boundary，驗證負責團隊的修正並加入 Regression Coverage。',
+      ),
+      flow: [c('Baseline', 'Baseline'), c('RF / Link Quality', 'RF / Link Quality'), c('Wi-Fi PHY / MAC', 'Wi-Fi PHY / MAC'), c('TCP / UDP / Packet Evidence', 'TCP / UDP / Packet Evidence'), c('DUT / Driver / Firmware', 'DUT / Driver / Firmware'), c('Router / Backhaul', 'Router / Backhaul'), c('Cellular Side', 'Cellular Side'), c('Isolation', '隔離'), c('Fix Verification', '修正驗證'), c('Regression', '回歸')],
+      related: { itemId: 'case-wifi-uxm', label: c('View Wi-Fi / UXM case', '查看 Wi-Fi / UXM 案例') },
+    },
+    {
+      id: 'highlight-ate-handshake',
+      index: '02',
+      title: c('ATE / Robot / ESD Handshake Failure', 'ATE / Robot / ESD Handshake 異常'),
+      problem: c(
+        'A handshake sequence does not reach the expected equipment state, or a timeout / exception interrupts deterministic execution.',
+        'Handshake 流程未到達預期設備狀態，或 Timeout / Exception 中斷確定性執行。',
+      ),
+      approach: c(
+        'Correlate states, interlocks, commands, acknowledgements, timestamps, equipment responses, and recovery behavior.',
+        '關聯 State、Interlock、Command、Acknowledgement、Timestamp、設備回應與 Recovery 行為。',
+      ),
+      outcome: c(
+        'Assign a defensible failure boundary, recover to a safe known state, verify the fix, and preserve PASS / FAIL regression evidence.',
+        '建立可辯護的 Failure Boundary、回復至安全已知狀態、驗證修正，並保存 PASS / FAIL 回歸證據。',
+      ),
+      flow: [c('Reproduce Sequence', '重現流程'), c('Check State', '檢查 State'), c('Check Handshake', '檢查 Handshake'), c('Verify Interlock', '確認 Interlock'), c('Correlate Command / Acknowledgement', '關聯 Command / Acknowledgement'), c('Check Equipment Response', '檢查設備回應'), c('Timeout / Exception Boundary', 'Timeout / Exception Boundary'), c('Recovery', '復原'), c('Fix Verification', '修正驗證'), c('Regression', '回歸')],
+      related: { itemId: 'case-ate-robot-esd', label: c('View ATE / Robot / ESD case', '查看 ATE / Robot / ESD 案例') },
+    },
+    {
+      id: 'highlight-customer-rca',
+      index: '03',
+      title: c('Customer Issue Reproduction & RCA', '客戶問題重現與 RCA'),
+      problem: c(
+        'A customer-reported symptom must be reproduced across environment, version, and configuration differences before ownership can be assigned.',
+        '客戶回報現象必須先跨環境、版本與設定差異完成重現，才能判定責任。',
+      ),
+      approach: c(
+        'Freeze the environment matrix, capture evidence, compare Good vs Bad, isolate the failing layer, and coordinate RD / vendor analysis.',
+        '固定環境矩陣、擷取證據、進行 Good vs Bad 比對、隔離失敗層級，並協調 RD / Vendor 分析。',
+      ),
+      outcome: c(
+        'Document the isolation outcome or RD / vendor-owned fix, verify it in the target environment, convert it to regression, and close with evidence.',
+        '記錄 Isolation Outcome 或 RD / Vendor-owned fix，在目標環境完成驗證、轉換為 Regression，並以證據結案。',
+      ),
+      flow: [c('Customer Symptom', '客戶現象'), c('Clarify Environment', '釐清環境'), c('Reproduce', '重現'), c('Freeze Version / Configuration', '固定版本 / 設定'), c('Capture Evidence', '擷取證據'), c('Good vs Bad', 'Good vs Bad'), c('Layer Isolation', 'Layer 隔離'), c('RD / Vendor Coordination', 'RD / Vendor 協作'), c('Fix Verification', '修正驗證'), c('Regression', '回歸'), c('Closure', '結案')],
+      related: { itemId: 'case-fae-rca', label: c('View customer RCA case', '查看客戶 RCA 案例') },
+    },
+  ] satisfies ProblemSolvingHighlight[],
 };
 
 export const flagshipCaseStudies: PortfolioItem[] = [
