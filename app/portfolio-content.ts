@@ -528,7 +528,7 @@ const experienceCatalog: PortfolioItem[] = [
     tags: ['FIH', 'Automation', 'System Validation', '5G / Wi-Fi / CAN'],
     career: {
       company: c('FIH / 鴻海富智康', '鴻海富智康 / FIH'),
-      jobTitle: c('Technical Manager | Hands-on Test Automation & System Validation Lead', '技術經理｜Hands-on 測試自動化與系統驗證 Lead'),
+      jobTitle: c('Technical Manager | Hands-on Test Automation & System Validation', '技術經理｜Hands-on 測試自動化與系統驗證'),
       period: '2022/09 – 2026/04',
       tenure: c('3 years 8 months', '3年8個月'),
       management: c('Managed 4 team members', '管理人數4人'),
@@ -609,7 +609,7 @@ const experienceCatalog: PortfolioItem[] = [
     career: {
       company: c('TPV / 冠捷科技', '冠捷科技 / TPV'),
       cardCompany: c('TPV Technology', '冠捷科技（TPV）'),
-      jobTitle: c('FAE Engineer | Customer Support & Validation', 'FAE 工程師｜客戶支援與驗證'),
+      jobTitle: c('Assistant Manager, FAE | Customer Support & Validation', 'FAE 副理｜客戶支援與驗證'),
       period: '2008/09 – 2013/10',
       tenure: c('5 years 2 months', '5年2個月'),
     },
