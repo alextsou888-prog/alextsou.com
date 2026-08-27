@@ -595,6 +595,23 @@ const experienceCatalog: PortfolioItem[] = [
         },
       },
       {
+        label: c('Camera / IPCam Evidence', 'Camera / IPCam 工程證據'),
+        bullets: {
+          en: [
+            'Built and maintained a Python / pytest Camera / IPCam and Video SoC SDK validation framework for approximately 3 years, comprising approximately 128 pytest test functions—excluding parameterized execution counts—across 2 SDK / firmware build streams',
+            'Built Jenkins CI pipeline/job automation, maintained Jenkins jobs, and integrated the Camera/IPCam pytest suite into weekly Jenkins CI regression workflows with automated test execution, result processing, and report generation.',
+            'Executed the representative full Camera / IPCam regression weekly, with a typical runtime of approximately 7 days',
+            'Executed a separate extended Camera / IPCam stress and stability regression lasting approximately 7 days',
+          ],
+          zh: [
+            '建立並維護 Python / pytest Camera / IPCam 與 Video SoC SDK 驗證框架約 3 年，涵蓋 2 個 SDK / Firmware Build Stream 與約 128 個 pytest 測試函式（不含參數化執行次數）',
+            '建立 Jenkins CI Pipeline / Job 自動化、維護 Jenkins Job，並將 Camera / IPCam pytest 測試套件整合至每週執行的 Jenkins CI 回歸流程，自動完成測試執行、結果處理與報告產生。',
+            '每週執行代表性完整 Camera / IPCam 回歸測試，典型執行時間約 7 天',
+            '另行執行延伸 Camera / IPCam 壓力與穩定性回歸測試，執行時間約 7 天',
+          ],
+        },
+      },
+      {
         label: c('AI / NPU Validation Pipeline', 'AI / NPU 驗證流程'),
         body: c('The automation scope covered controlled pattern execution, output comparison, mismatch evidence, PASS / FAIL handling, and regression—not AI model training, model architecture, or NPU compiler ownership.', '自動化範圍涵蓋受控 Pattern 執行、輸出比對、Mismatch 證據、PASS / FAIL 處理與回歸；不包含 AI 模型訓練、模型架構或 NPU Compiler 主責。'),
         flow: [c('Model', '模型'), c('Pattern.bin', 'Pattern.bin'), c('Simulator', 'Simulator'), c('FPGA / Target', 'FPGA / Target'), c('output.bin', 'output.bin'), c('golden.bin', 'golden.bin'), c('Compare', '比對'), c('PASS / FAIL', 'PASS / FAIL')],
