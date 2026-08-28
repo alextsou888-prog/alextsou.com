@@ -540,6 +540,7 @@ const experienceCatalog: PortfolioItem[] = [
         bullets: {
           en: [
             'Developed Python / C# automation tools and integrated ATE-side system workflows',
+            'Used Playwright for browser-based Web UI automation and regression validation, including page interaction, responsive behavior, DOM verification, and error-oriented browser checks.',
             'Performed EVT / DVT / PVT-stage system and firmware validation',
             'Used reproducible test flows and logs for debugging, root-cause isolation, fix verification, and regression',
             'Automated 5G / Wi-Fi throughput, latency, packet-loss, reconnect, and stability validation',
@@ -549,6 +550,7 @@ const experienceCatalog: PortfolioItem[] = [
           ],
           zh: [
             '開發 Python / C# 自動化工具，並整合 ATE 端系統流程',
+            '於 FIH 使用 Playwright 進行瀏覽器型 Web UI 自動化與回歸驗證，包含頁面互動、Responsive 行為、DOM 驗證與瀏覽器錯誤檢查。',
             '執行 EVT / DVT / PVT 階段的系統與韌體驗證',
             '以可重現測試流程與 Log 進行除錯、根因隔離、修正驗證與回歸',
             '自動化 5G / Wi-Fi Throughput、Latency、Packet Loss、Reconnect 與穩定度驗證',
@@ -583,8 +585,8 @@ const experienceCatalog: PortfolioItem[] = [
       {
         label: c('Stage 1 · 2013–2019 · Wi-Fi FPGA / MAC / Certification Automation', '階段一 · 2013–2019 · Wi-Fi FPGA / MAC / 認證自動化'),
         bullets: {
-          en: ['Wi-Fi FPGA / chip and MAC-layer validation', 'Python automation with SCPI / USB / LAN equipment control', 'Power supply, oscilloscope, and VeriWave integration', 'Throughput, PER, latency, Tx power, Rx sensitivity, and RvR validation', 'Windows / Linux driver and router / API validation', 'Wi-Fi Alliance 11n / 11ac and SGS certification support', 'Weekly Wi-Fi regression execution with automated report generation'],
-          zh: ['Wi-Fi FPGA / 晶片與 MAC Layer 驗證', '使用 Python 自動化整合 SCPI / USB / LAN 設備控制', '整合 Power Supply、Oscilloscope 與 VeriWave', '驗證 Throughput、PER、Latency、Tx Power、Rx Sensitivity 與 RvR', 'Windows / Linux Driver 與 Router / API 驗證', 'Wi-Fi Alliance 11n / 11ac 與 SGS 認證支援', '每週執行 Wi-Fi 回歸測試並自動產生報告'],
+          en: ['Wi-Fi FPGA / chip and MAC-layer validation', 'Python automation with SCPI / USB / LAN equipment control', 'Power supply, oscilloscope, and VeriWave integration', 'Throughput, PER, latency, Tx power, Rx sensitivity, and RvR validation', 'Windows / Linux driver and router / API validation', 'Used Python + Selenium for Web UI / browser automation validation, covering repeatable configuration, login, apply/save, and post-change verification scenarios.', 'Wi-Fi Alliance 11n / 11ac and SGS certification support', 'Weekly Wi-Fi regression execution with automated report generation'],
+          zh: ['Wi-Fi FPGA / 晶片與 MAC Layer 驗證', '使用 Python 自動化整合 SCPI / USB / LAN 設備控制', '整合 Power Supply、Oscilloscope 與 VeriWave', '驗證 Throughput、PER、Latency、Tx Power、Rx Sensitivity 與 RvR', 'Windows / Linux Driver 與 Router / API 驗證', '於 Novatek 使用 Python + Selenium 進行 Web UI／瀏覽器自動化驗證，涵蓋登入、設定變更、Apply/Save 與變更後確認等可重複測試情境。', 'Wi-Fi Alliance 11n / 11ac 與 SGS 認證支援', '每週執行 Wi-Fi 回歸測試並自動產生報告'],
         },
       },
       {
