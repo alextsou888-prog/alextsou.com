@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1536" height="1024" viewBox="0 0 1536 1024" role="img" aria-labelledby="title desc">
+  <title id="title">TPV FAE 客戶支援與自動化驗證</title>
+  <desc id="desc">Android TV 客戶問題重現、驗證、認證、跨團隊協作與現場支援圖解。</desc>
+  <defs>
+    <linearGradient id="navy" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#071a66"/><stop offset="1" stop-color="#173b9a"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="7" flood-color="#102" flood-opacity=".18"/></filter>
+    <style>
+      text{font-family:"Microsoft JhengHei","Segoe UI",Arial,sans-serif;fill:#16255c}.headline{font-size:39px;font-weight:900}.section{font-size:25px;font-weight:900}.label{font-size:18px;font-weight:800}.body{font-size:17px}.small{font-size:15px}.muted{fill:#5a6680}.white{fill:#fff}.green{fill:#0d8b4e}.blue{fill:#165fc0}.orange{fill:#e86d18}.purple{fill:#6c3cab}.panel{fill:#fff;stroke:#bac9e6;stroke-width:1.5}.soft{fill:#f7f9fd;stroke:#c5d2e9}.center{text-anchor:middle}.num{font-size:29px;font-weight:900;fill:#fff;text-anchor:middle;dominant-baseline:middle}.badge{fill:#fff;stroke:#b9c8df;stroke-width:1.2}
+    </style>
+  </defs>
+  <rect width="1536" height="1024" fill="#f4f6fb"/>
+  <rect x="10" y="10" width="452" height="760" rx="18" class="panel" filter="url(#shadow)"/>
+  <rect x="10" y="10" width="452" height="76" rx="18" fill="url(#navy)"/><circle cx="48" cy="48" r="28" fill="#2b77d2"/><circle cx="48" cy="39" r="10" fill="#fff"/><path d="M31 64c3-16 31-16 34 0" fill="#fff"/>
+  <text x="91" y="60" class="headline white">FAE 副理</text><text x="375" y="43" class="white center" style="font-size:16px;font-weight:800">2009/10 ~ 2013/10</text><text x="375" y="69" class="small white center">4年1個月</text>
+  <text x="30" y="128" class="section">冠捷科技股份有限公司 (TPV)</text><text x="30" y="159" class="body muted">消費性電子產品製造業｜500 人以上</text>
+  <rect x="30" y="182" width="348" height="42" rx="21" fill="#dfeafa"/><text x="51" y="210" class="label">FAE 工程師｜管理 4 人以下｜新北市</text>
+  <text x="30" y="265" class="section orange">產品範疇　TV / Android TV</text>
+  <rect x="30" y="290" width="402" height="182" rx="14" fill="#0d2447"/><rect x="51" y="311" width="360" height="133" rx="8" fill="#a8c7e8"/><rect x="69" y="329" width="104" height="94" rx="5" fill="#eaf4ff"/><rect x="190" y="329" width="203" height="42" rx="5" fill="#162d4c"/><g fill="#e8eff7"><rect x="190" y="382" width="60" height="41" rx="5"/><rect x="261" y="382" width="60" height="41" rx="5"/><rect x="333" y="382" width="60" height="41" rx="5"/></g><rect x="200" y="449" width="76" height="7" rx="3" fill="#60738a"/><rect x="308" y="449" width="76" height="7" rx="3" fill="#60738a"/>
+  <text x="30" y="516" class="section blue">Summary</text>
+  <g class="body">
+    <text x="47" y="558" class="label green">問題重現與修復效率提升 50%+</text><text x="47" y="586" class="small muted">環境對齊、Debug Log、測試腳本與修正驗證</text>
+    <text x="47" y="629" class="label blue">Google CTS 認證一次通過率 &gt;90%</text><text x="47" y="657" class="small muted">支援 Android TV CTS / GTVS 與驗證環境</text>
+    <text x="47" y="700" class="label orange">跨部門整合效率提升 40%+</text><text x="47" y="728" class="small muted">Jira、測試文檔、問題追蹤與回歸驗證</text>
+  </g>
+
+  <rect x="474" y="10" width="515" height="373" rx="18" class="panel" filter="url(#shadow)"/>
+  <circle cx="515" cy="54" r="29" fill="#15914e"/><text x="515" y="55" class="num">1</text><text x="553" y="48" class="section green">FAE Support &amp; Debugging</text><text x="553" y="76" class="label green">現場技術支援與除錯</text>
+  <g transform="translate(510 106)">
+    <circle cx="62" cy="74" r="45" fill="#dff2e6"/><circle cx="62" cy="61" r="15" fill="#f2b98b"/><path d="M35 107c5-33 49-33 55 0" fill="#2d7d53"/><rect x="126" y="13" width="112" height="54" rx="9" class="soft"/><text x="182" y="45" class="label center">客戶回報</text><text x="248" y="45" class="section">→</text><rect x="278" y="13" width="112" height="54" rx="9" class="soft"/><text x="334" y="45" class="label center">問題分析</text>
+    <rect x="126" y="91" width="112" height="54" rx="9" class="soft"/><text x="182" y="123" class="label center">Debug Log</text><text x="248" y="123" class="section">→</text><rect x="278" y="91" width="112" height="54" rx="9" class="soft"/><text x="334" y="123" class="label center">RD 修正</text>
+  </g>
+  <g class="body" transform="translate(503 278)"><text y="0">✓ Python ADB、UIAutomator、Appium 自動化重現</text><text y="31">✓ 記錄問題重現路徑、Debug Log 與修正證據</text><text y="62">✓ Android / Linux App 版本與系統初始化 Debug</text></g>
+
+  <rect x="1001" y="10" width="523" height="373" rx="18" class="panel" filter="url(#shadow)"/>
+  <circle cx="1042" cy="54" r="29" fill="#2474d0"/><text x="1042" y="55" class="num">2</text><text x="1080" y="48" class="section blue">Automation Testing &amp; Certification</text><text x="1080" y="76" class="label blue">自動化測試與認證驗證</text>
+  <g transform="translate(1028 107)">
+    <rect width="108" height="96" rx="12" class="soft"/><text x="54" y="41" class="section center">UI</text><text x="54" y="70" class="small center">App / OTA</text>
+    <rect x="122" width="108" height="96" rx="12" class="soft"/><text x="176" y="41" class="section center">STRESS</text><text x="176" y="70" class="small center">JMeter / Monkey</text>
+    <rect x="244" width="108" height="96" rx="12" class="soft"/><text x="298" y="41" class="section center">CTS</text><text x="298" y="70" class="small center">Certification</text>
+    <rect x="366" width="108" height="96" rx="12" class="soft"/><text x="420" y="41" class="section center">AUTO</text><text x="420" y="70" class="small center">GUI / Screenshot</text>
+  </g>
+  <g transform="translate(1028 223)"><rect width="474" height="66" rx="13" fill="#eaf3ff" stroke="#abc8ec"/><text x="49" y="40" class="section">Remote</text><text x="126" y="40" class="section">→</text><text x="191" y="40" class="section">App</text><text x="244" y="40" class="section">→</text><text x="322" y="40" class="section">Input</text><text x="382" y="40" class="section">→</text><text x="438" y="40" class="section">GUI</text></g>
+  <text x="1028" y="325" class="body">Python　Appium　UIAutomator　MonkeyRunner　JMeter</text><text x="1028" y="355" class="body">Robot Framework　Android / Linux　CTS / GTVS</text>
+
+  <rect x="474" y="395" width="515" height="375" rx="18" class="panel" filter="url(#shadow)"/>
+  <circle cx="515" cy="439" r="29" fill="#e27620"/><text x="515" y="440" class="num">3</text><text x="553" y="433" class="section orange">Cross-Team Collaboration</text><text x="553" y="461" class="label orange">跨部門協作與流程優化</text>
+  <g transform="translate(507 493)">
+    <rect width="176" height="112" rx="14" fill="#fff4e9" stroke="#edbf96"/><text x="88" y="34" class="label center">晶片原廠</text><text x="88" y="67" class="section center">↕</text><text x="88" y="96" class="label center">QA</text>
+    <rect x="197" width="273" height="112" rx="14" fill="#fff8ef" stroke="#edbf96"/><text x="234" y="34" class="label center">FAE</text><text x="330" y="34" class="label center">RD</text><text x="402" y="34" class="label center">QA</text><path d="M235 65h162" stroke="#e27620" stroke-width="3"/><path d="M316 52v44" stroke="#e27620" stroke-width="3"/><text x="333" y="94" class="small center">問題追蹤與修正驗證</text>
+  </g>
+  <g class="body" transform="translate(503 633)"><text y="0">✓ 協調晶片原廠、RD 與 QA 進行版本追蹤</text><text y="31">✓ 撰寫測試計畫、驗證案例與問題狀態證據</text><text y="62">✓ 運用 Jira 與測試文檔，搭配自動化回歸測試流程，</text><text x="20" y="90">強化 FAE、RD 與 QA 的協作效率。</text></g>
+  <g transform="translate(512 727)" class="small center"><rect width="98" height="33" rx="8" class="badge"/><text x="49" y="22">Jira</text><rect x="109" width="110" height="33" rx="8" class="badge"/><text x="164" y="22">Confluence</text><rect x="230" width="118" height="33" rx="8" class="badge"/><text x="289" y="22">Android Studio</text><rect x="353" width="124" height="33" rx="8" class="badge"/><text x="415" y="22" style="font-size:12px">Robot Framework</text></g>
+
+  <rect x="1001" y="395" width="523" height="375" rx="18" class="panel" filter="url(#shadow)"/>
+  <circle cx="1042" cy="439" r="29" fill="#7444a9"/><text x="1042" y="440" class="num">4</text><text x="1080" y="433" class="purple" style="font-size:22px;font-weight:900">Customer Support &amp; Field Engineering</text><text x="1080" y="461" class="label purple">客戶支援與現場工程</text>
+  <g transform="translate(1028 501)">
+    <rect width="145" height="125" rx="14" fill="#f6f0fb" stroke="#d5bbe8"/><text x="72" y="42" class="section center">FAE</text><text x="72" y="75" class="small center">現場問題重現</text><text x="72" y="100" class="small center">測試與認證支援</text>
+    <rect x="159" width="145" height="125" rx="14" fill="#f6f0fb" stroke="#d5bbe8"/><text x="231" y="42" class="section center">DOC</text><text x="231" y="75" class="small center">文件撰寫</text><text x="231" y="100" class="small center">教育訓練</text>
+    <rect x="318" width="145" height="125" rx="14" fill="#f6f0fb" stroke="#d5bbe8"/><text x="390" y="42" class="section center">RCA</text><text x="390" y="75" class="small center">問題分析</text><text x="390" y="100" class="small center">改善建議</text>
+  </g>
+  <rect x="1028" y="651" width="463" height="82" rx="14" fill="#f8f4fc" stroke="#d2bde4"/><text x="1259" y="684" class="label center">客戶需求 → 現場支援 → 問題分析</text><text x="1259" y="715" class="label center">改善建議 → 產品優化</text>
+
+  <rect x="10" y="782" width="1012" height="230" rx="18" class="panel" filter="url(#shadow)"/>
+  <rect x="10" y="782" width="1012" height="42" rx="18" fill="#5c3b9d"/><text x="516" y="811" class="section white center">Technical Skills 技術技能</text>
+  <g transform="translate(27 844)">
+    <rect width="181" height="146" rx="13" fill="#eff9f7" stroke="#9ed3c6"/><text x="15" y="29" class="label green">測試能力</text><text x="15" y="58" class="small">✓ Android 功能測試</text><text x="15" y="84" class="small">✓ CTS 認證</text><text x="15" y="110" class="small">✓ 效能回歸測試</text>
+    <rect x="195" width="181" height="146" rx="13" fill="#eef5ff" stroke="#aac6e8"/><text x="210" y="29" class="label blue">自動化工具</text><text x="210" y="58" class="small">• Python ADB</text><text x="210" y="84" class="small">• UIAutomator / Appium</text><text x="210" y="110" class="small">• JMeter / Monkey</text>
+    <rect x="390" width="181" height="146" rx="13" fill="#fff6ee" stroke="#efc6a2"/><text x="405" y="29" class="label orange">開發支援</text><text x="405" y="58" class="small">• Jira / Confluence</text><text x="405" y="84" class="small">• Android Studio</text><text x="405" y="110" class="small">• Robot Framework</text>
+    <rect x="585" width="181" height="146" rx="13" fill="#eff9f1" stroke="#acd5b2"/><text x="600" y="29" class="label green">系統經驗</text><text x="600" y="58" class="small">• Android / Linux</text><text x="600" y="84" class="small">• APK Debug</text><text x="600" y="110" class="small">• Streaming App</text>
+    <rect x="780" width="181" height="146" rx="13" fill="#fcf3f6" stroke="#e8bcc9"/><text x="795" y="29" class="label purple">文件與溝通</text><text x="795" y="58" class="small">• 測試計畫與手冊</text><text x="795" y="84" class="small">• 教育訓練</text><text x="795" y="110" class="small">• 中英文技術協調</text>
+  </g>
+
+  <rect x="1034" y="782" width="490" height="230" rx="18" class="panel" filter="url(#shadow)"/>
+  <rect x="1034" y="782" width="490" height="42" rx="18" fill="url(#navy)"/><text x="1279" y="811" class="section white center">工作成果價值</text>
+  <g transform="translate(1061 855)" class="center"><circle cx="54" cy="54" r="45" fill="#eaf7f0" stroke="#8bc9aa"/><text x="54" y="49" class="section green">50%+</text><text x="54" y="73" class="small">提升效率</text><circle cx="173" cy="54" r="45" fill="#eef5ff" stroke="#9ebce2"/><text x="173" y="49" class="section blue">&gt;90%</text><text x="173" y="73" class="small">CTS 通過</text><circle cx="292" cy="54" r="45" fill="#fff6ee" stroke="#efc49d"/><text x="292" y="49" class="section orange">40%+</text><text x="292" y="73" class="small">協作效率</text><circle cx="411" cy="54" r="45" fill="#fcf0f6" stroke="#dfafc8"/><text x="411" y="49" class="section purple">FAE</text><text x="411" y="73" class="small">客戶信任</text></g>
+</svg>

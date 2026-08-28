@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1536" height="1024" viewBox="0 0 1536 1024" role="img" aria-labelledby="title desc">
+  <title id="title">技術經理與專案管理主管能力總覽</title>
+  <desc id="desc">FIH 自動化、系統驗證、車載測試、通訊效能與技術管理經驗圖解。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#06111f"/><stop offset="1" stop-color="#10243d"/></linearGradient>
+    <linearGradient id="hero" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#0a55a4"/><stop offset="1" stop-color="#1187da"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#000" flood-opacity=".28"/></filter>
+    <style>
+      text{font-family:"Microsoft JhengHei","Segoe UI",Arial,sans-serif;fill:#eef7ff}.muted{fill:#b8cce0}.cyan{fill:#4dc9ff}.green{fill:#7bea78}.orange{fill:#ffb34d}.purple{fill:#d398ff}.small{font-size:15px}.body{font-size:17px}.label{font-size:18px;font-weight:700}.section{font-size:24px;font-weight:800}.headline{font-size:36px;font-weight:900}.panel{fill:#0b1b2c;stroke:#2785c7;stroke-width:1.5}.soft{fill:#10283f;stroke:#294b68;stroke-width:1.2}.rule{stroke:#33546f;stroke-width:1}.pill{fill:#153958;stroke:#4ba7e4;stroke-width:1}.num{font-size:22px;font-weight:900;text-anchor:middle;dominant-baseline:middle}.center{text-anchor:middle}.right{text-anchor:end}
+    </style>
+  </defs>
+  <rect width="1536" height="1024" fill="url(#bg)"/>
+  <rect x="12" y="12" width="470" height="1000" rx="18" class="panel" filter="url(#shadow)"/>
+  <rect x="494" y="12" width="744" height="1000" rx="18" class="panel" filter="url(#shadow)"/>
+  <rect x="1250" y="12" width="274" height="1000" rx="18" class="panel" filter="url(#shadow)"/>
+
+  <circle cx="47" cy="52" r="24" fill="#eaf7ff"/><circle cx="39" cy="47" r="7" fill="#0b1b2c"/><circle cx="56" cy="47" r="7" fill="#0b1b2c"/><path d="M27 68c3-12 19-13 24-2 4-11 20-10 22 2" fill="none" stroke="#0b1b2c" stroke-width="5"/>
+  <text x="84" y="62" class="headline">技術經理 / 專案管理主管</text>
+  <text x="28" y="96" class="body muted">科技公司｜新北市土城區｜2022/9 ~ 至今</text>
+  <rect x="347" y="75" width="113" height="31" rx="15" class="pill"/><text x="403" y="96" class="small center">管理 5–8 人團隊</text>
+
+  <text x="28" y="137" class="section cyan">工作內容</text>
+  <g class="body">
+    <circle cx="32" cy="169" r="13" fill="#167dd0"/><text x="32" y="170" class="num">1</text><text x="56" y="175">RD stage EVT / DVT / PVT 自動化與軟體測試</text>
+    <circle cx="32" cy="214" r="13" fill="#167dd0"/><text x="32" y="215" class="num">2</text><text x="56" y="209">產測軟體、治具、儀器與系統整合 Debug</text><text x="56" y="231" class="small muted">涵蓋 HW / FW / Driver / Software 邊界隔離</text>
+    <circle cx="32" cy="260" r="13" fill="#167dd0"/><text x="32" y="261" class="num">3</text><text x="56" y="255">分析工廠端測試異常與 Log，追蹤 Root Cause</text><text x="56" y="277" class="small muted">協調跨部門問題重現、修正驗證與回歸</text>
+    <circle cx="32" cy="306" r="13" fill="#167dd0"/><text x="32" y="307" class="num">4</text><text x="56" y="311">自動化工具開發與測試流程整合</text>
+    <circle cx="32" cy="350" r="13" fill="#167dd0"/><text x="32" y="351" class="num">5</text><text x="56" y="345">Driver、Kernel 與 Function 穩定性驗證</text><text x="56" y="367" class="small muted">以可追溯證據支援品質與風險判定</text>
+  </g>
+
+  <rect x="24" y="397" width="446" height="142" rx="13" class="soft"/>
+  <text x="42" y="430" class="section cyan">產品領域</text>
+  <g class="label center">
+    <circle cx="80" cy="474" r="24" fill="#203f5b"/><text x="80" y="481">AI</text><text x="80" y="520" class="small">AI 眼鏡</text>
+    <circle cx="177" cy="474" r="24" fill="#203f5b"/><text x="177" y="481">EV</text><text x="177" y="520" class="small">車載</text>
+    <circle cx="274" cy="474" r="24" fill="#203f5b"/><text x="274" y="481">TP</text><text x="274" y="520" class="small">觸控筆</text>
+    <circle cx="371" cy="474" r="24" fill="#203f5b"/><text x="371" y="481">5G</text><text x="371" y="520" class="small">5G Router</text>
+  </g>
+
+  <rect x="24" y="553" width="446" height="246" rx="13" class="soft"/>
+  <text x="42" y="586" class="section cyan">技術 KNOWLEDGE</text>
+  <g class="body">
+    <text x="43" y="622">• ATE 產測軟體開發：C# / Python</text>
+    <text x="43" y="653">• NPI 產線儀器、治具與測試站整合</text>
+    <text x="43" y="684">• Write MTP test plan and Function test plan</text>
+    <text x="43" y="715">• RFI / RFQ 規劃與 Factory HW/SW Debug</text>
+    <text x="43" y="746">• Power supply / DMM / Probe test point</text>
+    <text x="43" y="777">• 通用車載規範 ASPICE-in RD stage</text>
+  </g>
+
+  <rect x="24" y="813" width="446" height="181" rx="13" fill="#102a24" stroke="#76b83f"/>
+  <text x="42" y="848" class="section green">ASPICE-in RD stage (Python)</text>
+  <g class="small">
+    <text x="48" y="883">1. System Level：SYS.5 系統開發測試</text>
+    <text x="48" y="914">2. Software / Firmware Level：SWE</text>
+    <text x="48" y="945">3. Integrate：軟體整合與平台行為驗證</text>
+    <text x="48" y="976">4. Verify：自動化流程、證據與缺陷追蹤</text>
+  </g>
+
+  <rect x="725" y="20" width="290" height="46" rx="23" fill="url(#hero)"/><text x="870" y="52" class="section center">專長與技術成果</text>
+
+  <g transform="translate(510 80)">
+    <rect width="712" height="175" rx="14" class="soft"/>
+    <circle cx="28" cy="30" r="18" fill="#167dd0"/><text x="28" y="31" class="num">1</text>
+    <text x="58" y="38" class="section cyan">自動化工具開發與流程整合</text>
+    <text x="58" y="78" class="body">於自動化與回歸工作中實際使用 Jenkins、GitLab CI 與 Docker。</text>
+    <text x="58" y="108" class="small muted">以 Python / Shell / PowerShell / C# 支援測試執行、結果處理與報告。</text>
+    <g transform="translate(58 128)"><rect width="137" height="33" rx="8" class="pill"/><text x="68" y="23" class="small center">Test Setup</text><text x="151" y="23">→</text><rect x="171" width="151" height="33" rx="8" class="pill"/><text x="246" y="23" class="small center">Automated Execution</text><text x="336" y="23">→</text><rect x="356" width="148" height="33" rx="8" class="pill"/><text x="430" y="23" class="small center">Result Processing</text><text x="518" y="23">→</text><rect x="538" width="108" height="33" rx="8" class="pill"/><text x="592" y="23" class="small center">Report</text></g>
+  </g>
+
+  <g transform="translate(510 269)">
+    <rect width="712" height="172" rx="14" class="soft"/>
+    <circle cx="28" cy="30" r="18" fill="#4fa844"/><text x="28" y="31" class="num">2</text>
+    <text x="58" y="38" class="section green">車載系統測試架構設計與模組開發</text>
+    <text x="58" y="78" class="body">C / C++ CAN 測試模組、模擬與實車驗證，支援異常與狀態隔離。</text>
+    <text x="58" y="109" class="body">Touch Panel 自動化：C + NXP S32 IDE + Python-CAN。</text>
+    <text x="58" y="140" class="small muted">整合 FW / HW 問題定位、模組化回歸與測試證據。</text>
+    <rect x="505" y="55" width="78" height="48" rx="8" fill="#187e50"/><text x="544" y="84" class="small center">ECU</text><text x="595" y="84">→</text><rect x="615" y="55" width="72" height="48" rx="8" fill="#17548d"/><text x="651" y="84" class="small center">DUT</text>
+  </g>
+
+  <g transform="translate(510 455)">
+    <rect width="712" height="164" rx="14" class="soft"/>
+    <circle cx="28" cy="30" r="18" fill="#df8124"/><text x="28" y="31" class="num">3</text>
+    <text x="58" y="38" class="section orange">儲存與高速介面驗證開發自動化測試</text>
+    <text x="58" y="78" class="body">eMMC 可靠度、壓力、Trim / Discard、壽命老化與高溫循環驗證。</text>
+    <text x="58" y="109" class="body">SMART Log、自動錯誤偵測、ECC 錯誤密度與系統穩定性分析。</text>
+    <g transform="translate(430 114)"><rect width="52" height="32" rx="7" class="pill"/><text x="26" y="22" class="small center">eMMC</text><text x="66" y="22">→</text><rect x="84" width="52" height="32" rx="7" class="pill"/><text x="110" y="22" class="small center">48H</text><text x="150" y="22">→</text><rect x="168" width="80" height="32" rx="7" class="pill"/><text x="208" y="22" class="small center">Report</text></g>
+  </g>
+
+  <g transform="translate(510 633)">
+    <rect width="712" height="170" rx="14" class="soft"/>
+    <circle cx="28" cy="30" r="18" fill="#8d55c6"/><text x="28" y="31" class="num">4</text>
+    <text x="58" y="38" class="section purple">通訊與效能自動化開發測試</text>
+    <text x="58" y="78" class="body">5G Router 與 Wi-Fi：Python + Streamlit + Docker 測試工具。</text>
+    <text x="58" y="109" class="body">iPerf / Wireshark / Keysight UXM：吞吐量、延遲與封包分析。</text>
+    <text x="58" y="140" class="small muted">涵蓋 LTE / 5G、Wi-Fi、GNSS、USB、音訊與充放電穩定性。</text>
+  </g>
+
+  <g transform="translate(510 817)">
+    <rect width="712" height="177" rx="14" class="soft"/>
+    <circle cx="28" cy="30" r="18" fill="#167dd0"/><text x="28" y="31" class="num">5</text>
+    <text x="58" y="38" class="section cyan">國際支援與跨國專案經驗</text>
+    <text x="58" y="78" class="body">New Jersey / Texas on-site support，獨立進行測試專案。</text>
+    <text x="58" y="109" class="body">支援量產品故障排查、問題澄清與跨團隊修正驗證。</text>
+    <text x="58" y="140" class="small muted">以清楚證據、風險界線與回歸結果支援客戶溝通。</text>
+  </g>
+
+  <rect x="1264" y="26" width="246" height="44" rx="22" fill="#703a82"/><text x="1387" y="56" class="section center">AI 應用成果</text>
+  <rect x="1265" y="86" width="244" height="260" rx="14" class="soft"/>
+  <text x="1284" y="122" class="section purple">AI GUI 自動化</text>
+  <rect x="1285" y="145" width="204" height="112" rx="12" fill="#e9f5ff"/><rect x="1301" y="163" width="172" height="18" rx="4" fill="#adcce5"/><rect x="1301" y="193" width="82" height="46" rx="7" fill="#32a96b"/><rect x="1391" y="193" width="82" height="46" rx="7" fill="#df5144"/><text x="1342" y="223" class="label center">PASS</text><text x="1432" y="223" class="label center">FAIL</text>
+  <text x="1284" y="288" class="body">測試 Dashboard</text><text x="1284" y="318" class="small muted">可視化結果、風險與證據</text>
+
+  <rect x="1265" y="362" width="244" height="273" rx="14" class="soft"/>
+  <text x="1284" y="402" class="section purple">SW Version Risk</text>
+  <path d="M1307 525a81 81 0 0 1 162 0" fill="none" stroke="#2bc174" stroke-width="26"/><path d="M1307 525a81 81 0 0 1 81-81" fill="none" stroke="#ff8b2c" stroke-width="26"/>
+  <line x1="1388" y1="525" x2="1435" y2="475" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+  <text x="1388" y="556" class="headline center">Risk</text><text x="1388" y="588" class="small center muted">score-based prediction</text>
+
+  <rect x="1265" y="651" width="244" height="343" rx="14" class="soft"/>
+  <text x="1284" y="690" class="section purple">AI-assisted Analysis</text>
+  <circle cx="1387" cy="785" r="58" fill="#1e4160" stroke="#7dbeec" stroke-width="2"/><text x="1387" y="778" class="section center">LOG</text><text x="1387" y="808" class="small center">Evidence</text>
+  <path d="M1387 714v-24M1387 856v28M1316 785h-24M1458 785h24" stroke="#89c9ef" stroke-width="4"/>
+  <text x="1387" y="924" class="label center green">提升判讀一致性</text>
+  <text x="1387" y="953" class="small center muted">支援 Reboot / Crash 資料分析</text>
+</svg>

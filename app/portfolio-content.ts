@@ -279,7 +279,7 @@ export const capabilityOverview = {
         'Build maintainable Python / C# automation frameworks that connect execution, DUT or instrument control, evidence, verdicts, and regression reports.',
         '以 Python / C# 建立可維護的自動化框架，串接執行、DUT / 儀器控制、工程證據、自動判定與回歸報告。',
       ),
-      tags: ['Python', 'C#', 'Test Framework', 'CI/CD'],
+      tags: ['Python', 'C#', 'Test Framework', 'CI'],
       points: {
         en: ['Framework / Orchestration', 'DUT / Instrument Control', 'Automated Verdict / Regression Report'],
         zh: ['框架 / 流程協調', 'DUT / 儀器控制', '自動判定 / 回歸報告'],
@@ -369,7 +369,7 @@ export const focusItems: PortfolioItem[] = [
       'Build maintainable automation frameworks that connect test setup, execution, evidence collection, PASS / FAIL criteria, and regression reporting.',
       '建立可維護的測試自動化框架，串接測試設定、執行、證據蒐集、PASS / FAIL 判定與 Regression 報告。',
     ),
-    tags: ['Python', 'C#', 'pytest', 'REST API', 'Selenium', 'Appium', 'CI/CD'],
+    tags: ['Python', 'C#', 'pytest', 'REST API', 'Selenium', 'Appium', 'CI'],
     sections: [
       section(
         'Automation Engineering Approach',
@@ -583,8 +583,23 @@ const experienceCatalog: PortfolioItem[] = [
       {
         label: c('Stage 1 · 2013–2019 · Wi-Fi FPGA / MAC / Certification Automation', '階段一 · 2013–2019 · Wi-Fi FPGA / MAC / 認證自動化'),
         bullets: {
-          en: ['Wi-Fi FPGA / chip and MAC-layer validation', 'Python automation with SCPI / USB / LAN equipment control', 'Power supply, oscilloscope, and VeriWave integration', 'Throughput, PER, latency, Tx power, Rx sensitivity, and RvR validation', 'Windows / Linux driver and router / API validation', 'Wi-Fi Alliance 11n / 11ac and SGS certification support', 'Jenkins / GitLab CI regression integration'],
-          zh: ['Wi-Fi FPGA / 晶片與 MAC Layer 驗證', '使用 Python 自動化整合 SCPI / USB / LAN 設備控制', '整合 Power Supply、Oscilloscope 與 VeriWave', '驗證 Throughput、PER、Latency、Tx Power、Rx Sensitivity 與 RvR', 'Windows / Linux Driver 與 Router / API 驗證', 'Wi-Fi Alliance 11n / 11ac 與 SGS 認證支援', '整合 Jenkins / GitLab CI 回歸流程'],
+          en: ['Wi-Fi FPGA / chip and MAC-layer validation', 'Python automation with SCPI / USB / LAN equipment control', 'Power supply, oscilloscope, and VeriWave integration', 'Throughput, PER, latency, Tx power, Rx sensitivity, and RvR validation', 'Windows / Linux driver and router / API validation', 'Wi-Fi Alliance 11n / 11ac and SGS certification support', 'Weekly Wi-Fi regression execution with automated report generation'],
+          zh: ['Wi-Fi FPGA / 晶片與 MAC Layer 驗證', '使用 Python 自動化整合 SCPI / USB / LAN 設備控制', '整合 Power Supply、Oscilloscope 與 VeriWave', '驗證 Throughput、PER、Latency、Tx Power、Rx Sensitivity 與 RvR', 'Windows / Linux Driver 與 Router / API 驗證', 'Wi-Fi Alliance 11n / 11ac 與 SGS 認證支援', '每週執行 Wi-Fi 回歸測試並自動產生報告'],
+        },
+      },
+      {
+        label: c('Wi-Fi Certification Evidence', 'Wi-Fi 認證實績'),
+        bullets: {
+          en: [
+            'Performed 802.11n / 802.11ac certification testing for STA and AP modes on Ubuntu / Linux.',
+            'Prepared certification test results, logs, and supporting evidence for SGS submission.',
+            'Successfully completed 2 certification programs covering STA / AP validation.',
+          ],
+          zh: [
+            '於 Ubuntu / Linux 環境執行 802.11n / 802.11ac 的 STA 與 AP 模式認證測試。',
+            '整理測試結果、Log 與認證證據並提交 SGS。',
+            '最終成功完成 2 項認證，涵蓋 STA / AP 驗證。',
+          ],
         },
       },
       {
@@ -669,7 +684,7 @@ const experienceCatalog: PortfolioItem[] = [
           zh: ['Customer', 'RD', 'QA', 'Chip Vendor'],
         },
       },
-      section('Tech Stack', '技術工具', 'Python · ADB · UIAutomator · Appium · Android / Linux · JMeter · Robot Framework · Jira · Jenkins', 'Python · ADB · UIAutomator · Appium · Android / Linux · JMeter · Robot Framework · Jira · Jenkins'),
+      section('Tech Stack', '技術工具', 'Python · ADB · UIAutomator · Appium · Android / Linux · JMeter · Robot Framework · Jira', 'Python · ADB · UIAutomator · Appium · Android / Linux · JMeter · Robot Framework · Jira'),
     ],
   },
   {
@@ -758,7 +773,7 @@ export const careerSnapshot = {
     },
     {
       label: c('Key Technologies', '主要技術'),
-      values: [c('Python / C# · HW/SW Integration · Test Automation · Debug / RCA · CI/CD', 'Python / C# · HW/SW Integration · Test Automation · Debug / RCA · CI/CD')],
+      values: [c('Python / C# · HW/SW Integration · Test Automation · Debug / RCA · CI', 'Python / C# · HW/SW Integration · Test Automation · Debug / RCA · CI')],
     },
   ],
 };
@@ -794,7 +809,7 @@ export const domainExperiences: DomainExperience[] = [
       'Customer-facing engineering support covering issue reproduction, log/evidence collection, layer isolation, fix verification, regression, certification support, and technical closure.',
       '面向客戶的技術支援，涵蓋問題重現、Log / Evidence 蒐集、問題隔離、修正驗證、Regression、認證支援與技術結案。',
     ),
-    tags: ['Customer Support', 'Android / Linux', 'ADB', 'UIAutomator / Appium', 'RCA', 'CTS / GTVS', 'Jira / Jenkins'],
+    tags: ['Customer Support', 'Android / Linux', 'ADB', 'UIAutomator / Appium', 'RCA', 'CTS / GTVS', 'Jira / Robot Framework'],
     related: { itemId: 'case-fae-rca', label: c('Related Case Study', '相關工程案例') },
   },
   {
@@ -845,14 +860,14 @@ export const resumeCoreGroups = [
 ];
 
 export const resumeProjectGroups = [
-  { title: c('Selected Projects', '精選專案'), items: [c('Robot + ESD automation, Wi-Fi / FPGA validation, Camera / IPCam validation, AI/NPU validation, Audio AI validation, Android TV FAE automation, REST/WebUI/API automation, and CI/CD automation.', 'Robot + ESD 自動化、Wi-Fi / FPGA 驗證、Camera / IPCam 驗證、AI/NPU 驗證、Audio AI 驗證、Android TV FAE 自動化、REST/WebUI/API 自動化與 CI/CD 自動化。')] },
+  { title: c('Selected Projects', '精選專案'), items: [c('Robot + ESD automation, Wi-Fi / FPGA validation, Camera / IPCam validation, AI/NPU validation, Audio AI validation, Android TV FAE automation, REST/WebUI/API automation, and Camera / IPCam Jenkins CI regression automation.', 'Robot + ESD 自動化、Wi-Fi / FPGA 驗證、Camera / IPCam 驗證、AI/NPU 驗證、Audio AI 驗證、Android TV FAE 自動化、REST/WebUI/API 自動化與 Camera / IPCam Jenkins CI 回歸自動化。')] },
   { title: c('Leadership / Project Management', '領導 / 專案管理'), items: [c('Test planning, resource coordination, SOP, field trial, vendor coordination, customer communication, and cross-functional issue tracking.', '測試規劃、資源協調、SOP、Field trial、供應商協調、客戶溝通與跨部門問題追蹤。')] },
 ];
 
 export const skillCategories = [
   { title: c('Programming', '程式語言'), skills: ['Python', 'C', 'C++', 'C#', 'Shell / Batch'] },
   { title: c('Automation', '自動化'), skills: ['Python Automation', 'pytest', 'Test Framework', 'Robot Framework', 'Appium', 'UIAutomator', 'Postman'] },
-  { title: c('DevOps', 'DevOps'), skills: ['Jenkins', 'GitLab CI', 'GitHub', 'Docker'] },
+  { title: c('CI & Engineering Tooling', 'CI 與工程工具'), skills: ['Jenkins', 'GitLab CI', 'GitHub', 'Docker'] },
   { title: c('Test / Validation', '測試 / 驗證'), skills: ['IC / SoC / FPGA Validation', 'Camera SoC', 'AI/NPU', 'Audio AI', 'Wi-Fi / 5G', 'Stress / Stability', 'Regression', 'PASS / FAIL Criteria', 'HW / FW / Driver / Software Isolation'] },
   { title: c('Tools / Interfaces', '工具 / 介面'), skills: ['Instrument Control', 'SCPI', 'DMM', 'Power Supply', 'VeriWave', 'Wireshark', 'iPerf', 'Logs / Traces', 'Jira'] },
 ];
@@ -957,7 +972,7 @@ export const flagshipCaseStudies: PortfolioItem[] = [
       { label: c('Engineering Evidence', '工程證據'), body: c('Evidence is described by type only; proprietary binary files are not published.', '僅描述證據類型，不公開專有 Binary 檔案。'), bullets: { en: ['Pattern.bin input artifact', 'Output.bin execution result', 'Golden output reference', 'Comparison result', 'Mismatch log', 'Regression result', 'PASS / FAIL record'], zh: ['Pattern.bin 輸入產物', 'Output.bin 執行結果', 'Golden output 參考結果', '比對結果', 'Mismatch Log', '回歸結果', 'PASS / FAIL 紀錄'] } },
       section('Validation Strategy', '驗證策略', 'Use deterministic inputs, controlled execution modes, expected-versus-actual numerical comparison, explicit mismatch review, repeatable criteria, and preserved failure evidence.', '使用確定性輸入、受控執行模式、預期與實際數值比對、明確的 Mismatch Review、可重複判定條件與保留的失敗證據。'),
       { label: c('Debug / RCA Method', '除錯與根因分析'), body: c('Preserve the exact input, output, execution mode, and version before isolating the failing boundary.', '先保留完整輸入、輸出、執行模式與版本，再隔離失敗邊界。'), flow: [c('Mismatch Detected', '發現不一致'), c('Preserve Input / Output', '保留輸入 / 輸出'), c('Identify Failing Stage', '識別失敗階段'), c('Compare Simulator / FPGA / Target', '比對 Simulator / FPGA / Target'), c('Format / Numerical Check', '格式 / 數值檢查'), c('Isolate Validation / SDK / HW', '隔離驗證 / SDK / HW'), c('Fix Verification', '修正驗證'), c('Regression', '回歸')] },
-      { label: c('Tools & Technologies', '工具與技術'), bullets: { en: ['Python', 'FPGA / NPU Target', 'Simulator', 'Linux / SDK', 'Binary Pattern / Golden Output', 'Jenkins / CI where applicable'], zh: ['Python', 'FPGA / NPU Target', 'Simulator', 'Linux / SDK', 'Binary Pattern / Golden Output', '適用情境下的 Jenkins / CI'] } },
+      { label: c('Tools & Technologies', '工具與技術'), bullets: { en: ['Python', 'FPGA / NPU Target', 'Simulator', 'Linux / SDK', 'Binary Pattern / Golden Output'], zh: ['Python', 'FPGA / NPU Target', 'Simulator', 'Linux / SDK', 'Binary Pattern / Golden Output'] } },
       { label: c('Engineering Outputs', '工程輸出'), bullets: { en: ['Reproducible binary patterns', 'Execution and comparison records', 'Mismatch evidence', 'Automated PASS / FAIL verdicts', 'Regression reports'], zh: ['可重現 Binary Pattern', '執行與比對紀錄', 'Mismatch 證據', '自動 PASS / FAIL 判定', '回歸報告'] } },
       section('Engineering Value', '工程價值', 'Turn numerical correctness into a repeatable, reviewable validation workflow that makes mismatches attributable and regression-ready.', '將數值正確性轉換為可重複、可審查的驗證流程，使不一致可歸因並可直接納入回歸。'),
       section('Technical Scope', '技術範圍', 'The work covered AI / NPU validation and automation—not AI model architecture, AI compiler architecture, the full training pipeline, or semiconductor RTL architecture.', '工作涵蓋 AI / NPU 驗證與自動化，不包含 AI 模型架構、AI Compiler 架構、完整訓練流程或半導體 RTL 架構。'),
@@ -985,7 +1000,7 @@ export const flagshipCaseStudies: PortfolioItem[] = [
   {
     id: 'case-fae-rca', index: '04', title: c('FAE / Customer Issue Reproduction & RCA', 'FAE / 客戶問題重現與根因分析'),
     summary: c('Customer-facing reproduction, evidence collection, layer isolation, RD coordination, fix verification, regression, and closure.', '客戶面問題重現、證據收集、Layer 隔離、RD 協作、修正驗證、回歸與結案。'),
-    tags: ['TPV FAE', 'Android / Linux', 'ADB / Appium', 'Jira', 'Jenkins', 'RCA'],
+    tags: ['TPV FAE', 'Android / Linux', 'ADB / Appium', 'Jira', 'Robot Framework', 'RCA'],
     sections: [
       section('Overview', '案例概述', 'Based on verified TPV customer-facing FAE experience across TV, Android TV, and Android / Linux environments: turn a customer report into reproducible evidence, coordinated analysis, fix verification, regression, and closure.', '依據已驗證的冠捷客戶面 FAE 經驗，涵蓋 TV、Android TV 與 Android / Linux 環境：將客戶回報轉換為可重現證據、協作分析、修正驗證、回歸與結案。'),
       section('Engineering Challenge', '工程挑戰', 'Customer-only, intermittent, or configuration-sensitive failures often arrive with insufficient logs and can cross application, framework, driver, SDK, system, and hardware boundaries.', '僅在客戶環境出現、間歇或受設定影響的問題，常伴隨 Log 不足，且可能跨越 Application、Framework、Driver、SDK、System 與 Hardware 邊界。'),
@@ -995,7 +1010,7 @@ export const flagshipCaseStudies: PortfolioItem[] = [
       { label: c('Engineering Evidence', '工程證據'), body: c('Evidence is summarized by category only; customer-confidential artifacts are not published.', '僅以類型摘要呈現證據，不公開客戶機密產物。'), bullets: { en: ['Reproduction steps', 'Environment / version information', 'ADB / system log', 'Screenshot / trace where applicable', 'Good-vs-Bad comparison', 'Fix verification result', 'Regression result', 'Issue closure record'], zh: ['問題重現步驟', '環境 / 版本資訊', 'ADB / System Log', '適用情境下的截圖 / Trace', 'Good-vs-Bad 比對', '修正驗證結果', '回歸結果', '問題結案紀錄'] } },
       section('Validation Strategy', '驗證策略', 'Validate in the original or customer-equivalent environment through functional, compatibility, OTA, streaming, stress, CTS / GTVS-support, and regression checks where applicable; document residual uncertainty instead of overstating closure.', '在原始或客戶等效環境中，依情境執行 Functional、Compatibility、OTA、Streaming、Stress、CTS / GTVS 支援與回歸檢查；記錄剩餘不確定性，不誇大結案。'),
       { label: c('Debug / RCA Method', '除錯與根因分析'), body: c('Change one controlled factor at a time, preserve raw evidence, and compare expected behavior with a known-good baseline before locating the source of a failure.', '一次只改變一個受控因素，保留原始證據，並先與已知正常基準比對，再定位失敗來源。'), flow: [c('Symptom / Version Check', '現象 / 版本確認'), c('Reproduce', '重現'), c('Evidence Capture', '證據擷取'), c('Good vs Bad', 'Good vs Bad'), c('Layer Isolation', 'Layer 隔離'), c('RCA Tracking', 'RCA 追蹤'), c('Fix Verification', '修正驗證'), c('Regression / Closure', '回歸 / 結案')] },
-      { label: c('Tools & Technologies', '工具與技術'), bullets: { en: ['Python / ADB', 'UIAutomator / Appium', 'Android / Linux', 'JMeter / Monkey / MonkeyRunner', 'Jenkins / Jira', 'CTS / GTVS support'], zh: ['Python / ADB', 'UIAutomator / Appium', 'Android / Linux', 'JMeter / Monkey / MonkeyRunner', 'Jenkins / Jira', 'CTS / GTVS 支援'] } },
+      { label: c('Tools & Technologies', '工具與技術'), bullets: { en: ['Python / ADB', 'UIAutomator / Appium', 'Android / Linux', 'JMeter / Monkey / MonkeyRunner', 'Robot Framework / Jira', 'CTS / GTVS support'], zh: ['Python / ADB', 'UIAutomator / Appium', 'Android / Linux', 'JMeter / Monkey / MonkeyRunner', 'Robot Framework / Jira', 'CTS / GTVS 支援'] } },
       { label: c('Engineering Outputs', '工程輸出'), bullets: { en: ['Reproduction package', 'Version and environment matrix', 'Logs, screenshots, and recordings', 'Issue-analysis record', 'Fix-verification and regression evidence', 'Customer-ready closure summary'], zh: ['重現 Package', '版本與環境矩陣', 'Log、截圖與錄影', '問題分析紀錄', '修正驗證與回歸證據', '客戶可理解的結案摘要'] } },
       section('Engineering Value', '工程價值', 'Improve reproducibility, evidence quality, engineering-layer isolation, and RD/customer communication while making fix verification repeatable and issue closure less ambiguous.', '提升可重現性、證據品質、工程層級隔離與 RD / 客戶溝通，並讓修正驗證可重複、問題結案更少歧義。'),
       section('Technical Scope', '技術範圍', 'The work covered TPV customer-facing FAE reproduction, automation, coordination, and validation—not customer product architecture, upstream firmware implementation, vendor decisions, or unsupported root-cause claims.', '工作範圍為冠捷客戶面 FAE 的重現、自動化、協作與驗證，不包含客戶產品架構、上游韌體實作、Vendor 決策或缺乏證據的根因宣稱。'),
@@ -1099,17 +1114,17 @@ export const visualItems: PortfolioItem[] = [
   },
   {
     id: 'visual-novatek-wifi', index: 'VIS_02', title: c('Novatek Software Automation / Wi-Fi Validation', '聯詠軟體自動化 / Wi-Fi 驗證'),
-    summary: c('Visual brief for Wi-Fi AC FPGA / chip validation, automation scripts, RF measurement, stress monitoring, and CI/CD reporting.', '圖解說明 Wi-Fi AC FPGA / 晶片驗證、自動化腳本、RF 量測、壓力監控與 CI/CD 報告。'),
-    tags: ['Novatek', 'Wi-Fi', 'FPGA', 'CI/CD'],
+    summary: c('Visual brief for Wi-Fi AC FPGA / chip validation, automation scripts, RF measurement, stress monitoring, and automated regression reporting.', '圖解說明 Wi-Fi AC FPGA / 晶片驗證、自動化腳本、RF 量測、壓力監控與自動化回歸報告。'),
+    tags: ['Novatek', 'Wi-Fi', 'FPGA', 'Regression Reporting'],
     cardFlow: [c('Test Case', '測試案例'), c('DUT / FPGA', 'DUT / FPGA'), c('Instrument', '儀器'), c('Measure', '量測'), c('Report', '報告')],
     sections: [
-      section('Overview', '概述', 'The visual presents Wi-Fi FPGA/chip validation, MAC-layer certification focus, throughput/RF automation, IP camera stream checks, and CI/CD automation.', '圖解呈現 Wi-Fi FPGA / 晶片驗證、MAC Layer 認證重點、Throughput / RF 自動化、影像串流檢查與 CI/CD 自動化。'),
+      section('Overview', '概述', 'The visual presents Wi-Fi FPGA/chip validation, MAC-layer certification focus, throughput/RF automation, IP camera stream checks, and automated regression reporting.', '圖解呈現 Wi-Fi FPGA / 晶片驗證、MAC Layer 認證重點、Throughput / RF 自動化、影像串流檢查與自動化回歸報告。'),
       section('My Role', '我的角色', 'Validation and automation engineering for test cases, equipment control, measurement capture, reporting, and issue evidence.', '負責測試案例、設備控制、量測擷取、報告與問題證據的驗證及自動化工程工作。'),
-      section('What I Implemented', '我實作的內容', 'Python/pytest test cases, equipment adapters, measurement capture and reporting, stream-analysis automation, and CI workflows.', '實作 Python / pytest 測試案例、設備 Adapter、量測擷取與報告、串流分析自動化及 CI 流程。'),
+      section('What I Implemented', '我實作的內容', 'Python/pytest test cases, equipment adapters, measurement capture and reporting, and stream-analysis automation.', '實作 Python / pytest 測試案例、設備 Adapter、量測擷取與報告及串流分析自動化。'),
       section('What I Validated', '我驗證的內容', 'Throughput, PER, latency, RF behavior, stream evidence, stress behavior, and system stability.', '驗證 Throughput、PER、Latency、RF 行為、串流證據、壓力行為與系統穩定度。'),
       section('What I Did Not Own', '非本人負責範圍', 'Wi-Fi chip or FPGA architecture, product firmware ownership, and certification-authority decisions.', '不包含 Wi-Fi 晶片或 FPGA 架構、產品韌體主責及認證機構的最終決策。'),
       section('Technical Flow', '技術流程', 'Test case design → pytest execution → hardware control → video stream or RF measurement → performance/stress analysis → report/notification.', '測試案例設計 → pytest 執行 → 硬體控制 → 影像串流或 RF 量測 → 效能 / 壓力分析 → 報告 / 通知。'),
-      section('Tools / Technologies', '工具 / 技術', 'Python, pytest, OpenCV, FFmpeg, Jenkins, GitLab CI, Docker, PySerial, PyVISA, SCPI, LabVIEW, VeriWave, scope, PSU.', 'Python、pytest、OpenCV、FFmpeg、Jenkins、GitLab CI、Docker、PySerial、PyVISA、SCPI、LabVIEW、VeriWave、示波器、PSU。'),
+      section('Tools / Technologies', '工具 / 技術', 'Python, pytest, OpenCV, FFmpeg, Docker, PySerial, PyVISA, SCPI, LabVIEW, VeriWave, scope, PSU.', 'Python、pytest、OpenCV、FFmpeg、Docker、PySerial、PyVISA、SCPI、LabVIEW、VeriWave、示波器、PSU。'),
       section('Validation Approach', '驗證方法', 'Control test parameters, collect throughput/PER/latency or stream evidence, monitor system stability, and generate reproducible reports.', '控制測試參數、收集 Throughput / PER / Latency 或串流證據、監控系統穩定度並產生可重現報告。'),
       section('Result / Value', '成果 / 價值', 'Shows repeatable automation coverage across test control, measurement collection, system monitoring, reporting, and notification.', '呈現測試控制、量測收集、系統監控、報告與通知之間可重複的自動化覆蓋。'),
     ],
@@ -1161,7 +1176,7 @@ export const visualItems: PortfolioItem[] = [
       section('What I Validated', '我驗證的內容', 'Android TV functions, applications, OTA, streaming, stress behavior, and CTS/GTVS test readiness.', '驗證 Android TV 功能、應用程式、OTA、Streaming、壓力行為與 CTS / GTVS 測試準備度。'),
       section('What I Did Not Own', '非本人負責範圍', 'Customer product architecture, upstream firmware ownership, and certification-authority decisions.', '不包含客戶產品架構、上游韌體主責及認證機構的最終決策。'),
       section('Technical Flow', '技術流程', 'Customer issue → reproduction → debug log → RD fix → automation/regression → customer-ready explanation and closure.', '客戶問題 → 重現 → Debug Log → RD 修正 → 自動化 / 回歸 → 客戶可理解說明與結案。'),
-      section('Tools / Technologies', '工具 / 技術', 'Python, ADB, UIAutomator, Appium, Monkey / MonkeyRunner, JMeter, Robot Framework, Jira, Confluence, Jenkins, GitLab, Android Studio.', 'Python、ADB、UIAutomator、Appium、Monkey / MonkeyRunner、JMeter、Robot Framework、Jira、Confluence、Jenkins、GitLab、Android Studio。'),
+      section('Tools / Technologies', '工具 / 技術', 'Python, ADB, UIAutomator, Appium, Monkey / MonkeyRunner, JMeter, Robot Framework, Jira, Confluence, Android Studio.', 'Python、ADB、UIAutomator、Appium、Monkey / MonkeyRunner、JMeter、Robot Framework、Jira、Confluence、Android Studio。'),
       section('Validation Approach', '驗證方法', 'Functional testing, app compatibility, OTA, streaming, stress testing, Google CTS/GTVS, screenshots/recording, and GUI recognition.', '功能測試、App 相容性、OTA、Streaming、壓力測試、Google CTS/GTVS、截圖 / 錄影與 GUI 辨識。'),
       section('Result / Value', '成果 / 價值', 'Communicates a practical field-engineering loop from customer symptom to reproducible evidence and regression.', '傳達從客戶現象到可重現證據與回歸測試的實務現場工程閉環。'),
     ],
@@ -1176,5 +1191,5 @@ export const projectItems: PortfolioItem[] = [
   project('selenium','03',c('Selenium WebUI Automation','Selenium WebUI 自動化'),c('Web UI Automation with Selenium','Selenium Web UI 自動化驗證'),['Web UI','Selenium','Regression'],c('Automated repeatable Web UI validation scenarios such as login, configuration changes, apply/save behavior, and post-change verification.','將登入、設定變更、套用/儲存與變更後確認等 Web UI 操作轉成可重複執行的自動化驗證情境。'),c('Validated expected UI behavior and configuration results through repeatable automated execution and result checks.','透過可重複的自動化執行與結果確認，驗證 UI 行為與設定結果是否符合預期。')),
   project('can-hil','04',c('Automotive CAN / HIL Automation','車用 CAN / HIL 自動化'),c('Signal, timing, state, diagnostic, and fault-response validation with traceable bus evidence.','以可追溯 Bus 證據驗證 Signal、Timing、狀態、診斷與 Fault Response。'),['CAN','HIL','Diagnostics'],c('Map requirements to messages/signals, stimulate controlled conditions, capture traces, and correlate DUT state with expected transitions.','將需求對應至 Message / Signal，施加受控條件、擷取 Trace，並關聯 DUT 狀態與預期轉換。'),c('Check scaling, timing, timeout, invalid values, recovery, diagnostic behavior, and regression against recorded traces.','檢查 Scaling、Timing、Timeout、Invalid Value、復原、診斷行為與 Trace 回歸。')),
   project('opencv','05',c('OpenCV / Computer Vision Demo','OpenCV / 電腦視覺展示'),c('Reproducible acquisition, preprocessing, inspection criteria, and annotated visual evidence.','建立可重現取像、前處理、檢測條件與標註視覺證據。'),['OpenCV','Vision','AOI'],c('Control image inputs, preserve original pixels, isolate processing stages, and expose thresholds and intermediate outputs.','控制影像輸入、保存原始像素、隔離處理階段，並呈現門檻與中間輸出。'),c('Use labeled positive/negative cases, edge conditions, repeatability, and false-positive/false-negative review.','使用標註正負案例、邊界條件、重複性與誤判 / 漏判審查。')),
-  project('cicd','06',c('CI/CD Automation','CI/CD 自動化'),c('Automated quality gates that keep build, test, evidence, and release decisions visible.','以自動化品質關卡清楚呈現 Build、測試、證據與發布決策。'),['CI/CD','Jenkins','GitLab CI'],c('Separate fast checks, integration tests, artifacts, deployment gates, and environment-specific credentials.','分離快速檢查、整合測試、Artifact、部署關卡與環境專用憑證。'),c('Require reproducible jobs, explicit exit codes, retained reports, failure ownership, and controlled rerun policy.','要求可重現 Job、明確 Exit Code、保留報告、失敗責任與受控重跑政策。')),
+  project('cicd','06',c('Camera / IPCam Jenkins CI Regression Automation','Camera / IPCam Jenkins CI 回歸自動化'),c('Camera / IPCam pytest automation integrated into weekly Jenkins CI regression workflows with automated test execution, result processing, and report generation.','將 Camera / IPCam pytest 自動化整合至每週 Jenkins CI 回歸流程，自動完成測試執行、結果處理與報告產生。'),['Jenkins CI','pytest','Regression'],c('Build Jenkins CI pipeline/job automation, maintain Jenkins jobs, and integrate the Camera / IPCam pytest suite into weekly Jenkins CI regression workflows.','建立 Jenkins CI Pipeline / Job 自動化、維護 Jenkins Job，並將 Camera / IPCam pytest 測試套件整合至每週 Jenkins CI 回歸流程。'),c('Verify automated test execution, result processing, and report generation within the Jenkins CI workflow.','驗證 Jenkins CI 流程中的自動測試執行、結果處理與報告產生。')),
 ];

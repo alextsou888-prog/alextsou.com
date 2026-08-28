@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1536" height="1024" viewBox="0 0 1536 1024" role="img" aria-labelledby="title desc">
+  <title id="title">聯詠軟體自動化與 Wi-Fi 驗證</title>
+  <desc id="desc">Wi-Fi AC FPGA、晶片驗證、RF 量測、回歸測試與自動化報告圖解。</desc>
+  <defs>
+    <linearGradient id="head" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#071e68"/><stop offset="1" stop-color="#123a97"/></linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#12a869"/><stop offset="1" stop-color="#47c17e"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#123" flood-opacity=".16"/></filter>
+    <style>
+      text{font-family:"Microsoft JhengHei","Segoe UI",Arial,sans-serif;fill:#13245e}.title{font-size:38px;font-weight:900}.section{font-size:21px;font-weight:900}.label{font-size:17px;font-weight:800}.body{font-size:16px}.small{font-size:14px}.muted{fill:#55647e}.white{fill:#fff}.green{fill:#0c8d59}.orange{fill:#e86f18}.purple{fill:#7040aa}.panel{fill:#fff;stroke:#aec8ef;stroke-width:1.5}.soft{fill:#f5f9ff;stroke:#bed3f0;stroke-width:1.2}.rule{stroke:#c7d7ed}.center{text-anchor:middle}.badge{fill:#eef5ff;stroke:#a5c1e8}.num{font-size:21px;font-weight:900;fill:#fff;text-anchor:middle;dominant-baseline:middle}
+    </style>
+  </defs>
+  <rect width="1536" height="1024" fill="#f6f9fe"/>
+  <rect x="12" y="12" width="520" height="181" rx="16" class="panel" filter="url(#shadow)"/>
+  <text x="31" y="58" class="title">軟體自動化開發主任工程師</text>
+  <text x="31" y="94" class="section">聯詠科技股份有限公司 (Novatek)</text>
+  <text x="31" y="126" class="body muted">半導體製造業｜軟體工程師 / 軟體自動化開發</text>
+  <text x="31" y="169" class="section" fill="#d92121">2013/10 ~ 2022/7　8年9個月</text>
+
+  <rect x="545" y="12" width="383" height="181" rx="16" class="panel" filter="url(#shadow)"/>
+  <rect x="545" y="12" width="383" height="34" rx="16" fill="url(#head)"/><text x="736" y="36" class="section white center">核心技術 / 工具</text>
+  <g class="small center">
+    <g transform="translate(570 62)"><rect width="75" height="48" rx="10" class="badge"/><text x="38" y="29" class="label">Python</text></g>
+    <g transform="translate(654 62)"><rect width="75" height="48" rx="10" class="badge"/><text x="38" y="29" class="label">pytest</text></g>
+    <g transform="translate(738 62)"><rect width="75" height="48" rx="10" class="badge"/><text x="38" y="29" class="label">OpenCV</text></g>
+    <g transform="translate(822 62)"><rect width="75" height="48" rx="10" class="badge"/><text x="38" y="29" class="label">FFmpeg</text></g>
+    <g transform="translate(570 122)"><rect width="75" height="48" rx="10" class="badge"/><text x="38" y="29" class="label">VeriWave</text></g>
+    <g transform="translate(654 122)"><rect width="75" height="48" rx="10" class="badge"/><text x="38" y="29" class="label">Wireshark</text></g>
+    <g transform="translate(738 122)"><rect width="75" height="48" rx="10" class="badge"/><text x="38" y="29" class="label">PyVISA</text></g>
+    <g transform="translate(822 122)"><rect width="75" height="48" rx="10" class="badge"/><text x="38" y="29" class="label">SCPI</text></g>
+  </g>
+
+  <rect x="941" y="12" width="583" height="181" rx="16" class="panel" filter="url(#shadow)"/>
+  <rect x="941" y="12" width="583" height="34" rx="16" fill="url(#head)"/><text x="1232" y="36" class="section white center">核心成就亮點</text>
+  <g transform="translate(963 62)">
+    <rect width="168" height="106" rx="12" fill="#f0fbf5" stroke="#9ad6b8"/><text x="84" y="31" class="label green center">測試覆蓋提升</text><text x="84" y="67" class="green center" style="font-size:29px;font-weight:900">40% ~ 85%+</text><text x="84" y="94" class="small center">回歸週期縮短</text>
+    <rect x="185" width="168" height="106" rx="12" fill="#faf4ff" stroke="#d7b9ec"/><text x="269" y="31" class="label purple center">Bug 早期偵測</text><text x="269" y="67" class="section purple center">Regression</text><text x="269" y="94" class="small center">降低大量重測風險</text>
+    <rect x="370" width="168" height="106" rx="12" fill="#fff7ef" stroke="#f0c299"/><text x="454" y="31" class="label orange center">工具鏈標準化</text><text x="454" y="67" class="section orange center">Test Library</text><text x="454" y="94" class="small center">一致且可重複的量測</text>
+  </g>
+
+  <rect x="12" y="207" width="520" height="538" rx="16" class="panel" filter="url(#shadow)"/>
+  <rect x="12" y="207" width="520" height="38" rx="16" fill="url(#head)"/><text x="31" y="234" class="section white">一、Wi-Fi AC FPGA / 晶片驗證</text>
+  <rect x="29" y="261" width="486" height="114" rx="12" class="soft"/><text x="47" y="292" class="section">Wi-Fi AC (802.11ac) 重點驗證</text>
+  <text x="47" y="324" class="body">✓ Wi-Fi Alliance 認證流程與測試項目</text><text x="47" y="351" class="body">✓ 2.4G / 5G、20/40/80 MHz、MIMO / Beamforming</text>
+  <rect x="29" y="389" width="486" height="128" rx="12" class="soft"/><text x="47" y="419" class="section">Throughput 測試自動化</text>
+  <text x="47" y="454" class="body">Python → PSU → DUT → VeriWave</text><text x="47" y="483" class="body">TCP / UDP Profile、Throughput / PER / Latency</text><text x="47" y="508" class="small muted">自動啟停測試、收集結果並產生報告</text>
+  <rect x="29" y="531" width="486" height="126" rx="12" class="soft"/><text x="47" y="561" class="section">RF 量測自動化</text>
+  <text x="47" y="596" class="body">Python → 示波器 / 頻譜儀 / 網路分析儀</text><text x="47" y="625" class="body">TX / RX Waveform、功率、EVM 與雜訊量測</text>
+  <rect x="29" y="671" width="486" height="57" rx="12" fill="#f2f7ff" stroke="#a7c4e9"/><text x="272" y="706" class="label center">MAC Layer｜穩定性｜RF 效能｜長時間壓力</text>
+
+  <rect x="545" y="207" width="979" height="538" rx="16" class="panel" filter="url(#shadow)"/>
+  <rect x="545" y="207" width="979" height="38" rx="16" fill="url(#head)"/><text x="566" y="234" class="section white">二、核心技術與工作細節</text>
+  <g transform="translate(562 261)">
+    <rect width="220" height="285" rx="12" fill="#f0fbf5" stroke="#9ad6b8"/><circle cx="25" cy="27" r="17" fill="#149b63"/><text x="25" y="28" class="num">1</text><text x="52" y="33" class="label green">測試案例與框架</text>
+    <text x="18" y="74" class="body">• Pre-condition</text><text x="18" y="104" class="body">• API / 指令執行</text><text x="18" y="134" class="body">• Response Parsing</text><text x="18" y="164" class="body">• Teardown</text><text x="18" y="205" class="body">pytest / Parameterize</text><text x="18" y="235" class="body">Codec / 解析度 / FPS</text><text x="18" y="265" class="small muted">硬體控制與可重複執行</text>
+    <rect x="236" width="220" height="285" rx="12" fill="#eef7ff" stroke="#a7c7e8"/><circle cx="261" cy="27" r="17" fill="#2779c6"/><text x="261" y="28" class="num">2</text><text x="288" y="33" class="label">影像品質與串流</text>
+    <text x="254" y="76" class="body">RTSP 串流擷取</text><text x="254" y="106" class="body">FFmpeg 分析</text><text x="254" y="136" class="body">PTS / DTS 時間戳</text><text x="254" y="166" class="body">掉幀 / 音訊延遲</text><text x="254" y="207" class="body">PySerial / Relay</text><text x="254" y="237" class="body">Cold / Warm Boot</text><text x="254" y="267" class="small muted">串流、同步與穩定性證據</text>
+    <rect x="472" width="220" height="285" rx="12" fill="#fff8f0" stroke="#f1c89f"/><circle cx="497" cy="27" r="17" fill="#e37120"/><text x="497" y="28" class="num">3</text><text x="524" y="33" class="label orange">壓力與穩定監控</text>
+    <text x="490" y="76" class="body">Memory Leak</text><text x="490" y="106" class="body">adb / telnet 擷取</text><text x="490" y="136" class="body">/proc/meminfo</text><text x="490" y="166" class="body">CPU Loading</text><text x="490" y="196" class="body">中斷與 Deadlock</text><text x="490" y="236" class="body">即時繪圖</text><text x="490" y="266" class="small muted">長時間壓力與系統穩定性</text>
+    <rect x="708" width="238" height="285" rx="12" fill="#faf4ff" stroke="#d8b9ee"/><circle cx="733" cy="27" r="17" fill="#7444aa"/><text x="733" y="28" class="num">4</text><text x="760" y="33" class="label purple">回歸與自動化報告</text>
+    <text x="827" y="80" class="label center">Engineer</text><text x="827" y="107" class="body center">↓</text><text x="827" y="136" class="label center">Test Plan</text><text x="827" y="163" class="body center">↓</text><text x="827" y="192" class="label center">Test Setup</text><text x="827" y="219" class="body center">↓</text><text x="827" y="248" class="label center">Regression</text><text x="827" y="273" class="small center muted">Execution · Result · Report</text>
+  </g>
+  <rect x="562" y="564" width="945" height="163" rx="12" fill="#f7fbff" stroke="#b7cce8"/>
+  <rect x="562" y="564" width="945" height="31" rx="12" fill="url(#accent)"/><text x="1034" y="586" class="label white center">Wi-Fi 回歸與自動化報告流程</text>
+  <g class="small center" transform="translate(584 614)">
+    <g><rect width="106" height="66" rx="9" class="badge"/><text x="53" y="29" class="label">Test Plan</text><text x="53" y="50">需求與案例</text></g><text x="124" y="39" class="section">→</text>
+    <g transform="translate(145)"><rect width="126" height="66" rx="9" class="badge"/><text x="63" y="27" class="label">Test Config</text><text x="63" y="50">參數與環境</text></g><text x="289" y="39" class="section">→</text>
+    <g transform="translate(310)"><rect width="96" height="66" rx="9" class="badge"/><text x="48" y="29" class="label">Build</text><text x="48" y="50">版本準備</text></g><text x="424" y="39" class="section">→</text>
+    <g transform="translate(445)"><rect width="96" height="66" rx="9" class="badge"/><text x="48" y="29" class="label">Flash FW</text><text x="48" y="50">USB / UART</text></g><text x="559" y="39" class="section">→</text>
+    <g transform="translate(580)"><rect width="96" height="66" rx="9" class="badge"/><text x="48" y="29" class="label">Run Tests</text><text x="48" y="50">pytest</text></g><text x="694" y="39" class="section">→</text>
+    <g transform="translate(715)"><rect width="86" height="66" rx="9" class="badge"/><text x="43" y="29" class="label">Report</text><text x="43" y="50">HTML / CSV</text></g><text x="819" y="39" class="section">→</text>
+    <g transform="translate(840)"><rect width="82" height="66" rx="9" class="badge"/><text x="41" y="29" class="label">Notify</text><text x="41" y="50">Message</text></g>
+  </g>
+
+  <rect x="12" y="759" width="610" height="208" rx="16" class="panel" filter="url(#shadow)"/>
+  <rect x="12" y="759" width="610" height="38" rx="16" fill="url(#head)"/><text x="31" y="786" class="section white">三、工作與專案經驗</text>
+  <g transform="translate(29 813)">
+    <rect width="180" height="134" rx="12" fill="#f0fbf5" stroke="#9ad6b8"/><text x="16" y="31" class="label green">1 Wi-Fi AC FPGA</text><text x="16" y="61" class="small">• MAC Layer 重點</text><text x="16" y="87" class="small">• SCPI / LAN 控制</text><text x="16" y="113" class="small">• RF / Throughput</text>
+    <rect x="194" width="180" height="134" rx="12" fill="#eef7ff" stroke="#a7c7e8"/><text x="210" y="31" class="label">2 Web / API</text><text x="210" y="61" class="small">• Postman 自動化</text><text x="210" y="87" class="small">• 資料匯入 / 報告</text><text x="210" y="113" class="small">• Power Supply Control</text>
+    <rect x="388" width="193" height="134" rx="12" fill="#fff8f0" stroke="#f1c89f"/><text x="404" y="31" class="label orange">3 Audio AI</text><text x="404" y="61" class="small">• Python + Gradio</text><text x="404" y="87" class="small">• Dataset / Script</text><text x="404" y="113" class="small">• 結果與錯誤分析</text>
+  </g>
+
+  <rect x="636" y="759" width="888" height="208" rx="16" class="panel" filter="url(#shadow)"/>
+  <rect x="636" y="759" width="888" height="38" rx="16" fill="url(#head)"/><text x="655" y="786" class="section white">四、我能提供的價值</text>
+  <g class="body" transform="translate(662 824)">
+    <text x="0" y="0" class="label green">深度 Wi-Fi 專業</text><text x="0" y="29">熟悉 MAC Layer、量測、回歸與問題隔離</text>
+    <text x="0" y="70" class="label green">自動化專家</text><text x="0" y="99">可維護的測試案例、設備控制與報告流程</text>
+    <text x="430" y="0" class="label purple">可靠且可追溯的證據</text><text x="430" y="29">測試設定 → 執行 → 量測 → 報告</text>
+    <text x="430" y="70" class="label purple">跨部門協作</text><text x="430" y="99">以清楚證據縮短 Debug 與問題定位時間</text>
+  </g>
+  <rect x="12" y="981" width="1512" height="31" rx="15" fill="url(#head)"/><text x="768" y="1003" class="label white center">將複雜的手動驗證轉化為可靠、可重複、可量化的自動化流程</text>
+</svg>
