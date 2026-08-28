@@ -91,7 +91,7 @@ export const ui = {
     eyebrow: 'Engineering Portfolio',
     heroA: 'Alex Tsou', heroB: '',
     heroRole: 'Senior Test Automation & System Validation Engineer',
-    heroLead: 'Python / C# Automation · IC / SoC / FPGA · Wi-Fi / 5G · Camera / AI · ATE · FAE / Customer Engineering',
+    heroLead: 'Python / C# test automation and system validation — applied across Wi-Fi / 5G, Camera / AI, IC / SoC / FPGA, ATE, and customer engineering.',
     heroContext: 'Requirements / Test Plan → Automation → Evidence Collection → Debug / RCA → Fix Verification → Regression',
     explore: 'Explore engineering areas', viewResume: 'View Resume', viewTechnicalPortfolio: 'View Technical Portfolio', viewEngineeringCases: 'View Engineering Cases', exploreTechnicalDomains: 'Explore Technical Domains', ready: 'READY', panelLabel: 'Engineering focus areas',
     aboutKicker: '07 / About', aboutTitle: 'Quality engineering with a systems mindset.',
@@ -176,7 +176,7 @@ export const ui = {
     eyebrow: '工程作品集',
     heroA: 'Alex Tsou', heroB: '',
     heroRole: '資深測試自動化與系統驗證工程師',
-    heroLead: 'Python / C# 自動化 · IC / SoC / FPGA · Wi-Fi / 5G · Camera / AI · ATE · FAE / 客戶工程',
+    heroLead: '以 Python / C# 進行測試自動化與系統驗證 — 應用於 Wi-Fi / 5G、Camera / AI、IC / SoC / FPGA、ATE 與客戶工程。',
     heroContext: '需求 / 測試計畫 → 自動化 → 證據收集 → Debug / RCA → 修正驗證 → 回歸測試',
     explore: '瀏覽工程領域', viewResume: '查看完整履歷', viewTechnicalPortfolio: '查看技術作品', viewEngineeringCases: '查看工程案例', exploreTechnicalDomains: '探索技術領域', ready: '就緒', panelLabel: '工程專長領域',
     aboutKicker: '07 / 關於我', aboutTitle: '以系統思維實踐品質工程。',
@@ -585,8 +585,8 @@ const experienceCatalog: PortfolioItem[] = [
       {
         label: c('Stage 1 · 2013–2019 · Wi-Fi FPGA / MAC / Certification Automation', '階段一 · 2013–2019 · Wi-Fi FPGA / MAC / 認證自動化'),
         bullets: {
-          en: ['Wi-Fi FPGA / chip and MAC-layer validation', 'Python automation with SCPI / USB / LAN equipment control', 'Power supply, oscilloscope, and VeriWave integration', 'Throughput, PER, latency, Tx power, Rx sensitivity, and RvR validation', 'Windows / Linux driver and router / API validation', 'Used Python + Selenium for Web UI / browser automation validation, covering repeatable configuration, login, apply/save, and post-change verification scenarios.', 'Wi-Fi Alliance 11n / 11ac and SGS certification support', 'Weekly Wi-Fi regression execution with automated report generation'],
-          zh: ['Wi-Fi FPGA / 晶片與 MAC Layer 驗證', '使用 Python 自動化整合 SCPI / USB / LAN 設備控制', '整合 Power Supply、Oscilloscope 與 VeriWave', '驗證 Throughput、PER、Latency、Tx Power、Rx Sensitivity 與 RvR', 'Windows / Linux Driver 與 Router / API 驗證', '於 Novatek 使用 Python + Selenium 進行 Web UI／瀏覽器自動化驗證，涵蓋登入、設定變更、Apply/Save 與變更後確認等可重複測試情境。', 'Wi-Fi Alliance 11n / 11ac 與 SGS 認證支援', '每週執行 Wi-Fi 回歸測試並自動產生報告'],
+          en: ['Wi-Fi FPGA / chip and MAC-layer validation', 'Python automation with SCPI / USB / LAN equipment control', 'Power supply, oscilloscope, and VeriWave integration', 'Throughput, PER, latency, Tx power, Rx sensitivity, and RvR validation', 'Windows / Linux driver and router / API validation', 'Used Python + Selenium for Web UI / browser automation validation, covering repeatable configuration, login, apply/save, and post-change verification scenarios.', 'Wi-Fi Alliance 11n / 11ac and SGS certification support'],
+          zh: ['Wi-Fi FPGA / 晶片與 MAC Layer 驗證', '使用 Python 自動化整合 SCPI / USB / LAN 設備控制', '整合 Power Supply、Oscilloscope 與 VeriWave', '驗證 Throughput、PER、Latency、Tx Power、Rx Sensitivity 與 RvR', 'Windows / Linux Driver 與 Router / API 驗證', '於 Novatek 使用 Python + Selenium 進行 Web UI／瀏覽器自動化驗證，涵蓋登入、設定變更、Apply/Save 與變更後確認等可重複測試情境。', 'Wi-Fi Alliance 11n / 11ac 與 SGS 認證支援'],
         },
       },
       {
@@ -743,6 +743,7 @@ const experienceCatalog: PortfolioItem[] = [
           ],
         },
       },
+      section('Team Leadership', '團隊帶領', 'Led a validation section of approximately 13 engineers while staying hands-on: allocated test scope and resources across platforms, defined test plans and SOPs the team executed against, and coordinated validation progress with HW / FW / BIOS / RD and vendor stakeholders.', '帶領約 13 人的驗證團隊，同時維持實作參與：跨平台分配測試範圍與資源、制定團隊執行依據的測試計畫與 SOP，並與 HW / FW / BIOS / RD 及供應商協調驗證進度。'),
       section('Tech Stack', '技術工具', 'Windows · BIOS / Driver / OS · Wi-Fi / Bluetooth · WHQL · GCF · Stability / Stress Test · Test Plan · SOP · Vendor Coordination', 'Windows · BIOS / Driver / OS · Wi-Fi / Bluetooth · WHQL · GCF · 穩定性 / Stress 測試 · Test Plan · SOP · Vendor Coordination'),
     ],
   },
@@ -1205,7 +1206,7 @@ const project = (id:string,index:string,title:Copy,summary:Copy,tags:string[],ap
 export const projectItems: PortfolioItem[] = [
   project('router','01',c('5G / Wi-Fi Router Automation','5G / Wi-Fi Router 自動化'),c('Configurable network and device validation with traffic, packets, stability, and reproducible evidence.','以可設定流程驗證網路與裝置，涵蓋流量、封包、穩定度與可重現證據。'),['5G','Wi-Fi','iPerf'],c('Drive device APIs or UI, generate traffic, capture state and packets, then correlate failures across DUT, client, network, and automation.','控制裝置 API 或 UI、產生流量、擷取狀態與封包，再於 DUT、Client、網路與自動化間關聯失敗。'),c('Use topology and version control, throughput/stability criteria, Wireshark evidence, retries with reason, and regression.','使用拓撲與版本控管、吞吐 / 穩定度條件、Wireshark 證據、具原因的重試與回歸測試。')),
   project('rest','02',c('REST API Automation Testing','REST API 自動化測試'),c('Contract, authorization, data, negative-case, and service-behavior validation.','驗證 Contract、授權、資料、負向案例與服務行為。'),['API','Python','Postman'],c('Separate clients, test data, assertions, reporting, and environment configuration so cases stay readable.','分離 Client、測試資料、Assertion、報告與環境設定，維持案例可讀性。'),c('Verify status, schema, fields, error behavior, idempotency, timing, and correlation with service logs.','驗證狀態碼、Schema、欄位、錯誤行為、冪等性、Timing 與 Service Log 關聯。')),
-  project('selenium','03',c('Selenium WebUI Automation','Selenium WebUI 自動化'),c('Web UI Automation with Selenium','Selenium Web UI 自動化驗證'),['Web UI','Selenium','Regression'],c('Automated repeatable Web UI validation scenarios such as login, configuration changes, apply/save behavior, and post-change verification.','將登入、設定變更、套用/儲存與變更後確認等 Web UI 操作轉成可重複執行的自動化驗證情境。'),c('Validated expected UI behavior and configuration results through repeatable automated execution and result checks.','透過可重複的自動化執行與結果確認，驗證 UI 行為與設定結果是否符合預期。')),
+  project('selenium','03',c('Selenium WebUI Automation','Selenium WebUI 自動化'),c('Device Web UI validation at Novatek, converting manual configuration checks into repeatable automated runs.','聯詠時期的裝置 Web UI 驗證，將人工設定檢查轉為可重複執行的自動化流程。'),['Web UI','Selenium','Regression'],c('Drive the device Web UI through Python + Selenium so configuration paths are exercised the same way on every run, instead of relying on manual clicking.','以 Python + Selenium 操作裝置 Web UI，讓每次執行都以相同方式走過設定路徑，取代人工點擊操作。'),c('Confirm the applied configuration actually took effect after the change, and reuse the same runs as repeatable regression checks.','確認設定變更後確實生效，並將相同流程重複用於回歸檢查。')),
   project('can-hil','04',c('Automotive CAN / HIL Automation','車用 CAN / HIL 自動化'),c('Signal, timing, state, diagnostic, and fault-response validation with traceable bus evidence.','以可追溯 Bus 證據驗證 Signal、Timing、狀態、診斷與 Fault Response。'),['CAN','HIL','Diagnostics'],c('Map requirements to messages/signals, stimulate controlled conditions, capture traces, and correlate DUT state with expected transitions.','將需求對應至 Message / Signal，施加受控條件、擷取 Trace，並關聯 DUT 狀態與預期轉換。'),c('Check scaling, timing, timeout, invalid values, recovery, diagnostic behavior, and regression against recorded traces.','檢查 Scaling、Timing、Timeout、Invalid Value、復原、診斷行為與 Trace 回歸。')),
   project('opencv','05',c('OpenCV / Computer Vision Demo','OpenCV / 電腦視覺展示'),c('Reproducible acquisition, preprocessing, inspection criteria, and annotated visual evidence.','建立可重現取像、前處理、檢測條件與標註視覺證據。'),['OpenCV','Vision','AOI'],c('Control image inputs, preserve original pixels, isolate processing stages, and expose thresholds and intermediate outputs.','控制影像輸入、保存原始像素、隔離處理階段，並呈現門檻與中間輸出。'),c('Use labeled positive/negative cases, edge conditions, repeatability, and false-positive/false-negative review.','使用標註正負案例、邊界條件、重複性與誤判 / 漏判審查。')),
   project('cicd','06',c('Camera / IPCam Jenkins CI Regression Automation','Camera / IPCam Jenkins CI 回歸自動化'),c('Camera / IPCam pytest automation integrated into weekly Jenkins CI regression workflows with automated test execution, result processing, and report generation.','將 Camera / IPCam pytest 自動化整合至每週 Jenkins CI 回歸流程，自動完成測試執行、結果處理與報告產生。'),['Jenkins CI','pytest','Regression'],c('Build Jenkins CI pipeline/job automation, maintain Jenkins jobs, and integrate the Camera / IPCam pytest suite into weekly Jenkins CI regression workflows.','建立 Jenkins CI Pipeline / Job 自動化、維護 Jenkins Job，並將 Camera / IPCam pytest 測試套件整合至每週 Jenkins CI 回歸流程。'),c('Verify automated test execution, result processing, and report generation within the Jenkins CI workflow.','驗證 Jenkins CI 流程中的自動測試執行、結果處理與報告產生。')),

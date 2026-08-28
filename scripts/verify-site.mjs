@@ -69,7 +69,7 @@ if (!response || !response.ok) {
   for (const marker of [
     '20+ 年工程經驗',
     '資深測試自動化與系統驗證工程師',
-    'Python / C# 自動化 · IC / SoC / FPGA · Wi-Fi / 5G · Camera / AI · ATE · FAE / 客戶工程',
+    '以 Python / C# 進行測試自動化與系統驗證 — 應用於 Wi-Fi / 5G、Camera / AI、IC / SoC / FPGA、ATE 與客戶工程。',
     '需求 / 測試計畫',
     'Wi-Fi / 5G Router + Keysight UXM Python 自動化',
     '四個精簡工程摘要',
