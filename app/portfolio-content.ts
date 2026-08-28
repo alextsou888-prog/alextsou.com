@@ -603,6 +603,21 @@ const experienceCatalog: PortfolioItem[] = [
         },
       },
       {
+        label: c('Wi-Fi Regression Evidence', 'Wi-Fi 回歸驗證實績'),
+        bullets: {
+          en: [
+            'Built and maintained a Python-based Wi-Fi validation framework for approximately 3 years.',
+            'Executed a representative full Wi-Fi regression suite weekly, covering 100+ distinct test cases, excluding parameterized execution counts.',
+            'The representative full regression typically ran for approximately 7 days and included RF and performance measurements, with automated report generation.',
+          ],
+          zh: [
+            '以 Python 建立並維護 Wi-Fi 驗證框架約 3 年。',
+            '每週執行具代表性的完整 Wi-Fi 回歸測試套件，涵蓋 100+ 個不同測試案例（不含參數化執行次數）。',
+            '該代表性完整回歸測試的典型執行時間約為 7 天，包含 RF 與效能量測，並自動產生報告。',
+          ],
+        },
+      },
+      {
         label: c('Stage 2 · 2019–2022 · Camera SoC / AI-NPU / Audio AI Automation', '階段二 · 2019–2022 · Camera SoC / AI-NPU / Audio AI 自動化'),
         bullets: {
           en: ['Built Python / pytest automation for IP Camera and Video SoC SDK validation', 'Integrated PySerial, SDK / CGI, UART, Linux, relay, and power-control interfaces', 'Validated H.264 / H.265 modes, resolution, FPS, GOP, bitrate, and CBR / VBR behavior', 'Automated cold boot, warm boot, stress, stability, memory-leak monitoring, and firmware programming', 'Orchestrated Pattern.bin execution across simulator, FPGA, and target modes', 'Compared output.bin with golden.bin and automated numerical PASS / FAIL plus regression evidence', 'Supported repeatable Audio AI validation with Python, Gradio, Docker, datasets, and scripts'],
