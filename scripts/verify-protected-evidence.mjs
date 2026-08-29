@@ -12,9 +12,16 @@
  *
  * Extraction (deterministic, content-anchored -- never line numbers)
  * -----------------------------------------------------------------
- *   start : the line containing  label: c('<BLOCK NAME>',
+ *   anchor: the line containing  label: c('<BLOCK NAME>',
+ *           The anchor MUST occur exactly once in the source. Zero occurrences
+ *           and duplicate occurrences are both hard failures: the verifier
+ *           never silently picks the first or last match, because a duplicated
+ *           block would otherwise leave one copy completely unverified.
  *   end   : the first following line that is exactly END_MARKER ("        },")
- *           which closes that block object.
+ *           which closes that block object. Inner structures of a protected
+ *           block close at a deeper indent ("          ],"), so they cannot be
+ *           mistaken for the terminator; an injected early terminator changes
+ *           the hash and therefore still fails closed.
  * The start and end lines are both included. Nothing outside that range is
  * hashed, so unrelated edits elsewhere in the file cannot affect the result.
  *
@@ -84,18 +91,55 @@ function readNormalizedSource(file) {
   return text.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
 }
 
+/** Build the exact anchor string used to locate a protected block. */
+function anchorFor(blockName) {
+  return `label: c('${blockName}',`;
+}
+
+/**
+ * Locate every line index whose text contains the block's anchor.
+ * Returned indices are 0-based; callers report them as 1-based line numbers.
+ */
+function findAnchorLines(lines, blockName) {
+  const anchor = anchorFor(blockName);
+  const hits = [];
+  for (let i = 0; i < lines.length; i += 1) {
+    if (lines[i].includes(anchor)) hits.push(i);
+  }
+  return hits;
+}
+
 /**
  * Extract one protected block by name.
- * Returns the raw canonical block text (start line through END_MARKER, joined
- * with LF), or null when the block or its terminator cannot be located.
+ *
+ * Fail-closed contract -- returns a result object rather than throwing:
+ *   { ok: true,  text, startLine, endLine }
+ *   { ok: false, reason, detail }
+ *
+ * Failure reasons:
+ *   'anchor-missing'    zero anchors matched
+ *   'anchor-duplicate'  more than one anchor matched (never guess which)
+ *   'terminator-missing' no END_MARKER after the anchor
+ *   'structure-unexpected' block lacks the expected en:/zh: bullet arrays
  */
 export function extractBlock(sourceText, blockName) {
   const lines = sourceText.split('\n');
-  const anchor = `label: c('${blockName}',`;
+  const hits = findAnchorLines(lines, blockName);
 
-  const start = lines.findIndex((line) => line.includes(anchor));
-  if (start === -1) return null;
+  if (hits.length === 0) {
+    return { ok: false, reason: 'anchor-missing', detail: 'anchor expected exactly once, found 0 occurrences' };
+  }
 
+  if (hits.length > 1) {
+    const where = hits.map((i) => `line ${i + 1}`).join(', ');
+    return {
+      ok: false,
+      reason: 'anchor-duplicate',
+      detail: `anchor expected exactly once, found ${hits.length} occurrences (${where})`,
+    };
+  }
+
+  const start = hits[0];
   let end = -1;
   for (let i = start + 1; i < lines.length; i += 1) {
     if (lines[i] === END_MARKER) {
@@ -103,9 +147,32 @@ export function extractBlock(sourceText, blockName) {
       break;
     }
   }
-  if (end === -1) return null;
 
-  return lines.slice(start, end + 1).join('\n');
+  if (end === -1) {
+    return {
+      ok: false,
+      reason: 'terminator-missing',
+      detail: `no closing "${END_MARKER.trim()}" terminator found after line ${start + 1}`,
+    };
+  }
+
+  const slice = lines.slice(start, end + 1);
+
+  // Defence in depth: a protected block always carries bilingual bullet arrays.
+  // This does not change what is hashed; it turns a truncated or restructured
+  // extraction into a precise diagnostic instead of a bare hash mismatch.
+  const hasEn = slice.some((line) => /^\s*en: \[/.test(line));
+  const hasZh = slice.some((line) => /^\s*zh: \[/.test(line));
+  if (!hasEn || !hasZh) {
+    const missing = [!hasEn && 'en', !hasZh && 'zh'].filter(Boolean).join(' and ');
+    return {
+      ok: false,
+      reason: 'structure-unexpected',
+      detail: `extracted lines ${start + 1}-${end + 1} are missing the ${missing} bullet array`,
+    };
+  }
+
+  return { ok: true, text: slice.join('\n'), startLine: start + 1, endLine: end + 1 };
 }
 
 function sha256(text) {
@@ -128,18 +195,31 @@ function main() {
   const rows = [];
 
   for (const block of PROTECTED_BLOCKS) {
-    const text = extractBlock(source, block.name);
+    const result = extractBlock(source, block.name);
 
-    if (text === null) {
+    if (!result.ok) {
       failed = true;
-      rows.push({ name: block.name, actual: '<BLOCK NOT FOUND>', expected: block.expected, status: 'FAIL' });
+      rows.push({
+        name: block.name,
+        actual: `<${result.reason}>`,
+        expected: block.expected,
+        status: 'FAIL',
+        anchor: anchorFor(block.name),
+        detail: result.detail,
+      });
       continue;
     }
 
-    const actual = sha256(text);
+    const actual = sha256(result.text);
     const status = printOnly ? 'PRINT' : actual === block.expected ? 'PASS' : 'FAIL';
     if (status === 'FAIL') failed = true;
-    rows.push({ name: block.name, actual, expected: block.expected, status });
+    rows.push({
+      name: block.name,
+      actual,
+      expected: block.expected,
+      status,
+      location: `lines ${result.startLine}-${result.endLine}`,
+    });
   }
 
   console.log('Protected-evidence verification');
@@ -148,6 +228,11 @@ function main() {
 
   for (const row of rows) {
     console.log(`  ${row.status.padEnd(5)}  ${row.name}`);
+    if (row.detail) {
+      console.log(`         anchor:     ${row.anchor}`);
+      console.log(`         reason:     ${row.detail}`);
+    }
+    if (row.location) console.log(`         location:   ${row.location}`);
     console.log(`         calculated: ${row.actual}`);
     if (!printOnly) console.log(`         expected:   ${row.expected}`);
     console.log('');
@@ -160,8 +245,14 @@ function main() {
 
   if (failed) {
     console.error('Protected evidence FAILED verification.');
-    console.error('A protected block changed. If the change is intentional and reviewed,');
-    console.error('update the corresponding expected hash in this script.');
+    console.error('');
+    console.error('  hash mismatch        -> the block text changed. If intentional and');
+    console.error('                          reviewed, update its expected hash here.');
+    console.error('  anchor-missing       -> the block was renamed, moved, or deleted.');
+    console.error('  anchor-duplicate     -> the block name is no longer unique; one copy');
+    console.error('                          would go unverified, so this always fails.');
+    console.error('  terminator-missing   -> the closing brace could not be located.');
+    console.error('  structure-unexpected -> extraction did not capture the en/zh bullets.');
     process.exit(1);
   }
 
