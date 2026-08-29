@@ -683,16 +683,16 @@ const experienceCatalog: PortfolioItem[] = [
         label: c('Automation Development', '自動化工具開發'),
         body: c('I used automation to make customer scenarios repeatable: execute UI/action sequences, collect logs and screenshots where appropriate, rerun validation, and convert reproduced issues into regression support.', '我使用自動化讓客戶情境可重複：執行 UI / 動作序列、依需要收集 Log 與截圖、重跑驗證，並將已重現問題轉為回歸支援。'),
         bullets: {
-          en: ['Python', 'ADB', 'UIAutomator', 'Appium', 'Android / Linux'],
-          zh: ['Python', 'ADB', 'UIAutomator', 'Appium', 'Android / Linux'],
+          en: ['Developed Android applications and test utilities to support product validation, issue reproduction, and customer debugging.', 'Python', 'ADB', 'UIAutomator', 'Appium', 'Android / Linux'],
+          zh: ['開發 Android App 與測試工具，用於產品驗證、問題重現與客戶 Debug 支援。', 'Python', 'ADB', 'UIAutomator', 'Appium', 'Android / Linux'],
         },
       },
       {
         label: c('Validation & Certification', '驗證與認證'),
         body: c('Use validation and certification support to confirm whether a fix works in the original scenario and whether adjacent functions remain stable.', '透過驗證與認證支援確認修正是否能解決原始情境，並確認相鄰功能維持穩定。'),
         bullets: {
-          en: ['Functional Test', 'Compatibility Test', 'OTA', 'Streaming', 'Stress Test', 'Google CTS / GTVS support', 'Regression validation'],
-          zh: ['功能測試', '相容性測試', 'OTA', '串流測試', '壓力測試', 'Google CTS / GTVS 支援', '回歸驗證'],
+          en: ['Functional Test', 'Compatibility Test', 'OTA', 'Streaming', 'Stress Test', 'Performed Android CTS / GTVS certification testing, issue analysis, fix verification, and regression support for Android TV products.', 'Regression validation'],
+          zh: ['功能測試', '相容性測試', 'OTA', '串流測試', '壓力測試', '執行 Android TV 產品的 CTS / GTVS 認證測試、問題分析、修正驗證與回歸支援。', '回歸驗證'],
         },
       },
       {
