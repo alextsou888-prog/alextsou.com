@@ -543,7 +543,7 @@ const experienceCatalog: PortfolioItem[] = [
             'Used Playwright for browser-based Web UI automation and regression validation, including page interaction, responsive behavior, DOM verification, and error-oriented browser checks.',
             'Performed EVT / DVT / PVT-stage system and firmware validation',
             'Used reproducible test flows and logs for debugging, root-cause isolation, fix verification, and regression',
-            'Automated 5G / Wi-Fi throughput, latency, packet-loss, reconnect, and stability validation',
+            'Automated 5G / Wi-Fi throughput, latency, packet-loss, reconnect, stability, Tx power, and Rx sensitivity validation',
             'Integrated DMM / PSU control for power-rail and power-consumption validation',
             'Validated CAN, touch-panel, and eMMC reliability behaviors with traceable evidence',
             'Integrated Robot / ESD / Camera workflows with explicit states, interlocks, timeout handling, and safety boundaries',
@@ -553,7 +553,7 @@ const experienceCatalog: PortfolioItem[] = [
             '於 FIH 使用 Playwright 進行瀏覽器型 Web UI 自動化與回歸驗證，包含頁面互動、Responsive 行為、DOM 驗證與瀏覽器錯誤檢查。',
             '執行 EVT / DVT / PVT 階段的系統與韌體驗證',
             '以可重現測試流程與 Log 進行除錯、根因隔離、修正驗證與回歸',
-            '自動化 5G / Wi-Fi Throughput、Latency、Packet Loss、Reconnect 與穩定度驗證',
+            '自動化 5G / Wi-Fi Throughput、Latency、Packet Loss、Reconnect、穩定度、Tx Power 與 Rx Sensitivity 驗證',
             '整合 DMM / PSU 控制，進行 Power Rail 與 Power Consumption 驗證',
             '以可追溯證據驗證 CAN、Touch Panel 與 eMMC 可靠度行為',
             '以明確狀態、Interlock、Timeout 處理與安全邊界整合 Robot / ESD / Camera 流程',
@@ -622,8 +622,8 @@ const experienceCatalog: PortfolioItem[] = [
       {
         label: c('Stage 2 · 2019–2022 · Camera SoC / AI-NPU / Audio AI Automation', '階段二 · 2019–2022 · Camera SoC / AI-NPU / Audio AI 自動化'),
         bullets: {
-          en: ['Built Python / pytest automation for IP Camera and Video SoC SDK validation', 'Integrated PySerial, SDK / CGI, UART, Linux, relay, and power-control interfaces', 'Validated H.264 / H.265 modes, resolution, FPS, GOP, bitrate, and CBR / VBR behavior', 'Automated cold boot, warm boot, stress, stability, memory-leak monitoring, and firmware programming', 'Orchestrated Pattern.bin execution across simulator, FPGA, and target modes', 'Compared output.bin with golden.bin and automated numerical PASS / FAIL plus regression evidence', 'Supported repeatable Audio AI validation with Python, Gradio, Docker, datasets, and scripts'],
-          zh: ['以 Python / pytest 建立 IP Camera 與 Video SoC SDK 驗證自動化', '整合 PySerial、SDK / CGI、UART、Linux、Relay 與電源控制介面', '驗證 H.264 / H.265 模式、解析度、FPS、GOP、Bitrate 與 CBR / VBR 行為', '自動化 Cold Boot、Warm Boot、Stress、穩定度、Memory Leak 監控與 Firmware Programming', '協調 Pattern.bin 在 Simulator、FPGA 與 Target 模式執行', '比對 output.bin 與 golden.bin，並自動產生數值 PASS / FAIL 與回歸證據', '以 Python、Gradio、Docker、資料集與腳本支援可重複的 Audio AI 驗證'],
+          en: ['Built Python / pytest automation for IP Camera and Video SoC SDK validation', 'Integrated PySerial, SDK / CGI, UART, Linux, relay, and power-control interfaces', 'Validated H.264 / H.265 modes, resolution, FPS, GOP, bitrate, and CBR / VBR behavior', 'Used Python + OpenCV for Camera/IPCam image validation, including frame extraction, image comparison, rotation handling, ROI processing, and SSIM-based image-quality analysis.', 'Automated cold boot, warm boot, stress, stability, memory-leak monitoring, and firmware programming', 'Orchestrated Pattern.bin execution across simulator, FPGA, and target modes', 'Compared output.bin with golden.bin and automated numerical PASS / FAIL plus regression evidence', 'Supported repeatable Audio AI validation with Python, Gradio, Docker, datasets, and scripts'],
+          zh: ['以 Python / pytest 建立 IP Camera 與 Video SoC SDK 驗證自動化', '整合 PySerial、SDK / CGI、UART、Linux、Relay 與電源控制介面', '驗證 H.264 / H.265 模式、解析度、FPS、GOP、Bitrate 與 CBR / VBR 行為', '於 Novatek 使用 Python + OpenCV 進行 Camera/IPCam 影像驗證，包含 Frame Extraction、影像比對、Rotation 處理、ROI Processing 與以 SSIM 為基礎的影像品質分析。', '自動化 Cold Boot、Warm Boot、Stress、穩定度、Memory Leak 監控與 Firmware Programming', '協調 Pattern.bin 在 Simulator、FPGA 與 Target 模式執行', '比對 output.bin 與 golden.bin，並自動產生數值 PASS / FAIL 與回歸證據', '以 Python、Gradio、Docker、資料集與腳本支援可重複的 Audio AI 驗證'],
         },
       },
       {
