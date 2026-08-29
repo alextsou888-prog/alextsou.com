@@ -1,0 +1,55 @@
+# Protected-evidence CI gate.
+#
+# Runs scripts/verify-protected-evidence.mjs, which checks that the recruiter-facing
+# evidence blocks in app/portfolio-content.ts still match their committed SHA-256
+# baselines, and that each block anchor resolves to exactly one location.
+#
+# Scope notes
+# -----------
+# * No dependency install. The verifier imports only node: builtins, so it runs
+#   correctly with no node_modules present (verified). Skipping `npm ci` keeps the
+#   check fast and removes an unnecessary supply-chain surface from this gate.
+# * No build, no server, no browser QA. Site/runtime validation lives in
+#   `npm run verify` (scripts/verify-site.mjs), which needs a running server and is
+#   deliberately not part of this gate.
+# * This gate detects protected-content drift. It cannot detect an author changing
+#   the protected text AND its expected hash in the same commit -- that is an
+#   authorization concern, addressed by requiring a reviewed pull request rather
+#   than by the verifier.
+
+name: Protected Evidence
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+# Least privilege: the job only reads the checked-out tree.
+permissions:
+  contents: read
+
+concurrency:
+  group: protected-evidence-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Protected Evidence
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          # package.json declares "engines": { "node": ">=22.13.0" }.
+          node-version: '22'
+
+      - name: Verify protected evidence
+        run: npm run verify:protected

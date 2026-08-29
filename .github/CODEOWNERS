@@ -1,0 +1,31 @@
+# Code owners for the protected-evidence surface.
+#
+# What this file does
+# -------------------
+# GitHub automatically requests a review from the listed owner whenever a pull
+# request touches one of these paths, and surfaces a "code owner review" marker
+# on the PR. That makes changes to protected evidence, its baselines, or the CI
+# gate itself hard to merge without noticing them.
+#
+# What this file does NOT do
+# --------------------------
+# This is a single-maintainer repository. GitHub does not allow an author to
+# approve their own pull request, so CODEOWNERS here cannot create independent
+# authorization -- the sole owner would either self-merge with admin rights or
+# bypass the requirement. Its value is review VISIBILITY, not separation of duty.
+#
+# Concretely: it does not stop the known limitation where protected text and its
+# expected SHA-256 baseline are changed together in one commit. It only ensures
+# such a change appears in a pull request that is flagged for owner review.
+
+# Recruiter-facing protected evidence blocks.
+/app/portfolio-content.ts            @alextsou888-prog
+
+# The verifier and its committed canonical baselines.
+/scripts/verify-protected-evidence.mjs   @alextsou888-prog
+
+# Verification wiring (verify:protected / verify scripts).
+/package.json                        @alextsou888-prog
+
+# The CI gate itself, including this ownership definition.
+/.github/                            @alextsou888-prog
