@@ -37,9 +37,15 @@ if (!response || !response.ok) {
   }
 
   const domainCards = html.match(/data-domain-card=/g) ?? [];
-  if (domainCards.length !== 6) {
-    fail(`Expected exactly 6 product / technical domain cards, found ${domainCards.length}`);
+  const domainCardIds = [...html.matchAll(/data-domain-card=["']([^"']+)["']/g)].map((match) => match[1]);
+  const expectedDomainCards = ['ai-npu', 'wifi-connectivity', 'android-tv-fae', 'ate-robot-esd', 'mcu-can-wireless', 'industrial-vision-aoi', 'camera-imaging'];
+  if (domainCards.length !== 7 || expectedDomainCards.some((id, index) => domainCardIds[index] !== id)) {
+    fail(`Expected product / technical domain order ${expectedDomainCards.join(' → ')}, found: ${domainCardIds.join(' → ') || 'none'}`);
   }
+
+  const mcuTitle = 'MCU / CAN / 無線產品系統驗證';
+  const visibleMcuTitleCount = (html.match(new RegExp(`<h4>${mcuTitle}</h4>`, 'g')) ?? []).length;
+  if (visibleMcuTitleCount !== 1) fail(`Expected the visible Traditional Chinese MCU domain title exactly once, found ${visibleMcuTitleCount}`);
 
   const capabilityCards = [...html.matchAll(/data-capability-card=["']([^"']+)["']/g)].map((match) => match[1]);
   const expectedCapabilities = [
@@ -147,6 +153,10 @@ if (!response || !response.ok) {
 }
 
 const portfolioSource = await readFile(new URL('../app/portfolio-content.ts', import.meta.url), 'utf8');
+for (const title of ['MCU / CAN / Wireless Product Validation', 'MCU / CAN / 無線產品系統驗證']) {
+  const titleCount = portfolioSource.split(title).length - 1;
+  if (titleCount !== 1) fail(`Expected source title exactly once: ${title}; found ${titleCount}`);
+}
 for (const marker of [
   'Senior Test Automation & System Validation Engineer',
   '資深測試自動化與系統驗證工程師',

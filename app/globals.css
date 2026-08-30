@@ -1613,6 +1613,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .domain-card-wifi-connectivity { --domain-card-surface: #dce5ec; --domain-card-accent: #718ca3; }
 .domain-card-android-tv-fae { --domain-card-surface: #dee7e0; --domain-card-accent: #6e8f77; }
 .domain-card-ate-robot-esd { --domain-card-surface: #e8d8c3; --domain-card-accent: #9b774b; }
+.domain-card-mcu-can-wireless { --domain-card-surface: #dce9e2; --domain-card-accent: #56806f; }
 .domain-card-industrial-vision-aoi { --domain-card-surface: #ead7d8; --domain-card-accent: #9b6e74; }
 .domain-card-camera-imaging { --domain-card-surface: #d9e8e5; --domain-card-accent: #4f857e; }
 
@@ -2469,6 +2470,7 @@ html[data-theme='dark'] .domain-card-ai-npu { --domain-card-surface: #28243a; --
 html[data-theme='dark'] .domain-card-wifi-connectivity { --domain-card-surface: #1d2b39; --domain-card-accent: #91adbf; }
 html[data-theme='dark'] .domain-card-android-tv-fae { --domain-card-surface: #1f3029; --domain-card-accent: #9ab7a1; }
 html[data-theme='dark'] .domain-card-ate-robot-esd { --domain-card-surface: #332a1f; --domain-card-accent: #c7a779; }
+html[data-theme='dark'] .domain-card-mcu-can-wireless { --domain-card-surface: #1c3029; --domain-card-accent: #91b9a7; }
 html[data-theme='dark'] .domain-card-industrial-vision-aoi { --domain-card-surface: #34252a; --domain-card-accent: #c89ba1; }
 html[data-theme='dark'] .domain-card-camera-imaging { --domain-card-surface: #1c302e; --domain-card-accent: #86b9b1; }
 html[data-theme='dark'] .domain-card-topline > span,
@@ -2615,6 +2617,10 @@ html[data-theme='dark'] .flow-step > span {
 html[data-theme='dark'] .modal-visual,
 html[data-theme='dark'] .modal-visual img { border-color: var(--border); background: #f5f2ed; }
 
+@media (min-width: 1051px) {
+  .domain-grid > .domain-card:last-child:nth-child(3n + 1) { grid-column: 2; }
+}
+
 @media (max-width: 1050px) {
   .overview-grid,
   .capability-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -2627,6 +2633,14 @@ html[data-theme='dark'] .modal-visual img { border-color: var(--border); backgro
   .resume-layout { grid-template-columns: 1fr; }
   .nav-actions { gap: 14px; }
   .primary-nav { gap: 12px; font-size: 12px; }
+}
+
+@media (min-width: 761px) and (max-width: 1050px) {
+  .domain-grid > .domain-card:last-child:nth-child(2n + 1) {
+    grid-column: 1 / -1;
+    width: calc((100% - 16px) / 2);
+    justify-self: center;
+  }
 }
 
 @media (max-width: 760px) {

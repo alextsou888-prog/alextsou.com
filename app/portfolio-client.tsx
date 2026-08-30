@@ -6,6 +6,7 @@ import { VisitorCounter } from './visitor-counter';
 import {
   capabilityOverview,
   careerSnapshot,
+  domainDetailItems,
   domainExperiences,
   engineeringDebugMethodology,
   experienceItems,
@@ -22,7 +23,7 @@ import {
   type PortfolioItem,
 } from './portfolio-content';
 
-const allItems = [...focusItems, ...experienceItems, ...flagshipCaseStudies, ...visualItems];
+const allItems = [...focusItems, ...experienceItems, ...flagshipCaseStudies, ...domainDetailItems, ...visualItems];
 const contactEmail = 'alextsou888@gmail.com';
 const mailtoUrl = `mailto:${contactEmail}?subject=${encodeURIComponent('Portfolio Inquiry - Alex Tsou')}`;
 type Theme = 'light' | 'dark';

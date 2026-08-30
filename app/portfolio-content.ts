@@ -32,7 +32,7 @@ export type PortfolioItem = {
 };
 
 export type DomainExperience = {
-  id: 'ai-npu' | 'wifi-connectivity' | 'android-tv-fae' | 'ate-robot-esd' | 'industrial-vision-aoi' | 'camera-imaging';
+  id: 'ai-npu' | 'wifi-connectivity' | 'android-tv-fae' | 'ate-robot-esd' | 'mcu-can-wireless' | 'industrial-vision-aoi' | 'camera-imaging';
   index: string;
   title: Copy;
   summary: Copy;
@@ -798,6 +798,12 @@ export const careerSnapshot = {
   ],
 };
 
+const mcuCanWirelessTitle = c('MCU / CAN / Wireless Product Validation', 'MCU / CAN / 無線產品系統驗證');
+const mcuCanWirelessSummary = c(
+  'ATE and system-validation experience with MCU-based products, including e-bike and wireless POS-class devices. Used C# / Python test tools to integrate DUTs, fixtures, and communication interfaces, covering CAN Bus, Wi-Fi, Bluetooth, GPS, and functional validation, with command/response handling, timeout control, log evidence, failure reproduction, RCA, regression, and traceable PASS / FAIL results.',
+  '具 MCU 架構產品的 ATE 與系統驗證經驗，涵蓋電動腳踏車與無線 POS 類產品，透過 C# / Python 測試工具整合 DUT、治具與通訊介面，驗證 CAN Bus、Wi-Fi、Bluetooth、GPS 與產品功能，並透過 Command / Response、Timeout、Log Evidence、Failure Reproduction、RCA 與 Regression 建立可追蹤的 PASS / FAIL 證據。',
+);
+
 export const domainExperiences: DomainExperience[] = [
   {
     id: 'ai-npu',
@@ -844,8 +850,16 @@ export const domainExperiences: DomainExperience[] = [
     related: { itemId: 'case-ate-robot-esd', label: c('Related Case Study', '相關工程案例') },
   },
   {
-    id: 'industrial-vision-aoi',
+    id: 'mcu-can-wireless',
     index: '05',
+    title: mcuCanWirelessTitle,
+    summary: mcuCanWirelessSummary,
+    tags: ['MCU', 'CAN Bus', 'Wi-Fi', 'Bluetooth', 'GPS', 'C#', 'Python', 'ATE', 'System Integration', 'Debug / RCA'],
+    related: { itemId: 'mcu-can-wireless-detail', label: c('View Technical Detail', '查看技術細節') },
+  },
+  {
+    id: 'industrial-vision-aoi',
+    index: '06',
     title: c('Industrial Vision / AOI', '工業視覺 / AOI'),
     positioning: c('Engineering Practice / Technical Domain', '工程實作 / 技術領域'),
     summary: c(
@@ -856,7 +870,7 @@ export const domainExperiences: DomainExperience[] = [
   },
   {
     id: 'camera-imaging',
-    index: '06',
+    index: '07',
     title: c('Camera / Imaging', 'Camera / 影像驗證'),
     summary: c(
       'Camera SoC and SDK validation using Python automation for ISP/codec settings, snapshot/video capture, image/video criteria, FPS/bitrate checks, and regression debugging.',
@@ -864,6 +878,82 @@ export const domainExperiences: DomainExperience[] = [
     ),
     tags: ['Camera SoC', 'Python Automation', 'ISP / Codec', 'RAW / YUV', 'FPS / Bitrate', 'SSIM', 'Regression'],
     related: { itemId: 'camera', label: c('Related Technical Brief', '相關技術說明') },
+  },
+];
+
+export const domainDetailItems: PortfolioItem[] = [
+  {
+    id: 'mcu-can-wireless-detail',
+    index: '05',
+    title: mcuCanWirelessTitle,
+    summary: mcuCanWirelessSummary,
+    tags: ['MCU', 'CAN Bus', 'Wi-Fi', 'Bluetooth', 'GPS', 'C#', 'Python', 'ATE', 'System Integration', 'Debug / RCA'],
+    sections: [
+      {
+        label: c('MCU-Based Product Integration', 'MCU-Based Product Integration'),
+        bullets: {
+          en: [
+            'E-bike-class MCU-based systems with CAN Bus, Wi-Fi, Bluetooth, and GPS',
+            'Wireless POS-class connectivity validation',
+            'C# / Python ATE-side DUT, fixture, and interface control',
+            'Command/response, timeout, retry, logging, and PASS/FAIL validation',
+          ],
+          zh: [
+            '電動腳踏車類產品：MCU-based system、CAN Bus、Wi-Fi、Bluetooth、GPS',
+            '無線 POS 類產品：Wi-Fi / Bluetooth / Network connectivity validation',
+            'ATE 端以 C# / Python 建立 DUT / Fixture / Interface control',
+            '執行 Command / Response、Timeout、Retry、Log 與 PASS / FAIL validation',
+          ],
+        },
+      },
+      {
+        label: c('Technical Architecture', '技術架構'),
+        flow: [
+          c('ATE PC', 'ATE PC'),
+          c('C# / Python', 'C# / Python'),
+          c('CAN / UART / USB / LAN', 'CAN / UART / USB / LAN'),
+          c('MCU / DUT', 'MCU / DUT'),
+          c('Wi-Fi / Bluetooth / GPS / Product Subsystems', 'Wi-Fi / Bluetooth / GPS / Product Subsystems'),
+          c('Criteria / Measurement', 'Criteria / Measurement'),
+          c('PASS / FAIL', 'PASS / FAIL'),
+          c('Log Evidence', 'Log Evidence'),
+          c('Failure Reproduction', 'Failure Reproduction'),
+          c('RCA', 'RCA'),
+          c('Regression', 'Regression'),
+        ],
+      },
+      {
+        label: c('Embedded System Integration Know-how', 'Embedded System Integration Know-how'),
+        bullets: {
+          en: [
+            'MCU-based system integration',
+            'CAN Bus command / response validation',
+            'Wi-Fi / Bluetooth connectivity and recovery',
+            'GPS functional validation',
+            'UART / USB / COM / LAN integration',
+            'State Machine / Timeout / Retry / Recovery',
+            'System-level Debug / RCA',
+            'Automated Regression / Evidence',
+          ],
+          zh: [
+            'MCU-based system integration',
+            'CAN Bus command / response validation',
+            'Wi-Fi / Bluetooth connectivity and recovery',
+            'GPS functional validation',
+            'UART / USB / COM / LAN integration',
+            'State Machine / Timeout / Retry / Recovery',
+            'System-level Debug / RCA',
+            'Automated Regression / Evidence',
+          ],
+        },
+      },
+      section(
+        'Technical Scope',
+        '技術範圍',
+        'The above represents hands-on ATE, system-validation, and integration experience; it is not presented as MCU driver or low-level firmware development ownership.',
+        '上述內容代表 ATE / System Validation / Integration 端的實務經驗；不將其描述為 MCU Driver 或底層 Firmware 開發經歷。',
+      ),
+    ],
   },
 ];
 
