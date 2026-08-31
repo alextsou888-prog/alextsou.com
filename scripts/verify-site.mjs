@@ -113,7 +113,7 @@ if (!response || !response.ok) {
 
   const expectedMetadata = [
     'Alex Tsou — Senior Test Automation &amp; System Validation Engineer',
-    '20+ years in Python / C# test automation, system validation, IC / SoC / FPGA, Wi-Fi / 5G, Camera / AI, ATE, and customer engineering.',
+    '20+ years of engineering experience across system validation, test automation, IC / SoC / FPGA, Wi-Fi / 5G, Camera / AI, ATE, and customer engineering, with hands-on Python / C# automation.',
     'https://alextsou.com/portfolio/alex-tsou-og-preview.png',
     'content="1200"',
     'content="630"',

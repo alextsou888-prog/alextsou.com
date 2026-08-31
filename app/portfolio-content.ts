@@ -975,11 +975,12 @@ export const resumeProjectGroups = [
 ];
 
 export const skillCategories = [
-  { title: c('Programming', '程式語言'), skills: ['Python', 'C', 'C++', 'C#', 'Shell / Batch'] },
+  { title: c('Programming', '程式語言'), skills: ['Python', 'C', 'C++', 'C#', 'Shell Script / Batch'] },
   { title: c('Automation', '自動化'), skills: ['Python Automation', 'pytest', 'Test Framework', 'Robot Framework', 'Appium', 'UIAutomator', 'Postman'] },
   { title: c('CI & Engineering Tooling', 'CI 與工程工具'), skills: ['Jenkins', 'GitLab CI', 'GitHub', 'Docker'] },
   { title: c('Test / Validation', '測試 / 驗證'), skills: ['IC / SoC / FPGA Validation', 'Camera SoC', 'AI/NPU', 'Audio AI', 'Wi-Fi / 5G', 'Stress / Stability', 'Regression', 'PASS / FAIL Criteria', 'HW / FW / Driver / Software Isolation'] },
   { title: c('Tools / Interfaces', '工具 / 介面'), skills: ['Instrument Control', 'SCPI', 'DMM', 'Power Supply', 'VeriWave', 'Wireshark', 'iPerf', 'Logs / Traces', 'Jira'] },
+  { title: c('Platforms', '平台'), skills: ['Linux', 'Windows', 'Android', 'Embedded System'] },
 ];
 
 export const engineeringDebugMethodology = {

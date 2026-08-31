@@ -19,18 +19,20 @@ export const metadata: Metadata = {
     template: '%s | Alex Tsou',
   },
   description:
-    '20+ years in Python / C# test automation, system validation, IC / SoC / FPGA, Wi-Fi / 5G, Camera / AI, ATE, and customer engineering.',
+    '20+ years of engineering experience across system validation, test automation, IC / SoC / FPGA, Wi-Fi / 5G, Camera / AI, ATE, and customer engineering, with hands-on Python / C# automation.',
   alternates: { canonical: '/' },
   keywords: [
     'test automation',
-    'software quality',
+    'system validation',
+    'IC validation',
+    'SoC validation',
+    'FPGA validation',
+    'Wi-Fi validation',
+    'Linux',
+    'Camera SoC',
     'Python',
-    'API testing',
-    'Playwright',
     'Selenium',
-    'network validation',
-    'automotive testing',
-    'computer vision',
+    'Playwright',
   ],
   authors: [{ name: 'Alex Tsou' }],
   creator: 'Alex Tsou',
@@ -44,7 +46,7 @@ export const metadata: Metadata = {
     siteName: 'Alex Tsou — Engineering Portfolio',
     title: 'Alex Tsou — Senior Test Automation & System Validation Engineer',
     description:
-      '20+ years in Python / C# test automation, system validation, IC / SoC / FPGA, Wi-Fi / 5G, Camera / AI, ATE, and customer engineering.',
+      '20+ years of engineering experience across system validation, test automation, IC / SoC / FPGA, Wi-Fi / 5G, Camera / AI, ATE, and customer engineering, with hands-on Python / C# automation.',
     images: [
       {
         url: '/portfolio/alex-tsou-og-preview.png',
@@ -58,7 +60,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Alex Tsou — Senior Test Automation & System Validation Engineer',
     description:
-      '20+ years in Python / C# test automation, system validation, IC / SoC / FPGA, Wi-Fi / 5G, Camera / AI, ATE, and customer engineering.',
+      '20+ years of engineering experience across system validation, test automation, IC / SoC / FPGA, Wi-Fi / 5G, Camera / AI, ATE, and customer engineering, with hands-on Python / C# automation.',
     images: ['/portfolio/alex-tsou-og-preview.png'],
   },
   robots: { index: true, follow: true },
