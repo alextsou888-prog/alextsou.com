@@ -569,7 +569,7 @@ const experienceCatalog: PortfolioItem[] = [
   {
     id: 'career-novatek', index: '02', title: c('Novatek Experience', '聯詠科技經歷'),
     summary: c('Nearly nine years of validation and test automation experience spanning IC / SoC / FPGA, Wi-Fi connectivity, Camera SoC / SDK, AI/NPU, Audio AI, measurement, defect reproduction, and regression.', '近九年的驗證與測試自動化經驗，涵蓋 IC / SoC / FPGA、Wi-Fi 連線、Camera SoC / SDK、AI/NPU、Audio AI、量測、問題重現與回歸。'),
-    tags: ['IC / SoC Validation', 'Wi-Fi FPGA', 'Camera SoC', 'AI/NPU', 'Audio AI', 'Python Automation'],
+    tags: ['IC / SoC Validation', 'Wi-Fi FPGA', 'Camera SoC', 'AI/NPU', 'Audio AI', 'Python Automation', 'Linux', 'Shell Script'],
     career: {
       company: c('Novatek Microelectronics Corp.', '聯詠科技股份有限公司'),
       cardCompany: c('Novatek Microelectronics', '聯詠科技'),
@@ -624,8 +624,8 @@ const experienceCatalog: PortfolioItem[] = [
       {
         label: c('Stage 2 · 2019–2022 · Camera SoC / AI-NPU / Audio AI Automation', '階段二 · 2019–2022 · Camera SoC / AI-NPU / Audio AI 自動化'),
         bullets: {
-          en: ['Built Python / pytest automation for IP Camera and Video SoC SDK validation', 'Integrated PySerial, SDK / CGI, UART, Linux, relay, and power-control interfaces', 'Validated H.264 / H.265 modes, resolution, FPS, GOP, bitrate, and CBR / VBR behavior', 'Used Python + OpenCV for Camera/IPCam image validation, including frame extraction, image comparison, rotation handling, ROI processing, and SSIM-based image-quality analysis.', 'Automated cold boot, warm boot, stress, stability, memory-leak monitoring, and firmware programming', 'Orchestrated Pattern.bin execution across simulator, FPGA, and target modes', 'Compared output.bin with golden.bin and automated numerical PASS / FAIL plus regression evidence', 'Supported repeatable Audio AI validation with Python, Gradio, Docker, datasets, and scripts'],
-          zh: ['以 Python / pytest 建立 IP Camera 與 Video SoC SDK 驗證自動化', '整合 PySerial、SDK / CGI、UART、Linux、Relay 與電源控制介面', '驗證 H.264 / H.265 模式、解析度、FPS、GOP、Bitrate 與 CBR / VBR 行為', '於 Novatek 使用 Python + OpenCV 進行 Camera/IPCam 影像驗證，包含 Frame Extraction、影像比對、Rotation 處理、ROI Processing 與以 SSIM 為基礎的影像品質分析。', '自動化 Cold Boot、Warm Boot、Stress、穩定度、Memory Leak 監控與 Firmware Programming', '協調 Pattern.bin 在 Simulator、FPGA 與 Target 模式執行', '比對 output.bin 與 golden.bin，並自動產生數值 PASS / FAIL 與回歸證據', '以 Python、Gradio、Docker、資料集與腳本支援可重複的 Audio AI 驗證'],
+          en: ['Built Python / pytest automation for IP Camera and Video SoC SDK validation', 'Integrated PySerial, SDK / CGI, UART, Linux, relay, and power-control interfaces', 'Validated H.264 / H.265 modes, resolution, FPS, GOP, bitrate, and CBR / VBR behavior', 'Used Python + OpenCV for Camera/IPCam image validation, including frame extraction, image comparison, rotation handling, ROI processing, and SSIM-based image-quality analysis.', 'Automated cold boot, warm boot, stress, stability, memory-leak monitoring, and firmware programming', 'Orchestrated Pattern.bin execution across simulator, FPGA, and target modes', 'Compared output.bin with golden.bin and automated numerical PASS / FAIL plus regression evidence', 'Supported repeatable Audio AI validation with Python, Gradio, Docker, datasets, and scripts', 'Used Linux shell commands and shell scripts for DUT control and validation automation.'],
+          zh: ['以 Python / pytest 建立 IP Camera 與 Video SoC SDK 驗證自動化', '整合 PySerial、SDK / CGI、UART、Linux、Relay 與電源控制介面', '驗證 H.264 / H.265 模式、解析度、FPS、GOP、Bitrate 與 CBR / VBR 行為', '於 Novatek 使用 Python + OpenCV 進行 Camera/IPCam 影像驗證，包含 Frame Extraction、影像比對、Rotation 處理、ROI Processing 與以 SSIM 為基礎的影像品質分析。', '自動化 Cold Boot、Warm Boot、Stress、穩定度、Memory Leak 監控與 Firmware Programming', '協調 Pattern.bin 在 Simulator、FPGA 與 Target 模式執行', '比對 output.bin 與 golden.bin，並自動產生數值 PASS / FAIL 與回歸證據', '以 Python、Gradio、Docker、資料集與腳本支援可重複的 Audio AI 驗證', '使用 Linux Shell 指令與 Shell Script 進行 DUT 控制與驗證自動化。'],
         },
       },
       {
@@ -650,7 +650,7 @@ const experienceCatalog: PortfolioItem[] = [
         body: c('The automation scope covered controlled pattern execution, output comparison, mismatch evidence, PASS / FAIL handling, and regression—not AI model training, model architecture, or NPU compiler ownership.', '自動化範圍涵蓋受控 Pattern 執行、輸出比對、Mismatch 證據、PASS / FAIL 處理與回歸；不包含 AI 模型訓練、模型架構或 NPU Compiler 主責。'),
         flow: [c('Model', '模型'), c('Pattern.bin', 'Pattern.bin'), c('Simulator', 'Simulator'), c('FPGA / Target', 'FPGA / Target'), c('output.bin', 'output.bin'), c('golden.bin', 'golden.bin'), c('Compare', '比對'), c('PASS / FAIL', 'PASS / FAIL')],
       },
-      section('Tech Stack', '技術工具', 'Python · pytest · PySerial · SCPI · VeriWave · OpenCV · FFmpeg · Gradio · Docker · Jenkins · GitLab CI', 'Python · pytest · PySerial · SCPI · VeriWave · OpenCV · FFmpeg · Gradio · Docker · Jenkins · GitLab CI'),
+      section('Tech Stack', '技術工具', 'Python · Linux · Shell Script · pytest · PySerial · SCPI · VeriWave · OpenCV · FFmpeg · Gradio · Docker · Jenkins · GitLab CI', 'Python · Linux · Shell Script · pytest · PySerial · SCPI · VeriWave · OpenCV · FFmpeg · Gradio · Docker · Jenkins · GitLab CI'),
     ],
   },
   {
