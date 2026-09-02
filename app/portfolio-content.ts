@@ -279,7 +279,7 @@ export const capabilityOverview = {
         'Build maintainable Python / C# automation frameworks that connect execution, DUT or instrument control, evidence, verdicts, and regression reports.',
         '以 Python / C# 建立可維護的自動化框架，串接執行、DUT / 儀器控制、工程證據、自動判定與回歸報告。',
       ),
-      tags: ['Python', 'C#', 'Test Framework', 'CI'],
+      tags: ['Python', 'C#', 'Test Framework', 'Jenkins', 'GitLab CI'],
       points: {
         en: ['Framework / Orchestration', 'DUT / Instrument Control', 'Automated Verdict / Regression Report'],
         zh: ['框架 / 流程協調', 'DUT / 儀器控制', '自動判定 / 回歸報告'],
@@ -369,7 +369,7 @@ export const focusItems: PortfolioItem[] = [
       'Build maintainable automation frameworks that connect test setup, execution, evidence collection, PASS / FAIL criteria, and regression reporting.',
       '建立可維護的測試自動化框架，串接測試設定、執行、證據蒐集、PASS / FAIL 判定與 Regression 報告。',
     ),
-    tags: ['Python', 'C#', 'pytest', 'REST API', 'Selenium', 'Appium', 'CI'],
+    tags: ['Python', 'C#', 'pytest', 'REST API', 'Selenium', 'Appium', 'Jenkins', 'GitLab CI'],
     sections: [
       section(
         'Automation Engineering Approach',
@@ -426,7 +426,7 @@ export const focusItems: PortfolioItem[] = [
           'When appropriate, a reproduced failure becomes a deterministic regression case with preserved evidence and a reportable result.',
           '在適用情境下，已重現的失敗應轉換成具保存證據與可報告結果的確定性回歸案例。',
         ),
-        flow: [c('Bug Reproduction', '問題重現'), c('Evidence', '證據'), c('Fix Verification', '修正驗證'), c('Regression Case', '回歸案例'), c('CI / Report', 'CI / 報告')],
+        flow: [c('Bug Reproduction', '問題重現'), c('Evidence', '證據'), c('Fix Verification', '修正驗證'), c('Regression Case', '回歸案例'), c('Jenkins CI / Report', 'Jenkins CI / 報告')],
       },
       {
         label: c('Example — Wi-Fi / 5G Connectivity Automation', '範例 — Wi-Fi / 5G Connectivity 自動化'),
@@ -1088,7 +1088,7 @@ export const problemSolvingHighlights = {
 
 export const flagshipCaseStudies: PortfolioItem[] = [
   {
-    id: 'case-ai-npu', index: '03', title: c('AI / NPU Validation Pipeline', 'AI / NPU 自動化驗證流程'),
+    id: 'case-ai-npu', index: '03', title: c('AI / NPU Engineering Utility Development', 'AI / NPU 工程工具開發'),
     summary: c('Hands-on pattern generation, controlled target execution, golden comparison, automated verdicts, and regression evidence.', '實作 Pattern 產生、受控目標執行、Golden 比對、自動判定與回歸證據。'),
     tags: ['Python', 'Pattern.bin', 'FPGA / NPU', 'Golden Output', 'Mismatch Analysis', 'Regression'],
     sections: [
@@ -1258,7 +1258,7 @@ export const visualItems: PortfolioItem[] = [
     ],
   },
   {
-    id: 'visual-novatek-ai-npu', index: 'VIS_03', title: c('AI / NPU Validation Pipeline', 'AI / NPU 驗證流程'),
+    id: 'visual-novatek-ai-npu', index: 'VIS_03', title: c('AI / NPU Engineering Utility Development', 'AI / NPU 工程工具開發'),
     summary: c('Visual brief for AI/NPU model validation through pattern generation, simulator/FPGA execution, golden comparison, and regression testing.', 'AI/NPU 驗證圖解涵蓋 Pattern 產生、Simulator / FPGA 執行、Golden 比對與回歸測試。'),
     tags: ['AI/NPU', 'Pattern.bin', 'golden.bin', 'Regression'],
     cardFlow: [c('Model', '模型'), c('Pattern.bin', 'Pattern.bin'), c('FPGA / Target', 'FPGA / Target'), c('Compare', '比對'), c('PASS / FAIL', 'PASS / FAIL')],
