@@ -90,8 +90,8 @@ export const ui = {
     about: 'About', skills: 'Capabilities', experience: 'Experience', projects: 'Projects', resume: 'Resume', visualPortfolio: 'Technical Portfolio', cases: 'Cases', domains: 'Domains', contact: 'Contact',
     eyebrow: 'Engineering Portfolio',
     heroA: 'Alex Tsou', heroB: '',
-    heroRole: 'Senior Test Automation & System Validation Engineer',
-    heroLead: 'Python / C# test automation and system validation — applied across Wi-Fi / 5G, Camera / AI, IC / SoC / FPGA, ATE, and customer engineering.',
+    heroRole: 'Senior Software Tool Development & System Integration Engineer',
+    heroLead: 'Hands-on software and system integration engineer with 20+ years of engineering experience across C#/.NET and Python engineering tool development, equipment control, SDK/API integration, communication interfaces, HW/FW/software integration, debugging, and technical leadership.',
     heroContext: 'Requirements / Test Plan → Automation → Evidence Collection → Debug / RCA → Fix Verification → Regression',
     explore: 'Explore engineering areas', viewResume: 'View Resume', viewTechnicalPortfolio: 'View Technical Portfolio', viewEngineeringCases: 'View Engineering Cases', exploreTechnicalDomains: 'Explore Technical Domains', ready: 'READY', panelLabel: 'Engineering focus areas',
     aboutKicker: '07 / About', aboutTitle: 'Quality engineering with a systems mindset.',
@@ -175,8 +175,8 @@ export const ui = {
     about: '關於我', skills: '工程能力', experience: '經歷', projects: '專案', resume: '履歷', visualPortfolio: '技術作品', cases: '工程案例', domains: '技術領域', contact: '聯絡方式',
     eyebrow: '工程作品集',
     heroA: 'Alex Tsou', heroB: '',
-    heroRole: '資深測試自動化與系統驗證工程師',
-    heroLead: '以 Python / C# 進行測試自動化與系統驗證 — 應用於 Wi-Fi / 5G、Camera / AI、IC / SoC / FPGA、ATE 與客戶工程。',
+    heroRole: '資深軟體工具開發與系統整合工程師',
+    heroLead: '具 20+ 年工程經驗，專長為 C#/.NET、Python 工程軟體與 Tool 開發、設備控制、SDK/API 與通訊介面整合、HW/FW/Software 系統整合、Debug/RCA 及 Technical Leadership。',
     heroContext: '需求 / 測試計畫 → 自動化 → 證據收集 → Debug / RCA → 修正驗證 → 回歸測試',
     explore: '瀏覽工程領域', viewResume: '查看完整履歷', viewTechnicalPortfolio: '查看技術作品', viewEngineeringCases: '查看工程案例', exploreTechnicalDomains: '探索技術領域', ready: '就緒', panelLabel: '工程專長領域',
     aboutKicker: '07 / 關於我', aboutTitle: '以系統思維實踐品質工程。',
@@ -261,14 +261,14 @@ export const capabilityOverview = {
   kicker: c('01 / Professional Snapshot', '01 / 專業摘要'),
   title: c('Engineering Capability Overview', '工程能力總覽'),
   subtitle: c(
-    'Build reproducible, traceable automation and system-validation workflows with Python / C# across IC / SoC / FPGA, connectivity, imaging / AI, ATE, and customer engineering.',
-    '以 Python / C# 建立可重現、可追溯的自動化與系統驗證流程，涵蓋 IC / SoC / FPGA、連線、影像 / AI、ATE 與客戶工程。',
+    'Build reliable, maintainable engineering software and system-integration workflows with C#/.NET / Python across equipment control, SDK/API integration, IC / SoC / FPGA, connectivity, imaging / AI, ATE, and customer engineering.',
+    '以 C#/.NET / Python 建立可靠、可維護的工程軟體與系統整合流程，涵蓋設備控制、SDK/API 整合、IC / SoC / FPGA、連線、影像 / AI、ATE 與客戶工程。',
   ),
   snapshot: [
     c('20+ Years Engineering Experience', '20+ 年工程經驗'),
     c('National Cheng Kung University · Electrical Engineering', '國立成功大學 · 電機工程'),
-    c('Python / C#', 'Python / C#'),
-    c('Test Automation · System Validation · Debug / RCA · System Integration', '測試自動化 · 系統驗證 · Debug / RCA · 系統整合'),
+    c('C#/.NET / Python', 'C#/.NET / Python'),
+    c('Software Tool Development · Equipment Control · System Integration · Test Automation / Validation', '軟體工具開發 · 設備控制 · 系統整合 · 測試自動化 / 驗證'),
   ],
   cards: [
     {
@@ -524,52 +524,57 @@ export const focusItems: PortfolioItem[] = [
 const experienceCatalog: PortfolioItem[] = [
   {
     id: 'career-fih', index: '01', title: c('FIH Experience', 'FIH 經歷'),
-    summary: c('Automation-platform integration, system and firmware validation, CAN/touch-panel testing, storage reliability, 5G/Wi-Fi performance, and cross-functional engineering support.', '涵蓋自動化平台整合、系統與韌體驗證、CAN / Touch Panel 測試、儲存可靠度、5G / Wi-Fi 效能與跨部門工程支援。'),
-    tags: ['FIH', 'Automation', 'System Validation', '5G / Wi-Fi / CAN'],
+    summary: c('C#/.NET and Python engineering tool development, equipment control, and HW/SW system integration, with supporting system and firmware validation, CAN/touch-panel testing, storage reliability, and 5G/Wi-Fi performance work.', '以 C#/.NET 與 Python 進行工程工具開發、設備控制與 HW/SW 系統整合，並具備系統與韌體驗證、CAN / Touch Panel 測試、儲存可靠度與 5G / Wi-Fi 效能等支援性工作。'),
+    tags: ['FIH', 'Software Tool Development', 'Equipment Control', 'System Integration', 'System Validation', '5G / Wi-Fi / CAN'],
     career: {
       company: c('FIH / 鴻海富智康', '鴻海富智康 / FIH'),
-      jobTitle: c('Technical Manager | Hands-on Test Automation & System Validation', '技術經理｜Hands-on 測試自動化與系統驗證'),
+      jobTitle: c('Technical Manager | Hands-on Software Tool & System Integration Lead', '技術經理｜Hands-on 軟體工具與系統整合 Lead'),
       period: '2022/09 – 2026/04',
       tenure: c('3 years 8 months', '3年8個月'),
       management: c('Managed 4 team members', '管理人數4人'),
     },
     sections: [
+      section(
+        'Overview', '概述',
+        'Hands-on software engineering role focused on C#/.NET and Python engineering tool development, equipment control, communication interface integration, and HW/SW system integration. Experienced in developing device-control utilities, state-machine based workflows, SDK/API integration, equipment communication, exception handling, diagnostic tools, and engineering support software.',
+        '此角色以 Hands-on 軟體工程為核心，聚焦 C#/.NET 與 Python 工程工具開發、設備控制、通訊介面整合與 HW/SW 系統整合，具備裝置控制工具、State Machine 流程、SDK/API 整合、設備通訊、Exception 處理、診斷工具與工程支援軟體的開發經驗。',
+      ),
       section('Products / Domains', '產品 / 領域', '5G Router · Automotive · AI Glasses · Stylus · Wireless Charging · ESD Validation', '5G Router · 車載 · AI 眼鏡 · 觸控筆 · 無線充電 · ESD 驗證'),
       {
         label: c('Key Contributions', '關鍵貢獻'),
         bullets: {
           en: [
-            'Developed Python / C# automation tools and integrated ATE-side system workflows',
+            'Developed C#/.NET and Python engineering tools, ATE software, device-control utilities, and engineering support applications, and integrated the ATE-side system workflow.',
+            'Designed a software layer where Windows C#/.NET handled DUT, fixture, COM, USB, TCP/IP, Serial, and VISA-based equipment control, while Python handled APIs, data processing, utilities, and reports.',
+            'Developed State Machine-based equipment workflows covering mode switching, trigger, safety interlock, timeout, reconnect, status monitoring, and exception handling.',
+            'Integrated Robot, ESD, Camera, DMM, Power Supply, Fixture, Digital I/O, UART/Serial, TCP/IP, CAN, and SCPI/VISA-controlled equipment, with explicit states and safety boundaries.',
+            'Standardized cross-site production ATE deployment using a Windows Golden Image, hardware baselines, approved driver versions, and startup environment self-checks; containerized non-hardware Python / API / reporting services with Docker where appropriate.',
+            'Used reproducible test flows, logs, device status, API responses, and communication traces for HW/FW/software issue isolation, debugging, root-cause analysis, fix verification, and regression.',
+            'Performed EVT / DVT / PVT-stage system and firmware validation, and automated 5G / Wi-Fi throughput, latency, packet-loss, reconnect, stability, Tx power, and Rx sensitivity validation.',
+            'Validated CAN, touch-panel, and eMMC reliability behaviors with traceable evidence.',
             'Used Playwright for browser-based Web UI automation and regression validation, including page interaction, responsive behavior, DOM verification, and error-oriented browser checks.',
-            'Performed EVT / DVT / PVT-stage system and firmware validation',
-            'Used reproducible test flows and logs for debugging, root-cause isolation, fix verification, and regression',
-            'Automated 5G / Wi-Fi throughput, latency, packet-loss, reconnect, stability, Tx power, and Rx sensitivity validation',
-            'Integrated DMM / PSU control for power-rail and power-consumption validation',
-            'Standardized cross-site production ATE deployment using a Windows Golden Image, hardware baselines, approved driver versions, and startup environment self-checks; kept the C# ATE that directly controls DUT / Fixture / USB / COM / VISA native on Windows, while containerizing non-hardware Python / API / reporting services with Docker where appropriate.',
-            'Validated CAN, touch-panel, and eMMC reliability behaviors with traceable evidence',
-            'Integrated Robot / ESD / Camera workflows with explicit states, interlocks, timeout handling, and safety boundaries',
           ],
           zh: [
-            '開發 Python / C# 自動化工具，並整合 ATE 端系統流程',
+            '開發 C#/.NET 與 Python 工程工具、ATE 軟體、裝置控制工具與工程支援應用程式，並整合 ATE 端系統流程。',
+            '採用軟體分層設計：Windows C#/.NET 負責 DUT、Fixture、COM、USB、TCP/IP、Serial 與 VISA 為基礎的設備控制，Python 負責 API、資料處理、工具與報告。',
+            '開發以 State Machine 為基礎的設備流程，涵蓋 Mode 切換、Trigger、安全 Interlock、Timeout、Reconnect、狀態監控與 Exception 處理。',
+            '整合 Robot、ESD、Camera、DMM、Power Supply、Fixture、Digital I/O、UART/Serial、TCP/IP、CAN 與 SCPI/VISA 控制設備，並具備明確狀態與安全邊界。',
+            '標準化跨廠產線 ATE 部署，透過 Windows Golden Image、硬體規格基準、核准 Driver 版本與啟動環境 Self-Check 控制環境差異；非硬體的 Python / API / Report 服務則視需求以 Docker 容器化。',
+            '以可重現測試流程、Log、裝置狀態、API 回應與通訊 Trace 進行 HW/FW/Software 問題隔離、除錯、根因分析、修正驗證與回歸。',
+            '執行 EVT / DVT / PVT 階段的系統與韌體驗證，並自動化 5G / Wi-Fi Throughput、Latency、Packet Loss、Reconnect、穩定度、Tx Power 與 Rx Sensitivity 驗證。',
+            '以可追溯證據驗證 CAN、Touch Panel 與 eMMC 可靠度行為。',
             '於 FIH 使用 Playwright 進行瀏覽器型 Web UI 自動化與回歸驗證，包含頁面互動、Responsive 行為、DOM 驗證與瀏覽器錯誤檢查。',
-            '執行 EVT / DVT / PVT 階段的系統與韌體驗證',
-            '以可重現測試流程與 Log 進行除錯、根因隔離、修正驗證與回歸',
-            '自動化 5G / Wi-Fi Throughput、Latency、Packet Loss、Reconnect、穩定度、Tx Power 與 Rx Sensitivity 驗證',
-            '整合 DMM / PSU 控制，進行 Power Rail 與 Power Consumption 驗證',
-            '標準化跨廠產線 ATE 部署，透過 Windows Golden Image、硬體規格基準、核准 Driver 版本與啟動環境 Self-Check 控制環境差異；直接控制 DUT / Fixture / USB / COM / VISA 的 C# ATE 維持 Native Windows，非硬體的 Python / API / Report 服務則視需求以 Docker 容器化。',
-            '以可追溯證據驗證 CAN、Touch Panel 與 eMMC 可靠度行為',
-            '以明確狀態、Interlock、Timeout 處理與安全邊界整合 Robot / ESD / Camera 流程',
           ],
         },
       },
       section('Process Alignment', '流程對齊', 'Used Siemens Polarion ALM for requirements traceability, test-case management, defect tracking, and verification activities aligned with Automotive SPICE / ISO 26262 development processes.', '使用 Siemens Polarion ALM 進行需求追溯、測試案例管理、缺陷追蹤，以及與 Automotive SPICE / ISO 26262 開發流程對齊的驗證活動。'),
-      section('Tech Stack', '技術工具', 'Python · C# · Jenkins · GitLab CI · Docker · Keysight UXM · Wireshark · CAN · SCPI · DMM / PSU', 'Python · C# · Jenkins · GitLab CI · Docker · Keysight UXM · Wireshark · CAN · SCPI · DMM / PSU'),
+      section('Tech Stack', '技術工具', 'C# / .NET · Python · Jenkins · GitLab CI · Docker · Keysight UXM · Wireshark · CAN · SCPI · VISA · DMM / PSU', 'C# / .NET · Python · Jenkins · GitLab CI · Docker · Keysight UXM · Wireshark · CAN · SCPI · VISA · DMM / PSU'),
     ],
   },
   {
     id: 'career-novatek', index: '02', title: c('Novatek Experience', '聯詠科技經歷'),
-    summary: c('Nearly nine years of validation and test automation experience spanning IC / SoC / FPGA, Wi-Fi connectivity, Camera SoC / SDK, AI/NPU, Audio AI, measurement, defect reproduction, and regression.', '近九年的驗證與測試自動化經驗，涵蓋 IC / SoC / FPGA、Wi-Fi 連線、Camera SoC / SDK、AI/NPU、Audio AI、量測、問題重現與回歸。'),
-    tags: ['IC / SoC Validation', 'Wi-Fi FPGA', 'Camera SoC', 'AI/NPU', 'Audio AI', 'Python Automation', 'Linux', 'Shell Script'],
+    summary: c('Nearly nine years developing Python engineering tools and SDK integration across IC / SoC / FPGA, Wi-Fi connectivity, Camera SoC / SDK, AI/NPU, and Audio AI, with supporting measurement, defect reproduction, and regression validation.', '近九年以 Python 開發工程工具與 SDK 整合，涵蓋 IC / SoC / FPGA、Wi-Fi 連線、Camera SoC / SDK、AI/NPU 與 Audio AI，並具備量測、問題重現與回歸驗證等支援性工作。'),
+    tags: ['Python Engineering Tool', 'SDK Integration', 'Camera SoC', 'AI/NPU', 'Wi-Fi FPGA', 'IC / SoC Validation', 'Linux', 'Shell Script'],
     career: {
       company: c('Novatek Microelectronics Corp.', '聯詠科技股份有限公司'),
       cardCompany: c('Novatek Microelectronics', '聯詠科技'),
@@ -585,10 +590,10 @@ const experienceCatalog: PortfolioItem[] = [
         flow: [c('2013–2019 · Wi-Fi FPGA / MAC / Certification Automation', '2013–2019 · Wi-Fi FPGA / MAC / 認證自動化'), c('2019–2022 · Camera SoC / AI-NPU / Audio AI Automation', '2019–2022 · Camera SoC / AI-NPU / Audio AI 自動化')],
       },
       {
-        label: c('Stage 1 · 2013–2019 · Wi-Fi FPGA / MAC / Certification Automation', '階段一 · 2013–2019 · Wi-Fi FPGA / MAC / 認證自動化'),
+        label: c('Stage 1 · 2013–2019 · Wi-Fi FPGA / Chip — Python Instrument Control & Engineering Tool Development', '階段一 · 2013–2019 · Wi-Fi FPGA / 晶片 — Python 儀器控制與工程工具開發'),
         bullets: {
-          en: ['Wi-Fi FPGA / chip and MAC-layer validation', 'Python automation with SCPI / USB / LAN equipment control', 'Power supply, oscilloscope, and VeriWave integration', 'Throughput, PER, latency, Tx power, Rx sensitivity, and RvR validation', 'Windows / Linux driver and router / API validation', 'Used Python + Selenium for Web UI / browser automation validation, covering repeatable configuration, login, apply/save, and post-change verification scenarios.', 'Wi-Fi Alliance 11n / 11ac and SGS certification support'],
-          zh: ['Wi-Fi FPGA / 晶片與 MAC Layer 驗證', '使用 Python 自動化整合 SCPI / USB / LAN 設備控制', '整合 Power Supply、Oscilloscope 與 VeriWave', '驗證 Throughput、PER、Latency、Tx Power、Rx Sensitivity 與 RvR', 'Windows / Linux Driver 與 Router / API 驗證', '於 Novatek 使用 Python + Selenium 進行 Web UI／瀏覽器自動化驗證，涵蓋登入、設定變更、Apply/Save 與變更後確認等可重複測試情境。', 'Wi-Fi Alliance 11n / 11ac 與 SGS 認證支援'],
+          en: ['Developed a Python Wi-Fi engineering tool / instrument-control utility for FPGA / chip and MAC-layer validation', 'Integrated SCPI / USB / LAN equipment control, including power supply, oscilloscope, and VeriWave', 'Automated throughput, PER, latency, Tx power, Rx sensitivity, and RvR measurement and data processing', 'Windows / Linux driver and router / API control', 'Used Python + Selenium for Web UI / browser automation validation, covering repeatable configuration, login, apply/save, and post-change verification scenarios.', 'Automated log parsing and report generation to support Wi-Fi Alliance 11n / 11ac and SGS certification preparation'],
+          zh: ['開發 Python Wi-Fi 工程工具／儀器控制工具，用於 FPGA / 晶片與 MAC Layer 驗證', '整合 SCPI / USB / LAN 設備控制，包含 Power Supply、Oscilloscope 與 VeriWave', '自動化 Throughput、PER、Latency、Tx Power、Rx Sensitivity 與 RvR 量測與資料處理', 'Windows / Linux Driver 與 Router / API 控制', '於 Novatek 使用 Python + Selenium 進行 Web UI／瀏覽器自動化驗證，涵蓋登入、設定變更、Apply/Save 與變更後確認等可重複測試情境。', '自動化 Log 解析與報告產生，支援 Wi-Fi Alliance 11n / 11ac 與 SGS 認證準備'],
         },
       },
       {
@@ -622,10 +627,10 @@ const experienceCatalog: PortfolioItem[] = [
         },
       },
       {
-        label: c('Stage 2 · 2019–2022 · Camera SoC / AI-NPU / Audio AI Automation', '階段二 · 2019–2022 · Camera SoC / AI-NPU / Audio AI 自動化'),
+        label: c('Stage 2 · 2019–2022 · Camera SoC / AI-NPU / Audio AI — Python Engineering Tool & SDK Integration', '階段二 · 2019–2022 · Camera SoC / AI-NPU / Audio AI — Python 工程工具與 SDK 整合'),
         bullets: {
-          en: ['Built Python / pytest automation for IP Camera and Video SoC SDK validation', 'Integrated PySerial, SDK / CGI, UART, Linux, relay, and power-control interfaces', 'Validated H.264 / H.265 modes, resolution, FPS, GOP, bitrate, and CBR / VBR behavior', 'Used Python + OpenCV for Camera/IPCam image validation, including frame extraction, image comparison, rotation handling, ROI processing, and SSIM-based image-quality analysis.', 'Automated cold boot, warm boot, stress, stability, memory-leak monitoring, and firmware programming', 'Orchestrated Pattern.bin execution across simulator, FPGA, and target modes', 'Compared output.bin with golden.bin and automated numerical PASS / FAIL plus regression evidence', 'Supported repeatable Audio AI validation with Python, Gradio, Docker, datasets, and scripts', 'Used Linux shell commands and shell scripts for DUT control and validation automation.'],
-          zh: ['以 Python / pytest 建立 IP Camera 與 Video SoC SDK 驗證自動化', '整合 PySerial、SDK / CGI、UART、Linux、Relay 與電源控制介面', '驗證 H.264 / H.265 模式、解析度、FPS、GOP、Bitrate 與 CBR / VBR 行為', '於 Novatek 使用 Python + OpenCV 進行 Camera/IPCam 影像驗證，包含 Frame Extraction、影像比對、Rotation 處理、ROI Processing 與以 SSIM 為基礎的影像品質分析。', '自動化 Cold Boot、Warm Boot、Stress、穩定度、Memory Leak 監控與 Firmware Programming', '協調 Pattern.bin 在 Simulator、FPGA 與 Target 模式執行', '比對 output.bin 與 golden.bin，並自動產生數值 PASS / FAIL 與回歸證據', '以 Python、Gradio、Docker、資料集與腳本支援可重複的 Audio AI 驗證', '使用 Linux Shell 指令與 Shell Script 進行 DUT 控制與驗證自動化。'],
+          en: ['Developed a Python Camera / IPCam SDK engineering tool with pytest automation for IP Camera and Video SoC SDK validation', 'Integrated PySerial, SDK / CGI, UART, Linux shell, relay, and power-control interfaces for camera parameter control', 'Controlled H.264 / H.265 modes, resolution, FPS, GOP, bitrate, and CBR / VBR behavior', 'Used Python + OpenCV for image capture / recording, frame extraction, data processing, image comparison, rotation handling, ROI processing, and SSIM-based image-quality analysis.', 'Automated cold boot, warm boot, stress, stability, memory-leak monitoring, and firmware programming', 'Built a Python AI/NPU binary pattern generator and orchestrated execution across simulator, FPGA, and target modes', 'Compared output.bin with golden.bin and automated numerical PASS / FAIL plus regression evidence', 'Supported repeatable Audio AI validation with Python, Gradio, Docker, datasets, and scripts', 'Used Linux shell commands and shell scripts for DUT control and validation automation.'],
+          zh: ['開發 Python Camera / IPCam SDK 工程工具，並以 pytest 建立 IP Camera 與 Video SoC SDK 驗證自動化', '整合 PySerial、SDK / CGI、UART、Linux Shell、Relay 與電源控制介面，進行 Camera 參數控制', '控制 H.264 / H.265 模式、解析度、FPS、GOP、Bitrate 與 CBR / VBR 行為', '於 Novatek 使用 Python + OpenCV 進行影像擷取／錄影、Frame Extraction、資料處理、影像比對、Rotation 處理、ROI Processing 與以 SSIM 為基礎的影像品質分析。', '自動化 Cold Boot、Warm Boot、Stress、穩定度、Memory Leak 監控與 Firmware Programming', '開發 Python AI/NPU Binary Pattern Generator，並協調 Pattern.bin 在 Simulator、FPGA 與 Target 模式執行', '比對 output.bin 與 golden.bin，並自動產生數值 PASS / FAIL 與回歸證據', '以 Python、Gradio、Docker、資料集與腳本支援可重複的 Audio AI 驗證', '使用 Linux Shell 指令與 Shell Script 進行 DUT 控制與驗證自動化。'],
         },
       },
       {
@@ -646,21 +651,21 @@ const experienceCatalog: PortfolioItem[] = [
         },
       },
       {
-        label: c('AI / NPU Validation Pipeline', 'AI / NPU 驗證流程'),
-        body: c('The automation scope covered controlled pattern execution, output comparison, mismatch evidence, PASS / FAIL handling, and regression—not AI model training, model architecture, or NPU compiler ownership.', '自動化範圍涵蓋受控 Pattern 執行、輸出比對、Mismatch 證據、PASS / FAIL 處理與回歸；不包含 AI 模型訓練、模型架構或 NPU Compiler 主責。'),
+        label: c('AI / NPU Engineering Utility Development', 'AI / NPU 工程工具開發'),
+        body: c('Developed a Python AI/NPU binary pattern generator and utility scope covering data conversion, controlled pattern execution, golden-output comparison, result comparison, log processing, failure analysis, PASS / FAIL handling, and regression—not AI model training, model architecture, or NPU compiler ownership.', '開發 Python AI/NPU Binary Pattern Generator 與工具範圍，涵蓋資料轉換、受控 Pattern 執行、Golden Output 比對、結果比對、Log 處理、失敗分析、PASS / FAIL 處理與回歸；不包含 AI 模型訓練、模型架構或 NPU Compiler 主責。'),
         flow: [c('Model', '模型'), c('Pattern.bin', 'Pattern.bin'), c('Simulator', 'Simulator'), c('FPGA / Target', 'FPGA / Target'), c('output.bin', 'output.bin'), c('golden.bin', 'golden.bin'), c('Compare', '比對'), c('PASS / FAIL', 'PASS / FAIL')],
       },
-      section('Tech Stack', '技術工具', 'Python · Linux · Shell Script · pytest · PySerial · SCPI · VeriWave · OpenCV · FFmpeg · Gradio · Docker · Jenkins · GitLab CI', 'Python · Linux · Shell Script · pytest · PySerial · SCPI · VeriWave · OpenCV · FFmpeg · Gradio · Docker · Jenkins · GitLab CI'),
+      section('Tech Stack', '技術工具', 'Python · SDK Integration · Linux · Shell Script · pytest · PySerial · SCPI · VeriWave · OpenCV · FFmpeg · Gradio · Docker · Jenkins · GitLab CI', 'Python · SDK Integration · Linux · Shell Script · pytest · PySerial · SCPI · VeriWave · OpenCV · FFmpeg · Gradio · Docker · Jenkins · GitLab CI'),
     ],
   },
   {
     id: 'career-tpv-fae', index: '03', title: c('TPV Experience', '冠捷科技經歷'),
-    summary: c('FAE debugging, Android TV automation testing, certification support, cross-team coordination, and field engineering.', 'FAE 除錯、Android TV 自動化測試、認證支援、跨團隊協作與現場工程支援。'),
-    tags: ['Customer Support', 'Android TV', 'Automation', 'System Debug', 'Certification'],
+    summary: c('Android software tool development and FAE customer engineering: Python / ADB / Appium engineering utilities for issue reproduction and debugging, Android TV automation testing, certification support, and cross-team coordination.', 'Android 軟體工具開發與 FAE 客戶工程：以 Python / ADB / Appium 開發問題重現與 Debug 用工程工具，並涵蓋 Android TV 自動化測試、認證支援與跨團隊協作。'),
+    tags: ['Android Software Tool', 'Customer Engineering', 'Python / ADB / Appium', 'Android TV', 'Certification'],
     career: {
       company: c('TPV / 冠捷科技', '冠捷科技 / TPV'),
       cardCompany: c('TPV Technology', '冠捷科技（TPV）'),
-      jobTitle: c('Assistant Manager, FAE | Customer Support & Validation', 'FAE 副理｜客戶支援與驗證'),
+      jobTitle: c('Assistant Manager, FAE | Android Software Tool & Customer Engineering', 'FAE 副理｜Android 軟體工具與客戶工程'),
       period: '2008/09 – 2013/10',
       tenure: c('5 years 2 months', '5年2個月'),
     },
@@ -680,11 +685,11 @@ const experienceCatalog: PortfolioItem[] = [
         flow: [c('Customer Report', '客戶回報'), c('Clarify Environment', '釐清環境'), c('Reproduce', '重現'), c('Capture Log / Evidence', '擷取 Log / 證據'), c('Compare Good vs Bad', 'Good vs Bad 比對'), c('Isolate Layer', '隔離 Layer'), c('RD / Vendor Analysis', 'RD / Vendor 分析'), c('Fix Verification', '修正驗證'), c('Regression', '回歸'), c('Customer Closure', '客戶結案')],
       },
       {
-        label: c('Automation Development', '自動化工具開發'),
-        body: c('I used automation to make customer scenarios repeatable: execute UI/action sequences, collect logs and screenshots where appropriate, rerun validation, and convert reproduced issues into regression support.', '我使用自動化讓客戶情境可重複：執行 UI / 動作序列、依需要收集 Log 與截圖、重跑驗證，並將已重現問題轉為回歸支援。'),
+        label: c('Android Software Tool Development', 'Android 軟體工具開發'),
+        body: c('I developed Android software tools to make customer scenarios repeatable: UI control scripts and action-sequence execution, issue-reproduction tools, debugging aids, log and screenshot collection where appropriate, rerun validation, and conversion of reproduced issues into regression support.', '我開發 Android 軟體工具讓客戶情境可重複：UI 控制腳本與動作序列執行、問題重現工具、Debug 輔助工具、依需要收集 Log 與截圖、重跑驗證，並將已重現問題轉為回歸支援。'),
         bullets: {
-          en: ['Developed Android applications and test utilities to support product validation, issue reproduction, and customer debugging.', 'Python', 'ADB', 'UIAutomator', 'Appium', 'Android / Linux'],
-          zh: ['開發 Android App 與測試工具，用於產品驗證、問題重現與客戶 Debug 支援。', 'Python', 'ADB', 'UIAutomator', 'Appium', 'Android / Linux'],
+          en: ['Developed Android applications, UI control scripts, and issue-reproduction/debugging utilities to support product validation, issue reproduction, and customer debugging.', 'Python', 'ADB', 'UIAutomator', 'Appium', 'Android / Linux'],
+          zh: ['開發 Android App、UI 控制腳本，以及問題重現／Debug 用工具，支援產品驗證、問題重現與客戶 Debug。', 'Python', 'ADB', 'UIAutomator', 'Appium', 'Android / Linux'],
         },
       },
       {
@@ -708,12 +713,12 @@ const experienceCatalog: PortfolioItem[] = [
   },
   {
     id: 'career-management-validation', index: '04', title: c('Compal Experience', '仁寶電腦經歷'),
-    summary: c('Notebook system validation (BIOS/driver/OS, stability, compatibility, Wi-Fi/Bluetooth), issue isolation with HW/FW/BIOS/RD teams, WHQL/GCF execution, plus test management and team leadership.', 'Notebook 系統驗證（BIOS / Driver / OS、系統穩定性、相容性、Wi-Fi / Bluetooth）、與 HW / FW / BIOS / RD 團隊協同除錯定位問題、執行 WHQL / GCF，並負責測試管理與團隊帶領。'),
-    tags: ['Notebook Validation', 'BIOS/Driver/OS', 'Wi-Fi/Bluetooth', 'WHQL/GCF', 'Management'],
+    summary: c('System integration and technical leadership for notebook platforms: led a team of approximately 13 while directing BIOS/driver/OS, stability, compatibility, and Wi-Fi/Bluetooth system validation, issue isolation with HW/FW/BIOS/RD teams, and WHQL/GCF execution.', 'Notebook 平台系統整合與技術領導：帶領約 13 人團隊，同時主導 BIOS / Driver / OS、系統穩定性、相容性與 Wi-Fi / Bluetooth 系統驗證、與 HW / FW / BIOS / RD 團隊協同除錯定位問題，並執行 WHQL / GCF。'),
+    tags: ['System Integration', 'Technical Leadership', 'Notebook Validation', 'BIOS/Driver/OS', 'Wi-Fi/Bluetooth', 'WHQL/GCF'],
     career: {
       company: c('Compal / 仁寶電腦', '仁寶電腦 / Compal'),
       cardCompany: c('Compal Electronics', '仁寶電腦'),
-      jobTitle: c('Software Design Validation Section Manager | System Validation & Test Management', '軟體設計驗證課長｜系統驗證與測試管理'),
+      jobTitle: c('Software Design Validation Section Manager | System Integration & Technical Leadership', '軟體設計驗證課長｜系統整合與技術領導'),
       period: '2002/07 – 2008/09',
       tenure: c('6 years 3 months', '6年3個月'),
       management: c('Managed approximately 13 team members', '管理約13人'),
@@ -756,8 +761,8 @@ export const experienceItems = experienceCatalog.filter((item) => Boolean(item.c
 export const careerSnapshot = {
   name: c('Alex Tsou', '鄒志清'),
   role: c(
-    'Senior Test Automation & System Validation Engineer',
-    '資深測試自動化與系統驗證工程師',
+    'Senior Software Tool Development & System Integration Engineer',
+    '資深軟體工具開發與系統整合工程師',
   ),
   experience: c('20+ Years Engineering Experience', '20+ 年工程經驗'),
   education: c(
@@ -765,17 +770,18 @@ export const careerSnapshot = {
     '國立成功大學 · 電機工程學系',
   ),
   summary: c(
-    'Engineering experience across test automation, system validation, FAE, camera / AI validation, and ATE engineering.',
-    '工程經驗橫跨測試自動化、系統驗證、FAE、Camera / AI 與 ATE。',
+    'Engineering experience across software tool development, equipment control, system integration, SDK/API integration, with supporting depth in test automation, system validation, FAE, camera / AI validation, and ATE engineering.',
+    '工程經驗橫跨軟體工具開發、設備控制、系統整合、SDK/API 整合，並具備測試自動化、系統驗證、FAE、Camera / AI 與 ATE 的支援性專長。',
   ),
   facts: [
     {
       label: c('Target Roles', '目標職務'),
       values: [
-        c('Senior Test Automation Engineer', '資深測試自動化工程師'),
-        c('System Validation Engineer', '系統驗證工程師'),
-        c('ATE Automation Engineer', 'ATE 自動化工程師'),
-        c('Technical FAE', 'Technical FAE'),
+        c('Senior Software Engineer', '資深軟體工程師'),
+        c('Software Tool Development Engineer', '軟體工具開發工程師'),
+        c('Equipment Control Software Engineer', '設備控制軟體工程師'),
+        c('System Integration Software Engineer', '系統整合軟體工程師'),
+        c('Technical Lead', 'Technical Lead'),
       ],
     },
     { label: c('Professional Experience', '工作經驗'), values: [c('20+ Years Engineering Experience', '20+ 年工程經驗')] },
@@ -789,11 +795,11 @@ export const careerSnapshot = {
     { label: c('Location', '所在地'), values: [c('Taiwan', '台灣')] },
     {
       label: c('Core Focus', '核心領域'),
-      values: [c('Automation · System Validation · FAE · Camera / AI · ATE', 'Automation · System Validation · FAE · Camera / AI · ATE')],
+      values: [c('Software / Tool Development · Equipment Control · System Integration · SDK/API Integration · Validation / ATE', 'Software / Tool Development · Equipment Control · System Integration · SDK/API Integration · Validation / ATE')],
     },
     {
       label: c('Key Technologies', '主要技術'),
-      values: [c('Python / C# · HW/SW Integration · Test Automation · Debug / RCA · CI', 'Python / C# · HW/SW Integration · Test Automation · Debug / RCA · CI')],
+      values: [c('C#/.NET · Python · SDK/API Integration · Equipment Control · HW/SW Integration · Debug / RCA', 'C#/.NET · Python · SDK/API Integration · Equipment Control · HW/SW Integration · Debug / RCA')],
     },
   ],
 };
@@ -965,8 +971,17 @@ export const resumeEducation = {
 };
 
 export const resumeCoreGroups = [
-  { title: c('Core Competencies', '核心能力'), items: [c('Automation architecture, validation planning, debug/RCA, cross-functional coordination, traceability, and production-safe verdict design.', '自動化架構、驗證規劃、Debug / RCA、跨部門協調、追溯性與產線安全判定設計。')] },
+  { title: c('Core Competencies', '核心能力'), items: [c('C#/.NET and Python engineering tool development, equipment control, SDK/API integration, system integration, automation architecture, debug/RCA, cross-functional coordination, and traceable verdict design.', 'C#/.NET 與 Python 工程工具開發、設備控制、SDK/API 整合、系統整合、自動化架構、Debug / RCA、跨部門協調與可追溯判定設計。')] },
   { title: c('Experience Overview', '經歷總覽'), items: [c('FIH engineering experience, Novatek validation work, TPV FAE support, and earlier system-validation management experience are represented in the interactive timeline.', 'FIH 工程經歷、聯詠驗證工作、冠捷 FAE 支援，以及早期系統驗證管理經驗已整理於互動時間軸。')] },
+  {
+    title: c('Next Role Focus', '下一階段目標'),
+    items: [
+      c(
+        'For my next role, I am seeking opportunities as a Senior Software Engineer, Software Tool Development Engineer, Equipment Control Software Engineer, System Integration Software Engineer, or Technical Lead. I aim to apply my experience in C#/.NET, Python, SDK/API integration, equipment control, communication interfaces, engineering utilities, and HW/FW/software integration to develop reliable, maintainable, and scalable engineering software solutions.',
+        '下一階段希望投入資深軟體工程師、軟體工具開發、設備控制軟體、系統整合軟體或 Technical Lead 相關職務，以 C#/.NET、Python、SDK/API Integration、Communication Interface、Equipment Control 與 HW/FW/Software Integration 經驗，建立穩定、可維護且可擴充的 Engineering Software Solution。',
+      ),
+    ],
+  },
 ];
 
 export const resumeProjectGroups = [
@@ -975,12 +990,14 @@ export const resumeProjectGroups = [
 ];
 
 export const skillCategories = [
-  { title: c('Programming', '程式語言'), skills: ['Python', 'C', 'C++', 'C#', 'Shell Script / Batch'] },
-  { title: c('Automation', '自動化'), skills: ['Python Automation', 'pytest', 'Test Framework', 'Robot Framework', 'Appium', 'UIAutomator', 'Postman'] },
-  { title: c('CI & Engineering Tooling', 'CI 與工程工具'), skills: ['Jenkins', 'GitLab CI', 'GitHub', 'Docker'] },
-  { title: c('Test / Validation', '測試 / 驗證'), skills: ['IC / SoC / FPGA Validation', 'Camera SoC', 'AI/NPU', 'Audio AI', 'Wi-Fi / 5G', 'Stress / Stability', 'Regression', 'PASS / FAIL Criteria', 'HW / FW / Driver / Software Isolation'] },
-  { title: c('Tools / Interfaces', '工具 / 介面'), skills: ['Instrument Control', 'SCPI', 'DMM', 'Power Supply', 'VeriWave', 'Wireshark', 'iPerf', 'Logs / Traces', 'Jira'] },
+  { title: c('Software / Tool Development', '軟體 / 工具開發'), skills: ['C#', '.NET', 'Python', 'C', 'C++', 'Shell Script / Batch', 'Engineering Tool', 'Utility Development'] },
+  { title: c('Equipment Control / System Integration', '設備控制 / 系統整合'), skills: ['State Machine', 'Equipment Control', 'Fixture Integration', 'Robot / ESD Integration', 'Digital I/O', 'UART / Serial', 'TCP/IP', 'CAN'] },
+  { title: c('SDK / API / Communication', 'SDK / API / 通訊介面'), skills: ['SDK Integration', 'REST API', 'SCPI', 'VISA', 'USB', 'COM / Serial', 'TCP/IP', 'ADB'] },
+  { title: c('Debug / Diagnostic Tooling', 'Debug / 診斷工具'), skills: ['Log Analysis', 'Status Monitoring', 'Exception Handling', 'Timeout / Retry', 'Reconnect', 'Issue Reproduction', 'Root Cause Analysis'] },
+  { title: c('Camera / Image Processing', 'Camera / 影像處理'), skills: ['Camera SoC', 'OpenCV', 'Image Processing', 'ROI', 'Image Comparison', 'ISP / Codec', 'H.264 / H.265'] },
   { title: c('Platforms', '平台'), skills: ['Linux', 'Windows', 'Android', 'Embedded System'] },
+  { title: c('CI & Engineering Tooling', 'CI 與工程工具'), skills: ['Jenkins', 'GitLab CI', 'GitHub', 'Docker'] },
+  { title: c('Validation / Certification', '驗證 / 認證'), skills: ['IC / SoC / FPGA Validation', 'AI/NPU', 'Audio AI', 'Wi-Fi / 5G', 'Stress / Stability', 'Regression', 'PASS / FAIL Criteria', 'HW / FW / Driver / Software Isolation', 'Python Automation', 'pytest', 'Test Framework', 'Robot Framework', 'Appium', 'UIAutomator', 'Postman', 'Instrument Control', 'DMM', 'Power Supply', 'VeriWave', 'Wireshark', 'iPerf', 'Logs / Traces', 'Jira'] },
 ];
 
 export const engineeringDebugMethodology = {
@@ -1297,10 +1314,10 @@ export const visualItems: PortfolioItem[] = [
 const project = (id:string,index:string,title:Copy,summary:Copy,tags:string[],approach:Copy,validation:Copy):PortfolioItem => ({id,index,title,summary,tags,sections:[section('Overview','概述',summary.en,summary.zh),{label:c('Architecture / Flow','架構 / 流程'),flow:[c('Configuration','設定'),c('Automation / Control','自動化 / 控制'),c('Data Collection','資料收集'),c('Criteria','判定條件'),c('Evidence / Report','證據 / 報告')]},section('Approach','方法',approach.en,approach.zh),section('Validation Method','驗證方法',validation.en,validation.zh),section('Result / Value','成果 / 價值','The structure supports clear coverage, artifacts, defect evidence, and outcome review.','此結構支援清楚的覆蓋範圍、產出物、缺陷證據與成果審查。')]});
 
 export const projectItems: PortfolioItem[] = [
-  project('router','01',c('5G / Wi-Fi Router Automation','5G / Wi-Fi Router 自動化'),c('Configurable network and device validation with traffic, packets, stability, and reproducible evidence.','以可設定流程驗證網路與裝置，涵蓋流量、封包、穩定度與可重現證據。'),['5G','Wi-Fi','iPerf'],c('Drive device APIs or UI, generate traffic, capture state and packets, then correlate failures across DUT, client, network, and automation.','控制裝置 API 或 UI、產生流量、擷取狀態與封包，再於 DUT、Client、網路與自動化間關聯失敗。'),c('Use topology and version control, throughput/stability criteria, Wireshark evidence, retries with reason, and regression.','使用拓撲與版本控管、吞吐 / 穩定度條件、Wireshark 證據、具原因的重試與回歸測試。')),
+  project('router','01',c('Python Wireless Instrument Control & Engineering Tool','Python 無線儀器控制與工程工具'),c('Configurable network and device validation with traffic, packets, stability, and reproducible evidence.','以可設定流程驗證網路與裝置，涵蓋流量、封包、穩定度與可重現證據。'),['Python','5G','Wi-Fi','iPerf'],c('Drive device APIs or UI, generate traffic, capture state and packets, then correlate failures across DUT, client, network, and automation.','控制裝置 API 或 UI、產生流量、擷取狀態與封包，再於 DUT、Client、網路與自動化間關聯失敗。'),c('Use topology and version control, throughput/stability criteria, Wireshark evidence, retries with reason, and regression.','使用拓撲與版本控管、吞吐 / 穩定度條件、Wireshark 證據、具原因的重試與回歸測試。')),
   project('rest','02',c('REST API Automation Testing','REST API 自動化測試'),c('Contract, authorization, data, negative-case, and service-behavior validation.','驗證 Contract、授權、資料、負向案例與服務行為。'),['API','Python','Postman'],c('Separate clients, test data, assertions, reporting, and environment configuration so cases stay readable.','分離 Client、測試資料、Assertion、報告與環境設定，維持案例可讀性。'),c('Verify status, schema, fields, error behavior, idempotency, timing, and correlation with service logs.','驗證狀態碼、Schema、欄位、錯誤行為、冪等性、Timing 與 Service Log 關聯。')),
   project('selenium','03',c('Selenium WebUI Automation','Selenium WebUI 自動化'),c('Device Web UI validation at Novatek, converting manual configuration checks into repeatable automated runs.','聯詠時期的裝置 Web UI 驗證，將人工設定檢查轉為可重複執行的自動化流程。'),['Web UI','Selenium','Regression'],c('Drive the device Web UI through Python + Selenium so configuration paths are exercised the same way on every run, instead of relying on manual clicking.','以 Python + Selenium 操作裝置 Web UI，讓每次執行都以相同方式走過設定路徑，取代人工點擊操作。'),c('Confirm the applied configuration actually took effect after the change, and reuse the same runs as repeatable regression checks.','確認設定變更後確實生效，並將相同流程重複用於回歸檢查。')),
-  project('can-hil','04',c('Automotive CAN / HIL Automation','車用 CAN / HIL 自動化'),c('Signal, timing, state, diagnostic, and fault-response validation with traceable bus evidence.','以可追溯 Bus 證據驗證 Signal、Timing、狀態、診斷與 Fault Response。'),['CAN','HIL','Diagnostics'],c('Map requirements to messages/signals, stimulate controlled conditions, capture traces, and correlate DUT state with expected transitions.','將需求對應至 Message / Signal，施加受控條件、擷取 Trace，並關聯 DUT 狀態與預期轉換。'),c('Check scaling, timing, timeout, invalid values, recovery, diagnostic behavior, and regression against recorded traces.','檢查 Scaling、Timing、Timeout、Invalid Value、復原、診斷行為與 Trace 回歸。')),
-  project('opencv','05',c('OpenCV / Computer Vision Demo','OpenCV / 電腦視覺展示'),c('Reproducible acquisition, preprocessing, inspection criteria, and annotated visual evidence.','建立可重現取像、前處理、檢測條件與標註視覺證據。'),['OpenCV','Vision','AOI'],c('Control image inputs, preserve original pixels, isolate processing stages, and expose thresholds and intermediate outputs.','控制影像輸入、保存原始像素、隔離處理階段，並呈現門檻與中間輸出。'),c('Use labeled positive/negative cases, edge conditions, repeatability, and false-positive/false-negative review.','使用標註正負案例、邊界條件、重複性與誤判 / 漏判審查。')),
+  project('can-hil','04',c('Automotive CAN / HIL Diagnostic Engineering Tool','車用 CAN / HIL 診斷工程工具'),c('Signal, timing, state, diagnostic, and fault-response validation with traceable bus evidence.','以可追溯 Bus 證據驗證 Signal、Timing、狀態、診斷與 Fault Response。'),['CAN','HIL','Diagnostics'],c('Map requirements to messages/signals, stimulate controlled conditions, capture traces, and correlate DUT state with expected transitions.','將需求對應至 Message / Signal，施加受控條件、擷取 Trace，並關聯 DUT 狀態與預期轉換。'),c('Check scaling, timing, timeout, invalid values, recovery, diagnostic behavior, and regression against recorded traces.','檢查 Scaling、Timing、Timeout、Invalid Value、復原、診斷行為與 Trace 回歸。')),
+  project('opencv','05',c('Python Camera / Vision Engineering Tool','Python Camera / 視覺工程工具'),c('Reproducible acquisition, preprocessing, inspection criteria, and annotated visual evidence.','建立可重現取像、前處理、檢測條件與標註視覺證據。'),['Python','OpenCV','Vision','AOI'],c('Control image inputs, preserve original pixels, isolate processing stages, and expose thresholds and intermediate outputs.','控制影像輸入、保存原始像素、隔離處理階段，並呈現門檻與中間輸出。'),c('Use labeled positive/negative cases, edge conditions, repeatability, and false-positive/false-negative review.','使用標註正負案例、邊界條件、重複性與誤判 / 漏判審查。')),
   project('cicd','06',c('Camera / IPCam Jenkins CI Regression Automation','Camera / IPCam Jenkins CI 回歸自動化'),c('Camera / IPCam pytest automation integrated into weekly Jenkins CI regression workflows with automated test execution, result processing, and report generation.','將 Camera / IPCam pytest 自動化整合至每週 Jenkins CI 回歸流程，自動完成測試執行、結果處理與報告產生。'),['Jenkins CI','pytest','Regression'],c('Build Jenkins CI pipeline/job automation, maintain Jenkins jobs, and integrate the Camera / IPCam pytest suite into weekly Jenkins CI regression workflows.','建立 Jenkins CI Pipeline / Job 自動化、維護 Jenkins Job，並將 Camera / IPCam pytest 測試套件整合至每週 Jenkins CI 回歸流程。'),c('Verify automated test execution, result processing, and report generation within the Jenkins CI workflow.','驗證 Jenkins CI 流程中的自動測試執行、結果處理與報告產生。')),
 ];

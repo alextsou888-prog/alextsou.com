@@ -74,8 +74,8 @@ if (!response || !response.ok) {
 
   for (const marker of [
     '20+ 年工程經驗',
-    '資深測試自動化與系統驗證工程師',
-    '以 Python / C# 進行測試自動化與系統驗證 — 應用於 Wi-Fi / 5G、Camera / AI、IC / SoC / FPGA、ATE 與客戶工程。',
+    '資深軟體工具開發與系統整合工程師',
+    '具 20+ 年工程經驗，專長為 C#/.NET、Python 工程軟體與 Tool 開發、設備控制、SDK/API 與通訊介面整合、HW/FW/Software 系統整合、Debug/RCA 及 Technical Leadership。',
     '需求 / 測試計畫',
     'Wi-Fi / 5G Router + Keysight UXM Python 自動化',
     '四個精簡工程摘要',
@@ -112,8 +112,8 @@ if (!response || !response.ok) {
   }
 
   const expectedMetadata = [
-    'Alex Tsou — Senior Test Automation &amp; System Validation Engineer',
-    '20+ years of engineering experience across system validation, test automation, IC / SoC / FPGA, Wi-Fi / 5G, Camera / AI, ATE, and customer engineering, with hands-on Python / C# automation.',
+    'Alex Tsou — Senior Software Tool Development &amp; System Integration Engineer',
+    '20+ years of engineering experience across software tool development, system integration, equipment control, IC / SoC / FPGA, Wi-Fi / 5G, Camera / AI, ATE, and customer engineering, with hands-on C#/.NET and Python engineering software development.',
     'https://alextsou.com/portfolio/alex-tsou-og-preview.png',
     'content="1200"',
     'content="630"',
@@ -158,8 +158,8 @@ for (const title of ['MCU / CAN / Wireless Product Validation', 'MCU / CAN / 無
   if (titleCount !== 1) fail(`Expected source title exactly once: ${title}; found ${titleCount}`);
 }
 for (const marker of [
-  'Senior Test Automation & System Validation Engineer',
-  '資深測試自動化與系統驗證工程師',
+  'Senior Software Tool Development & System Integration Engineer',
+  '資深軟體工具開發與系統整合工程師',
   'Requirements / Test Plan → Automation → Evidence Collection → Debug / RCA → Fix Verification → Regression',
   '需求 / 測試計畫 → 自動化 → 證據收集 → Debug / RCA → 修正驗證 → 回歸測試',
 ]) {
