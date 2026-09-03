@@ -1,11 +1,37 @@
 export type Language = 'en' | 'zh';
 export type Copy = Record<Language, string>;
 
+export type McuInterfaceGuide = {
+  subtitle: Copy;
+  positioning: Copy;
+  protocols: Array<{
+    name: 'UART' | 'I2C' | 'SPI';
+    description: Copy;
+    signals: Copy;
+    configuration?: Copy;
+    applications: Copy;
+    validation: Copy;
+    note: Copy;
+    diagram?: Copy;
+  }>;
+  comparison: Array<{
+    interface: 'UART' | 'I2C' | 'SPI';
+    clock: Copy;
+    wires: string;
+    multiDevice: Copy;
+    typicalUse: Copy;
+    note: Copy;
+  }>;
+  selectionLabel: Copy;
+  selection: Record<Language, string[]>;
+};
+
 export type DetailSection = {
   label: Copy;
   body?: Copy;
   bullets?: Record<Language, string[]>;
   flow?: Copy[];
+  interfaceGuide?: McuInterfaceGuide;
 };
 
 export type PortfolioItem = {
@@ -951,6 +977,110 @@ export const domainDetailItems: PortfolioItem[] = [
             'System-level Debug / RCA',
             'Automated Regression / Evidence',
           ],
+        },
+      },
+      {
+        label: c('MCU Communication Interfaces', 'MCU 通訊介面'),
+        interfaceGuide: {
+          subtitle: c(
+            'UART / I2C / SPI — Integration, Validation and Debugging',
+            'UART / I2C / SPI — 系統整合、驗證與 Debug',
+          ),
+          positioning: c(
+            'Familiar with MCU interface-level integration and validation across UART, I2C, SPI and CAN, including signal/configuration checks, command/response verification, timeout handling and fault isolation.',
+            '熟悉 UART、I2C、SPI、CAN 等 MCU 介面的系統整合與驗證，包含 Signal/Configuration 檢查、Command/Response 驗證、Timeout Handling 與 Fault Isolation。',
+          ),
+          protocols: [
+            {
+              name: 'UART',
+              description: c('Asynchronous serial communication.', '非同步序列通訊。'),
+              signals: c('TX / RX / GND', 'TX / RX / GND'),
+              configuration: c('Common: 115200, 8-N-1', '常見：115200, 8-N-1'),
+              applications: c(
+                'GPS, modem, debug console, Bluetooth or satellite module, and AT-command communication.',
+                'GPS、Modem、Debug Console、Bluetooth Module、Satellite Module 與 AT Command。',
+              ),
+              validation: c(
+                'TX/RX wiring, common ground, baud rate, parity/data/stop bits, voltage level, framing errors, timeout and response parsing.',
+                'TX/RX 是否接反、是否共地、Baud Rate、Parity/Data/Stop Bit、Logic Level、Framing Error、Timeout 與 Response Parsing。',
+              ),
+              note: c('Simple point-to-point communication.', '簡單的 Point-to-Point 通訊。'),
+              diagram: c(
+                'MCU\n↓ UART\nSatellite Modem\n↓\nAT+CSQ\n↓\n+CSQ: 18,99\nOK',
+                'MCU\n↓ UART\nSatellite Modem\n↓\nAT+CSQ\n↓\n+CSQ: 18,99\nOK',
+              ),
+            },
+            {
+              name: 'I2C',
+              description: c(
+                'Synchronous two-wire bus; multiple devices share the bus and are selected by address.',
+                '同步雙線式通訊；多個 Device 可共用 Bus，透過 Address 區分。',
+              ),
+              signals: c('SDA / SCL', 'SDA / SCL'),
+              configuration: c('SDA/SCL usually require pull-up resistors.', 'SDA/SCL 通常需要 Pull-up Resistor。'),
+              applications: c('Sensors, EEPROM, PMIC and low-speed peripherals.', 'Sensor、EEPROM、PMIC 與低速 Peripheral。'),
+              validation: c(
+                'Device address, 7-bit vs 8-bit addressing, ACK/NACK, pull-up resistance, bus speed, device power and bus-stuck conditions.',
+                'Device Address、7-bit / 8-bit Address、ACK/NACK、Pull-up、Clock Frequency、Device Power 與 Bus Stuck。',
+              ),
+              note: c('Fewer pins for many low-speed peripherals.', '以較少 Pin 連接多個低速 Peripheral。'),
+              diagram: c(
+                'MCU\n├─ SDA\n└─ SCL\n   ↓\nSensor 0x48\nEEPROM 0x50\nPMIC   0x2D',
+                'MCU\n├─ SDA\n└─ SCL\n   ↓\nSensor 0x48\nEEPROM 0x50\nPMIC   0x2D',
+              ),
+            },
+            {
+              name: 'SPI',
+              description: c('Synchronous serial communication, usually with higher throughput than I2C.', '同步序列通訊，通常比 I2C 有更高的 Throughput。'),
+              signals: c('SCLK / MOSI / MISO / CS', 'SCLK / MOSI / MISO / CS'),
+              configuration: c('Multiple devices usually need separate CS lines.', '多個 Device 通常需要不同 CS。'),
+              applications: c('Flash, IMU, ADC, high-speed sensors and displays.', 'Flash、IMU、ADC、高速 Sensor 與 Display。'),
+              validation: c(
+                'CS timing, SPI mode (CPOL/CPHA), clock rate, bit order, frame length, and MISO/MOSI wiring and timing.',
+                'CS Timing、SPI Mode（CPOL/CPHA）、Clock Rate、Bit Order、Frame Length、MISO/MOSI Wiring 與 Timing。',
+              ),
+              note: c('Higher speed and lower latency, with more pins.', '較高速度與較低 Latency，但需要較多 Pin。'),
+            },
+          ],
+          comparison: [
+            {
+              interface: 'UART',
+              clock: c('No', 'No'),
+              wires: 'TX / RX',
+              multiDevice: c('Limited', '有限'),
+              typicalUse: c('GPS / Modem / Debug', 'GPS / Modem / Debug'),
+              note: c('Point-to-point', 'Point-to-Point'),
+            },
+            {
+              interface: 'I2C',
+              clock: c('Yes', 'Yes'),
+              wires: 'SDA / SCL',
+              multiDevice: c('Easy via address', '透過 Address'),
+              typicalUse: c('Sensor / EEPROM / PMIC', 'Sensor / EEPROM / PMIC'),
+              note: c('Fewer pins; low-speed devices', '較少 Pin；多個低速 Device'),
+            },
+            {
+              interface: 'SPI',
+              clock: c('Yes', 'Yes'),
+              wires: 'SCLK / MOSI / MISO / CS',
+              multiDevice: c('CS per device', '每個 Device 使用 CS'),
+              typicalUse: c('Flash / IMU / Display', 'Flash / IMU / Display'),
+              note: c('Higher speed / lower latency', '較高速度 / 較低 Latency'),
+            },
+          ],
+          selectionLabel: c('Selection guideline', '介面選擇原則'),
+          selection: {
+            en: [
+              'UART: point-to-point communication, modem/GPS/debug console.',
+              'I2C: multiple low-speed peripherals with minimal pin count.',
+              'SPI: higher throughput or lower latency for Flash/IMU/display.',
+            ],
+            zh: [
+              'UART：Point-to-Point，例如 Modem、GPS、Debug Console。',
+              'I2C：多個低速 Peripheral，且希望節省 Pin。',
+              'SPI：需要較高 Throughput 或較低 Latency，例如 Flash、IMU、Display。',
+            ],
+          },
         },
       },
       section(

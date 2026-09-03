@@ -162,8 +162,19 @@ for (const marker of [
   '資深軟體工具開發與系統整合工程師',
   'Requirements / Test Plan → Automation → Evidence Collection → Debug / RCA → Fix Verification → Regression',
   '需求 / 測試計畫 → 自動化 → 證據收集 → Debug / RCA → 修正驗證 → 回歸測試',
+  "label: c('MCU Communication Interfaces', 'MCU 通訊介面')",
+  "'UART / I2C / SPI — Integration, Validation and Debugging'",
+  "'UART / I2C / SPI — 系統整合、驗證與 Debug'",
+  "name: 'UART'",
+  "name: 'I2C'",
+  "name: 'SPI'",
 ]) {
   if (!portfolioSource.includes(marker)) fail(`Missing bilingual recruiter-positioning source marker: ${marker}`);
+}
+
+for (const title of ['MCU Communication Interfaces', 'MCU 通訊介面']) {
+  const titleCount = portfolioSource.split(title).length - 1;
+  if (titleCount !== 1) fail(`Expected MCU interface subsection title exactly once: ${title}; found ${titleCount}`);
 }
 
 for (const path of [

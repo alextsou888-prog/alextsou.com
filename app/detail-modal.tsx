@@ -3,7 +3,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import { useEffect, useRef } from 'react';
-import type { Language, PortfolioItem } from './portfolio-content';
+import type { Language, McuInterfaceGuide as McuInterfaceGuideData, PortfolioItem } from './portfolio-content';
 
 type Props = {
   item: PortfolioItem;
@@ -14,6 +14,57 @@ type Props = {
   dialogLabel: string;
   onClose: () => void;
 };
+
+function McuInterfaceGuide({ guide, language }: { guide: McuInterfaceGuideData; language: Language }) {
+  const labels = language === 'en'
+    ? { signals: 'Signals', configuration: 'Configuration', applications: 'Typical use', validation: 'Validation / Debug', comparison: 'Interface comparison', interface: 'Interface', clock: 'Clock', wires: 'Typical wires', multiDevice: 'Multi-device', typicalUse: 'Typical use', profile: 'Profile' }
+    : { signals: '訊號', configuration: '設定', applications: '常見應用', validation: '驗證 / Debug', comparison: '介面比較', interface: '介面', clock: 'Clock', wires: '常見接線', multiDevice: '多裝置', typicalUse: '常見應用', profile: '特性' };
+  const headers = [labels.interface, labels.clock, labels.wires, labels.multiDevice, labels.typicalUse, labels.profile];
+
+  return (
+    <div className="mcu-interface-guide" data-mcu-interface-guide={language}>
+      <p className="mcu-interface-subtitle">{guide.subtitle[language]}</p>
+      <p className="mcu-interface-positioning">{guide.positioning[language]}</p>
+
+      <div className="mcu-protocol-grid">
+        {guide.protocols.map((protocol) => (
+          <article className="mcu-protocol-card" data-mcu-interface={protocol.name} key={protocol.name}>
+            <div className="mcu-protocol-heading">
+              <h4>{protocol.name}</h4>
+              <span>{protocol.note[language]}</span>
+            </div>
+            <p>{protocol.description[language]}</p>
+            <dl>
+              <div><dt>{labels.signals}</dt><dd>{protocol.signals[language]}</dd></div>
+              {protocol.configuration && <div><dt>{labels.configuration}</dt><dd>{protocol.configuration[language]}</dd></div>}
+              <div><dt>{labels.applications}</dt><dd>{protocol.applications[language]}</dd></div>
+              <div><dt>{labels.validation}</dt><dd>{protocol.validation[language]}</dd></div>
+            </dl>
+            {protocol.diagram && <pre aria-label={`${protocol.name} ${language === 'en' ? 'example' : '範例'}`}>{protocol.diagram[language]}</pre>}
+          </article>
+        ))}
+      </div>
+
+      <div className="mcu-comparison" aria-label={labels.comparison}>
+        <table>
+          <caption>{labels.comparison}</caption>
+          <thead><tr>{headers.map((header) => <th scope="col" key={header}>{header}</th>)}</tr></thead>
+          <tbody>
+            {guide.comparison.map((row) => {
+              const cells = [row.interface, row.clock[language], row.wires, row.multiDevice[language], row.typicalUse[language], row.note[language]];
+              return <tr key={row.interface}>{cells.map((cell, index) => <td data-label={headers[index]} key={`${row.interface}-${headers[index]}`}>{cell}</td>)}</tr>;
+            })}
+          </tbody>
+        </table>
+      </div>
+
+      <aside className="mcu-selection-note">
+        <h4>{guide.selectionLabel[language]}</h4>
+        <ul>{guide.selection[language].map((item) => <li key={item}>{item}</li>)}</ul>
+      </aside>
+    </div>
+  );
+}
 
 export function DetailModal({ item, language, onLanguageChange, closeLabel, contactLabel, dialogLabel, onClose }: Props) {
   const panelRef = useRef<HTMLDivElement>(null);
@@ -133,6 +184,7 @@ export function DetailModal({ item, language, onLanguageChange, closeLabel, cont
                   ))}
                 </div>
               )}
+              {entry.interfaceGuide && <McuInterfaceGuide guide={entry.interfaceGuide} language={language} />}
             </section>
           ))}
         </div>
