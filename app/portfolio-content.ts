@@ -593,6 +593,25 @@ const experienceCatalog: PortfolioItem[] = [
           ],
         },
       },
+      {
+        label: c('5G Router & Automotive System Integration', '5G Router 與車載系統整合'),
+        bullets: {
+          en: [
+            'Developed C#/.NET and Python engineering tools for device control, system integration, automated workflows, data processing, diagnostic utilities, and engineering support across 5G Router and automotive applications.',
+            'Integrated DUTs, fixtures, instruments, and communication interfaces including CAN, UART/Serial, TCP/IP, Wi-Fi / 5G, GNSS, USB, DMM, Power Supply, Keysight UXM, and Wireshark.',
+            'Implemented state-machine-based workflows covering initialization, device control, timeout, retry, reconnect, device-status monitoring, exception handling, and result processing.',
+            'Supported Wi-Fi / 5G connectivity analysis across throughput, latency, packet loss, disconnect/reconnect scenarios, device-state troubleshooting, log collection, and layered HW/FW/software issue isolation; supported automotive integration through CAN interface and device-state evidence.',
+            'Used Jenkins, GitLab CI, and Docker as hands-on engineering tooling, and provided customer-facing engineering support with cross-functional coordination among software, firmware, hardware, and external teams.',
+          ],
+          zh: [
+            '運用 C#/.NET 與 Python 開發工程工具，支援 5G Router 與車載應用中的裝置控制、系統整合、自動化流程、資料處理、診斷工具與工程支援。',
+            '整合 DUT、治具、儀器與通訊介面，包含 CAN、UART/Serial、TCP/IP、Wi-Fi / 5G、GNSS、USB、DMM、Power Supply、Keysight UXM 與 Wireshark。',
+            '實作以 State Machine 為基礎的流程，涵蓋初始化、裝置控制、Timeout、Retry、Reconnect、裝置狀態監控、Exception Handling 與結果處理。',
+            '支援 Wi-Fi / 5G 連線分析，涵蓋 Throughput、Latency、Packet Loss、斷線／重連情境、裝置狀態除錯、Log 收集與 HW/FW/Software 分層問題隔離；並透過 CAN 介面與裝置狀態證據支援車載系統整合。',
+            '將 Jenkins、GitLab CI 與 Docker 作為 Hands-on 工程工具使用，並提供面向客戶的工程支援，協調 Software、Firmware、Hardware 與外部團隊。',
+          ],
+        },
+      },
       section('Process Alignment', '流程對齊', 'Used Siemens Polarion ALM for requirements traceability, test-case management, defect tracking, and verification activities aligned with Automotive SPICE / ISO 26262 development processes.', '使用 Siemens Polarion ALM 進行需求追溯、測試案例管理、缺陷追蹤，以及與 Automotive SPICE / ISO 26262 開發流程對齊的驗證活動。'),
       section('Tech Stack', '技術工具', 'C# / .NET · Python · Jenkins · GitLab CI · Docker · Keysight UXM · Wireshark · CAN · SCPI · VISA · DMM / PSU', 'C# / .NET · Python · Jenkins · GitLab CI · Docker · Keysight UXM · Wireshark · CAN · SCPI · VISA · DMM / PSU'),
     ],
@@ -773,6 +792,23 @@ const experienceCatalog: PortfolioItem[] = [
             'Field trial 協調與量產前驗證',
             '測試規劃、SOP 建立與專案 / 測試管理',
             '團隊帶領、資源分配，以及供應商 / 客戶跨部門溝通',
+          ],
+        },
+      },
+      {
+        label: c('AMD Graphics Performance & Stability Engineering', 'AMD 顯示系統效能與穩定性工程'),
+        bullets: {
+          en: [
+            'Worked on AMD graphics platform performance, stability, driver compatibility, and system-level issue analysis within notebook system engineering.',
+            'Planned test environments and comparison scenarios across Windows, BIOS, graphics-driver versions, and hardware configurations. Evaluated graphics performance, long-run stability, display behavior, thermal/power characteristics, and reproducibility of hang/crash/driver-related issues.',
+            'Performed issue reproduction and layered isolation across graphics driver, BIOS, OS, display interface, hardware configuration, and system integration, coordinating with AMD, internal RD, and hardware teams through issue closure.',
+            'Supported multi-display and display-interface compatibility, driver-version regression, long-duration stress scenarios, and engineering data/report preparation for debugging and product improvement.',
+          ],
+          zh: [
+            '於 Notebook 系統工程中，參與 AMD 顯示平台的效能、穩定性、Driver 相容性與系統層級問題分析。',
+            '規劃跨 Windows、BIOS、Graphics Driver 版本與硬體配置的測試環境及比較情境，評估顯示效能、長時間穩定性、顯示行為、溫度／功耗特性，以及 Hang、Crash 與 Driver 相關問題的可重現性。',
+            '針對 Graphics Driver、BIOS、OS、Display Interface、Hardware Configuration 與 System Integration 進行問題重現與分層隔離，並與 AMD、內部 RD 及 Hardware 團隊協作追蹤至問題結案。',
+            '支援 Multi-display 與顯示介面相容性、Driver 版本 Regression、長時間 Stress 情境，以及除錯與產品改善所需的工程資料及報告整理。',
           ],
         },
       },
