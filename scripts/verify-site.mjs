@@ -62,9 +62,22 @@ if (!response || !response.ok) {
   }
   const certificationCards = [...html.matchAll(/<button\b[^>]*data-capability-card="capability-certification"[^>]*>[\s\S]*?<\/button>/g)];
   if (certificationCards.length !== 1) fail(`Expected one consolidated certification card, found ${certificationCards.length}`);
-  const certificationTags = [...(certificationCards[0]?.[0] ?? '').matchAll(/<span>(Wi-Fi|Bluetooth \(BQB\)|HDMI|WHQL|Android CTS|GTS|GMS)<\/span>/g)].map((match) => match[1]);
-  if (certificationTags.length !== 7 || new Set(certificationTags).size !== 7) {
-    fail('The consolidated certification card must show all seven distinct certification labels');
+  const certificationCardHtml = certificationCards[0]?.[0] ?? '';
+  const certificationTags = [...certificationCardHtml.matchAll(/<span>(Wi-Fi|WHQL|Android CTS \/ GTVS)<\/span>/g)].map((match) => match[1]);
+  const expectedCertificationTags = ['Wi-Fi', 'WHQL', 'Android CTS / GTVS'];
+  if (certificationTags.length !== expectedCertificationTags.length || expectedCertificationTags.some((tag, index) => certificationTags[index] !== tag)) {
+    fail(`The consolidated certification card must show only evidence-backed labels: ${expectedCertificationTags.join(', ')}`);
+  }
+  const forbiddenPublicCleanupText = ['Bluetooth (BQB)', 'BQB', 'HDMI', 'GTS', 'GMS', 'Scope to Confirm', '範圍待確認', 'awaits confirmation', '待確認', '尚無', '不延伸', 'AI 整理', 'AI整理', '內部整理', 'Foundational Knowledge'];
+  for (const forbiddenCertificationText of forbiddenPublicCleanupText) {
+    if (certificationCardHtml.includes(forbiddenCertificationText)) {
+      fail(`Forbidden unconfirmed certification wording remains in the public certification card: ${forbiddenCertificationText}`);
+    }
+  }
+  for (const forbiddenPublicText of forbiddenPublicCleanupText) {
+    if (html.includes(forbiddenPublicText)) {
+      fail(`Forbidden public cleanup wording remains in the homepage HTML: ${forbiddenPublicText}`);
+    }
   }
   if (!html.includes('核心技能與技術領域')) fail('Missing Core Skills & Technical Domains section title');
 
