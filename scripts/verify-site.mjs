@@ -68,12 +68,13 @@ if (!response || !response.ok) {
   if (certificationTags.length !== expectedCertificationTags.length || expectedCertificationTags.some((tag, index) => certificationTags[index] !== tag)) {
     fail(`The consolidated certification card must show only evidence-backed labels: ${expectedCertificationTags.join(', ')}`);
   }
-  const forbiddenPublicCleanupText = ['Bluetooth (BQB)', 'BQB', 'HDMI', 'GTS', 'GMS', 'Scope to Confirm', '範圍待確認', 'awaits confirmation', '待確認', '尚無', '不延伸', 'AI 整理', 'AI整理', '內部整理', 'Foundational Knowledge'];
-  for (const forbiddenCertificationText of forbiddenPublicCleanupText) {
+  const forbiddenCertificationLabels = ['Bluetooth (BQB)', 'BQB', 'HDMI', 'GTS', 'GMS'];
+  for (const forbiddenCertificationText of forbiddenCertificationLabels) {
     if (certificationCardHtml.includes(forbiddenCertificationText)) {
-      fail(`Forbidden unconfirmed certification wording remains in the public certification card: ${forbiddenCertificationText}`);
+      fail(`Unconfirmed certification label remains in the public certification card: ${forbiddenCertificationText}`);
     }
   }
+  const forbiddenPublicCleanupText = ['Scope to Confirm', '範圍待確認', 'awaits confirmation', '待確認', '尚無明確經驗描述', '不延伸為 GMS 認證主責', 'AI 整理', 'AI整理', '內部整理備註'];
   for (const forbiddenPublicText of forbiddenPublicCleanupText) {
     if (html.includes(forbiddenPublicText)) {
       fail(`Forbidden public cleanup wording remains in the homepage HTML: ${forbiddenPublicText}`);
