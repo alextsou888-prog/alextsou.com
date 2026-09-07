@@ -820,6 +820,64 @@ const experienceCatalog: PortfolioItem[] = [
 
 export const experienceItems = experienceCatalog.filter((item) => Boolean(item.career));
 
+// Reuse the career evidence so the certification overview cannot drift from it.
+function careerEvidence(itemId: string, sectionLabel: string): DetailSection {
+  const evidence = experienceItems.find((item) => item.id === itemId)?.sections.find((entry) => entry.label.en === sectionLabel);
+  if (!evidence?.bullets) throw new Error(`Missing certification evidence: ${itemId} / ${sectionLabel}`);
+  return evidence;
+}
+
+const wifiCertification = careerEvidence('career-novatek', 'Wi-Fi Certification Evidence');
+const wifiPreparation = careerEvidence('career-novatek', 'Stage 1 · 2013–2019 · Wi-Fi FPGA / Chip — Python Instrument Control & Engineering Tool Development');
+const notebookValidation = careerEvidence('career-management-validation', 'Engineering Scope');
+const androidCertification = careerEvidence('career-tpv-fae', 'Validation & Certification');
+
+export const certificationItem: PortfolioItem = {
+  id: 'capability-certification',
+  index: '07',
+  title: c('Certification & Compliance Testing', '認證與合規測試'),
+  summary: c(
+    'Wi-Fi certification testing and SGS evidence preparation · WHQL execution · Android CTS / GTVS testing and regression support. Bluetooth BQB, HDMI, GTS and GMS experience scope awaits confirmation.',
+    'Wi-Fi 認證測試與 SGS 證據整理 · WHQL 測試執行 · Android CTS / GTVS 測試與回歸支援。Bluetooth BQB、HDMI、GTS 與 GMS 的經驗範圍待確認。',
+  ),
+  tags: ['Wi-Fi', 'Bluetooth (BQB)', 'HDMI', 'WHQL', 'Android CTS', 'GTS', 'GMS'],
+  sections: [
+    {
+      label: c('Wi-Fi · Certification Testing', 'Wi-Fi · 認證測試'),
+      body: c('Novatek · Certification execution, SGS submission evidence, and supporting validation automation.', '聯詠 · 認證測試執行、SGS 送測證據與相關驗證自動化。'),
+      bullets: {
+        en: [...wifiCertification.bullets!.en, ...wifiPreparation.bullets!.en],
+        zh: [...wifiCertification.bullets!.zh, ...wifiPreparation.bullets!.zh],
+      },
+    },
+    {
+      label: c('Bluetooth (BQB) · Scope to Confirm', 'Bluetooth (BQB) · 範圍待確認'),
+      body: c('Compal · Existing experience covers Bluetooth system validation. BQB pre-testing, submission support, or qualification experience is not yet documented.', '仁寶 · 既有經驗涵蓋 Bluetooth 系統驗證；尚無 BQB 前測、送測支援或資格認證的明確經驗描述。'),
+      bullets: {
+        en: notebookValidation.bullets!.en.filter((bullet) => bullet.startsWith('Wi-Fi / Bluetooth validation')),
+        zh: notebookValidation.bullets!.zh.filter((bullet) => bullet.startsWith('Notebook 平台 Wi-Fi / Bluetooth 驗證')),
+      },
+    },
+    section('HDMI · Scope to Confirm', 'HDMI · 範圍待確認', 'HDMI certification, pre-testing, and test-support experience is not yet documented.', '尚無 HDMI 認證、前測或測試支援的明確經驗描述。'),
+    {
+      label: c('WHQL · Test Execution', 'WHQL · 測試執行'),
+      body: c('Compal · Driver / hardware logo qualification testing; the existing GCF experience is retained below.', '仁寶 · Driver / 硬體 Logo 驗證測試；下方保留原有 GCF 經驗。'),
+      bullets: {
+        en: notebookValidation.bullets!.en.filter((bullet) => bullet.includes('WHQL')),
+        zh: notebookValidation.bullets!.zh.filter((bullet) => bullet.includes('WHQL')),
+      },
+    },
+    {
+      ...androidCertification,
+      label: c('Android CTS · Testing & Support', 'Android CTS · 測試與支援'),
+      body: c('TPV · Android TV certification testing, issue analysis, fix verification, and regression support. The original CTS / GTVS scope and validation checks are retained below.', 'TPV · Android TV 認證測試、問題分析、修正驗證與回歸支援。下方保留原有 CTS / GTVS 範圍與驗證項目。'),
+    },
+    section('GTS · Scope to Confirm', 'GTS · 範圍待確認', 'Existing Android TV experience names CTS / GTVS. GTS experience awaits confirmation; GTVS has not been relabeled as GTS.', '既有 Android TV 經驗使用 CTS / GTVS 名稱；GTS 經驗待確認，保留原有 GTVS 名稱。'),
+    section('GMS · Scope to Confirm', 'GMS · 範圍待確認', 'GMS certification or test-support experience is not yet documented. CTS / GTVS support alone does not establish GMS certification ownership.', '尚無 GMS 認證或測試支援的明確經驗描述；CTS / GTVS 支援不延伸為 GMS 認證主責。'),
+    section('Technical Scope', '技術範圍', 'Experience is described at its documented level: test execution, evidence preparation, issue analysis, fix verification, and regression support. Final certification decisions remain with the certification authorities.', '依既有經驗呈現測試執行、證據整理、問題分析、修正驗證與回歸支援；最終認證決策由認證機構負責。'),
+  ],
+};
+
 export const careerSnapshot = {
   name: c('Alex Tsou', '鄒志清'),
   role: c(

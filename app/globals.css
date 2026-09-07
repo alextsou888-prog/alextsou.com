@@ -1514,6 +1514,14 @@ button, a { -webkit-tap-highlight-color: transparent; }
   --capability-dark-surface: #1f3133;
   --capability-dark-accent: #93c0be;
 }
+.interactive-card.interactive-card-capability-certification {
+  grid-column: 1 / -1;
+  --capability-surface: #e0ebea;
+  --capability-accent: #4d7777;
+  --capability-dark-surface: #1f3133;
+  --capability-dark-accent: #93c0be;
+}
+.interactive-card-capability-certification .card-tags > span { font-size: 14px; }
 .interactive-card-experience {
   min-height: 500px;
   padding: 32px;

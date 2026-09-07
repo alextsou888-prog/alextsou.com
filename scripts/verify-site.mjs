@@ -55,9 +55,16 @@ if (!response || !response.ok) {
     'capability-system-integration',
     'capability-customer-engineering',
     'capability-test-architecture',
+    'capability-certification',
   ];
-  if (capabilityCards.length !== 6 || expectedCapabilities.some((id) => !capabilityCards.includes(id))) {
-    fail(`Expected exactly 6 engineering capability cards, found: ${capabilityCards.join(', ') || 'none'}`);
+  if (capabilityCards.length !== 7 || expectedCapabilities.some((id) => !capabilityCards.includes(id))) {
+    fail(`Expected exactly 7 engineering capability cards, found: ${capabilityCards.join(', ') || 'none'}`);
+  }
+  const certificationCards = [...html.matchAll(/<button\b[^>]*data-capability-card="capability-certification"[^>]*>[\s\S]*?<\/button>/g)];
+  if (certificationCards.length !== 1) fail(`Expected one consolidated certification card, found ${certificationCards.length}`);
+  const certificationTags = [...(certificationCards[0]?.[0] ?? '').matchAll(/<span>(Wi-Fi|Bluetooth \(BQB\)|HDMI|WHQL|Android CTS|GTS|GMS)<\/span>/g)].map((match) => match[1]);
+  if (certificationTags.length !== 7 || new Set(certificationTags).size !== 7) {
+    fail('The consolidated certification card must show all seven distinct certification labels');
   }
   if (!html.includes('核心技能與技術領域')) fail('Missing Core Skills & Technical Domains section title');
 

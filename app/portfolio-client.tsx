@@ -6,6 +6,7 @@ import { VisitorCounter } from './visitor-counter';
 import {
   capabilityOverview,
   careerSnapshot,
+  certificationItem,
   domainDetailItems,
   domainExperiences,
   engineeringDebugMethodology,
@@ -23,7 +24,7 @@ import {
   type PortfolioItem,
 } from './portfolio-content';
 
-const allItems = [...focusItems, ...experienceItems, ...flagshipCaseStudies, ...domainDetailItems, ...visualItems];
+const allItems = [...focusItems, certificationItem, ...experienceItems, ...flagshipCaseStudies, ...domainDetailItems, ...visualItems];
 const contactEmail = 'alextsou888@gmail.com';
 const mailtoUrl = `mailto:${contactEmail}?subject=${encodeURIComponent('Portfolio Inquiry - Alex Tsou')}`;
 type Theme = 'light' | 'dark';
@@ -372,7 +373,7 @@ export function PortfolioClient({ initialLanguage = 'zh' }: { initialLanguage?: 
         <section className="section section-muted engineering-capabilities" id="skills" aria-labelledby="skills-title">
           <div className="container">
             <div className="section-heading"><div><p className="section-kicker">{t.skillsKicker}</p><h2 id="skills-title">{t.skillsTitle}</h2></div><p>{t.skillsLead}</p></div>
-            <div className="capability-grid">{focusItems.map((item) => <PortfolioCard key={item.id} item={item} language={language} openLabel={t.capabilityDetails} onOpen={setActiveId} />)}</div>
+            <div className="capability-grid">{[...focusItems, certificationItem].map((item) => <PortfolioCard key={item.id} item={item} language={language} openLabel={t.capabilityDetails} onOpen={setActiveId} />)}</div>
             <section className="merged-domains" id="domains" aria-labelledby="domains-title">
               <div className="domain-heading"><h3 id="domains-title">{t.domainsTitle}</h3><p>{t.domainsLead}</p></div>
               <div className="domain-grid">
