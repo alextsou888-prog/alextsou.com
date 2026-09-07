@@ -1964,24 +1964,30 @@ button, a { -webkit-tap-highlight-color: transparent; }
 
 .timeline-list strong {
   grid-column: 2;
+  min-width: 0;
   font-size: 24px;
   line-height: 1.35;
+  overflow-wrap: anywhere;
 }
 
 .timeline-list em {
   grid-column: 2;
+  min-width: 0;
   color: #263a50;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
   line-height: 1.5;
+  overflow-wrap: anywhere;
 }
 
 .timeline-list small {
   grid-column: 2;
+  min-width: 0;
   color: #5a6b7f;
   font-size: 15px;
   line-height: 1.55;
+  overflow-wrap: anywhere;
 }
 .timeline-list .timeline-management { color: #765f41; }
 
