@@ -116,9 +116,9 @@ export const ui = {
     about: 'About', skills: 'Capabilities', experience: 'Experience', projects: 'Projects', resume: 'Resume', visualPortfolio: 'Technical Portfolio', cases: 'Cases', domains: 'Domains', contact: 'Contact',
     eyebrow: 'Engineering Portfolio',
     heroA: 'Alex Tsou', heroB: '',
-    heroRole: 'Senior Software Tool Development & System Integration Engineer',
-    heroLead: 'Hands-on software and system integration engineer with 20+ years of engineering experience across C#/.NET and Python engineering tool development, equipment control, SDK/API integration, communication interfaces, HW/FW/software integration, debugging, and technical leadership.',
-    heroContext: 'Requirements / Test Plan → Automation → Evidence Collection → Debug / RCA → Fix Verification → Regression',
+    heroRole: 'Senior System Validation & Test Automation Engineer',
+    heroLead: 'Camera SoC / Wi-Fi FPGA & Chip / Firmware Validation. Python Automation · Embedded Systems · HW/FW/SW Debug.',
+    heroContext: 'Semiconductor R&D · System / SoC Validation + Test Automation',
     explore: 'Explore engineering areas', viewResume: 'View Resume', viewTechnicalPortfolio: 'View Technical Portfolio', viewEngineeringCases: 'View Engineering Cases', exploreTechnicalDomains: 'Explore Technical Domains', ready: 'READY', panelLabel: 'Engineering focus areas',
     aboutKicker: '07 / About', aboutTitle: 'Quality engineering with a systems mindset.',
     aboutP1: 'This portfolio is structured around reliable validation: clear test intent, automation that can be diagnosed, and evidence that supports engineering decisions.',
@@ -129,7 +129,7 @@ export const ui = {
       ['Close the loop', 'Connect reproduction, root-cause analysis, regression, and delivery.'],
     ],
     skillsKicker: '04 / Core Skills & Domains', skillsTitle: 'Core Skills & Technical Domains',
-    skillsLead: 'Reusable engineering methods paired with hands-on product experience across connectivity, imaging / AI, ATE, automotive, and customer engineering.',
+    skillsLead: 'System / SoC validation and Python test automation first, with experience across Camera SoC, IPCam, Wi-Fi FPGA / Chip, firmware validation, Linux, SDK/API integration, Debug/RCA, and supporting equipment / ATE workflows.',
     expKicker: '03 / Experience', expTitle: 'Professional Experience',
     expLead: 'Official titles, product domains, strongest contributions, and technology stacks—concise on page and detailed on demand.',
     resumeKicker: '06 / Career Reference', resumeTitle: 'Resume / career portfolio',
@@ -201,9 +201,9 @@ export const ui = {
     about: '關於我', skills: '工程能力', experience: '經歷', projects: '專案', resume: '履歷', visualPortfolio: '技術作品', cases: '工程案例', domains: '技術領域', contact: '聯絡方式',
     eyebrow: '工程作品集',
     heroA: 'Alex Tsou', heroB: '',
-    heroRole: '資深軟體工具開發與系統整合工程師',
-    heroLead: '具 20+ 年工程經驗，專長為 C#/.NET、Python 工程軟體與 Tool 開發、設備控制、SDK/API 與通訊介面整合、HW/FW/Software 系統整合、Debug/RCA 及 Technical Leadership。',
-    heroContext: '需求 / 測試計畫 → 自動化 → 證據收集 → Debug / RCA → 修正驗證 → 回歸測試',
+    heroRole: '資深系統驗證與測試自動化工程師',
+    heroLead: '半導體研發端 System / SoC Validation + Test Automation，聚焦 Camera SoC、Wi-Fi FPGA / Chip 與 Firmware Validation。Python Automation · Embedded Systems · HW/FW/SW Debug。',
+    heroContext: '半導體研發端 · System / SoC Validation + Test Automation',
     explore: '瀏覽工程領域', viewResume: '查看完整履歷', viewTechnicalPortfolio: '查看技術作品', viewEngineeringCases: '查看工程案例', exploreTechnicalDomains: '探索技術領域', ready: '就緒', panelLabel: '工程專長領域',
     aboutKicker: '07 / 關於我', aboutTitle: '以系統思維實踐品質工程。',
     aboutP1: '本作品集以可靠驗證為核心：明確定義測試目的、建立可診斷的自動化流程，並以可追溯證據支援工程決策。',
@@ -214,7 +214,7 @@ export const ui = {
       ['形成閉環', '串接問題重現、根因分析、回歸測試與交付流程。'],
     ],
     skillsKicker: '04 / 核心技能與領域', skillsTitle: '核心技能與技術領域',
-    skillsLead: '將可重用的工程方法，應用於連線、影像 / AI、ATE、車載與客戶工程等實務產品領域。',
+    skillsLead: '以 System / SoC Validation 與 Python Test Automation 為核心，涵蓋 Camera SoC、IPCam、Wi-Fi FPGA / Chip、Firmware Validation、Linux、SDK/API 整合、Debug/RCA，並保留設備控制與 ATE 支援經驗。',
     expKicker: '03 / 工作經歷', expTitle: '工作經歷',
     expLead: '以正式職稱、產品領域、關鍵貢獻與技術工具呈現；首頁精簡，細節可點開查看。',
     resumeKicker: '06 / 職涯參考', resumeTitle: '履歷 / 職涯作品集',
@@ -287,14 +287,14 @@ export const capabilityOverview = {
   kicker: c('01 / Professional Snapshot', '01 / 專業摘要'),
   title: c('Engineering Capability Overview', '工程能力總覽'),
   subtitle: c(
-    'Build reliable, maintainable engineering software and system-integration workflows with C#/.NET / Python across equipment control, SDK/API integration, IC / SoC / FPGA, connectivity, imaging / AI, ATE, and customer engineering.',
-    '以 C#/.NET / Python 建立可靠、可維護的工程軟體與系統整合流程，涵蓋設備控制、SDK/API 整合、IC / SoC / FPGA、連線、影像 / AI、ATE 與客戶工程。',
+    'Hands-on System / SoC validation and test automation across Camera SoC, AI/NPU, Wi-Fi FPGA / Chip engineering, embedded product integration, firmware validation support, and HW/FW/SW debug.',
+    '以半導體研發端 System / SoC Validation 與 Test Automation 為公開職涯定位，涵蓋 Camera SoC、AI/NPU、Wi-Fi FPGA / Chip、Embedded Product Integration、Firmware Validation 支援與 HW/FW/SW Debug。',
   ),
   snapshot: [
     c('20+ Years Engineering Experience', '20+ 年工程經驗'),
     c('National Cheng Kung University · Electrical Engineering', '國立成功大學 · 電機工程'),
     c('C#/.NET / Python', 'C#/.NET / Python'),
-    c('Software Tool Development · Equipment Control · System Integration · Test Automation / Validation', '軟體工具開發 · 設備控制 · 系統整合 · 測試自動化 / 驗證'),
+    c('System / SoC Validation · Python Test Automation · Firmware Validation Support', 'System / SoC Validation · Python Test Automation · Firmware Validation 支援'),
   ],
   cards: [
     {
@@ -870,8 +870,8 @@ export const certificationItem: PortfolioItem = {
 export const careerSnapshot = {
   name: c('Alex Tsou', '鄒志清'),
   role: c(
-    'Senior Software Tool Development & System Integration Engineer',
-    '資深軟體工具開發與系統整合工程師',
+    'Senior System Validation & Test Automation Engineer',
+    '資深系統驗證與測試自動化工程師',
   ),
   experience: c('20+ Years Engineering Experience', '20+ 年工程經驗'),
   education: c(
@@ -879,18 +879,18 @@ export const careerSnapshot = {
     '國立成功大學 · 電機工程學系',
   ),
   summary: c(
-    'Engineering experience across software tool development, equipment control, system integration, SDK/API integration, with supporting depth in test automation, system validation, FAE, camera / AI validation, and ATE engineering.',
-    '工程經驗橫跨軟體工具開發、設備控制、系統整合、SDK/API 整合，並具備測試自動化、系統驗證、FAE、Camera / AI 與 ATE 的支援性專長。',
+    'Hands-on system validation and test automation engineer with experience in Camera SoC, AI/NPU, Wi-Fi FPGA / Chip engineering, and embedded product integration. Skilled in Python-based engineering tools, functional and regression testing, log analysis, and HW/FW/SW issue isolation. Interested in System Validation, SoC Validation, and Firmware Validation roles within semiconductor and embedded product development.',
+    '具備半導體研發端 System / SoC Validation 與 Test Automation 實務經驗，涵蓋 Camera SoC、AI/NPU、Wi-Fi FPGA / Chip Engineering 與 Embedded Product Integration。熟悉 Python 工程工具、功能與回歸測試、Log Analysis，以及 HW/FW/SW 問題隔離，下一階段聚焦 System Validation、SoC Validation 與 Firmware Validation 相關職務。',
   ),
   facts: [
     {
       label: c('Target Roles', '目標職務'),
       values: [
-        c('Senior Software Engineer', '資深軟體工程師'),
-        c('Software Tool Development Engineer', '軟體工具開發工程師'),
-        c('Equipment Control Software Engineer', '設備控制軟體工程師'),
-        c('System Integration Software Engineer', '系統整合軟體工程師'),
-        c('Technical Lead', 'Technical Lead'),
+        c('Senior System Validation Engineer', '資深系統驗證工程師'),
+        c('SoC Validation Engineer', 'SoC 驗證工程師'),
+        c('Firmware Validation Engineer', '韌體驗證工程師'),
+        c('Python Test Automation Engineer', 'Python 測試自動化工程師'),
+        c('Senior Software / Tool Development Engineer', '資深軟體 / 工具開發工程師'),
       ],
     },
     { label: c('Professional Experience', '工作經驗'), values: [c('20+ Years Engineering Experience', '20+ 年工程經驗')] },
@@ -904,11 +904,11 @@ export const careerSnapshot = {
     { label: c('Location', '所在地'), values: [c('Taiwan', '台灣')] },
     {
       label: c('Core Focus', '核心領域'),
-      values: [c('Software / Tool Development · Equipment Control · System Integration · SDK/API Integration · Validation / ATE', 'Software / Tool Development · Equipment Control · System Integration · SDK/API Integration · Validation / ATE')],
+      values: [c('System / SoC Validation · Python Test Automation · Camera SoC / IPCam · Wi-Fi FPGA & Chip · Firmware Validation', 'System / SoC Validation · Python Test Automation · Camera SoC / IPCam · Wi-Fi FPGA & Chip · Firmware Validation')],
     },
     {
       label: c('Key Technologies', '主要技術'),
-      values: [c('C#/.NET · Python · SDK/API Integration · Equipment Control · HW/SW Integration · Debug / RCA', 'C#/.NET · Python · SDK/API Integration · Equipment Control · HW/SW Integration · Debug / RCA')],
+      values: [c('Python · Linux · SDK/API Integration · Log Analysis · HW/FW/SW Debug · C#/.NET · Equipment Control', 'Python · Linux · SDK/API Integration · Log Analysis · HW/FW/SW Debug · C#/.NET · Equipment Control')],
     },
   ],
 };
@@ -1190,8 +1190,8 @@ export const resumeCoreGroups = [
     title: c('Next Role Focus', '下一階段目標'),
     items: [
       c(
-        'For my next role, I am seeking opportunities as a Senior Software Engineer, Software Tool Development Engineer, Equipment Control Software Engineer, System Integration Software Engineer, or Technical Lead. I aim to apply my experience in C#/.NET, Python, SDK/API integration, equipment control, communication interfaces, engineering utilities, and HW/FW/software integration to develop reliable, maintainable, and scalable engineering software solutions.',
-        '下一階段希望投入資深軟體工程師、軟體工具開發、設備控制軟體、系統整合軟體或 Technical Lead 相關職務，以 C#/.NET、Python、SDK/API Integration、Communication Interface、Equipment Control 與 HW/FW/Software Integration 經驗，建立穩定、可維護且可擴充的 Engineering Software Solution。',
+        'For my next role, I am focusing on Senior System Validation, SoC Validation, Firmware Validation, and Python Test Automation roles in semiconductor R&D or embedded product development. I aim to apply Novatek Camera SoC / AI-NPU / Wi-Fi FPGA and chip validation experience first, while continuing to use my FIH software tool, system integration, equipment-control, SDK/API, and HW/FW/SW debug experience where it supports validation work.',
+        '下一階段職涯定位聚焦半導體研發端 Senior System Validation、SoC Validation、Firmware Validation 與 Python Test Automation 相關職務；優先呈現聯詠 Camera SoC、AI/NPU、Wi-Fi FPGA / Chip 驗證經驗，並銜接 FIH 軟體工具、系統整合、設備控制、SDK/API 與 HW/FW/SW Debug 經驗，支援完整驗證工作。',
       ),
     ],
   },
@@ -1203,14 +1203,14 @@ export const resumeProjectGroups = [
 ];
 
 export const skillCategories = [
-  { title: c('Software / Tool Development', '軟體 / 工具開發'), skills: ['C#', '.NET', 'Python', 'C', 'C++', 'Shell Script / Batch', 'Engineering Tool', 'Utility Development'] },
-  { title: c('Equipment Control / System Integration', '設備控制 / 系統整合'), skills: ['State Machine', 'Equipment Control', 'Fixture Integration', 'Robot / ESD Integration', 'Digital I/O', 'UART / Serial', 'TCP/IP', 'CAN'] },
-  { title: c('SDK / API / Communication', 'SDK / API / 通訊介面'), skills: ['SDK Integration', 'REST API', 'SCPI', 'VISA', 'USB', 'COM / Serial', 'TCP/IP', 'ADB'] },
-  { title: c('Debug / Diagnostic Tooling', 'Debug / 診斷工具'), skills: ['Log Analysis', 'Status Monitoring', 'Exception Handling', 'Timeout / Retry', 'Reconnect', 'Issue Reproduction', 'Root Cause Analysis'] },
-  { title: c('Camera / Image Processing', 'Camera / 影像處理'), skills: ['Camera SoC', 'OpenCV', 'Image Processing', 'ROI', 'Image Comparison', 'ISP / Codec', 'H.264 / H.265'] },
-  { title: c('Platforms', '平台'), skills: ['Linux', 'Windows', 'Android', 'Embedded System'] },
-  { title: c('CI & Engineering Tooling', 'CI 與工程工具'), skills: ['Jenkins', 'GitLab CI', 'GitHub', 'Docker', 'Kubernetes (K8s) — Test Job Execution, Log Inspection, Test Result Analysis'] },
-  { title: c('Validation / Certification', '驗證 / 認證'), skills: ['IC / SoC / FPGA Validation', 'AI/NPU', 'Audio AI', 'Wi-Fi / 5G', 'Stress / Stability', 'Regression', 'PASS / FAIL Criteria', 'HW / FW / Driver / Software Isolation', 'Python Automation', 'pytest', 'Test Framework', 'Robot Framework', 'Appium', 'UIAutomator', 'Postman', 'Instrument Control', 'DMM', 'Power Supply', 'VeriWave', 'Wireshark', 'iPerf', 'Logs / Traces', 'Jira'] },
+  { title: c('System / SoC Validation', 'System / SoC 驗證'), skills: ['System Validation', 'SoC Validation', 'Firmware Validation', 'IC / SoC / FPGA Validation', 'Camera SoC', 'IPCam', 'Wi-Fi FPGA & Chip', 'Wi-Fi MAC'] },
+  { title: c('Python Test Automation', 'Python 測試自動化'), skills: ['Python Automation', 'pytest', 'Test Framework', 'Regression', 'PASS / FAIL Criteria', 'Automated Reports', 'Kubernetes (K8s) — Test Job Execution, Log Inspection, Test Result Analysis'] },
+  { title: c('Debug / RCA', 'Debug / RCA'), skills: ['Log Analysis', 'HW / FW / Driver / Software Isolation', 'Issue Reproduction', 'Root Cause Analysis', 'Fix Verification', 'Status Monitoring', 'Timeout / Retry', 'Reconnect'] },
+  { title: c('Linux / SDK / API', 'Linux / SDK / API'), skills: ['Linux', 'Shell Script / Batch', 'SDK Integration', 'REST API', 'SCPI', 'VISA', 'USB', 'COM / Serial', 'TCP/IP', 'ADB'] },
+  { title: c('Camera / Image Processing', 'Camera / 影像處理'), skills: ['OpenCV', 'Image Processing', 'ROI', 'Image Comparison', 'ISP / Codec', 'H.264 / H.265', 'AI/NPU', 'Audio AI'] },
+  { title: c('Software / Tool Development', '軟體 / 工具開發'), skills: ['C#', '.NET', 'Python', 'C', 'C++', 'Engineering Tool', 'Utility Development'] },
+  { title: c('Embedded Integration / Equipment Control', '嵌入式整合 / 設備控制'), skills: ['Embedded System', 'Equipment Control', 'Fixture Integration', 'State Machine', 'Digital I/O', 'UART / Serial', 'CAN', 'DMM', 'Power Supply', 'VeriWave', 'Wireshark', 'iPerf'] },
+  { title: c('CI / ATE / Engineering Tooling', 'CI / ATE / 工程工具'), skills: ['Jenkins', 'GitLab CI', 'GitHub', 'Docker', 'Robot Framework', 'Appium', 'UIAutomator', 'Postman', 'Instrument Control', 'Robot / ESD Integration', 'Jira'] },
 ];
 
 export const engineeringDebugMethodology = {

@@ -80,6 +80,23 @@ if (!response || !response.ok) {
       fail(`Forbidden public cleanup wording remains in the homepage HTML: ${forbiddenPublicText}`);
     }
   }
+  const forbiddenUnconfirmedSemiconductorExperience = ['SystemVerilog', 'UVM', 'RTL Design', 'Synthesis', 'Timing Closure', 'Silicon Bring-up'];
+  for (const forbiddenExperienceText of forbiddenUnconfirmedSemiconductorExperience) {
+    const escapedExperienceText = forbiddenExperienceText.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const explicitExclusions = [
+      new RegExp(`(?:不包含|未包含|不具備)\\s*${escapedExperienceText}`, 'gi'),
+      new RegExp(`沒有\\s*${escapedExperienceText}\\s*(?:實務)?經驗`, 'gi'),
+      new RegExp(`(?:does not include|without)\\s+${escapedExperienceText}`, 'gi'),
+      new RegExp(`no\\s+${escapedExperienceText}\\s+(?:hands-on\\s+)?experience`, 'gi'),
+    ];
+    const htmlWithoutExplicitExclusions = explicitExclusions.reduce(
+      (candidateHtml, pattern) => candidateHtml.replace(pattern, ''),
+      html,
+    );
+    if (htmlWithoutExplicitExclusions.includes(forbiddenExperienceText)) {
+      fail(`Forbidden unconfirmed semiconductor experience wording remains in the homepage HTML: ${forbiddenExperienceText}`);
+    }
+  }
   if (!html.includes('核心技能與技術領域')) fail('Missing Core Skills & Technical Domains section title');
 
   const flagshipCards = [...html.matchAll(/data-case-study-card=["']([^"']+)["']/g)].map((match) => match[1]);
@@ -95,9 +112,9 @@ if (!response || !response.ok) {
 
   for (const marker of [
     '20+ 年工程經驗',
-    '資深軟體工具開發與系統整合工程師',
-    '具 20+ 年工程經驗，專長為 C#/.NET、Python 工程軟體與 Tool 開發、設備控制、SDK/API 與通訊介面整合、HW/FW/Software 系統整合、Debug/RCA 及 Technical Leadership。',
-    '需求 / 測試計畫',
+    '資深系統驗證與測試自動化工程師',
+    '半導體研發端 System / SoC Validation + Test Automation',
+    'including Camera SoC, AI/NPU, Wi-Fi FPGA / Chip',
     'Wi-Fi / 5G Router + Keysight UXM Python 自動化',
     '四個精簡工程摘要',
   ]) {
@@ -133,8 +150,8 @@ if (!response || !response.ok) {
   }
 
   const expectedMetadata = [
-    'Alex Tsou — Senior Software Tool Development &amp; System Integration Engineer',
-    '20+ years of engineering experience across software tool development, system integration, equipment control, IC / SoC / FPGA, Wi-Fi / 5G, Camera / AI, ATE, and customer engineering, with hands-on C#/.NET and Python engineering software development.',
+    'Alex Tsou — Senior System Validation &amp; Test Automation Engineer',
+    '20+ years of engineering experience with a public focus on semiconductor R&amp;D System / SoC Validation and Test Automation, including Camera SoC, AI/NPU, Wi-Fi FPGA / Chip, firmware validation support, Python automation, embedded systems, and HW/FW/SW debug.',
     'https://alextsou.com/portfolio/alex-tsou-og-preview.png',
     'content="1200"',
     'content="630"',
@@ -179,10 +196,10 @@ for (const title of ['MCU / CAN / Wireless Product Validation', 'MCU / CAN / 無
   if (titleCount !== 1) fail(`Expected source title exactly once: ${title}; found ${titleCount}`);
 }
 for (const marker of [
-  'Senior Software Tool Development & System Integration Engineer',
-  '資深軟體工具開發與系統整合工程師',
-  'Requirements / Test Plan → Automation → Evidence Collection → Debug / RCA → Fix Verification → Regression',
-  '需求 / 測試計畫 → 自動化 → 證據收集 → Debug / RCA → 修正驗證 → 回歸測試',
+  'Senior System Validation & Test Automation Engineer',
+  '資深系統驗證與測試自動化工程師',
+  'Semiconductor R&D · System / SoC Validation + Test Automation',
+  '半導體研發端 · System / SoC Validation + Test Automation',
   "label: c('MCU Communication Interfaces', 'MCU 通訊介面')",
   "'UART / I2C / SPI — Integration, Validation and Debugging'",
   "'UART / I2C / SPI — 系統整合、驗證與 Debug'",
