@@ -112,9 +112,9 @@ if (!response || !response.ok) {
 
   for (const marker of [
     '20+ 年工程經驗',
-    '資深系統驗證與測試自動化工程師',
-    '半導體研發端 System / SoC Validation + Test Automation',
-    'including Camera SoC, AI/NPU, Wi-Fi FPGA / Chip',
+    '資深軟體工具開發、系統整合與驗證工程師',
+    '軟體工具開發 · 系統整合 · 設備／裝置控制 · 驗證',
+    'device/equipment control, SDK/API integration, and HW/FW/SW system integration',
     'Wi-Fi / 5G Router + Keysight UXM Python 自動化',
     '四個精簡工程摘要',
   ]) {
@@ -150,8 +150,8 @@ if (!response || !response.ok) {
   }
 
   const expectedMetadata = [
-    'Alex Tsou — Senior System Validation &amp; Test Automation Engineer',
-    '20+ years of engineering experience with a public focus on semiconductor R&amp;D System / SoC Validation and Test Automation, including Camera SoC, AI/NPU, Wi-Fi FPGA / Chip, firmware validation support, Python automation, embedded systems, and HW/FW/SW debug.',
+    'Alex Tsou | Software Tool Development &amp; System Integration',
+    '20+ years of engineering experience in C#/.NET and Python engineering-tool development, device/equipment control, SDK/API integration, and HW/FW/SW system integration, with supporting validation, debug, and root-cause analysis experience across Camera SoC, Wi-Fi/5G, Automotive, and AI/NPU.',
     'https://alextsou.com/portfolio/alex-tsou-og-preview.png',
     'content="1200"',
     'content="630"',
@@ -196,10 +196,10 @@ for (const title of ['MCU / CAN / Wireless Product Validation', 'MCU / CAN / 無
   if (titleCount !== 1) fail(`Expected source title exactly once: ${title}; found ${titleCount}`);
 }
 for (const marker of [
-  'Senior System Validation & Test Automation Engineer',
-  '資深系統驗證與測試自動化工程師',
-  'Semiconductor R&D · System / SoC Validation + Test Automation',
-  '半導體研發端 · System / SoC Validation + Test Automation',
+  'Senior Software Tool Development, System Integration & Validation Engineer',
+  '資深軟體工具開發、系統整合與驗證工程師',
+  'Software Tool Development · System Integration · Device / Equipment Control · Validation',
+  '軟體工具開發 · 系統整合 · 設備／裝置控制 · 驗證',
   "label: c('MCU Communication Interfaces', 'MCU 通訊介面')",
   "'UART / I2C / SPI — Integration, Validation and Debugging'",
   "'UART / I2C / SPI — 系統整合、驗證與 Debug'",
